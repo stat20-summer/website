@@ -15,17 +15,26 @@ course.** </span> <span style="color:blue"> For information about that
 course, please </span> [click
 here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsccgI3c/edit?usp=sharing).
 
-**Instructor**: Jeremy Sanchez
+**Lecturer/Instructor of Record**: Jeremy Sanchez
 
 -   Email: jeremysanchez\@berkeley.edu
 
-**GSIs**: TBD
+**GSIs**:
 
-I (Jeremy) and the GSI (TBD) are very excited to have you guys this
-semester. We (Jeremy and TBD) recognize this is a course primarily
-taken by business and economics majors as a prerequisite, so we are
-excited to learn from you as well. Our goal is to give you a first
-foundation in statistics that you can use throughout your careers in whatever field they might be and in life, too.
+-   Wayne Wang
+
+    -   Email: wwh.bear\@berkeley.edu
+
+-   TBD
+
+-   TBD
+
+I (Jeremy) and the GSIs (Wayne Wang, TBD) are very excited to have you
+guys this semester. We (Jeremy and GSIs) recognize this is a course
+primarily taken by business and economics majors as a prerequisite, so
+we are excited to learn from you as well. Our goal is to give you a
+first foundation in statistics that you can use throughout your careers
+in whatever field they might be and in life, too.
 
 The goal of this course is to construct and critique claims made using
 data. The types of claim we will be discussing are: descriptive,
@@ -39,7 +48,7 @@ not have assignments due regarding one topic and yet have to go to
 lecture and labs where we talk about another.
 
 Here is a list of the main course topics, separated by week and with
-type of statistical claim in parentheses
+type of statistical claim in parentheses.
 
 -   Week 1: Introduction, types of data, and reproducible research
 -   Week 2: Descriptive Statistics (Descriptive)
@@ -47,7 +56,7 @@ type of statistical claim in parentheses
 -   Week 4: Review  
 -   Week 5: Hypothesis Tests (Generalizations)
 -   Week 6: Experimental Design (Causal)
--   Week 7: Linear regression (Predictive)
+-   Week 7: Linear Regression (Predictive)
 -   Week 8: Review & Wrap Up, Special Topics
 
 En route to learning these topics, we'll also discuss:
@@ -61,11 +70,12 @@ and RStudio)!
 ### Culture
 
 Students taking Stat 20 come from a wide range of backgrounds. We hope
-to foster an inclusive and supportive learning environment based on
-curiosity rather than competition. All members of the course community
-are expected to treat each other with courtesy and respect.
+to foster an inclusive and supportive learning environment **based on
+curiosity rather than competition**. Therefore, all members of the
+course community are expected to treat each other with courtesy and
+respect.
 
-You will be interacting with us (Jeremy and TBD) and fellow students in
+You will be interacting with us (Jeremy and GSIs) and fellow students in
 several different environments. Some of these will be in person, some
 online, but the same expectations hold: be kind, be respectful, be
 professional.
@@ -113,11 +123,11 @@ your classmates.
 
 If you are ill or have been exposed to illness (including and not
 limited to COVID-19), please do not come to lab and instead join the
-satellite lab I will be hosting. The link to sign up will be available
-on the class forum. This lab is a two hour section and is meant only for
-students who cannot be on campus due to illness. It's a condensed
-version of the three sections you would normally attend. Weekly time and
-date TBA.
+satellite lab a GSI will be hosting. The link to sign up will be
+available on the class forum. This lab is a two hour section and is
+meant only for students who cannot be on campus due to illness. It's a
+condensed version of the three sections you would normally attend.
+Weekly time and date TBA.
 
 ### Office Hours
 
@@ -160,8 +170,8 @@ upon for additional readings:
 
 Learning some form of computer programming is essential for modern
 statistics and data analysis. If you are not familiar with any
-programming, that's ok. Most students taking Stat 20 are in your shoes
-and we'll teach you everything you need to know!
+programming, **that's ok*.*** Most students taking Stat 20 are in your
+shoes and we'll teach you everything you need to know!
 
 The software that we'll be using is the free and open-source language
 called *R* that we'll be interacting with via software called *RStudio*.
@@ -311,18 +321,18 @@ the text of an error message, are almost necessary for you to learn
 self-reliance when it comes to the coding portion of the course. In that
 vein:
 
-the following examples of collaboration **are** allowed and in fact
-encouraged!
+The following examples of collaboration **are** allowed (and
+encouraged).
 
+-   Googling the text of an error message.
 -   Discussing how to solve a problem with a classmate.
 -   Showing your code to a classmate along with an error message or
     confusing output.
 -   Posting snippets of your code to the discussion forum when seeking
     help.
 -   Helping other students solve questions on the discussion with
-    conceptual pointers or snippets of code that doesn't give away the
+    conceptual pointers or snippets of code that don't give away the
     entire answer.
--   Googling the text of an error message.
 -   Copying small snippets of code from answers on *Stack Overflow*,
     **with proper citation**.
 
@@ -334,9 +344,9 @@ The following examples **are not** allowed:
     *Discord/Slack*, or in a file passed on to future students.
 -   Accessing and submitting solutions to assignments from other
     students distributed as above.
--   googling for complete problem solutions.
+-   Googling for complete problem solutions.
 -   Submitting work on an exam or a quiz that indicates you used the
-    work of outside resources or other people.
+    work of outside resources or other students.
 
 If you have questions about the boundaries of our policy, please ask us;
 there is no penalty for doing this.
@@ -369,12 +379,12 @@ start. We'd also love to meet your during office hours.
 #### Accommodations for students with disabilities
 
 We want all students to succeed. If you have letters of accommodations
-from the Disabled Students' Program, please share them with your
-instructor as soon as possible, and we will work out the necessary
-arrangements. For students with extended time on timed assessments, the
-time period you have to take the online quiz will be automatically
-extended accordingly. Such students will take the midterm and final
-through the campus proctoring service, which will provide extended time.
+from the Disabled Students' Program, please share them with me as soon
+as possible, and I will work out the necessary arrangements. For those
+of you who receive extended time on timed assessments, the time period
+you have to take the online quiz will be automatically extended
+accordingly. You'll also take the midterm and final through the campus
+proctoring service, which will provide extended time.
 
 #### On Confidentiality
 
@@ -382,7 +392,7 @@ If you wish to talk to us about incidents of sexual violence, sexual
 harassment, or other conduct prohibited by University policy, we are
 here for you. However, please know that:
 
-*As UC employees, I and the GSI are "Responsible Employees" and are
+*As UC employees, I and the GSIs are "Responsible Employees" and are
 therefore required to report incidents of sexual violence, sexual
 harassment, or other conduct prohibited by University policy to the
 Title IX officer. We cannot keep reports of sexual harassment or sexual
