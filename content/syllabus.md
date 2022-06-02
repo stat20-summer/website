@@ -89,8 +89,8 @@ Resources*.
 
 ### Mode of Instruction
 
-(Primarily) in-person. This is subject to change with fluctuations in
-the COVID-19 pandemic.
+In-person. This is subject to change with fluctuations in the COVID-19
+pandemic.
 
 ### Lecture
 
