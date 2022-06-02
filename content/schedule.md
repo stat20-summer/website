@@ -31,7 +31,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>6/21</p></td>
 <td style="text-align: left;"><p><a href="NA">Introduction</a></p></td>
 <td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p><a href="https://www.stat20.org/lab/01/">Lab 1</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Lab 1</a></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
@@ -61,7 +61,7 @@ show_title_as_headline: true
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Tuesday</p></td>
 <td style="text-align: left;"><p>6/28</p></td>
-<td style="text-align: left;"><p><a href="https://www.stat20.org/lectures/04/">Summaries of Categorical Data</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Summaries of Categorical Data</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">PS 2</a></p></td>
 </tr>
