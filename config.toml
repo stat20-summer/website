@@ -1,4 +1,4 @@
-title = "Introduction to Probability and Statistics - Summer Course"
+title = "Introduction to Probability and Statistics (Summer Sessions)"
 baseURL = "https://stat20summer.netlify.app"
 languageCode = "en-us"
 theme = "hugo-apero"
@@ -28,12 +28,12 @@ enableEmoji = true
     falseClasses = false
     
 [params]
-  description = "Welcome to the course. We're glad you're here."
+  description = "Welcome!"
   favicon = "/hexes/favicon.ico"
   logo = "/img/stat20-hex.png"
   mainSections = ["syllabus", "schedule", "lectures", "labs", "problem sets"]
   navallcaps = true
-  orgName = "Andrew Bray"
+  orgName = "Andrew Bray & Jeremy Sanchez"
   #sharing_image = "/img/papillons.jpg"
   socialInFooter = true
   socialInHeader = true
@@ -41,14 +41,14 @@ enableEmoji = true
   # use a built-in color theme
   # one of: forest / grayscale / peach / plum /
   #         poppy / sky / violet / water
-  theme = ""
+  theme = "peach"
 
   # or, leave theme empty & make your own palette
   # see docs at https://hugo-apero.netlify.app/blog/color-themes/
   # the custom scss file must be in the assets/ folder
   # add the filename name here, without extension
   # to use hex colors instead of named tachyons colors, include "hex" in filename
-  custom_theme = "garrick-hex"
+  #custom_theme = "garrick-hex"
   show_post_thumbnail = false
 
   # use an embedded font-family
@@ -65,7 +65,7 @@ enableEmoji = true
   [[params.social]]
       icon      = "comments" # icon name without the 'fa-'
       icon_pack = "far"
-      url       = "https://edstem.org/us/courses/18678/discussion/"
+      url       = "https://edstem.org/us/courses/22965/discussion/"
   [[params.social]]
       icon      = "r-project" # icon name without the 'fa-'
       icon_pack = "fab"
@@ -73,11 +73,11 @@ enableEmoji = true
   [[params.social]]
       icon      = "chart-bar" # icon name without the 'fa-'
       icon_pack = "fas"
-      url       = "https://www.gradescope.com/courses/356299"
+      url       = ""
   [[params.social]]
       icon      = "video" # icon name without the 'fa-'
       icon_pack = "fas"
-      url       = "https://bcourses.berkeley.edu/courses/1513313/external_tools/78985"
+      url       = ""
 
 [taxonomies]
   category = "categories"

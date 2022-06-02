@@ -9,21 +9,23 @@ editor_options:
     wrap: 72
 ---
 
+<span style="color:blue"> This Berkeley Summer Sessions course is
+**completely different in content and structure from the Fall 2022
+course.** </span> <span style="color:blue"> For information about that
+course, please </span> [click
+here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsccgI3c/edit?usp=sharing).
+
 **Instructor**: Jeremy Sanchez
 
-GSI: TBD
+-   Email: jeremysanchez\@berkeley.edu
 
-<span style="color:blue"> The Fall 2022 course is **completely different
-in structure from this Summer Sessions course.** </span>
-<span style="color:blue"> For information about that course, please
-</span> [click
-here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsccgI3c/edit?usp=sharing).
+**GSIs**: TBD
 
 I (Jeremy) and the GSI (TBD) are very excited to have you guys this
 semester. We (Jeremy and TBD) recognize this is a course primarily
-intended as a prerequisite for business and economics majors, so we are
+taken by business and economics majors as a prerequisite, so we are
 excited to learn from you as well. Our goal is to give you a first
-foundation in statistics that you can use throughout your careers.
+foundation in statistics that you can use throughout your careers in whatever field they might be and in life, too.
 
 The goal of this course is to construct and critique claims made using
 data. The types of claim we will be discussing are: descriptive,

@@ -1,7 +1,7 @@
 ---
 title: Lectures
 description: |
-  Slides for live lectures given MWF 11 am with recordings posted to bCourses.
+  Lecture slides.
 show_post_thumbnail: false
 thumbnail_left: true
 show_author_byline: false

@@ -1,7 +1,7 @@
 ---
 title: Problem Sets
 description: |
-  Weekly practice problems due on  [Gradescope](https://www.gradescope.com/courses/356299) by 10 pm Monday.
+  Weekly practice problems due on [Gradescope]() by 11:59p Sunday.
 show_post_thumbnail: false
 thumbnail_left: true
 show_author_byline: false

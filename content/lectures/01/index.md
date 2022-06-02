@@ -1,17 +1,17 @@
 ---
-title: "Lecture 1: Welcome to Class!"
-subtitle: "Making claims about the world with data"
-summary: "Making claims about the world with data."
+title: "Lecture 1: Introduction"
+subtitle: ""
+summary: ""
 layout: single
-publishdate: "2022-01-19" # when the page will be renderable
-date: "2022-01-19"        # when the lecture was given
+publishdate: "2022-06-21" # when the page will be renderable
+date: "2022-06-21"        # when the lecture was given
 show_post_date: false
-featured: true
+featured: false
 links:
 - icon: images
   icon_pack: fas
   name: Slides
-  url: https://stat20.org/lectures/01/welcome-to-class.html
+  url: 
 ---
 
-Welcome to STAT 20: Introduction to Probability at Statistics! In this first lecture we'll consider the different ways in which we use data to reason about the world.
+Hey everybody! Today we're going to get to know one another, go over logistics, and talk about what we'd like you to get out of the course.

@@ -1,7 +1,7 @@
 ---
-title: Introduction to Probability and Statistics
-description: <span style="color:red"> For information about the Fall 2022 course, please </span> [click here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsccgI3c/edit?usp=sharing).
-subtitle: STAT 20, UC Berkeley
+title: STAT 20 - Introduction to Probability and Statistics
+description: <span style="color:blue"> For information about the Fall 2022 course, please </span> [click here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsccgI3c/edit?usp=sharing).
+subtitle: UC Berkeley Summer Sessions
 images:
 - img/stat20-hex.png
 text_align_left: true
