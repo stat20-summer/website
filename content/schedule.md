@@ -107,9 +107,33 @@ show_title_as_headline: true
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
+<td style="text-align: left;"><p>Thursday</p></td>
+<td style="text-align: left;"><p>7/7</p></td>
+<td style="text-align: left;"><p><a href="NA">QUIZ 1 Original RELEASED 6:00p</p></td>
+<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Friday</p></td>
 <td style="text-align: left;"><p>7/8</p></td>
-<td style="text-align: left;"><p><a href="NA">NO LECTURE: Quiz 1</p></td>
+<td style="text-align: left;"><p><a href="NA">QUIZ 1 Original ANSWERS RELEASED 6:00p</p></td>
+<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><p>Saturday</p></td>
+<td style="text-align: left;"><p>7/9</p></td>
+<td style="text-align: left;"><p><a href="NA">QUIZ 1 Retake  RELEASED 6:00p</p></td>
+<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><p>Sunday</p></td>
+<td style="text-align: left;"><p>7/10</p></td>
+<td style="text-align: left;"><p><a href="NA">QUIZ 1 Retake  ANSWERS RELEASED 6:00p</p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 </tr>
@@ -243,9 +267,33 @@ show_title_as_headline: true
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
+<td style="text-align: left;"><p>Thursday</p></td>
+<td style="text-align: left;"><p>8/4</p></td>
+<td style="text-align: left;"><p><a href="NA">QUIZ 2 Original RELEASED 6:00p</p></td>
+<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Friday</p></td>
 <td style="text-align: left;"><p>8/5</p></td>
-<td style="text-align: left;"><p><a href="NA">NO LECTURE: Quiz 2</p></td>
+<td style="text-align: left;"><p><a href="NA">QUIZ 2 Original ANSWERS RELEASED 6:00p</p></td>
+<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><p>Saturday</p></td>
+<td style="text-align: left;"><p>8/6</p></td>
+<td style="text-align: left;"><p><a href="NA">QUIZ 2 Retake  RELEASED 6:00p</p></td>
+<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><p>Sunday</p></td>
+<td style="text-align: left;"><p>8/7</p></td>
+<td style="text-align: left;"><p><a href="NA">QUIZ 2 Retake  ANSWERS RELEASED 6:00p</p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 </tr>

@@ -98,7 +98,7 @@ pandemic.
 ### Lecture
 
 I will meet you guys in Monday, Tuesday, Wednesday, and Thursday at
-11:30am in Hearst Memorial Mining Building, Room 390.
+11:30a in Hearst Memorial Mining Building, Room 390.
 
 The lectures will be recorded and available on *bCourses* **until the
 end of the course week, Sunday, 11:59pm**.
@@ -219,23 +219,19 @@ together (mostly) **every Monday**.
 
 The **problem set** is meant as practice: practice with the concepts and
 methods from lecture that you'll need to hone in order to do the labs
-well and succeed on the quizzes. Since the goal of these is just
-practice, they will be graded credit / no credit. You'll get full credit
-if we see that you worked on most of the problems. There will be six
-problem sets.
+well and succeed on the quizzes. Because they are practice, they will
+not be graded, and an answer key will be released for one week after
+their release. There will be six problem sets.
 
 The **lab** is meant to apply the concepts from lecture in the cause of
-doing an analysis of real data. This will involve both writing code and
-regularly. There will be six labs.
+doing an analysis of real data. Labs are the main assignment of the
+course. They will involve both writing code and regularly. There will be
+six labs. Labs will be due on [Gradescope](https://www.gradescope.com/)
+**at the end of the course week, Sunday, 11:59p**.
 
-You will be turning in the assignments on a platform called
-[Gradescope](https://www.gradescope.com/). Gradescope is really awesome
-and you can return there to get feedback on your work or to file a
-regrade request if you you notice that we made an error in applying the
-rubric to your work.
-
-Both assignments will be due on Gradescope **at the end of the course
-week, Sunday, 11:59pm**.
+Gradescope is really awesome and you can return there to get feedback on
+your work or to file a regrade request if you you notice that we made an
+error in applying the rubric to your work.
 
 ##### Late Work
 
@@ -246,28 +242,33 @@ might need to handle throughout the course.
 
 Because of this, when it comes to labs, we're going to give you **one
 drop** and **one two-day extension (until the following Tuesday,
-11:59pm)**, no questions asked. Here are some rules:
+11:59p)**, no questions asked. Here are some rules:
 
 1.  These will be used separately, one per lab. For example, you can
     drop Lab 1 and extend Lab 3.
 2.  You must use the drop before the extension.
 3.  You must notify me of your wish to use the lab drop / extension by
-    **the due date of the lab (Sunday, 11:59pm)**.
-
-When it comes to the problem sets, we're going to **drop the lowest
-score**. No contact necessary.
+    **the due date of the lab (Sunday, 11:59p)**.
 
 #### Quizzes
 
-As a precursor to the midterm and final, we will have two remote
-quizzes, released on **Friday, July 8** and **Friday, August 5**,
-respectively.
+As a precursor to the midterm and final, we will have remote quizzes.
+There will be two editions, an original and a retake.
 
-You will have 25 minutes to take the quiz sometime between 12:00am and
-11:59p though make sure you start by at least 11:34p!
+The originals will be released on **Thursday, July 7** and **Thursday,
+August 4**, respectively, at **6:00p**.
 
-This is an individual assignment, so please don't collaborate with
-others.
+You will have 25 minutes to take the quiz sometime between **Thu 6:00p**
+and **Fri 5:59p**, at which time the answers will be unlocked. Make sure
+you start with at least 25 minutes to go!
+
+The retakes will be released on **Sat 6:00p** (a day after the first
+quiz answers are released) and you have 25 minutes until **Sun 5:59p**
+to complete it.
+
+This is an individual assignment, so while taking the quiz please don't
+collaborate with others. You are welcome to study between the first two
+quiz takes with others, however.
 
 #### Tests
 
@@ -292,8 +293,8 @@ July 24**.
 
 Your final grade in the course will be computed based on:
 
--   Labs 49%
--   Problem sets 1%
+-   Labs 50%
+-   Problem sets 0%
 -   Quiz 1 5%
 -   Quiz 2 5%
 -   Midterm 20%
@@ -343,8 +344,8 @@ The following examples **are not** allowed:
 
 -   Leaving a representation of your assignment (the text, a screenshot)
     where students (current and future) can access it. Examples of this
-    include websites like *Course Hero*, on a group chat, over
-    *Discord/Slack*, or in a file passed on to future students.
+    include websites like *Course Hero* and *Chegg*, on a group chat,
+    over *Discord/Slack*, or in a file passed on to future students.
 -   Accessing and submitting solutions to assignments from other
     students distributed as above.
 -   Googling for complete problem solutions.
