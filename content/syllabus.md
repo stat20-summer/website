@@ -48,7 +48,8 @@ subject, and all the material and assignments for that subject will be
 due at the end of the "course week," which begins on **Monday at
 12:00am** and ends **every Sunday at 11:59pm**. This way, you guys will
 not have assignments due regarding one topic and yet have to go to
-lecture and labs where we talk about another.
+lecture and labs where we talk about another. But if you have questions
+about previous weeks' material, you can ask us during lab and lecture!
 
 Here is a list of the main course topics, separated by week and with
 type of statistical claim in parentheses.
