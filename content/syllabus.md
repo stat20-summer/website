@@ -116,7 +116,7 @@ catch up!
 
 ### Labs
 
-Lab sections will be held by the GSI in Evans Hall 432 on Monday,
+Lab sections will be held by the GSI in Evans Hall 342 on Monday,
 Wednesday, and Thursday. There are three sections: Section 1, Section 2,
 and Section 3, held at 1:00p, 2:00p, and 3:00p, respectively.
 
