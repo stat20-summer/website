@@ -101,8 +101,9 @@ pandemic.
 I will meet you guys on Monday, Tuesday, Wednesday, and Thursday at
 11:30a in Hearst Memorial Mining Building, Room 390.
 
-The lectures will be recorded and available on *bCourses* **until the
-end of the course week, Sunday, 11:59pm**.
+The recordings for lectures in a given week will be available on
+*bCourses* **until the end of the course week, Sunday, 11:59pm**. This
+is part of our strategy to keep the course sectioned by week.
 
 However, because I understand you will want to prepare the best you can
 for the exams, all of the lecture recordings will be made available to
