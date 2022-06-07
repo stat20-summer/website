@@ -23,7 +23,7 @@ here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsc
 
 -   Wayne Wang
 
-    -   Email: wwh.bear\@berkeley.edu
+    -   Email: whh.bear\@berkeley.edu
 
 -   TBD
 
