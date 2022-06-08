@@ -316,9 +316,12 @@ There is no curve, so you don't need to worry about this.
 
 You are encouraged to collaborate with your fellow students on problem
 sets and labs, but the labs you turn in should reflect your own
-understanding and **all of your collaborators must be cited**. Go ahead
-and write this sentence before the first question on your lab. Also,
-your quiz and test submission must reflect only your work.
+understanding and **all of your collaborators must be cited (first and
+last name) in a full sentence before the first question on your lab**.
+Example: *I collaborated with Qinqyi Fang, Vaidehi Bulusu and Wayne Wang
+on this assignment.* **Please make sure your collaborators have added
+you as well in their sentence.** Also, your quiz and test submissions
+must reflect only your work.
 
 Students may not circulate or post non-public materials (tests, quizzes,
 lecture recordings-any private class materials) from the class without
@@ -334,7 +337,14 @@ vein:
 The following examples of collaboration **are** allowed (and
 encouraged).
 
--   Googling the text of an error message.
+-   Working on labs with your friends and other students in the class,
+    **WITH proper citation by both parties** **as described above**.
+    Make sure that your write-ups are **your words only**.
+-   Copying small snippets (a few lines) of code from answers on
+    websites such as *Stack Overflow*, **WITH proper citation**.
+-   Using ideas from snippets of code from answers on websites such
+    *Stack Overflow* to make analogous code to these answers for your
+    specific situation, **WITH proper citation**.
 -   Discussing how to solve a problem with a classmate.
 -   Showing your code to a classmate along with an error message or
     confusing output.
@@ -343,28 +353,51 @@ encouraged).
 -   Helping other students solve questions on the discussion with
     conceptual pointers or snippets of code that don't give away the
     entire answer.
--   Copying small snippets of code from answers on *Stack Overflow*,
-    **with proper citation**.
 
-The following examples **are not** allowed:
+The following disallowed behaviors include, but are not limited to:
 
+-   Working on labs with your friends and other students in the class
+    **WITHOUT proper citation by both parties as described above.** This
+    includes situations where you cite someone else but they do not cite
+    you.
+-   Copying small snippets of code (a few lines) from answers on
+    websites such as *Stack Overflow*, **WITHOUT proper citation**.
+-   Using ideas from snippets of code from answers on websites such
+    *Stack Overflow* to make analogous code to these answers for your
+    specific situation, **WITHOUT proper citation**.
+-   Copying entire chunks of code from answers on websites such as
+    *Stack Overflow*, **WITH OR WITHOUT** **proper citation**.
 -   Leaving a representation of your assignment (the text, a screenshot)
     where students (current and future) can access it. Examples of this
     include websites like *Course Hero* and *Chegg*, on a group chat,
     over *Discord/Slack*, or in a file passed on to future students.
 -   Accessing and submitting solutions to assignments from other
     students distributed as above.
--   Googling for complete problem solutions.
 -   Submitting work on an exam or a quiz that indicates you used the
     work of outside resources or other students.
 
 If you have questions about the boundaries of our policy, please ask us;
 there is no penalty for doing this.
 
+I know this is a lot, so here is a TL;DR:
+
+-   For labs: **you** **need to cite everything** that doesn't come out
+    of your own brain or from STAT 20 Summer 2022 course material, and
+    that **you** **cannot copy and paste entire solutions to a problem
+    or subproblem on a lab that don't come from either your own brain or
+    from STAT 20 Summer 2022 course material.**
+
+-   For quizzes, **no collaboration with other people or Internet
+    sources**.
+
+-   For exams, **no collaboration with other people or Internet
+    sources.**
+
 #### More on Cheating
 
 To check for cheating, we use *Turnitin* for labs and have access to
-data through *Gradescope* to detect cheating on quizzes.
+data through *Gradescope* to detect cheating on quizzes. We will also be
+proctoring exams remotely and in-person.
 
 Students determined to have violated the academic misconduct policy by
 the Center for Student Conduct will receive a grade penalty in the
