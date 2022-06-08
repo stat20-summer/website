@@ -21,23 +21,27 @@ here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsc
 
 **GSIs**:
 
+-   Qingyi Fang
+
+    -   Email: qyi_fang\@berkeley.edu
+
+-   Vaidehi Bulusu
+
+    -   Email: vaidehi-b\@berkeley.edu
+
 -   Wayne Wang
 
     -   Email: whh.bear\@berkeley.edu
 
--   TBD
-
--   TBD
-
-I (Jeremy) and the GSIs (Wayne Wang, TBD) are very excited to have you
-guys this semester. We (Jeremy and GSIs) recognize this course is often
-taken by Berkeley business and economics majors as a prerequisite, so we
-are excited to learn from your backgrounds. We also want to welcome the
-numerous Visiting Domestic and International Students among us; we hope
-you enjoy your time in the Bay Area and that this course can be a part
-of that! Our goal is to give you a first foundation in statistics that
-you can use throughout your careers in whatever field they might be and
-in life, too.
+I (Jeremy) and the GSIs are very excited to have you guys this semester.
+We (Jeremy and GSIs) recognize this course is often taken by Berkeley
+business and economics majors as a prerequisite, so we are excited to
+learn from your backgrounds. We also want to welcome the numerous
+Visiting Domestic and International Students among us; we hope you enjoy
+your time in the Bay Area and that this course can be a part of that!
+Our goal is to give you a first foundation in statistics that you can
+use throughout your careers in whatever field they might be and in life,
+too.
 
 The goal of this course is to construct and critique claims made using
 data. The types of claim we will be discussing are: descriptive,
