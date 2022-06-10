@@ -203,9 +203,9 @@ that is by making a new post and flagging it as private.
 
 #### Course website
 
-All of the assignments will be posted on this website
-<https://stat20.org>. The webiste also holds the course syllabus, extra
-resources, and staff information.
+All of the assignments will be posted on this website,
+[https://stat20summer.netlify.app](https://stat20.org). The website also
+holds the course syllabus, extra resources, and staff information.
 
 #### Email
 
