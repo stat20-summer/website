@@ -17,21 +17,21 @@ here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsc
 
 **Lecturer/Instructor of Record**: Jeremy Sanchez
 
--   Email: jeremysanchez\@berkeley.edu
+-   Write me an email: [jeremysanchez\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=jeremysanchez@berkeley.edu&su=STAT20&body=Hello)
 
 **GSIs**:
 
--   Qingyi Fang
+-   Section 101: Wayne Wang
 
-    -   Email: qyi_fang\@berkeley.edu
+    -   Write him an email: [whh.bear\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=whh.bear@berkeley.edu&su=STAT20&body=Hello)
 
--   Vaidehi Bulusu
+-   Section 102: Vaidehi Bulusu
 
-    -   Email: vaidehi-b\@berkeley.edu
+    -   Write her an email: [vaidehi-b\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=vaidehi-b@berkeley.edu&su=MyNameSTAT20&body=Hello)
 
--   Wayne Wang
+-   Section 103: Qingyi Fang
 
-    -   Email: whh.bear\@berkeley.edu
+    -   Write her an email: [qyi_fang\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=qyi_fang@berkeley.edu&su=MyNameSTAT20&body=Hello)
 
 I (Jeremy) and the GSIs are very excited to have you guys this semester.
 We (Jeremy and GSIs) recognize this course is often taken by Berkeley
@@ -204,7 +204,7 @@ that is by making a new post and flagging it as private.
 #### Course website
 
 All of the assignments will be posted on this website,
-[https://stat20summer.netlify.app](https://stat20.org). The website also
+[https://stat20summer.netlify.app](https://stat20summer.netlify.app). The website also
 holds the course syllabus, extra resources, and staff information.
 
 #### Email
