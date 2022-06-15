@@ -19,7 +19,7 @@ here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsc
 
 -   Write me an email: [jeremysanchez\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=jeremysanchez@berkeley.edu&su=STAT20&body=Hello)
 
-**GSIs**:
+**uGSIs**:
 
 -   Section 101: Wayne Wang
 
@@ -33,8 +33,8 @@ here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsc
 
     -   Write her an email: [qyi_fang\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=qyi_fang@berkeley.edu&su=MyNameSTAT20&body=Hello)
 
-I (Jeremy) and the GSIs are very excited to have you guys this semester.
-We (Jeremy and GSIs) recognize this course is often taken by Berkeley
+I (Jeremy) and the uGSIs are very excited to have you guys this semester.
+We (Jeremy and uGSIs) recognize this course is often taken by Berkeley
 business and economics majors as a prerequisite, so we are excited to
 learn from your backgrounds. We also want to welcome the numerous
 Visiting Domestic and International Students among us; we hope you enjoy
@@ -83,14 +83,14 @@ curiosity rather than competition**. Therefore, all members of the
 course community are expected to treat each other with courtesy and
 respect.
 
-You will be interacting with us (Jeremy and GSIs) and fellow students in
+You will be interacting with us (Jeremy and uGSIs) and fellow students in
 several different environments. Some of these will be in person, some
 online, but the same expectations hold: be kind, be respectful, be
 professional.
 
 If you are concerned about classroom environment issues created by other
 students, please come talk to us about it. If you are concerned with
-issues created by myself or the GSI, please speak with me (Jeremy).
+issues created by myself or a uGSI, please speak with me (Jeremy).
 
 *See Miscellaneous - On Confidentiality and Miscellaneous - Campus
 Resources*.
@@ -131,16 +131,11 @@ attend! This is also a great opportunity to meet and collaborate with
 your classmates.
 
 If you are ill or have been exposed to illness (including and not
-limited to COVID-19), please do not come to lab and instead join the
-satellite lab a GSI will be hosting. The link to sign up will be
-available on the class forum. This lab is a two hour section and is
-meant only for students who cannot be on campus due to illness. It's a
-condensed version of the three sections you would normally attend.
-Weekly time and date TBA.
+limited to COVID-19), please do not come to lab. Feel free to post on the class forum and visit virtual office hours!
 
 ### Office Hours
 
-I and the GSI will host office hours each week.
+I and the uGSIs will host office hours each week.
 
 The preferred times will be chosen by you all and we will balance these
 with our personal schedules to select the times. The final times will be
@@ -223,15 +218,15 @@ on *Ed*.
 There are two main assignment types in this class. They will be released
 together (mostly) **every Monday**.
 
-The **problem set** is meant as practice: practice with the concepts and
-methods from lecture that you'll need to hone in order to do the labs
-well and succeed on the quizzes. Because they are practice, they will
-not be graded, and an answer key will be released for one week after
-their release. There will be six problem sets.
+The **problem set** is meant to *practice* the concepts and methods from lecture. They will read more like a traditional homework assignment than the lab, with questions on various topics. I also intend the problem sets to serve as study material for exams and quizzes, too.
 
-The **lab** is meant to apply the concepts from lecture in the cause of
-doing an analysis of real data. Labs are the main assignment of the
-course. They will involve both writing code and regularly. There will be
+Because they are practice, **they will not be graded**, and a walkthrough solution video will be posted one week after their release. There will be six problem sets.
+
+**Labs**  are the main assignment of the
+course. They are meant to apply the concepts from lecture in the cause of
+doing an analysis of real data. Unlike the problem set, they will typically focus on one data set/question.
+
+They will involve both writing code and regularly. There will be
 six labs. Labs will be due on [Gradescope](https://www.gradescope.com/)
 **at the end of the course week, Sunday, 11:59p**.
 
@@ -242,7 +237,7 @@ error in applying the rubric to your work.
 ##### Late Work
 
 As another part of trying to lasso each section of the course into its
-week, late work will not be accepted. However, I and the GSI both
+week, late work will not be accepted. However, we 
 recognize there are things going on in each of your lives which you
 might need to handle throughout the course.
 
@@ -292,8 +287,8 @@ don't have to turn them in after the test.
 There will be a clobber policy. What this means is that you can replace
 your midterm score with your final score if you want to. Our plan is to
 release midterm grades by **Sunday, July 17**. Once the grades are
-released, if you want to use the clobber policy, e-mail me by **Sunday,
-July 24**.
+released, if you want to use the clobber policy, e-mail me by 
+**Sunday,July 24**.
 
 #### Grading
 
@@ -381,9 +376,9 @@ there is no penalty for doing this.
 
 I know this is a lot, so here is a TL;DR:
 
--   For labs: **you** **need to cite everything** that doesn't come out
+-   For labs: **you need to cite everything** that doesn't come out
     of your own brain or from STAT 20 Summer 2022 course material, and
-    that **you** **cannot copy and paste entire solutions to a problem
+    that **you cannot copy and paste entire solutions to a problem
     or subproblem on a lab that don't come from either your own brain or
     from STAT 20 Summer 2022 course material.**
 
@@ -435,7 +430,7 @@ If you wish to talk to us about incidents of sexual violence, sexual
 harassment, or other conduct prohibited by University policy, we are
 here for you. However, please know that:
 
-*As UC employees, I and the GSIs are "Responsible Employees" and are
+*As UC employees, I and the uGSIs are "Responsible Employees" and are
 therefore required to report incidents of sexual violence, sexual
 harassment, or other conduct prohibited by University policy to the
 Title IX officer. We cannot keep reports of sexual harassment or sexual
