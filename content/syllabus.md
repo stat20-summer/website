@@ -10,13 +10,14 @@ editor_options:
 ---
 
 <span style="color:blue"> This Berkeley Summer Sessions course is
-**completely different in content and structure from the Fall 2022
+**completely different in structure from the Fall 2022
 course.** </span> <span style="color:blue"> For information about that
 course, please </span> [click
 here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsccgI3c/edit?usp=sharing).
 
 **Lecturer/Instructor of Record**: Jeremy Sanchez
 
+-   Office: Evans Hall 323
 -   Write me an email: [jeremysanchez\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=jeremysanchez@berkeley.edu&su=STAT20&body=Hello)
 
 **uGSIs**:
@@ -105,15 +106,7 @@ pandemic.
 I will meet you guys on Monday, Tuesday, Wednesday, and Thursday at
 11:30a in Hearst Memorial Mining Building, Room 390.
 
-The recordings for lectures in a given week will be available on
-*bCourses* **until the end of the course week, Sunday, 11:59pm**. This
-is part of our strategy to keep the course sectioned by week.
-
-However, because I understand you will want to prepare the best you can
-for the exams, all of the lecture recordings will be made available to
-you again **one week prior to the midterm and final**.
-
-If you miss the lectures in-person or online, go ahead and read over the
+If you miss the lectures, go ahead and read over the
 slides and ask questions on the class forum. This should allow you to
 catch up!
 
