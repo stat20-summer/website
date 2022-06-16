@@ -104,7 +104,7 @@ pandemic.
 ### Lecture
 
 I will meet you guys on Monday, Tuesday, Wednesday, and Thursday at
-11:30a in Hearst Memorial Mining Building, Room 390.
+11:00a in Hearst Memorial Mining Building, Room 390.
 
 If you miss the lectures, go ahead and read over the
 slides and ask questions on the class forum. This should allow you to
