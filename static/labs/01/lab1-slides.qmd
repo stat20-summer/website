@@ -22,16 +22,237 @@ editor: visual
 library(tidyverse)
 ```
 
-## Lab 1 
+## Icebreaker
+
+1.  Get into groups of 4 and come up with *two truths and a lie*! Everyone guess each others' lies.
+
+2.  Post your lie to an Ed forum your GSI will create. It will be titled \[Your Section Number\]
 
 . . .
 
-## Lab 1 Test
+## Lab 1 Goals
 
-. . . 
+In completing this lab:
 
+1.  Conceptually, you will learn to:
 
+-   Identify the unit of observation in a data set
+-   Identify variables in a data set using the Taxonomy of Data
 
+1.  Technincally, you will be able to:
 
+-   Use RMarkdown to compose documents with both images and R code
+-   Create vectors in R using `c()` and data frames using `tibble()`
+-   Explore a data set using some `dplyr` functions
 
+. . .
 
+# Question 1
+
+## The Big Three
+
+1.  R
+    -   A programming language designed with statisticians in mind
+2.  RStudio
+    -   A special type of document which combines standard word processing with R code.
+3.  RMarkdown
+    -   A special type of document which combines standard word processing with R code.
+    -   Can be exported to common formats such as HTML and PDF
+
+. . .
+
+## How are The Big Three involved in Stat 20?
+
+1.  R
+    -   The programming language which we will be using
+2.  RStudio
+    -   The software environment we will be coding in
+
+        -   [stat20.datahub.berkeley.edu](stat20.datahub.berkeley.edu)
+3.  RMarkdown
+    -   The format which you will be composing your labs in
+
+    -   To submit, you will export your RMarkdown files to PDF
+
+. . .
+
+## R
+
+What can R do?
+
+-   Addition (`+`)
+
+    ```{r, echo = TRUE}
+    5 + 3
+    ```
+
+-   Subtraction (`-`)
+
+    ```{r, echo = TRUE}
+    5 - 3
+    ```
+
+-   Multiplication (`*`),
+
+    ```{r, echo = TRUE}
+    5 * 3
+    ```
+
+-   and Division (`/`) .
+
+    ```{r, echo = TRUE}
+    5 / 3
+    ```
+
+. . .
+
+## Exercise
+
+R folows the order of operations! Split into your same groups of 3-4.
+
+1.  Figure out (or guess) how to do parentheses and exponents in R. You can use the Internet or trial and error.
+
+2.  Pick one of these calculations, and write the R code for them on the board.
+
+    1.  the quantity 5 multiplied by 2, raised to the power of 3, plus 1
+
+        1.  The answer should be 1001
+
+    2.  5 multipled by the quantity 2 raised to the power 3, plus 1
+
+        1.  The answer should be 41
+
+. . .
+
+## R
+
+What can R do?
+
+-   R can also work with character strings.
+
+    ```{r, echo = TRUE}
+    "Jeremy"
+    ```
+
+    ```{r, echo = TRUE}
+    #paste connects character strings with a space
+    paste("Jeremy,", "Vaidehi,", "Wayne,", "and Qingyi")
+    ```
+
+. . .
+
+## R
+
+-   What if I want to save the string I just made? I use `<-` for this purpose.
+
+    ```{r, echo = TRUE}
+    #assigns the string to the name "staff"
+    staff <- paste("Jeremy,", "Vaidehi,", "Wayne,", "and Qingyi")
+    ```
+
+    ```{r, echo = TRUE}
+    staff
+    ```
+
+-   Notice that when I type `staff`, the string is what comes out. If I saved a number or a data frame (a dataset) to `staff`, then the number/ data frame would come out.
+
+. . .
+
+## R
+
+-   We call `<-` the **assignment operator** and say that our string has been **assigned** to the **object** called `staff.`
+
+-   Object names cannot:
+
+    -   have spaces in between them (use the underscore `_`)
+
+    -   cannot start with a number (such as `2022Stat20`).
+
+## R
+
+-   What if I want to save multiple numbers or strings at a time?
+
+-   We can do this using **vectors**, which we create using the function `c()`.
+
+    -   C is for ["concatenate"](https://www.oxfordreference.com/view/10.1093/oi/authority.20110803095630306), which means to link things together end to end in a chain.
+
+    ```{r, echo = TRUE}
+    staff_vector <- c("Jeremy", "Vaidehi", "Wayne", "Qingyi")
+    staff_vector
+    ```
+
+-   If we want to save multiple data frames at a time, this is done using a **list**, which is a data structure whose scope is beyond this course and so we will not cover.
+
+. . .
+
+## R
+
+-   **Vectors** are a fundamental building block of data in R and here are some things we can do with them.
+
+-   For numeric vectors, we can use built-in R functions to calculate statistics.
+
+    ```{r, echo = TRUE}
+    jeremys_graduation_years <- c(2013, 2017, 2021, 2022)
+    mean(jeremys_graduation_years) #returns the average
+    sum(jeremys_graduation_years)  #returns the total
+    ```
+
+. . .
+
+## R
+
+-   We can also build data frames out of vectors! To do this, we use the function `tibble()`.
+
+    ```{r, echo = TRUE, message = FALSE}
+    library(tidyverse) #What is this?
+
+    jeremys_graduation_years <- c(2013, 2017, 2021, 2022)
+    jeremys_graduation_levels <- c("Middle", "High", "Bachelor's",
+                                   "Masters")
+
+    jeremys_graduation <- tibble(jeremys_graduation_levels,
+                                 jeremys_graduation_years)
+
+    #renaming my columns (with a new names vector!)
+    names(jeremys_graduation) <- c("Levels", "Years")
+
+    jeremys_graduation
+    ```
+
+    . . .
+
+## R
+
+-   Lastly, what did `library(tidyverse)` do in the last slide?
+
+-   `tibble()` is a function in a **package** called `dplyr`, which itself is a part of the `tidyverse` **library**
+
+-   **Packages** (and the **libraries** they are sometimes inside of), offer extra functionality that doesn't come with the base installation of R
+
+. . .
+
+## R
+
+-   Because the packages don't come automatically, we have to *load them in* (just once) using `library(PACKAGE_NAME_HERE)`
+
+-   We will be using a few different libraries/packages this semester!
+
+    -   The `tidyverse` library
+
+        -   The `dplyr` package for data analysis and wrangling
+
+        -   The `ggplot` package for data visualization
+
+    -   The `stat20data` package includes data sets we will use
+
+    -   The `infer` package for inferential statistics
+
+. . .
+
+## Question 1
+
+With all of this in hand, you should be able to finish Question 1 now and be prepared for the remainder of the lab!
+
+. . .
+
+# Question 2
