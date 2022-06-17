@@ -20,6 +20,6 @@ links:
 
 **Due on Gradescope at 11:59p Sunday 6/27**
 
-The first lab is an exercise in learning how to create and submit a pdf document from a markdown document. The lab assignment is linked in the Lab pdf above. Slides used in lab section are also available at the Slide link above.
+The first lab introduces you to the main technology we'll be using in the course: R, RStudio, and RMarkdown. We'll also do some brief analysis of a cool dataset by one John Arbuthnot. 
 
-If you have difficulty with this assignment, we'll help you! Please come to office hours or post to the class forum.
+If you have difficulty with this assignment, we can help! Please come to office hours or post to the class forum.

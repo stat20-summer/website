@@ -1,0 +1,37 @@
+---
+title: "Lab 1: Introduction"
+institute: "STAT 20 UC Berkeley"
+logo: "../../../assets/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../../assets/stat20.scss"
+    highlight-style: breezedark
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: "images/hex-background.png"
+      data-background-size: cover  
+    progress: false
+execute: 
+  freeze: auto
+editor: visual
+---
+
+```{r, include = FALSE, message = FALSE}
+library(tidyverse)
+```
+
+## Lab 1 
+
+. . .
+
+## Lab 1 Test
+
+. . . 
+
+
+
+
+
+
