@@ -186,9 +186,7 @@ Teaching evaluations are often seen and used as a tool to measure teacher perfor
 
 ### part a
 
-If we wanted to use data to answer the question: *"Does the gender of the instructor affect student evaluations of teaching?"*, what might be the unit of observation?
-
-What variables would we need to collect data on for our unit of observation?
+If we wanted to use data to answer the question: *"Does the gender of the instructor affect student evaluations of teaching?"*, what might be the unit of observation? What variables would we need to collect data on for our unit of observation?
 
 ----
 
