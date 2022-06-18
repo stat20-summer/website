@@ -26,9 +26,9 @@ here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsc
 
     -   Write him an email: [whh.bear\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=whh.bear@berkeley.edu&su=STAT20&body=Hello)
 
--   Section 102: Vaidehi Bulusu
+-   Section 102: Dev Navani
 
-    -   Write her an email: [vaidehi-b\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=vaidehi-b@berkeley.edu&su=MyNameSTAT20&body=Hello)
+    -   Write them an email: [devnavani\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=devnavani@berkeley.edu&su=MyNameSTAT20&body=Hello)
 
 -   Section 103: Qingyi Fang
 
@@ -306,7 +306,7 @@ You are encouraged to collaborate with your fellow students on problem
 sets and labs, but the labs you turn in should reflect your own
 understanding and **all of your collaborators must be cited (first and
 last name) in a full sentence before the first question on your lab**.
-Example: *I collaborated with Qinqyi Fang, Vaidehi Bulusu and Wayne Wang
+Example: *I collaborated with Qinqyi Fang, Dev Navani and Wayne Wang
 on this assignment.* **Please make sure your collaborators have added
 you as well in their sentence.** Also, your quiz and test submissions
 must reflect only your work.
