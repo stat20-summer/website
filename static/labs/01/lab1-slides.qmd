@@ -26,7 +26,7 @@ library(tidyverse)
 
 1.  Get into groups of 4 and come up with *two truths and a lie*! Everyone guess each others' lies.
 
-2.  Post your lie to an Ed forum your GSI will create. It will be titled \[Your Section Number\]
+2.  Post your lie to an Ed forum your GSI will create. It will be titled "\[Your Section Number\] Ed Practice"
 
 . . .
 

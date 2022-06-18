@@ -1,0 +1,112 @@
+---
+title: "Lab 1: Getting Started"
+author: "STAT 20 UC Berkeley, Spring '22"
+output:
+  xaringan::moon_reader:
+    css: stat20.css
+    lib_dir: assets/libs
+    nature:
+      highlightStyle: atelier-forest-light
+      highlightLines: true
+      highlightSpans: true
+      ratio: 16:9
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE,
+                      echo = FALSE,
+                      fig.align = "center",
+                      fig.retina = 3)
+
+library(tidyverse)
+library(xaringanthemer)
+#source("https://raw.githubusercontent.com/stat20/course-materials/master/assets/stat20-style.r")
+```
+
+## Icebreaker
+
+--
+
+1. Get into groups of 3-5. Say your names and hometowns.
+
+--
+
+2. Now, come up with *two truths and a lie*! Everyone guess each others' lies.
+
+--
+
+3. Post your lie to an Ed forum your GSI will create. It will be titled *"[Your Section Number] Ed Practice"*
+
+---
+## What is Stat 20 Lab?
+
+.pull-left[
+**Who**: 30 students + GSI
+
+**What**: applying the concepts from lecture by working with real data  
+
+**When**: Monday, Wednesday, Thursday afternoons for 50 minutes  
+
+**Where**: Evans Hall 342 
+]
+
+--
+.pull-right[
+**Why**: Doing statistics requires a synthesis of conceptual frameworks, ideas and notation from mathematics, computation tools, and an understanding of the context of the data. It's a complex task and it requires practice.  
+
+**How**: When doing data analysis, for our computational tool we'll be using R.
+
+--- 
+## Lab 1 Goals
+
+In completing this lab:
+
+--
+
+1.  Conceptually, you will learn to:
+
+-   Identify the unit of observation in a data set
+-   Identify variables in a data set using the Taxonomy of Data
+
+--
+
+2.  Technincally, you will be able to:
+
+-   Use RMarkdown to compose documents with both images and R code
+-   Create vectors in R using `c()` and data frames using `tibble()`
+-   Explore a data set using some `dplyr` functions
+
+---
+class: center, middle
+
+# Question One
+
+---
+## The Big Three
+1.  R
+    -   A programming language designed with statisticians in mind
+--
+
+2.  RStudio
+    -   A special type of document which combines standard word processing with R code.
+    
+--
+
+3.  RMarkdown
+    -   A special type of document which combines standard word processing with R code.
+    -   Can be exported to common formats such as HTML and PDF
+    
+--
+---
+class: center, middle
+
+# Writing and turning in Assignments in RStudio
+
+Demo of RStudio and Gradescope
+
+???
+
+

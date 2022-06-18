@@ -22,6 +22,72 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        background-color: #232629;
+        color: #7a7c7d;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #7a7c7d;  padding-left: 4px; }
+    div.sourceCode
+      { color: #cfcfc2; background-color: #232629; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #cfcfc2; } /* Normal */
+    code span.al { color: #95da4c; background-color: #4d1f24; font-weight: bold; } /* Alert */
+    code span.an { color: #3f8058; } /* Annotation */
+    code span.at { color: #2980b9; } /* Attribute */
+    code span.bn { color: #f67400; } /* BaseN */
+    code span.bu { color: #7f8c8d; } /* BuiltIn */
+    code span.cf { color: #fdbc4b; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #3daee9; } /* Char */
+    code span.cn { color: #27aeae; font-weight: bold; } /* Constant */
+    code span.co { color: #7a7c7d; } /* Comment */
+    code span.cv { color: #7f8c8d; } /* CommentVar */
+    code span.do { color: #a43340; } /* Documentation */
+    code span.dt { color: #2980b9; } /* DataType */
+    code span.dv { color: #f67400; } /* DecVal */
+    code span.er { color: #da4453; text-decoration: underline; } /* Error */
+    code span.ex { color: #0099ff; font-weight: bold; } /* Extension */
+    code span.fl { color: #f67400; } /* Float */
+    code span.fu { color: #8e44ad; } /* Function */
+    code span.im { color: #27ae60; } /* Import */
+    code span.in { color: #c45b00; } /* Information */
+    code span.kw { color: #cfcfc2; font-weight: bold; } /* Keyword */
+    code span.op { color: #cfcfc2; } /* Operator */
+    code span.ot { color: #27ae60; } /* Other */
+    code span.pp { color: #27ae60; } /* Preprocessor */
+    code span.re { color: #2980b9; background-color: #153042; } /* RegionMarker */
+    code span.sc { color: #3daee9; } /* SpecialChar */
+    code span.ss { color: #da4453; } /* SpecialString */
+    code span.st { color: #f44f4f; } /* String */
+    code span.va { color: #27aeae; } /* Variable */
+    code span.vs { color: #da4453; } /* VerbatimString */
+    code span.wa { color: #da4453; } /* Warning */
   </style>
   <link rel="stylesheet" href="lab1-slides_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="lab1-slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -322,11 +388,273 @@
   <p class="institute">STAT 20 UC Berkeley</p>
 </section>
 
-<section id="lab-1" class="slide level2">
-<h2>Lab 1</h2>
+<section id="icebreaker" class="slide level2">
+<h2>Icebreaker</h2>
+<ol type="1">
+<li class="fragment"><p>Get into groups of 4 and come up with <em>two truths and a lie</em>! Everyone guess each others’ lies.</p></li>
+<li class="fragment"><p>Post your lie to an Ed forum your GSI will create. It will be titled “[Your Section Number] Ed Practice”</p></li>
+</ol>
 </section>
-<section id="lab-1-test" class="slide level2">
-<h2>Lab 1 Test</h2>
+<section id="lab-1-goals" class="slide level2">
+<h2>Lab 1 Goals</h2>
+<p>In completing this lab:</p>
+<ol type="1">
+<li class="fragment">Conceptually, you will learn to:</li>
+</ol>
+<ul>
+<li class="fragment">Identify the unit of observation in a data set</li>
+<li class="fragment">Identify variables in a data set using the Taxonomy of Data</li>
+</ul>
+<ol type="1">
+<li class="fragment">Technincally, you will be able to:</li>
+</ol>
+<ul>
+<li class="fragment">Use RMarkdown to compose documents with both images and R code</li>
+<li class="fragment">Create vectors in R using <code>c()</code> and data frames using <code>tibble()</code></li>
+<li class="fragment">Explore a data set using some <code>dplyr</code> functions</li>
+</ul>
+</section>
+<section>
+<section id="question-1" class="title-slide slide level1 center">
+<h1>Question 1</h1>
+
+</section>
+<section id="the-big-three" class="slide level2">
+<h2>The Big Three</h2>
+<ol type="1">
+<li class="fragment">R
+<ul>
+<li class="fragment">A programming language designed with statisticians in mind</li>
+</ul></li>
+<li class="fragment">RStudio
+<ul>
+<li class="fragment">A special type of document which combines standard word processing with R code.</li>
+</ul></li>
+<li class="fragment">RMarkdown
+<ul>
+<li class="fragment">A special type of document which combines standard word processing with R code.</li>
+<li class="fragment">Can be exported to common formats such as HTML and PDF</li>
+</ul></li>
+</ol>
+</section>
+<section id="how-are-the-big-three-involved-in-stat-20" class="slide level2">
+<h2>How are The Big Three involved in Stat 20?</h2>
+<ol type="1">
+<li class="fragment">R
+<ul>
+<li class="fragment">The programming language which we will be using</li>
+</ul></li>
+<li class="fragment">RStudio
+<ul>
+<li class="fragment"><p>The software environment we will be coding in</p>
+<ul>
+<li class="fragment"><a href="stat20.datahub.berkeley.edu">stat20.datahub.berkeley.edu</a></li>
+</ul></li>
+</ul></li>
+<li class="fragment">RMarkdown
+<ul>
+<li class="fragment"><p>The format which you will be composing your labs in</p></li>
+<li class="fragment"><p>To submit, you will export your RMarkdown files to PDF</p></li>
+</ul></li>
+</ol>
+</section>
+<section id="r" class="slide level2">
+<h2>R</h2>
+<p>What can R do?</p>
+<ul>
+<li class="fragment"><p>Addition (<code>+</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div></li>
+<li class="fragment"><p>Subtraction (<code>-</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="dv">5</span> <span class="sc">-</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div></li>
+<li class="fragment"><p>Multiplication (<code>*</code>),</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 15</code></pre>
+</div>
+</div></li>
+<li class="fragment"><p>and Division (<code>/</code>) .</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="dv">5</span> <span class="sc">/</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.666667</code></pre>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="exercise" class="slide level2">
+<h2>Exercise</h2>
+<p>R folows the order of operations! Split into your same groups of 3-4.</p>
+<ol type="1">
+<li class="fragment"><p>Figure out (or guess) how to do parentheses and exponents in R. You can use the Internet or trial and error.</p></li>
+<li class="fragment"><p>Pick one of these calculations, and write the R code for them on the board.</p>
+<ol type="1">
+<li class="fragment"><p>the quantity 5 multiplied by 2, raised to the power of 3, plus 1</p>
+<ol type="1">
+<li class="fragment">The answer should be 1001</li>
+</ol></li>
+<li class="fragment"><p>5 multipled by the quantity 2 raised to the power 3, plus 1</p>
+<ol type="1">
+<li class="fragment">The answer should be 41</li>
+</ol></li>
+</ol></li>
+</ol>
+</section>
+<section id="r-1" class="slide level2">
+<h2>R</h2>
+<p>What can R do?</p>
+<ul>
+<li class="fragment"><p>R can also work with character strings.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="st">"Jeremy"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Jeremy"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#paste connects character strings with a space</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">paste</span>(<span class="st">"Jeremy,"</span>, <span class="st">"Vaidehi,"</span>, <span class="st">"Wayne,"</span>, <span class="st">"and Qingyi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Jeremy, Vaidehi, Wayne, and Qingyi"</code></pre>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="r-2" class="slide level2">
+<h2>R</h2>
+<ul>
+<li class="fragment"><p>What if I want to save the string I just made? I use <code>&lt;-</code> for this purpose.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">#assigns the string to the name "staff"</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>staff <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Jeremy,"</span>, <span class="st">"Vaidehi,"</span>, <span class="st">"Wayne,"</span>, <span class="st">"and Qingyi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>staff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Jeremy, Vaidehi, Wayne, and Qingyi"</code></pre>
+</div>
+</div></li>
+<li class="fragment"><p>Notice that when I type <code>staff</code>, the string is what comes out. If I saved a number or a data frame (a dataset) to <code>staff</code>, then the number/ data frame would come out.</p></li>
+</ul>
+</section>
+<section id="r-3" class="slide level2">
+<h2>R</h2>
+<ul>
+<li class="fragment"><p>We call <code>&lt;-</code> the <strong>assignment operator</strong> and say that our string has been <strong>assigned</strong> to the <strong>object</strong> called <code>staff.</code></p></li>
+<li class="fragment"><p>Object names cannot:</p>
+<ul>
+<li class="fragment"><p>have spaces in between them (use the underscore <code>_</code>)</p></li>
+<li class="fragment"><p>cannot start with a number (such as <code>2022Stat20</code>).</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="r-4" class="slide level2">
+<h2>R</h2>
+<ul>
+<li class="fragment"><p>What if I want to save multiple numbers or strings at a time?</p></li>
+<li class="fragment"><p>We can do this using <strong>vectors</strong>, which we create using the function <code>c()</code>.</p>
+<ul>
+<li class="fragment">C is for <a href="https://www.oxfordreference.com/view/10.1093/oi/authority.20110803095630306">“concatenate”</a>, which means to link things together end to end in a chain.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>staff_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Jeremy"</span>, <span class="st">"Vaidehi"</span>, <span class="st">"Wayne"</span>, <span class="st">"Qingyi"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a>staff_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Jeremy"  "Vaidehi" "Wayne"   "Qingyi" </code></pre>
+</div>
+</div></li>
+<li class="fragment"><p>If we want to save multiple data frames at a time, this is done using a <strong>list</strong>, which is a data structure whose scope is beyond this course and so we will not cover.</p></li>
+</ul>
+</section>
+<section id="r-5" class="slide level2">
+<h2>R</h2>
+<ul>
+<li class="fragment"><p><strong>Vectors</strong> are a fundamental building block of data in R and here are some things we can do with them.</p></li>
+<li class="fragment"><p>For numeric vectors, we can use built-in R functions to calculate statistics.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>jeremys_graduation_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2013</span>, <span class="dv">2017</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">mean</span>(jeremys_graduation_years) <span class="co">#returns the average</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2018.25</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">sum</span>(jeremys_graduation_years)  <span class="co">#returns the total</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8073</code></pre>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="r-6" class="slide level2">
+<h2>R</h2>
+<ul>
+<li class="fragment"><p>We can also build data frames out of vectors! To do this, we use the function <code>tibble()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#What is this?</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a></span>
+<span id="cb22-3"><a href="#cb22-3"></a>jeremys_graduation_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2013</span>, <span class="dv">2017</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
+<span id="cb22-4"><a href="#cb22-4"></a>jeremys_graduation_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Middle"</span>, <span class="st">"High"</span>, <span class="st">"Bachelor's"</span>,</span>
+<span id="cb22-5"><a href="#cb22-5"></a>                               <span class="st">"Masters"</span>)</span>
+<span id="cb22-6"><a href="#cb22-6"></a></span>
+<span id="cb22-7"><a href="#cb22-7"></a>jeremys_graduation <span class="ot">&lt;-</span> <span class="fu">tibble</span>(jeremys_graduation_levels,</span>
+<span id="cb22-8"><a href="#cb22-8"></a>                             jeremys_graduation_years)</span>
+<span id="cb22-9"><a href="#cb22-9"></a></span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="co">#renaming my columns (with a new names vector!)</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a><span class="fu">names</span>(jeremys_graduation) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Levels"</span>, <span class="st">"Years"</span>)</span>
+<span id="cb22-12"><a href="#cb22-12"></a></span>
+<span id="cb22-13"><a href="#cb22-13"></a>jeremys_graduation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  Levels     Years
+  &lt;chr&gt;      &lt;dbl&gt;
+1 Middle      2013
+2 High        2017
+3 Bachelor's  2021
+4 Masters     2022</code></pre>
+</div>
+</div>
+<p>. . .</p></li>
+</ul>
+</section>
+<section id="r-7" class="slide level2">
+<h2>R</h2>
+<ul>
+<li class="fragment"><p>Lastly, what did <code>library(tidyverse)</code> do in the last slide?</p></li>
+<li class="fragment"><p><code>tibble()</code> is a function in a <strong>package</strong> called <code>dplyr</code>, which itself is a part of the <code>tidyverse</code> <strong>library</strong></p></li>
+<li class="fragment"><p><strong>Packages</strong> (and the <strong>libraries</strong> they are sometimes inside of), offer extra functionality that doesn’t come with the base installation of R</p></li>
+</ul>
+</section>
+<section id="r-8" class="slide level2">
+<h2>R</h2>
+<ul>
+<li class="fragment"><p>Because the packages don’t come automatically, we have to <em>load them in</em> (just once) using <code>library(PACKAGE_NAME_HERE)</code></p></li>
+<li class="fragment"><p>We will be using a few different libraries/packages this semester!</p>
+<ul>
+<li class="fragment"><p>The <code>tidyverse</code> library</p>
+<ul>
+<li class="fragment"><p>The <code>dplyr</code> package for data analysis and wrangling</p></li>
+<li class="fragment"><p>The <code>ggplot</code> package for data visualization</p></li>
+</ul></li>
+<li class="fragment"><p>The <code>stat20data</code> package includes data sets we will use</p></li>
+<li class="fragment"><p>The <code>infer</code> package for inferential statistics</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="question-1-1" class="slide level2">
+<h2>Question 1</h2>
+<p>With all of this in hand, you should be able to finish Question 1 now and be prepared for the remainder of the lab!</p>
+</section></section>
+<section id="question-2" class="title-slide slide level1 center">
+<h1>Question 2</h1>
 
 <img src="../../../assets/stat20-hex.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
