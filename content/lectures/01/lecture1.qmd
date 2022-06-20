@@ -1,0 +1,320 @@
+---
+title: "Introduction"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../../assets/stat20.scss"
+    highlight-style: breezedark
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: "images/hex-background.png"
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# Course Overview
+
+## Berkeley Summer Sessions Stat 20
+
+-   Course Topic: **Introduction to Probability and Statistics**
+
+-   Course Website: <https://stat20summer.netlify.app>
+
+-   Lecturer/Instructor of Record: *Jeremy Sanchez*
+
+    -   Office: Evans Hall 323
+
+    -   Email: jeremysanchez\@berkeley.edu
+
+. . .
+
+-   uGSIS:
+
+    -   Section 101: *Wayne Wang* (whh.bear\@berkeley.edu)
+
+    -   Section 102: *Dev Navani* (devnavani\@berkeley.edu)
+
+    -   Section 103: *Qingyi Fang* (qyi_fang\@berkeley.edu)
+
+. . .
+
+## Berkeley Summer Sessions Stat 20
+
+-   Lectures
+
+    -   MTWR 11:00a-12:30p, Hearst Memorial Mining Building Room 390
+
+-   Labs
+
+    -   MWR afternoons, Evans Hall 342
+
+. . .
+
+## Berkeley Summer Sessions Stat 20
+
+### Course Topics By Week
+
+-   Week 1: Introduction, R and Reproducibility, The Taxonomy of Data
+-   Week 2: Summarizing Numerical and Categorical Data, The Grammar of Graphics
+-   Week 3: Probability and Confidence Intervals
+-   Week 4: Review and Midterm
+-   Week 5: Hypothesis Testing
+-   Week 6: Causality
+-   Week 7: Linear Regression
+-   Week 8: Review and Final / Special Topics + Project Presentation (TBD)
+
+## Berkeley Summer Sessions Stat 20
+
+### Programming/Coding
+
+We will be using what I have termed **"The Big Three"**.
+
+1.  **R** - a programming language designed with statisticians in mind
+
+2.  **RStudio** - a nice "wrapper software" that you will be writing R code in
+
+    1.  <https://stat20.datahub.berkeley.edu>
+
+    2.  Perhaps on your own computer (install R, then RStudio)
+
+3.  **RMarkdown** - a very useful document format that works like Microsoft Word but also can include R code chunks
+
+    1.  You will write your labs /problem sets in RMarkdown, and then *knit* them to a PDF format for submission / completion.
+
+. . .
+
+## Berkeley Summer Sessions Stat 20
+
+### Programming/Coding
+
+**Note:** These tools are *not* only useful or the purposes of this course. They are widely used for data analysis in the industry and beyond. *Do not view them as an isolated sandbox!*
+
+. . .
+
+## Berkeley Summer Sessions Stat 20
+
+-   Labs: 50%
+
+    -   all labs weighted equally
+
+-   Midterm: 20%
+
+-   Final: 20% (subject to be a project instead)
+
+-   Quiz 1: 5%
+
+-   Quiz 2: 5%
+
+-   Problem sets: 0%
+
+-   There is **no curve**.
+
+. . .
+
+## Berkeley Summer Sessions Stat 20
+
+-   The *course week* is the window in which we discuss a particular subtopic within the course.
+
+-   It generally begins **Monday 12:00a** and ends **Sun 11:59p**
+
+-   All assignments will be released at the beginning of the course week and will be due at the end of the course week.
+
+. . .
+
+# Assignment Breakdown
+
+## Labs
+
+-   There will be 6 lab assignments, including this week
+
+-   They are the *main assignment in the course*
+
+-   Labs generally center around working with one data set
+
+-   They are released on **Monday 12:00a** and due **Sunday 11:59p**
+
+-   **No late work accepted.** See the course Syllabus for drop/extension policies.
+
+. . .
+
+## Problem Sets
+
+-   There will be 6 problem sets, including this week
+
+-   They generally read more like a traditional homework
+
+-   They are practice and so *will not be graded*
+
+    -   You can consider them to be study material for quizzes/exams
+
+-   They are released on **Monday 12:00a**
+
+-   A video walkthrough solution will be posted to bCourses a week after their releases
+
+. . .
+
+## Quizzes
+
+-   There will be 2 quizzes, one in Week 3 and one in Week 7
+
+-   These are meant to help you prepare for the exams
+
+-   You have 25 minutes to complete them once you start
+
+-   There will be an **original** and a **retake**
+
+    -   The original will be available from **Thursday 6:00p** to **Friday 5:59p**. The answers will be released immediately after.
+
+    -   The retake will be available from **Saturday 6:00p** to **Sunday 5:59p**
+
+-   So one day to review between the original and the retake.
+
+-   Quizzes are an individual assignment (**no collaboration allowed**)
+
+    -   Of course, you may study with others to prepare for the retake.
+
+. . .
+
+## Exams
+
+-   The Midterm takes place **in-class Thursday, July 14**.
+
+-   The Final/Project Presentation takes place **in-class Wednesday, August 10**.
+
+-   80 minutes to complete
+
+-   There *will* be a clobber policy. See syllabus for details.
+
+. . .
+
+# Collaboration policy
+
+## Collaboration
+
+-   Taken from the syllabus:
+
+    -   \*You are encouraged to collaborate with your fellow students on problem sets and labs, but the labs you turn in should reflect your own understanding and all of your collaborators must be cited (first and last name) in a full sentence before the first question on your lab.\*
+
+    -   Example: I collaborated with Qinqyi Fang, Dev Navani and Wayne Wang on this assignment.
+
+    -   \*Please make sure your collaborators have **added you as well in their sentence**. Also, your quiz and test submissions must reflect only your work.\*
+
+. . .
+
+## Collaboration
+
+-   This means, in a nutshell:
+
+    -   For labs: **you need to cite everything that doesn't come out of your own brain or from STAT 20 Summer 2022 course material**, and that **you cannot copy and paste entire solutions to a problem or subproblem on a lab that don't come from either your own brain or from STAT 20 Summer 2022 course material**.
+
+    -   **This includes Internet sources**.
+
+-   Also,
+
+    -   For quizzes, **no collaboration with other people or Internet sources**.
+
+    -   For exams, **no collaboration with other people or Internet sources**.
+
+. . .
+
+## Collaboration
+
+-   If you have any questions about the boundary of the policy, please ask.
+
+-   For more details on what is allowed and what is not, see the course syllabus.
+
+. . .
+
+# Miscellaneous
+
+## Miscellaneous
+
+-   For information regarding:
+
+    -   accommodations from the Disabled Students' Program,
+
+    -   our Title IX policy
+
+    -   links to campus resources
+
+-   please see the course syllabus.
+
+# Break
+
+# Introduction
+
+## Course Goals:
+
+After taking this course, you will be able to:
+
+1.  Construct and critique claims made using data.
+
+2.  Perform analysis on a data set in a semi-formal setting.
+
+## Claims Made Using Data
+
+![](images/dos.jpg) 
+
+. . .
+
+-   What does it mean to be "The World's #2 card game?"
+
+    - Exercise
+
+-   If we assume it means "The World's #2 best selling card game:"
+
+    - Exercise: What data could we collect to prove or disprove this statement?
+    
+## Claims Made Using Data {.scrollable}
+
+. . .
+
+![](images/dostruth.jpeg)
+
+. . .
+
+-   It was (as of June 19) the #13 best seller in card games at Walmart.
+
+-   It wasn't even *on* the first few pages of the Target best sellers list.
+
+## 
+
+## 
+
+![](images/peoplesparkupdate.jpg)
+
+##
+
+![](images/peoplespark.jpg)
+
+##
+
+![](images/editorial.png)
+
+## 
+
+
+##
+
+![](images/support.jpg)
+
+## 
+
+![](images/surveyresultsemail.jpg)
+
+
+## 
+
+
+
+
+
+
+
+
+

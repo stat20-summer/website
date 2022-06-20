@@ -49,11 +49,9 @@ data. The types of claim we will be discussing are: descriptive,
 generalizations, causal, and predictive.
 
 The course is structured by week. Each week will focus on a particular
-subject, and all the material and assignments for that subject will be
+subject, and all the assignments for that subject will be
 due at the end of the "course week," which begins on **Monday at
-12:00am** and ends **every Sunday at 11:59pm**. This way, you guys will
-not have assignments due regarding one topic and yet have to go to
-lecture and labs where we talk about another. But if you have questions
+12:00am** and ends **every Sunday at 11:59pm**. **The two exceptions to this rule are the first week of class (June 20th) and the third week of class (July 4th). For these weeks, assignments will be released Tuesday 12:00am.** This way, you guys will not have assignments due regarding one topic and yet have to go to lecture and labs where we talk about another. But if you have questions
 about previous weeks' material, you can ask us during lab and lecture!
 
 Here is a list of the main course topics, separated by week and with
@@ -109,6 +107,8 @@ I will meet you guys on Monday, Tuesday, Wednesday, and Thursday at
 If you miss the lectures, go ahead and read over the
 slides and ask questions on the class forum. This should allow you to
 catch up!
+
+***There is no lecture on Monday, June 20***. Happy Juneteenth!
 
 ***There is no lecture on Monday, July 4***. Happy Independence Day!
 
