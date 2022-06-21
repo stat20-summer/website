@@ -9,7 +9,7 @@ links:
 - icon: poll-h
   icon_pack: fas
   name: Welcome Survey
-  url:
+  url: https://stat20summer.netlify.app/problem-sets/01/ps1.pdf
 
 ---
 
