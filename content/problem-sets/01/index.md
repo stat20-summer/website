@@ -8,7 +8,7 @@ layout: single
 links:
 - icon: poll-h
   icon_pack: fas
-  name: Welcome Survey
+  name: Problem Set 1
   url: https://stat20summer.netlify.app/problem-sets/01/ps1.pdf
 
 ---
