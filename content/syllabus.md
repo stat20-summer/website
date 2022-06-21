@@ -143,25 +143,25 @@ data science in general, we'd love to chat with you.
 ### Materials
 
 There are no outright required materials for this course. However, we
-will be drawing from some materials so you should be aware of them.
+will be drawing from some materials so you should be aware of them. I will also give the abbreviations that I use on the *Schedule* page where the readings for each lecture will be posted.
 
 The primary textbook associated with this course is [Introduction to
-Modern Statistics](https://openintro-ims.netlify.app/) by
+Modern Statistics](https://openintro-ims.netlify.app/) **IMS** by
 Çetinkaya-Rundel and Hardin. This is a free online textbook that can
 also be downloaded as a [pdf](https://leanpub.com/imstat) or ordered in
 [print](https://www.amazon.com/Introduction-Modern-Statistics-Mine-%C3%87etinkaya-Rundel/dp/1943450145/)
-for \$15.
+for \$15. I
 
 The following texts are valuable supplementary texts and will be drawn
 upon for additional readings:
 
--   [Statistics](https://wwnorton.com/books/9780393929720), Freedman,
+-   [Statistics](https://wwnorton.com/books/9780393929720) **STA**, Freedman,
     Pisani, and Purves
--   [Data Visualization: A Practical Introduction](https://socviz.co/),
+-   [Data Visualization: A Practical Introduction](https://socviz.co/) **DVS**,
     Healy
 -   [Hands-on Programming with
-    R](https://rstudio-education.github.io/hopr/), Grolemund
--   [R for Data Science](https://r4ds.had.co.nz/), Wickham and Grolemund
+    R](https://rstudio-education.github.io/hopr/) **HOP**, Grolemund
+-   [R for Data Science](https://r4ds.had.co.nz/) **RDS**, Wickham and Grolemund
 
 ### Programming
 

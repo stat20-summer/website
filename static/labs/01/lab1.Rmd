@@ -78,11 +78,15 @@ Compare the values of number of boys and girls born per year in your rows of `my
 
 ### part b
 
-Which year saw the greatest number of children christened?
+Which year saw the *most* number of boys christened?
 
 ### part c
 
-What was the proportion of girl names christened in 1700? Please round to three decimal places.
+Which year saw the *least* number of *children* christened?
+
+### part d
+
+What was the proportion of girl names christened in 1694? Please round to three decimal places.
 
 ### part d
 

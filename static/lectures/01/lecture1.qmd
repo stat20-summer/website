@@ -43,6 +43,24 @@ execute:
 
 . . .
 
+## Berkeley Summer Session Stat 20
+
+-   You guys!
+
+    -   90 students
+
+    -   33 International and Domestic Visitors - Welcome to Berkeley!
+
+    -   Undeclared isn't square!
+
+    -   Majors: From Architecture to Economics to Nutritional Science to Ethnic Studies
+
+    -   Units of Attendance among UC Berkeley Students:
+
+        -   mean: 4.017857
+        -   median: 3
+        -   mode: 3
+
 ## Berkeley Summer Sessions Stat 20
 
 -   Lectures
@@ -67,6 +85,21 @@ execute:
 -   Week 6: Causality
 -   Week 7: Linear Regression
 -   Week 8: Review and Final / Special Topics + Project Presentation (TBD)
+
+## Berkeley Summer Sessions Stat 20
+
+### Reading Materials (They're mostly free!)
+
+-   There is no outright required reading material, but we do draw concepts from the following texts:
+
+-   Reading will be provided with each lecture on the course website.
+
+-   **Main Text**:
+
+    -   [Introduction to Modern Statistics](https://openintro-ims.netlify.app), Çetinkaya-Rundel and Hardin
+    -   Can be accessed here, downloaded as a PDF or ordered in print
+
+-   For supplementary texts, see the course syllabus.
 
 ## Berkeley Summer Sessions Stat 20
 
@@ -256,21 +289,21 @@ After taking this course, you will be able to:
 
 2.  Perform analysis on a data set in a semi-formal setting.
 
-## Claims Made Using Data
+## Critiquing a claim
 
-![](images/dos.jpg) 
+![](images/dos.jpg)
 
 . . .
 
 -   What does it mean to be "The World's #2 card game?"
 
-    - Exercise
+    -   Exercise
 
 -   If we assume it means "The World's #2 best selling card game:"
 
-    - Exercise: What data could we collect to prove or disprove this statement?
-    
-## Claims Made Using Data {.scrollable}
+    -   Exercise: What data could we collect to prove or disprove this statement?
+
+## Critiquing a claim {.scrollable}
 
 . . .
 
@@ -282,24 +315,43 @@ After taking this course, you will be able to:
 
 -   It wasn't even *on* the first few pages of the Target best sellers list.
 
+## Critiquing a claim
+
+-   At this point we drew a dataset on the board. It had two columns (store name and best selling rank).
+
+-   Now let's come up with a sensible *statistic* from this data that might help us prove or disprove the DOS claim.
+
+. . .
+
+## Critiquing a claim
+
+-   What statistic might make sense?
+
+    -   Exercise
+
+-   What would we expect the value of this statistic to be in a world where DOS actually was the 2nd best selling card game?
+
+    -   Exercise
+
+. . .
+
 ## 
 
 ## 
 
 ![](images/peoplesparkupdate.jpg)
 
-##
+## 
 
 ![](images/peoplespark.jpg)
 
-##
+## 
 
 ![](images/editorial.png)
 
 ## 
 
-
-##
+## 
 
 ![](images/support.jpg)
 
@@ -307,14 +359,26 @@ After taking this course, you will be able to:
 
 ![](images/surveyresultsemail.jpg)
 
+## Constructing a claim
 
-## 
+-   What was the goal of the Chancellor's survey?
 
+    -   Exercise
 
+-   What kind of data would you need to collect to determine the level of support that UC Berkeley students have toward the People's Park project?.
 
+    -   Exercise
 
+## Constructing a claim
 
+![](images/surveyresultsemail.jpg)
 
+-   The survey is linked [here](https://chancellor.berkeley.edu/sites/default/files/uc_berkeley_institutional_housing_qual5678-0716-institutionalhousing.pdf)
 
+## Constructing a claim
 
+-   We then performed a demo in an RMarkdown on how to obtain some of the numbers cited in the survey from the actual (namely, the percent margins between support and oppose, before and after participants knew the information about the People's Park project) data-set.
 
+-   The details of the code are not necessary for you to know right now. The main takeaway is that **being able to do statistics on real-world data sets** and **communicating your results clearly and attractively** are the skills that we really want you to get out of the course!
+
+# End of Lecture

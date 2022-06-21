@@ -11,7 +11,7 @@ links:
 - icon: images
   icon_pack: fas
   name: Slides
-  url: 
+  url: https://stat20summer.netlify.app/lectures/01/lecture1.html
 ---
 
 Hey everybody! Today we're going to get to know one another, go over logistics, and talk about what we'd like you to get out of the course.

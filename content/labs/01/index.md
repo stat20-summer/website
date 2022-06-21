@@ -1,7 +1,8 @@
 ---
-title: "Lab 1: Getting Started"
-summary: "Creating written documents with Markdown."
-subtitle: "Creating written documents with Markdown"
+title: "Lab 1: Introduction"
+summary: "Welcome to BSS Stat 20 Lab!"
+subtitle: "Introduction to R, Answering a Question with Data, 
+The Taxonomy of Data"
 publishdate: "2022-06-21"
 date: "2022-06-21"
 show_post_date: false
@@ -11,11 +12,11 @@ links:
 - icon: file-pdf
   icon_pack: fas
   name: Lab
-  url: https://stat20.org/labs/01/getting-started.pdf
+  url: https://stat20summer.netlify.app/labs/01/lab1.pdf
 - icon: images
   icon_pack: fas
   name: Slides
-  url: https://stat20.org/labs/01/getting-started-slides.html
+  url: https://stat20summer.netlify.app/labs/01/lab1-slides.html
 ---
 
 **Due on Gradescope at 11:59p Sunday 6/27**

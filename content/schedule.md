@@ -21,6 +21,7 @@ show_title_as_headline: true
 <th style="text-align: left;"><p>Date</p></th>
 <th style="text-align: left;"><p>Topic</p></th>
 <th style="text-align: left;"><p>Reading</p></th>
+<th style="text-align: left;"><p>Reading 2 </p></th>
 <th style="text-align: left;"><p>Weekly Work</p></th>
 </tr>
 </thead>
@@ -30,22 +31,25 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Tuesday</p></td>
 <td style="text-align: left;"><p>6/21</p></td>
 <td style="text-align: left;"><p><a href="NA">Introduction</a></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p><a href="NA">Lab 1</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/data-hello.html">IMS Ch 1.1</a></p></td>
+<td style="text-align: left;"><p><a href="https://rstudio-education.github.io/hopr/basics.html">HOP Ch 2</p></td>
+<td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/labs/01/lab1.pdf">Lab 1</a></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>6/22</p></td>
-<td style="text-align: left;"><p><a href="NA">Taxonomy and Tools for Data</a></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p><a href="NA">PS 1</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Intro; Taxonomy and Tools for Data</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/data-hello.html">IMS Ch 1.1</a></p></td>
+<td style="text-align: left;"><p><a href="https://rstudio-education.github.io/hopr/packages.html">HOP Ch 3</a></p></td>
+<td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/problem-sets/01/ps1.pdf">PS 1</a></p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>6/23</p></td>
 <td style="text-align: left;"><p><a href="NA">Taxonomy and Tools for Data</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/data-applications.html">IMS Ch 1.3</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -55,6 +59,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>6/27</p></td>
 <td style="text-align: left;"><p><a href="NA">Summaries of Numerical Data</a></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">Lab 2</a></p></td>
 </tr>
 <tr class="odd">
@@ -62,6 +67,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Tuesday</p></td>
 <td style="text-align: left;"><p>6/28</p></td>
 <td style="text-align: left;"><p><a href="NA">Summaries of Categorical Data</a></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">PS 2</a></p></td>
 </tr>
@@ -71,6 +77,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>6/29</p></td>
 <td style="text-align: left;"><p><a href="NA">Code Applications with Summaries, The Grammar of Graphics</a></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
@@ -78,6 +85,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>6/30</p></td>
 <td style="text-align: left;"><p><a href="NA">Code Applications with Summaries, The Grammar of Graphics</a></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -87,6 +95,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>7/5</p></td>
 <td style="text-align: left;"><p><a href="NA">Generalizations, Probability</a></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">Lab 3</a></p></td>
 </tr>
 <tr class="odd">
@@ -94,6 +103,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>7/6</p></td>
 <td style="text-align: left;"><p><a href="NA">Probability and Confidence Intervals using mathematical methods</a></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">PS 3</a></p></td>
 </tr>
@@ -104,12 +114,14 @@ show_title_as_headline: true
 <td style="text-align: left;"><p><a href="NA">Confidence Intervals with the Bootstrap and comparison with mathematical methods</p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>7/7</p></td>
 <td style="text-align: left;"><p><a href="NA">QUIZ 1 Original RELEASED 6:00p</p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 </tr>
@@ -120,12 +132,14 @@ show_title_as_headline: true
 <td style="text-align: left;"><p><a href="NA">QUIZ 1 Original ANSWERS RELEASED 6:00p</p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Saturday</p></td>
 <td style="text-align: left;"><p>7/9</p></td>
 <td style="text-align: left;"><p><a href="NA">QUIZ 1 Retake  RELEASED 6:00p</p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 </tr>
@@ -136,12 +150,14 @@ show_title_as_headline: true
 <td style="text-align: left;"><p><a href="NA">QUIZ 1 Retake  ANSWERS RELEASED 6:00p</p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><p>4</p></td>
 <td style="text-align: left;"><p>Monday</p></td>
 <td style="text-align: left;"><p>7/11</p></td>
 <td style="text-align: left;"><p><a href="NA">Week 1 Review</a></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -151,6 +167,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>7/12</p></td>
 <td style="text-align: left;"><p><a href="NA">Week 2 Review</a></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
@@ -158,6 +175,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>7/13</p></td>
 <td style="text-align: left;"><p><a href="NA">Week 3 Review</a></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -167,6 +185,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>7/14</p></td>
 <td style="text-align: left;"><p><a href="NA">Midterm</a></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
@@ -174,6 +193,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Monday</p></td>
 <td style="text-align: left;"><p>7/18</p></td>
 <td style="text-align: left;"><p><a href="NA">Hypothesis Testing</a></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">Lab 4</a></p></td>
 </tr>
@@ -183,6 +203,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>7/19</p></td>
 <td style="text-align: left;"><p><a href="NA">Hypothesis Testing</a></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">PS 4</a></p></td>
 </tr>
 <tr class="odd">
@@ -190,6 +211,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>7/20</p></td>
 <td style="text-align: left;"><p><a href="NA">Hypothesis Tests: Goodness of Fit</a></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -199,6 +221,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>7/21</p></td>
 <td style="text-align: left;"><p><a href="NA">Inference on Numerical Data</a></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
@@ -206,6 +229,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Monday</p></td>
 <td style="text-align: left;"><p>7/25</p></td>
 <td style="text-align: left;"><p><a href="NA">Causality</a></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">Lab 5</a></p></td>
 </tr>
@@ -215,6 +239,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>7/26</p></td>
 <td style="text-align: left;"><p><a href="NA">Experimental Design</a></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">PS 5</a></p></td>
 </tr>
 <tr class="odd">
@@ -222,6 +247,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>7/27</p></td>
 <td style="text-align: left;"><p><a href="NA">Experimental Design</a></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -231,6 +257,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>7/28</p></td>
 <td style="text-align: left;"><p><a href="NA">Correlation</a></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
@@ -238,6 +265,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Monday</p></td>
 <td style="text-align: left;"><p>8/1</p></td>
 <td style="text-align: left;"><p><a href="NA">Simple Linear Regression</a></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">Lab 6</a></p></td>
 </tr>
@@ -247,6 +275,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>8/2</p></td>
 <td style="text-align: left;"><p><a href="NA">Simple Linear Regression</a></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">PS 6</a></p></td>
 </tr>
 <tr class="odd">
@@ -255,6 +284,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>8/3</p></td>
 <td style="text-align: left;"><p><a href="NA">Multiple Linear Regression, Interpretation, Complexity of Models</a></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">Quiz 2</a></p></td>
 </tr>
 <tr class="even">
@@ -262,6 +292,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>8/4</p></td>
 <td style="text-align: left;"><p><a href="NA">Data Analysis Pipeline in the Linear Regression context</a></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -272,12 +303,14 @@ show_title_as_headline: true
 <td style="text-align: left;"><p><a href="NA">QUIZ 2 Original RELEASED 6:00p</p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Friday</p></td>
 <td style="text-align: left;"><p>8/5</p></td>
 <td style="text-align: left;"><p><a href="NA">QUIZ 2 Original ANSWERS RELEASED 6:00p</p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 </tr>
@@ -288,12 +321,14 @@ show_title_as_headline: true
 <td style="text-align: left;"><p><a href="NA">QUIZ 2 Retake  RELEASED 6:00p</p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Sunday</p></td>
 <td style="text-align: left;"><p>8/7</p></td>
 <td style="text-align: left;"><p><a href="NA">QUIZ 2 Retake  ANSWERS RELEASED 6:00p</p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 </tr>
@@ -303,6 +338,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>8/8</p></td>
 <td style="text-align: left;"><p><a href="NA">Final Review </a></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
@@ -310,6 +346,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Tuesday</p></td>
 <td style="text-align: left;"><p>8/9</p></td>
 <td style="text-align: left;"><p><a href="NA">Final Review</a></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -319,6 +356,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>8/10</p></td>
 <td style="text-align: left;"><p><a href="NA">Final</a></p></td>
 <td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
@@ -326,6 +364,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>8/11</p></td>
 <td style="text-align: left;"><p><a href="NA">Bayesian Estimation and Goodbye</a></p></td>
+<td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
