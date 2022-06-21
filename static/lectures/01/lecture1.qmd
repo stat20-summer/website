@@ -191,7 +191,7 @@ We will be using what I have termed **"The Big Three"**.
 
 . . .
 
-## Quizzes
+## Quizzes {.scrollable}
 
 -   There will be 2 quizzes, one in Week 3 and one in Week 7
 
