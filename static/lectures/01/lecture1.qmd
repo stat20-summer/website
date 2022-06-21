@@ -101,9 +101,9 @@ execute:
 
 -   For supplementary texts, see the course syllabus.
 
-## Berkeley Summer Sessions Stat 20
+## Berkeley Summer Sessions Stat 20 {.scrollable}
 
-### Programming/Coding
+### Programming/Coding 
 
 We will be using what I have termed **"The Big Three"**.
 
