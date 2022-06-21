@@ -107,6 +107,13 @@ execute:
 
 We will be using what I have termed **"The Big Three"**.
 
+. . . 
+
+## Berkeley Summer Sessions Stat 20 {.scrollable}
+
+### Programming/Coding 
+
+
 1.  **R** - a programming language designed with statisticians in mind
 
 2.  **RStudio** - a nice "wrapper software" that you will be writing R code in
@@ -191,7 +198,7 @@ We will be using what I have termed **"The Big Three"**.
 
 . . .
 
-## Quizzes {.scrollable}
+## Quizzes
 
 -   There will be 2 quizzes, one in Week 3 and one in Week 7
 
@@ -205,7 +212,11 @@ We will be using what I have termed **"The Big Three"**.
 
     -   The retake will be available from **Saturday 6:00p** to **Sunday 5:59p**
 
--   So one day to review between the original and the retake.
+. . . 
+
+## Quizzes 
+
+-   So there is one day to review between the original and the retake.
 
 -   Quizzes are an individual assignment (**no collaboration allowed**)
 
@@ -246,6 +257,10 @@ We will be using what I have termed **"The Big Three"**.
     -   For labs: **you need to cite everything that doesn't come out of your own brain or from STAT 20 Summer 2022 course material**, and that **you cannot copy and paste entire solutions to a problem or subproblem on a lab that don't come from either your own brain or from STAT 20 Summer 2022 course material**.
 
     -   **This includes Internet sources**.
+
+. . . 
+
+## Collaboration
 
 -   Also,
 
