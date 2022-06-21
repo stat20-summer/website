@@ -56,7 +56,7 @@ What are the data types of each column in your data set according to the Taxonom
 
 Now, with R code, construct a *data frame* based off the data set you have sketched. Save the final data frame into an object called `my_arbuthnot`.
 
-### part e
+### part f
 
 What do you believe the probability of a child being born female is? Provide the evidence/reasoning you used to form your opinion.
 
@@ -88,7 +88,7 @@ Which year saw the *least* number of *children* christened?
 
 What was the proportion of girl names christened in 1694? Please round to three decimal places.
 
-### part d
+### part e
 
 Compute the average proportion of girl names christened per year. We will go over how to do this in detail next week; but for now template code to do this is below, depending on the name of your dataset (I am calling it here `arbuthnot_new`) and on the name of column `girl_prop` which you probably made in completing part c.
 
