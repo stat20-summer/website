@@ -1,0 +1,418 @@
+---
+title: "Introduction: Part 2"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../../assets/stat20.scss"
+    highlight-style: breezedark
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: "images/hex-background.png"
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# First Things First
+
+## Berkeley Summer Sessions Stat 20
+
+### Programming/Coding
+
+-   Potential Coding Post on Ed
+
+    -   Would contain links to code used during class
+    
+    -   Code you do not need to know for this week (or in the course)
+    
+        will be commented around
+        
+-   How does this sound?
+
+## Berkeley Summer Sessions Stat 20
+
+### Labs
+
+-   First Lab Sections are today!
+
+-   Today's lab will go over the basics of R and RStudio
+
+    -   Question One
+
+-   Tomorrow's lab will focus on material for Questions Two and Three
+
+# Recap
+
+## Answering Questions with Data
+
+-   Yesterday we saw that:
+
+    -   The exact question you want to answer completely determines what the data you collect should look like.
+
+-   Let's tackle another example. This one comes from a dataset in the `usdata` package referenced in the **IMS** textbook, chapter five.
+
+. . .
+
+## Answering Questions with Data
+
+-   Here is the question:
+
+. . .
+
+> How have the population in California counties changed from 2000 to 2010 to 2017?
+
+-   Sketch a provisional data-set that could answer this question.
+
+    -   Exercise
+
+. . .
+
+## Answering Questions with Data
+
+-   This data set is called `county` and belongs to `usdata` package.
+
+-   There are actually *two* viable ways that the data set can be "formatted" in!
+
+. . .
+
+## Answering Questions with Data
+
+-   Here is the "format" that was compiled by the authors of the data set and what you will see when you load in the data.
+
+```{r, echo = FALSE,message = FALSE}
+library(usdata)
+library(tidyverse)
+data(county)
+
+county %>% filter(state == "California") %>%
+  select(name,state,pop2000,pop2010,pop2017) %>% head(n = 6)
+
+```
+
+. . .
+
+## Answering Questions with Data
+
+-   What if we want to condense the year columns into one year column?
+
+-   This gives rise to the second "format."
+
+. . .
+
+```{r, echo = FALSE,message = FALSE}
+
+county_long <- county %>% pivot_longer(
+cols = c("pop2000", "pop2010","pop2017"), names_prefix = "pop",
+names_to = "Year", values_to = "Pop") %>% select(name, Year, Pop) %>% head(n = 6)
+
+
+county_long
+
+```
+
+. . .
+
+## Answering Questions with Data
+
+-   Since the former dataset had more columns, we would call it a **wide** dataset.
+
+-   Since the latter had less columns because we condensed, we call it a **long** dataset.
+
+-   Both formats have their respective advantages and disadvantages.
+
+-   We will discuss how to work with these two formats next week. For now, I just wanted to show you guys this phenomena.
+
+. . .
+
+## Answering Questions with Data
+
+-   Yesterday we saw that:
+
+    -   The exact question you want to answer completely determines what the data you collect should look like.
+
+. . .
+
+## Answering Questions with Data
+
+-   Yet, this goes both ways as well. If you are given a data set, it is useful to think about what questions you can answer with it (**and what questions you cannot answer with it**).
+
+-   In fact, these are more likely to be practical questions for you since most likely you will receive data sets to work with: maybe at your company or even in this class with the labs.
+
+-   Here is another example. This time I will preview a data set from a package called `palmerpenguins` which is available to you on the [course server](https://stat20.datahub.berkeley.edu).
+
+-   The documentation for the dataset is available [here](https://allisonhorst.github.io/palmerpenguins/).
+
+. . .
+
+## Answering Questions with Data
+
+```{r, echo = TRUE}
+library(palmerpenguins)
+
+# Load the data set and print the first few rows
+data(penguins)
+
+head(penguins, n = 6)
+```
+
+-   You can also view the data set on the [course server](https://stat20.datahub.berkeley.edu).
+
+    -   Click on the little spreadsheet in the top right corner of the screen once you load the `penguins` data and see it pop up there
+
+    -   This might be better to do since you can see the different species of penguins and the different islands on which they live
+
+. . .
+
+## Answering Questions with Data
+
+-   For the left side of the room: What question could you answer with this data?
+
+    -   Exercise
+
+-   For the right side of the room: What question could you *not* answer with this data? What extra data would you need?
+
+    -   Exercise
+
+. . .
+
+# Logistics
+
+## Berkeley Summer Sessions Stat 20
+
+Let's decide office hours!
+
+. . .
+
+## Berkeley Summer Sessions Stat 20
+
+-   Ed: The Course Forum
+
+-   Access it by clicking [here](https://edstem.org/us/courses/22965/discussion/)
+
+-   This is your *first point of contact* for any questions regarding the course!
+
+    -   Please post publicly when appropriate!
+
+-   Check here for the **weekly course objectives**
+
+    -   The material we want you to take away each week.
+
+    -   All of this material will be covered in lecture
+
+. . .
+
+# Break
+
+# Introduction
+
+## Course Goals:
+
+After taking this course, you will be able to:
+
+1.  Construct and critique claims made using data.
+
+2.  Perform analysis on a data set in a semi-formal setting.
+
+. . .
+
+# Constructing a claim
+
+## Constructing a claim
+
+![](images/peoplespark.jpg)
+
+## Constructing a claim
+
+![](images/editorial.png)
+
+## Constructing a claim
+
+![](images/support.jpg)
+
+## Constructing a claim
+
+![](images/surveyresultsemail.jpg)
+
+## Constructing a claim
+
+-   We then performed a demo in an RMarkdown file on the [course server](https://stat20.datahub.berkeley.edu) on how to obtain some of the numbers cited in the survey from the actual (namely, the percent margins between support and oppose, before and after participants knew the information about the People's Park project) data-set.
+
+-   The details of the code are not necessary for you to know right now. The main takeaway is that **being able to do statistics on real-world data sets** and **communicating your results clearly and attractively** are the skills that we really want you to get out of the course!
+
+## Constructing a claim
+
+-   In performing the demo, we touched on the following topics:
+
+# The *Taxonomy of Data*
+
+## The *Taxonomy of Data*
+
+-   A framework we use to describe the *types* of variables in a dataset.
+
+-   **Numerical** data: data using numbers that don't correspond to categories
+
+-   **Categorical** data: data that corresponds to categories
+
+    -   The categories can be words or numbers
+
+. . .
+
+## The *Taxonomy of Data*
+
+-   Within these two groups, we have further divisions.
+
+-   For **numerical** data, we have:
+
+    -   *Discrete* data: takes values that have jumps between them
+
+        -   Example: 1, 2, 3, 4, 5,....
+
+        -   Example: 0, 0.5, 1, 1.5, 2, .....
+
+    -   *Continuous* data: can take any value on the real number line.
+
+        -   Example: height of UC Berkeley students
+
+        -   Example: speed of a baseball pitch
+
+. . .
+
+## The *Taxonomy of Data*
+
+-   Within these two groups, we have further divisions.
+
+-   For **categorical** data, we have:
+
+    -   *Ordinal* data: takes values with a natural ordering
+
+        -   Example: COVID-19 swab test results (Positive, Inconclusive, Negative)
+
+        -   Example: Age groups (18-34, 35-54, 55+)
+
+    -   *Nominal* data: does not have a natural ordering.
+
+        -   Example: colors of Skittles
+
+        -   Example: favorite boba place of UC Berkeley students
+
+. . .
+
+## The *Taxonomy of Data*
+
+-   Let's revisit the `penguins` dataset.
+
+-   What are the data types of the following variables in the dataset **as they are recorded**?:
+
+1.  Species (`species`)
+
+2.  Flipper Length (`flipper_length_mm`)
+
+3.  Bill Length (`bill_length_mm`)
+
+. . .
+
+-   Note that in theory, Flipper Length and Bill Length are *numerical* **continuous**!
+
+. . .
+
+## The *Taxonomy of Data*
+
+-   We noticed that the two important questions we worked with in the People's Park (`ppk`) data set used the *Likert Scale*. This is an interesting scale because it can be seen as either numerical discrete or categorical ordinal.
+
+-   Left side of the room: Give an example of situation in which we might want to consider the *Likert Scale* as numerical discrete.
+
+    -   Exercise
+
+-   Right side of the room: Give an example of situation in which we might want to consider the *Likert Scale* as categorical ordinal.
+
+# Help Files
+
+## Help Files
+
+-   If you are ever confused about:
+
+    -   How to use an R function
+
+    -   How to make sense of variables in a data set you've loaded in with a package or from the base installation of R
+
+-   Help files are the way to go.
+
+. . .
+
+## Help Files
+
+-   You can access them using the `?`
+
+-   The file will pop up in the bottom-right window of your RStudio.
+
+. . .
+
+-   Example: accessing the help file for the `mtcars` data set built into R
+
+```{r, echo = TRUE}
+?mtcars
+```
+
+. . .
+
+# Comments
+
+## Comments
+
+-   Used to help others understand your code
+
+-   Put the `#` sign before a line of writing in an R chunk
+
+    -   This is an important habit to pick up for more than one reason:
+    
+        -   Invaluable to others using your code
+        
+        -   Invaluable to yourself
+        
+. . . 
+
+## Comments
+
+-   Example:
+
+. . .
+
+```{r, echo = TRUE}
+## this line will NOT run / produce output
+# 5 + 3
+```
+
+. . . 
+```{r, echo = TRUE }
+## this line will run / produce output
+5 + 3
+
+```
+
+. . . 
+
+# Packages / Libraries
+
+## Packages / Libraries
+
+-   **Packages** (and the **libraries** they are sometimes inside of), offer extra functionality that doesn't come with the base installation of R
+
+-   Because the packages don't come automatically, we have to *load them in* (just in one place in your document) using `library(PACKAGE_NAME_HERE)`
+
+-   We will be using a few different libraries/packages this semester!
+
+    -   The `tidyverse` library
+
+        -   The `dplyr` package for data analysis and wrangling
+
+        -   The `ggplot2` package for data visualization
+
+    -   The `stat20data` package includes data sets we will use
+
+    -   The `infer` package for inferential statistics . . .
+
+# End of Lecture
