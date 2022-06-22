@@ -305,17 +305,13 @@ After taking this course, you will be able to:
 
 -   Let's revisit the `penguins` dataset.
 
--   What are the data types of the following variables in the dataset **as they are recorded**?:
+-   What are the data types of the following variables in the dataset?
 
 1.  Species (`species`)
 
 2.  Flipper Length (`flipper_length_mm`)
 
 3.  Bill Length (`bill_length_mm`)
-
-. . .
-
--   Note that in theory, Flipper Length and Bill Length are *numerical* **continuous**!
 
 . . .
 
