@@ -18,21 +18,32 @@ here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsc
 **Lecturer/Instructor of Record**: Jeremy Sanchez
 
 -   Office: Evans Hall 323
+-   OH: Monday at 1:00p (In-person), Friday at 12:00p (In-person),
+Sunday at 11:00a (Remote), Sunday at 3:00p (Remote)
 -   Write me an email: [jeremysanchez\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=jeremysanchez@berkeley.edu&su=STAT20&body=Hello)
 
 **uGSIs**:
 
 -   Section 101: Wayne Wang
 
+    - OH: Tuesday at 1:00p (Evans 323), Saturday 10:00a (Remote)
+
     -   Write him an email: [whh.bear\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=whh.bear@berkeley.edu&su=STAT20&body=Hello)
 
 -   Section 102: Dev Navani
 
-    -   Write them an email: [devnavani\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=devnavani@berkeley.edu&su=MyNameSTAT20&body=Hello)
+    - OH: Wednesday at 1:00p (Evans 323), Sunday 2:00p (Remote)
+
+    -   Write him an email: [devnavani\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=devnavani@berkeley.edu&su=MyNameSTAT20&body=Hello)
+    
 
 -   Section 103: Qingyi Fang
 
+    -   OH: Thursday at 9:00a (Evans 323), Friday 10:00a (Evans 323)
+
     -   Write her an email: [qyi_fang\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=qyi_fang@berkeley.edu&su=MyNameSTAT20&body=Hello)
+    
+**All OH (Office Hour) times are PDT (Pacific Daylight Time).**
 
 I (Jeremy) and the uGSIs are very excited to have you guys this semester.
 We (Jeremy and uGSIs) recognize this course is often taken by Berkeley
@@ -125,20 +136,6 @@ your classmates.
 
 If you are ill or have been exposed to illness (including and not
 limited to COVID-19), please do not come to lab. Feel free to post on the class forum and visit virtual office hours!
-
-### Office Hours
-
-I and the uGSIs will host office hours each week.
-
-The preferred times will be chosen by you all and we will balance these
-with our personal schedules to select the times. The final times will be
-placed here once they have been chosen. We may adjust the office hour
-schedule throughout the semester as we understand student needs and
-preferences.
-
-Coming to office hours is not only for people that are behind or need
-extra help. Even if you are interested in talking about statistics and
-data science in general, we'd love to chat with you.
 
 ### Materials
 
