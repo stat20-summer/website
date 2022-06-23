@@ -1,5 +1,5 @@
 ---
-title: "Introduction: Part 2"
+title: "Introduction: Part 3"
 institute: "STAT 20 UC Berkeley"
 logo: "images/stat20-hex.png"
 format: 
@@ -307,7 +307,7 @@ penguins <- mutate(penguins, bill_ratio = bill_length_mm/bill_depth_mm)
 new_column <- select(penguins, bill_ratio)
 
 ## New code 
-new_column <- arrange(new_column, bill_ratio)
+new_column <- arrange(new_column, by = desc(bill_ratio))
 
 ## From before
 head(new_column, n = 6)
@@ -323,7 +323,7 @@ penguins <- mutate(penguins, bill_ratio = bill_length_mm/bill_depth_mm)
 new_column <- select(penguins, bill_ratio)
 
 ## New code 
-new_column <- arrange(new_column, bill_ratio)
+new_column <- arrange(new_column, by = desc(bill_ratio))
 
 ## From before
 head(new_column, n = 6)
