@@ -1,0 +1,347 @@
+---
+title: "Introduction: Part 2"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../../assets/stat20.scss"
+    highlight-style: breezedark
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: "images/hex-background.png"
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# First things First
+
+## I realized I hadn't introduced myself properly
+
+-   I am Prof. Jeremy Sanchez (Prof. Jeremy)
+
+-   I am a recent graduate of the Statistics MA program here at Berkeley
+
+-   I graduated from the University of Florida in 2021
+
+-   I was born and raised in St. Petersburg, FL
+
+-   Big sports fan
+
+    -   *Atlanta Falcons*, boxing, *Tampa Bay Rays*, *Tampa Bay Lightning*
+
+-   Big music fan
+
+    -   did a capella in college, my favorite artists are *Kendrick Lamar*, *Anderson .Paak*, and *Curren$y*
+
+. . .
+
+## Berkeley Summer Sessions Stat 20
+
+### Lab Today
+
+-   Will focus on answering Questions Two and Three
+
+    -   I'll touch on this material today in class
+
+-   Question Four is answering the [welcome survey](https://docs.google.com/forms/d/e/1FAIpQLSdDZSUZeXxlgiGA1C33XJZk_3XHHHE4yTQ6A9liB3N8WDyDTA/viewform?usp=sf_link)
+
+. . .
+
+## Berkeley Summer Sessions Stat 20
+
+### The course forum Ed
+
+-   If you have not received an invitation to join Ed in your e-mail inbox, please come up to the podium during the break and I will send you an invite.
+
+. . .
+
+# Recap
+
+## Constructing a claim
+
+![](images/support.jpg)
+
+## Constructing a claim
+
+![](images/surveyresultsemail.jpg)
+
+. . .
+
+## Constructing a claim
+
+-   Yesterday in class we wrote some code which extracted the percent margin of support vs opposition to the People's Park project BEFORE participants were told about the details of the project
+
+    -   Question 18 in the `ppk` dataset
+
+-   This code is available at the [Lecture Code thread](https://edstem.org/us/courses/22965/discussion/1593154) on Ed
+
+-   A good exercise to prepare for next week would be for you to run the same code but for Question 21 (percent margin of support vs opposition AFTER details were given to the participants)
+
+-   Let's take a look at the code to segue into our next topic. At this point I pulled up an RStudio session and went over the code, noting the **R comments** I made.
+
+. . .
+
+# Reproducibility
+
+## Reproducibility
+
+-   We can think of **reproducibility** as the capacity of ones' work to be replicated easily by others
+
+-   If only you can produce your results, your results should be called into question
+
+. . .
+
+## Reproducibility
+
+-   We are going to focus on one aspect of **reproducibility** at this stage: leaving **comments.**
+
+## Comments
+
+-   Used to help others understand your code
+
+-   Put the `#` sign before a line of writing in an R chunk
+
+    -   This is an important habit to pick up for more than one reason:
+
+        -   Invaluable to others using your code
+
+        -   Invaluable to yourself
+
+. . .
+
+## Comments
+
+-   Example:
+
+. . .
+
+```{r, echo = TRUE}
+## this line will NOT run / produce output
+# 5 + 3
+```
+
+. . .
+
+```{r, echo = TRUE }
+## this line will run / produce output
+5 + 3
+
+```
+
+. . .
+
+## A Note on the Problem Set
+
+-   Question 4 requires the knowledge of another hallmark of reproducibility, *setting random seeds.*
+
+-   However, random seeds do not appear as naturally as I had imagined in our Week 1 introductory lectures when I was writing the problem set. I apologize for this.
+
+-   We will cover how this applies to the work we do in Stat 20 in Week 3, so this material is indeed fair game for the midterm.
+
+-   [Here](http://rfunction.com/archives/62) is a link where you can learn more about how to set a random seed in R using `set.seed()`.
+
+. . .
+
+## Constructing a claim
+
+-   Now let's take another look at the code that we wrote to discuss our first `dplyr` functions. At this point I returned to the RStudio session and pointed out the use of `mutate()`.
+
+. . .
+
+# `dplyr` functions
+
+## What is `dplyr`?
+
+-   A package within the `tidyverse` library
+
+-   *"A Grammar of Data Manipulation"*
+
+-   Used to make new columns in a data set, extract certain rows of a datset, perform summary statistics on groups of data, and more!!
+
+-   This week, we will take a look at three `dplyr` functions. Next week you will be introduced to the rest of the relevant `dplyr` functions you will use in the course.
+
+-   To use them, you need to load the `tidyverse` library first
+
+. . .
+
+## `mutate()`
+
+-   Ever wanted to make a new variable in your dataset based off of existing variables? `mutate()` is the function for you!
+
+-   Format: `mutate(MY_DATA_FRAME, NEW_VARIABLE_NAME = AN_OPERATION_WITH_EXISTING_VARS_IN_THE_DATA_FRAME)`
+
+-   Then you will have a new `MY_DATA_FRAME` with the additional variable `NEW_VARIABLE_NAME`
+
+. . .
+
+## `mutate()`
+
+-   Example: the `penguins` data set in the `palmerpenguins` package.
+
+. . .
+
+> Make a new column which records the *ratio* of bill length to bill depth.
+
+. . .
+
+```{r, echo = FALSE, message = FALSE}
+library(tidyverse)
+library(palmerpenguins)
+data(penguins)
+```
+
+```{r, echo = TRUE}
+penguins <- mutate(penguins, bill_ratio = bill_length_mm/bill_depth_mm)
+head(penguins, n = 6)
+```
+
+. . .
+
+-   Wait: Where is our new column?
+
+## `select()`
+
+-   It's there, (I promise) but it has been added to the *end* of the dataset, and the dataset had too much width for all the columns to be shown on the previous slide.
+
+-   If we want to pick out a specific column, we can use `select()`.
+
+-   Format: `select(MY_DATA_FRAME, COLUMN_I_WANT, ANOTHER_COLUMN_I_WANT,...)`
+
+-   Of course, `select()` is not only useful for this purpose. It is also useful in picking the relevant variables for the question you are trying to answer out of a data set with many variables.
+
+## `select()`
+
+-   Example: the `penguins` data set in the `palmerpenguins` package.
+
+. . .
+
+> Make a new column which records the ratio of bill length to bill depth. Now print the first few rows of the new column to the screen.
+
+. . .
+
+```{r, echo = TRUE}
+## From before
+penguins <- mutate(penguins, bill_ratio = bill_length_mm/bill_depth_mm)
+
+## New code. Isolate the bill_ratio column and print some rows out
+new_column <- select(penguins, bill_ratio)
+head(new_column, n = 6)
+```
+
+. . .
+
+## 
+
+-   As you can see (disregarding the `NA`) we also have that the values of `bill_ratio` are in no real order. How could we put them in order?
+
+. . .
+
+## `arrange()`
+
+-   A function which sorts numerical variables by value, and categorical variables by alphabetical order.
+
+-   Format:
+
+    -   Increasing order: `arrange(MY_DATA_FRAME, by = COLUMN_NAME)`
+
+    -   Decreasing order: `arrange(MY_DATA_FRAME, by = desc(COLUMN_NAME))`
+
+        -   `desc()` is for "descending".
+
+. . .
+
+## `arrange()`
+
+-   Example: the `penguins` data set in the `palmerpenguins` package.
+
+. . .
+
+> Make a new column which records the ratio of bill length to bill depth. Now print the first few rows of the new column to the screen after arranging the column in decreasing order.
+
+. . .
+
+```{r, echo = TRUE, eval = F}
+## From before
+penguins <- mutate(penguins, bill_ratio = bill_length_mm/bill_depth_mm)
+new_column <- select(penguins, bill_ratio)
+
+## New code 
+new_column <- arrange(new_column, bill_ratio)
+
+## From before
+head(new_column, n = 6)
+```
+
+. . .
+
+## `arrange()`
+
+```{r, echo = TRUE}
+## From before
+penguins <- mutate(penguins, bill_ratio = bill_length_mm/bill_depth_mm)
+new_column <- select(penguins, bill_ratio)
+
+## New code 
+new_column <- arrange(new_column, bill_ratio)
+
+## From before
+head(new_column, n = 6)
+```
+
+. . .
+
+## The beginning of a pipeline
+
+. . .
+
+> Make a new column which records the *ratio* of bill length to bill depth.
+
+. . .
+
+> Make a new column which records the ratio of bill length to bill depth. Now print the first few rows of the new column to the screen.
+
+. . .
+
+> Make a new column which records the ratio of bill length to bill depth. Now print the first few rows of the new column to the screen after arranging the column in decreasing order.
+
+. . .
+
+## The beginning of a pipeline
+
+-   Notice that each of those questions *built on one another*!
+
+-   We were able to translate those building blocks into code in this example.
+
+    -   `mutate()`
+
+    -   `mutate()` then `select()`
+
+    -   `mutate()` then `select()` then `arrange()`
+
+-   Next week we will learn how to use a pipeline to do all of these functions in one command, but for the purposes of this week you can just do one command per line and save your results into an object using `<-`.
+
+-   Then, use that object in your next command.
+
+. . .
+
+# Break
+
+# Contingency Tables
+
+## Answering Questions with Data
+
+-   Here's another question that we might want to answer using data.
+
+. . .
+
+>  test
+
+-   Sketch a provisional dataset that would help answer this question.
+
+    -   Exercise
+
+## Answering Questions with Data

@@ -385,6 +385,170 @@ With all of this in hand, you should be able to finish Question 1 now and be pre
 
 ---
 
+# Day 2 
+
+Welcome back! Get into groups of 3-5.
+
+----
+
+## Questions 2 and 3
+
+---
+
+# Question 2
+
+---
+
+## First, some background.
+
+&lt;img src="images/arbuthnot-portrait.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Arbuthnot
+
+.pull-left[
+**Who**: John Arbuthnot, Scottish mathematician/physician  
+**When**: 1710  
+**Where**: London, England  
+**Why**: Try to determine the ratio of the sexes of children at birth; i.e. what is the chance that a newly born child is female?  
+**How**: Collecting christening records from all of the parish churches in London.
+]
+
+.pull-right[
+&lt;img src="images/thames.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## What is a christening record?
+--
+
+A Christening is a ceremony/rite in the Church of England where:
+
+1. The parents bring their new born child to a priest at the church.
+
+--
+
+2. As part of the ceremony, the parents give a first name to the child before the child is baptized (inducted into the church).
+
+--
+
+3. The name of the child and their parents are recorded in a ledger.
+
+--
+
+John Arbuthnot tabulated the total count of names in each year that were traditionally female and male names.
+
+---
+&lt;img src="images/christening-records.png" style="display: block; margin: auto;" /&gt;
+
+---
+&lt;img src="images/christening-records-zoom.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Question 2a (3 mins) 
+
+a.    What do you believe the probability of a child being born female is? Provide the evidence/reasoning you used to form your opinion.
+
+---
+
+## Embedding Images in RMarkdown
+
+-   Upload your image by clicking on the *Upload* button
+
+    -   Near the yellow up-arrow in the file directory (bottom right pane)
+    
+--
+    
+-   Go to the visual editor and click on the blue portrait icon
+
+--
+
+-   Browse for your file, then click OK
+
+## Question 2b (10 mins)
+
+b.    Provide a sketch (upload your drawing) of what you believe Arbuthnot's finished data set might look like. Sketch five example rows. Where appropriate, you can (and should) make up values. Make sure you label your columns. 
+
+      -   Once you are done, have one representative from your group come to the board and draw your sketch. We will go over them together.
+      
+---
+
+## Question 2c-d (5 mins)
+
+c.    What does each row in your data set correspond to?
+
+d.    What are the data types of each column according to the Taxonomy of Data?
+
+---
+
+## Question 2e (5 mins)
+
+e.    Now, with R code, construct a *data frame* based off the data set you have sketched. Save the final data frame into an object called `my_arbuthnot`.
+
+---
+
+# Question 3
+
+---
+
+## Question 3
+
+Now, we will be reviewing the  `dplyr` functions `mutate()`, `select()`
+and `arrange()`. Using these will comprise the bulk of the work for this question.
+
+---
+
+## Question 3
+
+-   `mutate()`: Used to create a new variable from existing variables
+
+    -   This week, your mutations will be mathematical operations on exisiting columns
+    
+    -   Example: mutate(MY_DATASET, VAR_C = VAR_B - VAR_A)
+
+--
+    
+-   `select()`: Used to extract a column(s) from a data frame.
+
+    -   Example: select(MY_DATASET, VAR_C, VAR_B, ...)
+    
+---
+## Question 3
+
+-   `arrange()`: Used to sort numerical variables by increasing or decreasing order; variables coded in English by alphabetical order
+
+    -   Example: arrange(MY_DATASET, by = VAR_C)
+
+    -   You would use `by = desc(VAR_C)` within the `arrange()` command to get descending order
+    
+---
+
+## Questions 3b-d (17 mins)
+
+b.    Which year saw the *most* number of boys christened?
+
+c.    Which year saw the *least* number of *children* christened?
+
+d.    What was the proportion of girl names christened in 1694? Please round to three decimal places.
+
+---
+
+# End of Day 2 (Have a good weekend!)
+
+
+    
+
+
+
+
+
+
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
