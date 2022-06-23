@@ -402,11 +402,11 @@
 <li class="fragment"><p>I was born and raised in St.&nbsp;Petersburg, FL</p></li>
 <li class="fragment"><p>Big sports fan</p>
 <ul>
-<li class="fragment"><em>Atlanta Falcons</em>, boxing, <em>Tampa Bay Rays</em>, <em>Tampa Bay Lightning</em></li>
+<li class="fragment"><em>Atlanta Falcons</em>, boxing, <em>Tampa Bay Rays; Lightning</em></li>
 </ul></li>
 <li class="fragment"><p>Big music fan</p>
 <ul>
-<li class="fragment">did a capella in college, my favorite artists are <em>Kendrick Lamar</em>, <em>Anderson .Paak</em>, and <em>Curren$y</em></li>
+<li class="fragment">did a capella in undergrad,<em>Kendrick Lamar</em>, <em>Anderson .Paak</em> and <em>Curren$y</em></li>
 </ul></li>
 </ul>
 </section>
@@ -416,12 +416,23 @@
 <ul>
 <li class="fragment"><p>Will focus on answering Questions Two and Three</p>
 <ul>
-<li class="fragment">I’ll touch on this material today in class</li>
+<li class="fragment">I’ll touch on the material for Question Three today in class</li>
 </ul></li>
 <li class="fragment"><p>Question Four is answering the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdDZSUZeXxlgiGA1C33XJZk_3XHHHE4yTQ6A9liB3N8WDyDTA/viewform?usp=sf_link">welcome survey</a></p></li>
 </ul>
 </section>
 <section id="berkeley-summer-sessions-stat-20-1" class="slide level2">
+<h2>Berkeley Summer Sessions Stat 20</h2>
+<h3 id="office-hours">Office Hours</h3>
+<ul>
+<li class="fragment"><p>Office Hour times and locations now available on the course website under the <em>Syllabus tab</em></p></li>
+<li class="fragment"><p>For now, all in-person office hours are in <strong>my office, Evans 323</strong></p>
+<ul>
+<li class="fragment">This is subject to change</li>
+</ul></li>
+</ul>
+</section>
+<section id="berkeley-summer-sessions-stat-20-2" class="slide level2">
 <h2>Berkeley Summer Sessions Stat 20</h2>
 <h3 id="the-course-forum-ed">The course forum Ed</h3>
 <ul>
@@ -450,7 +461,20 @@
 </ul></li>
 <li class="fragment"><p>This code is available at the <a href="https://edstem.org/us/courses/22965/discussion/1593154">Lecture Code thread</a> on Ed</p></li>
 <li class="fragment"><p>A good exercise to prepare for next week would be for you to run the same code but for Question 21 (percent margin of support vs opposition AFTER details were given to the participants)</p></li>
-<li class="fragment"><p>Let’s take a look at the code to segue into our next topic. At this point I pulled up an RStudio session and went over the code, noting the <strong>R comments</strong> I made.</p></li>
+</ul>
+</section>
+<section id="constructing-a-claim-3" class="slide level2">
+<h2>Constructing a claim</h2>
+<ul>
+<li class="fragment"><p>In fact, let’s take a look at the code we wrote to segue into our next topic. At this point I pulled up an RStudio session and went over the code, noting the <strong>R comments</strong> I made. This will comprise the material in the next section of the slides.</p></li>
+<li class="fragment"><p>We also discussed how to find the <strong>dimension</strong> of a data set.</p>
+<ul>
+<li class="fragment"><p>Example: The <code>ppk</code> data set has 1658 observations (<strong>rows</strong>) of 45 variables (<strong>columns</strong>).</p>
+<ul>
+<li class="fragment"><p>You can find this info in the environment panel of RStudio (top-right)</p></li>
+<li class="fragment"><p>Therefore, the dimension of <code>ppk</code> is 1658x45 (read 1658 columns by 45 rows, or 1658 by 45.)</p></li>
+</ul></li>
+</ul></li>
 </ul>
 </section></section>
 <section>
@@ -515,7 +539,7 @@
 <li class="fragment"><p><a href="http://rfunction.com/archives/62">Here</a> is a link where you can learn more about how to set a random seed in R using <code>set.seed()</code>.</p></li>
 </ul>
 </section>
-<section id="constructing-a-claim-3" class="slide level2">
+<section id="constructing-a-claim-4" class="slide level2">
 <h2>Constructing a claim</h2>
 <ul>
 <li class="fragment">Now let’s take another look at the code that we wrote to discuss our first <code>dplyr</code> functions. At this point I returned to the RStudio session and pointed out the use of <code>mutate()</code>.</li>
@@ -540,7 +564,10 @@
 <h2><code>mutate()</code></h2>
 <ul>
 <li class="fragment"><p>Ever wanted to make a new variable in your dataset based off of existing variables? <code>mutate()</code> is the function for you!</p></li>
-<li class="fragment"><p>Format: <code>mutate(MY_DATA_FRAME, NEW_VARIABLE_NAME = AN_OPERATION_WITH_EXISTING_VARS_IN_THE_DATA_FRAME)</code></p></li>
+<li class="fragment"><p>Format: <code>mutate(MY_DATA_FRAME, NEW_VARIABLE_NAME = AN_OPERATION_WITH_EXISTING_VARS_IN_THE_DATA_FRAME)</code></p>
+<ul>
+<li class="fragment">The operations can be mathematical or “logical” (outputting TRUE or FALSE) in nature</li>
+</ul></li>
 <li class="fragment"><p>Then you will have a new <code>MY_DATA_FRAME</code> with the additional variable <code>NEW_VARIABLE_NAME</code></p></li>
 </ul>
 </section>
@@ -608,6 +635,18 @@
 <span id="cb6-4"><a href="#cb6-4"></a><span class="do">## New code. Isolate the bill_ratio column and print some rows out</span></span>
 <span id="cb6-5"><a href="#cb6-5"></a>new_column <span class="ot">&lt;-</span> <span class="fu">select</span>(penguins, bill_ratio)</span>
 <span id="cb6-6"><a href="#cb6-6"></a><span class="fu">head</span>(new_column, <span class="at">n =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="select-2" class="slide level2">
+<h2><code>select()</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="do">## From before</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>penguins <span class="ot">&lt;-</span> <span class="fu">mutate</span>(penguins, <span class="at">bill_ratio =</span> bill_length_mm<span class="sc">/</span>bill_depth_mm)</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="do">## New code. Isolate the bill_ratio column and print some rows out</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>new_column <span class="ot">&lt;-</span> <span class="fu">select</span>(penguins, bill_ratio)</span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="fu">head</span>(new_column, <span class="at">n =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   bill_ratio
@@ -620,13 +659,11 @@
 6       1.91</code></pre>
 </div>
 </div>
-</div>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
+<div class="fragment">
 <ul>
 <li class="fragment">As you can see (disregarding the <code>NA</code>) we also have that the values of <code>bill_ratio</code> are in no real order. How could we put them in order?</li>
 </ul>
+</div>
 </section>
 <section id="arrange" class="slide level2">
 <h2><code>arrange()</code></h2>
@@ -654,21 +691,6 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="do">## From before</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>penguins <span class="ot">&lt;-</span> <span class="fu">mutate</span>(penguins, <span class="at">bill_ratio =</span> bill_length_mm<span class="sc">/</span>bill_depth_mm)</span>
-<span id="cb8-3"><a href="#cb8-3"></a>new_column <span class="ot">&lt;-</span> <span class="fu">select</span>(penguins, bill_ratio)</span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="do">## New code </span></span>
-<span id="cb8-6"><a href="#cb8-6"></a>new_column <span class="ot">&lt;-</span> <span class="fu">arrange</span>(new_column, bill_ratio)</span>
-<span id="cb8-7"><a href="#cb8-7"></a></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="do">## From before</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="fu">head</span>(new_column, <span class="at">n =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</section>
-<section id="arrange-2" class="slide level2">
-<h2><code>arrange()</code></h2>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="do">## From before</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>penguins <span class="ot">&lt;-</span> <span class="fu">mutate</span>(penguins, <span class="at">bill_ratio =</span> bill_length_mm<span class="sc">/</span>bill_depth_mm)</span>
 <span id="cb9-3"><a href="#cb9-3"></a>new_column <span class="ot">&lt;-</span> <span class="fu">select</span>(penguins, bill_ratio)</span>
@@ -678,6 +700,21 @@
 <span id="cb9-7"><a href="#cb9-7"></a></span>
 <span id="cb9-8"><a href="#cb9-8"></a><span class="do">## From before</span></span>
 <span id="cb9-9"><a href="#cb9-9"></a><span class="fu">head</span>(new_column, <span class="at">n =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="arrange-2" class="slide level2">
+<h2><code>arrange()</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="do">## From before</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>penguins <span class="ot">&lt;-</span> <span class="fu">mutate</span>(penguins, <span class="at">bill_ratio =</span> bill_length_mm<span class="sc">/</span>bill_depth_mm)</span>
+<span id="cb10-3"><a href="#cb10-3"></a>new_column <span class="ot">&lt;-</span> <span class="fu">select</span>(penguins, bill_ratio)</span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="do">## New code </span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>new_column <span class="ot">&lt;-</span> <span class="fu">arrange</span>(new_column, bill_ratio)</span>
+<span id="cb10-7"><a href="#cb10-7"></a></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="do">## From before</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="fu">head</span>(new_column, <span class="at">n =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   bill_ratio
@@ -735,28 +772,80 @@
 </section>
 <section id="answering-questions-with-data" class="slide level2">
 <h2>Answering Questions with Data</h2>
+
+<img data-src="images/surveyresultsemail.jpg" class="r-stretch"></section>
+<section id="answering-questions-with-data-1" class="slide level2">
+<h2>Answering questions with data</h2>
 <ul>
-<li class="fragment">Here’s another question that we might want to answer using data.</li>
+<li class="fragment">Here’s a concrete question that we might want to answer using the People’s Park data.</li>
 </ul>
 <div class="fragment">
 <blockquote>
-<p>test</p>
+<p>What is the relationship between attitude toward the People’s Park project (oppose/support) and knowledge of the project (before info was given /after info was given)?</p>
 </blockquote>
 <ul>
-<li class="fragment"><p>Sketch a provisional dataset that would help answer this question.</p>
+<li class="fragment"><p>Sketch a provisional data set that would help answer this question.</p>
 <ul>
 <li class="fragment">Exercise</li>
 </ul></li>
 </ul>
 </div>
 </section>
-<section id="answering-questions-with-data-1" class="slide level2">
-<h2>Answering Questions with Data</h2>
+<section id="contingency-tables-1" class="slide level2">
+<h2>Contingency Tables</h2>
+<ul>
+<li class="fragment"><p>It turns out that with two categorical variables and a question like this, we can use a different data structure called a <strong>contingency table</strong>.</p></li>
+<li class="fragment"><p>Generally we will be working with 2x2 contingency tables.</p></li>
+<li class="fragment"><p>They will be a prominent data structure in Weeks 5 and 6!</p></li>
+</ul>
+</section>
+<section id="contingency-tables-2" class="slide level2 scrollable">
+<h2>Contingency Tables</h2>
+
+<img data-src="images/contingency-table-ex.jpeg" class="r-stretch"></section>
+<section id="contingency-tables-3" class="slide level2 scrollable">
+<h2>Contingency Tables</h2>
+
+<img data-src="images/contingency-table-ex-2.jpeg" class="r-stretch"></section>
+<section id="contingency-tables-4" class="slide level2">
+<h2>Contingency Tables</h2>
+<blockquote>
+<p>What is the relationship between attitude toward the People’s Park project (oppose/support) and depth of knowledge about the project (surface-level / complete)?</p>
+</blockquote>
+<div class="fragment">
+<ul>
+<li class="fragment"><p>At this point, we went to the course server and discussed code for getting a contingency table that might help us capture this relationship. It will be titled <em>lecture3.Rmd</em> in the <a href="https://edstem.org/us/courses/22965/discussion/1593154">Lecture Code thread</a>.</p></li>
+<li class="fragment"><p>Most of the details of the code are <em>not necessary</em> for you to know until the end of next week. See the file.</p></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="moving-forward" class="title-slide slide level1 center">
+<h1>Moving forward</h1>
+
+</section>
+<section id="the-four-types-of-claim" class="slide level2">
+<h2>The Four Types of Claim</h2>
+<ol type="1">
+<li class="fragment"><p>Descriptive</p></li>
+<li class="fragment"><p>Generalizations</p></li>
+<li class="fragment"><p>Causal</p></li>
+<li class="fragment"><p>Predictive</p></li>
+</ol>
+</section>
+<section id="the-four-types-of-claim-1" class="slide level2">
+<h2>The Four Types of Claim</h2>
+<ul>
+<li class="fragment">Next week we will start constructing and critiquing <em>Descriptive Claims</em>!</li>
+</ul>
+</section></section>
+<section id="end-of-lecture-3" class="title-slide slide level1 center">
+<h1>End of Lecture 3</h1>
 
 <img src="images/stat20-hex.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

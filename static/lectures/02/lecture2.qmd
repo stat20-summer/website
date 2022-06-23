@@ -411,4 +411,4 @@ After taking this course, you will be able to:
 
     -   The `infer` package for inferential statistics . . .
 
-# End of Lecture
+# End of Lecture 2

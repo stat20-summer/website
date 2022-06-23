@@ -19,20 +19,20 @@ here](https://docs.google.com/document/d/1RgHI8VloHpOMoAHkgmqjub7364neb8At74OOsc
 
 -   Office: Evans Hall 323
 -   OH: Monday at 1:00p (In-person), Friday at 12:00p (In-person),
-Sunday at 11:00a (Remote), Sunday at 3:00p (Remote)
+Sunday at 11:00a ([Remote](https://berkeley.zoom.us/j/94797313678?pwd=VkI3S1ZQNXdpT3hZTEpvUFBoLzZpZz09)), Sunday at 3:00p (Remote)
 -   Write me an email: [jeremysanchez\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=jeremysanchez@berkeley.edu&su=STAT20&body=Hello)
 
 **uGSIs**:
 
 -   Section 101: Wayne Wang
 
-    - OH: Tuesday at 1:00p (Evans 323), Saturday 10:00a (Remote)
+    - OH: Tuesday at 1:00p (Evans 323), Saturday 10:00a ([Remote](https://berkeley.zoom.us/j/99070259335?pwd=UC9lKzBVWG9kcitVc3lHenA3WFpUUT09))
 
     -   Write him an email: [whh.bear\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=whh.bear@berkeley.edu&su=STAT20&body=Hello)
 
 -   Section 102: Dev Navani
 
-    - OH: Wednesday at 1:00p (Evans 323), Sunday 2:00p (Remote)
+    - OH: Wednesday at 1:00p (Evans 323), Sunday 2:00p ([Remote](https://berkeley.zoom.us/j/3816817597pwd=Nk5CUG9JZUgraGdWdjdjcXhHOEdQQT09))
 
     -   Write him an email: [devnavani\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=devnavani@berkeley.edu&su=MyNameSTAT20&body=Hello)
     
@@ -147,7 +147,7 @@ Modern Statistics](https://openintro-ims.netlify.app/) **IMS** by
 Çetinkaya-Rundel and Hardin. This is a free online textbook that can
 also be downloaded as a [pdf](https://leanpub.com/imstat) or ordered in
 [print](https://www.amazon.com/Introduction-Modern-Statistics-Mine-%C3%87etinkaya-Rundel/dp/1943450145/)
-for \$15. I
+for \$15. 
 
 The following texts are valuable supplementary texts and will be drawn
 upon for additional readings:
@@ -224,7 +224,7 @@ Gradescope is really awesome and you can return there to get feedback on
 your work or to file a regrade request if you you notice that we made an
 error in applying the rubric to your work.
 
-##### Late Work
+#### Late Work
 
 As another part of trying to lasso each section of the course into its
 week, late work will not be accepted. However, we 

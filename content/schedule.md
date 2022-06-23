@@ -50,7 +50,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>6/23</p></td>
 <td style="text-align: left;"><p><a href="NA">Taxonomy and Tools for Data</a></p></td>
 <td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/data-applications.html">IMS Ch 1.3</a></p></td>
-<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/data-applications.html">RDS Ch 5 (only functions we've covered so far)</a></p></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">

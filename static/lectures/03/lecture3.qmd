@@ -31,11 +31,11 @@ execute:
 
 -   Big sports fan
 
-    -   *Atlanta Falcons*, boxing, *Tampa Bay Rays*, *Tampa Bay Lightning*
+    -   *Atlanta Falcons*, boxing, *Tampa Bay Rays; Lightning*
 
 -   Big music fan
 
-    -   did a capella in college, my favorite artists are *Kendrick Lamar*, *Anderson .Paak*, and *Curren$y*
+    -   did a capella in undergrad,*Kendrick Lamar*, *Anderson .Paak* and *Curren$y*
 
 . . .
 
@@ -45,9 +45,21 @@ execute:
 
 -   Will focus on answering Questions Two and Three
 
-    -   I'll touch on this material today in class
+    -   I'll touch on the material for Question Three today in class
 
 -   Question Four is answering the [welcome survey](https://docs.google.com/forms/d/e/1FAIpQLSdDZSUZeXxlgiGA1C33XJZk_3XHHHE4yTQ6A9liB3N8WDyDTA/viewform?usp=sf_link)
+
+. . .
+
+## Berkeley Summer Sessions Stat 20
+
+### Office Hours
+
+-   Office Hour times and locations now available on the course website under the *Syllabus tab*
+
+-   For now, all in-person office hours are in **my office, Evans 323**
+
+    -   This is subject to change
 
 . . .
 
@@ -81,9 +93,21 @@ execute:
 
 -   A good exercise to prepare for next week would be for you to run the same code but for Question 21 (percent margin of support vs opposition AFTER details were given to the participants)
 
--   Let's take a look at the code to segue into our next topic. At this point I pulled up an RStudio session and went over the code, noting the **R comments** I made.
-
 . . .
+
+## Constructing a claim
+
+-   In fact, let's take a look at the code we wrote to segue into our next topic. At this point I pulled up an RStudio session and went over the code, noting the **R comments** I made. This will comprise the material in the next section of the slides.
+
+-   We also discussed how to find the **dimension** of a data set.
+
+    -   Example: The `ppk` data set has 1658 observations (**rows**) of 45 variables (**columns**).
+
+        - You can find this info in the environment panel of RStudio (top-right)
+        
+        -   Therefore, the dimension of `ppk` is 1658x45 (read 1658 columns by 45 rows, or 1658 by 45.)
+
+. . . 
 
 # Reproducibility
 
@@ -174,6 +198,8 @@ execute:
 
 -   Format: `mutate(MY_DATA_FRAME, NEW_VARIABLE_NAME = AN_OPERATION_WITH_EXISTING_VARS_IN_THE_DATA_FRAME)`
 
+    - The operations can be mathematical or "logical" (outputting TRUE or FALSE) in nature
+
 -   Then you will have a new `MY_DATA_FRAME` with the additional variable `NEW_VARIABLE_NAME`
 
 . . .
@@ -223,7 +249,7 @@ head(penguins, n = 6)
 
 . . .
 
-```{r, echo = TRUE}
+```{r, echo = TRUE, eval = FALSE}
 ## From before
 penguins <- mutate(penguins, bill_ratio = bill_length_mm/bill_depth_mm)
 
@@ -234,7 +260,18 @@ head(new_column, n = 6)
 
 . . .
 
-## 
+## `select()`
+
+```{r, echo = TRUE, eval = TRUE}
+## From before
+penguins <- mutate(penguins, bill_ratio = bill_length_mm/bill_depth_mm)
+
+## New code. Isolate the bill_ratio column and print some rows out
+new_column <- select(penguins, bill_ratio)
+head(new_column, n = 6)
+```
+
+. . . 
 
 -   As you can see (disregarding the `NA`) we also have that the values of `bill_ratio` are in no real order. How could we put them in order?
 
@@ -334,14 +371,79 @@ head(new_column, n = 6)
 
 ## Answering Questions with Data
 
--   Here's another question that we might want to answer using data.
+![](images/surveyresultsemail.jpg)
 
 . . .
 
->  test
+## Answering questions with data
 
--   Sketch a provisional dataset that would help answer this question.
+-   Here's a concrete question that we might want to answer using the People's Park data.
+
+. . .
+
+> What is the relationship between attitude toward the People's Park project (oppose/support) and knowledge of the project (before info was given /after info was given)?
+
+-   Sketch a provisional data set that would help answer this question.
 
     -   Exercise
 
-## Answering Questions with Data
+. . .
+
+## Contingency Tables
+
+-   It turns out that with two categorical variables and a question like this, we can use a different data structure called a **contingency table**.
+
+-   Generally we will be working with 2x2 contingency tables.
+
+-   They will be a prominent data structure in Weeks 5 and 6!
+
+. . .
+
+## Contingency Tables {.scrollable}
+
+![](images/contingency-table-ex.jpeg)
+
+. . .
+
+## Contingency Tables {.scrollable}
+
+![](images/contingency-table-ex-2.jpeg)
+
+. . .
+
+## Contingency Tables
+
+> What is the relationship between attitude toward the People's Park project (oppose/support) and depth of knowledge about the project (surface-level / complete)?
+
+. . .
+
+-   At this point, we went to the course server and discussed code for getting a contingency table that might help us capture this relationship. It will be titled *lecture3.Rmd* in the [Lecture Code thread](https://edstem.org/us/courses/22965/discussion/1593154).
+
+-   Most of the details of the code are *not necessary* for you to know until the end of next week. See the file. 
+
+. . .
+
+# Moving forward
+
+. . .
+
+## The Four Types of Claim
+
+1.  Descriptive
+
+2.  Generalizations
+
+3.  Causal
+
+4.  Predictive
+
+. . .
+
+## The Four Types of Claim
+
+-   Next week we will start constructing and critiquing *Descriptive Claims*!
+
+
+. . .
+
+# End of Lecture 3
