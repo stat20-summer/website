@@ -56,10 +56,6 @@ What are the data types of each column in your data set according to the Taxonom
 
 Now, with R code, construct a *data frame* based off the data set you have sketched. Save the final data frame into an object called `my_arbuthnot`.
 
-### part f
-
-What do you believe the probability of a child being born female is? Provide the evidence/reasoning you used to form your opinion.
-
 ## Question 3
 
 It turns out that we have access to the actual dataset Arbuthnot collected! On [DataHub](https://stat20.datahub.berkeley.edu), it is called `arbuthnot` and can be accessed by loading the `stat20data` library and then running the line
