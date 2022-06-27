@@ -1,0 +1,247 @@
+---
+title: 'Lab 2: Descriptive Statistics'
+author: "BSS Stat 20"
+date: 'June 27th, 2022'
+output:
+  xaringan::moon_reader:
+    css: stat20.css
+    lib_dir: assets/libs
+    nature:
+      highlightStyle: atelier-forest-light
+      highlightLines: true
+      highlightSpans: true
+      ratio: 16:9
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE,
+                      echo = FALSE,
+                      fig.align = "center",
+                      fig.retina = 3)
+
+library(tidyverse)
+library(xaringanthemer)
+```
+
+class: center, middle
+
+# Welcome to Lab!
+
+---
+
+# Day 1
+
+## Clarification of Lab Submission Format
+
+-   Two main takeaways:
+  
+  -   Knit your .Rmd documents *directly* to .pdf and submit
+
+--
+
+-   Make sure you tag your answers to your pages *completely* and *correctly*
+  
+--
+  
+  -   Both of these formatting requests will be graded
+ 
+---
+# The dataset - Bay Area Flights!
+
+```{r}
+knitr::include_graphics("images/bts.png")
+```
+
+## The dataset - Bay Area Flights!
+
+-   Includes flights out of Oakland Int'l Airport (OAK) and San Francisco Int'l Airport (SFO) from the year 2020
+
+--
+  
+  -   Comes from the Bureau of Transportation Statistics
+
+--
+  
+  -   Has over 120,000 observations!
+  
+---
+
+## Lab 2 Goals
+  
+  -   After this lab, you will be able to:
+  
+--
+  
+    -   Manipulate a fairly large data set to answer questions about the data
+
+    -   Visualize a large set of data using `ggplot()`
+
+---
+
+## Lab 2 Questions
+
+-   Questions/Topics we will examine:
+  
+      -   Flight delays
+
+      -   The effect of COVID-19 on Bay Area air traffic
+
+      -   How can we have the best flight from SFO to City X?
+
+---
+  
+# But first:
+  
+## Let's load in the dataset!
+  
+  -   `library(stat20data)` 
+
+--
+  
+  -   `data(flights)`
+  
+---
+
+# Questions 1-2
+
+## Question 1-2
+
+-   These style of questions are meant to get you thinking a little bit about the data set.
+
+-   They will appear generally at the beginning of every lab from here on.
+
+---
+
+## Question 1 (10 mins)
+
+a.    What does each row in the data set correspond to / what is the unit of observation in the data set?
+  
+b.    List three categorical variables in the data set.
+
+c.    List three numerical variables in the data set.
+
+d.    Name one variable that might be seen as categorical or numerical. Provide your explanation as to why.
+
+
+---
+
+## Question 2
+
+## Question 2 (5 mins)
+
+a.    Provide a guess to the format for the numbers in the `dep_time` column. How is the time being recorded? For instance, what would the value of the `dep_time` column in the first row of the data set mean?
+  
+b.    Provide a guess as to what the units are for the numbers in the `air_time` column.
+  
+---
+
+# Question 3 - Delays
+
+> What flight destination out of SFO sees the longest departure delays?
+  
+--
+  
+> What flight carrier (airline) out of SFO sees the longest departure delays?
+  
+---
+
+## Question 3a (3 mins)
+  
+a.    Some of the values in the `dep_delay` column are positive, but others are negative. What might positive and negative numbers represent in terms of the time of a departure delay, respectively?
+  
+---
+  
+## Question 3
+  
+-   Oftentimes, we want to extract specific rows from a dataset. 
+
+--
+  
+-   In class, we have looked at the `penguins` data set in the `palmerpenguins` library.
+
+---
+
+## Question 3
+
+```{r, echo = TRUE}
+library(palmerpenguins)
+data(penguins)
+head(penguins, n = 6)
+
+```
+
+--
+  
+-   All we see are Adelie penguins, but we know there are other species, too.
+
+--
+  
+-   How can we extract *just* those other species?
+  
+---
+## Question 3 - `filter()`
+  
+-   `filter()` is a `dplyr` function meant to extract rows from a data set based on a certain *condition*
+  
+-   This condition can be logical or mathematical
+
+---
+
+## Question 3 - `filter()`
+
+-   Example: use the `!=` logical operator along with `filter()` to remove Adelie penguins from the data set
+
+--
+
+---
+
+## Question 3 - `filter()`
+  
+-   Without pipe operator `%>%`:
+  
+```{r, echo = TRUE}
+# without pipe operator
+No_Adelie <- filter(penguins, species != "Adelie")
+head(No_Adelie, n = 6)
+```
+
+---
+
+## Question 3 - `filter()`
+
+-   With pipe operator `%>%`:
+
+```{r, echo = TRUE}
+# using pipe operator
+penguins %>% filter(species != "Adelie") %>% head(n = 6)
+
+```
+
+  
+-   **Note:** I did not have to save anything to an intermediate object!
+  
+---
+
+## Question 3 (15 mins)
+  
+b. Use code to find the destination airport out of SFO with the longest median departure delay time.
+
+c. Use code to find the airline flying out of SFO with the longest median departure delay time.
+
+d. Use code to find the airline flying out of SFO with the longest *mean* departure delay time.
+
+e. What can you predict about the distribution of departure delay times for the flight carrier you identified in **part c** and **part d**, based on the values you got for the median and mean in those parts, respectively?
+  
+---
+
+## Question 3f-5
+  
+-   We will work on these on Wednesday!
+  
+---
+
+# End of Day 1
+

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lab 2: Descriptive Statistics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="BSS Stat 20" />
+    <script src="assets/libs/header-attrs-2.13/header-attrs.js"></script>
+    <link rel="stylesheet" href="stat20.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Lab 2: Descriptive Statistics
+]
+.author[
+### BSS Stat 20
+]
+.date[
+### June 27th, 2022
+]
+
+---
+
+
+
+
+class: center, middle
+
+# Welcome to Lab!
+
+---
+
+# Day 1
+
+## Clarification of Lab Submission Format
+
+-   Two main takeaways:
+  
+  -   Knit your .Rmd documents *directly* to .pdf and submit
+
+--
+
+-   Make sure you tag your answers to your pages *completely* and *correctly*
+  
+--
+  
+  -   Both of these formatting requests will be graded
+ 
+---
+# The dataset - Bay Area Flights!
+
+&lt;img src="images/bts.png" style="display: block; margin: auto;" /&gt;
+
+## The dataset - Bay Area Flights!
+
+-   Includes flights out of Oakland Int'l Airport (OAK) and San Francisco Int'l Airport (SFO) from the year 2020
+
+--
+  
+  -   Comes from the Bureau of Transportation Statistics
+
+--
+  
+  -   Has over 120,000 observations!
+  
+---
+
+## Lab 2 Goals
+  
+  -   After this lab, you will be able to:
+  
+--
+  
+    -   Manipulate a fairly large data set to answer questions about the data
+
+    -   Visualize a large set of data using `ggplot()`
+
+---
+
+## Lab 2 Questions
+
+-   Questions/Topics we will examine:
+  
+      -   Flight delays
+
+      -   The effect of COVID-19 on Bay Area air traffic
+
+      -   How can we have the best flight from SFO to City X?
+
+---
+  
+# But first:
+  
+## Let's load in the dataset!
+  
+  -   `library(stat20data)` 
+
+--
+  
+  -   `data(flights)`
+  
+---
+
+# Questions 1-2
+
+## Question 1-2
+
+-   These style of questions are meant to get you thinking a little bit about the data set.
+
+-   They will appear generally at the beginning of every lab from here on.
+
+---
+
+## Question 1 (10 mins)
+
+a.    What does each row in the data set correspond to / what is the unit of observation in the data set?
+  
+b.    List three categorical variables in the data set.
+
+c.    List three numerical variables in the data set.
+
+d.    Name one variable that might be seen as categorical or numerical. Provide your explanation as to why.
+
+
+---
+
+## Question 2
+
+## Question 2 (5 mins)
+
+a.    Provide a guess to the format for the numbers in the `dep_time` column. How is the time being recorded? For instance, what would the value of the `dep_time` column in the first row of the data set mean?
+  
+b.    Provide a guess as to what the units are for the numbers in the `air_time` column.
+  
+---
+
+# Question 3 - Delays
+
+&gt; What flight destination out of SFO sees the longest departure delays?
+  
+--
+  
+&gt; What flight carrier (airline) out of SFO sees the longest departure delays?
+  
+---
+
+## Question 3a (3 mins)
+  
+a.    Some of the values in the `dep_delay` column are positive, but others are negative. What might positive and negative numbers represent in terms of the time of a departure delay, respectively?
+  
+---
+  
+## Question 3
+  
+-   Oftentimes, we want to extract specific rows from a dataset. 
+
+--
+  
+-   In class, we have looked at the `penguins` data set in the `palmerpenguins` library.
+
+---
+
+## Question 3
+
+
+```r
+library(palmerpenguins)
+data(penguins)
+head(penguins, n = 6)
+```
+
+```
+## # A tibble: 6 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Adelie  Torge…           39.1          18.7              181        3750 male 
+## 2 Adelie  Torge…           39.5          17.4              186        3800 fema…
+## 3 Adelie  Torge…           40.3          18                195        3250 fema…
+## 4 Adelie  Torge…           NA            NA                 NA          NA &lt;NA&gt; 
+## 5 Adelie  Torge…           36.7          19.3              193        3450 fema…
+## 6 Adelie  Torge…           39.3          20.6              190        3650 male 
+## # … with 1 more variable: year &lt;int&gt;
+```
+
+--
+  
+-   All we see are Adelie penguins, but we know there are other species, too.
+
+--
+  
+-   How can we extract *just* those other species?
+  
+---
+## Question 3 - `filter()`
+  
+-   `filter()` is a `dplyr` function meant to extract rows from a data set based on a certain *condition*
+  
+-   This condition can be logical or mathematical
+
+---
+
+## Question 3 - `filter()`
+
+-   Example: use the `!=` logical operator along with `filter()` to remove Adelie penguins from the data set
+
+--
+
+---
+
+## Question 3 - `filter()`
+  
+-   Without pipe operator `%&gt;%`:
+  
+
+```r
+# without pipe operator
+No_Adelie &lt;- filter(penguins, species != "Adelie")
+head(No_Adelie, n = 6)
+```
+
+```
+## # A tibble: 6 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Gentoo  Biscoe           46.1          13.2              211        4500 fema…
+## 2 Gentoo  Biscoe           50            16.3              230        5700 male 
+## 3 Gentoo  Biscoe           48.7          14.1              210        4450 fema…
+## 4 Gentoo  Biscoe           50            15.2              218        5700 male 
+## 5 Gentoo  Biscoe           47.6          14.5              215        5400 male 
+## 6 Gentoo  Biscoe           46.5          13.5              210        4550 fema…
+## # … with 1 more variable: year &lt;int&gt;
+```
+
+---
+
+## Question 3 - `filter()`
+
+-   With pipe operator `%&gt;%`:
+
+
+```r
+# using pipe operator
+penguins %&gt;% filter(species != "Adelie") %&gt;% head(n = 6)
+```
+
+```
+## # A tibble: 6 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Gentoo  Biscoe           46.1          13.2              211        4500 fema…
+## 2 Gentoo  Biscoe           50            16.3              230        5700 male 
+## 3 Gentoo  Biscoe           48.7          14.1              210        4450 fema…
+## 4 Gentoo  Biscoe           50            15.2              218        5700 male 
+## 5 Gentoo  Biscoe           47.6          14.5              215        5400 male 
+## 6 Gentoo  Biscoe           46.5          13.5              210        4550 fema…
+## # … with 1 more variable: year &lt;int&gt;
+```
+
+  
+-   **Note:** I did not have to save anything to an intermediate object!
+  
+---
+
+## Question 3 (15 mins)
+  
+b. Use code to find the destination airport out of SFO with the longest median departure delay time.
+
+c. Use code to find the airline flying out of SFO with the longest median departure delay time.
+
+d. Use code to find the airline flying out of SFO with the longest *mean* departure delay time.
+
+e. What can you predict about the distribution of departure delay times for the flight carrier you identified in **part c** and **part d**, based on the values you got for the median and mean in those parts, respectively?
+  
+---
+
+## Question 3f-5
+  
+-   We will work on these on Wednesday!
+  
+---
+
+# End of Day 1
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "atelier-forest-light",
+"highlightLines": true,
+"highlightSpans": true,
+"ratio": "16:9",
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

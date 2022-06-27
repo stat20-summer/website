@@ -83,7 +83,7 @@ Use code to find the airline flying out of SFO with the longest *mean* departure
 
 ### part e
 
-What can you predict about the distribution of departure delay times for the airline carrier you identified in **part c** and **part d**?
+What can you predict about the distribution of departure delay times for the flight carrier you identified in **part c** and **part d**, based on the values you got for the median and mean in those parts, respectively?
 
 ### part f
 

@@ -11,11 +11,11 @@ links:
 - icon: file-pdf
   icon_pack: fas
   name: Lab
-  url: https://stat20summer.netlify.app/labs/01/lab1.pdf
+  url: https://stat20summer.netlify.app/labs/02/lab2.pdf
 - icon: images
   icon_pack: fas
   name: Slides
-  url: https://stat20summer.netlify.app/labs/01/lab1-slides.html
+  url: https://stat20summer.netlify.app/labs/02/lab2-slides.html
 ---
 
 **Due on Gradescope at 11:59p Sunday 7/3**
