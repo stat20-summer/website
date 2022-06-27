@@ -327,6 +327,13 @@
 <h1>First Things First</h1>
 
 </section>
+<section id="lab-update" class="slide level2">
+<h2>Lab Update</h2>
+<ul>
+<li class="fragment"><p>Lab 1 deadline moved to Tuesday, June 28 at 11:59pm</p></li>
+<li class="fragment"><p>Lab 2 deadline <em>remains</em> Sunday, July 3 at 11:59pm</p></li>
+</ul>
+</section>
 <section id="clarification-of-submission-format" class="slide level2">
 <h2>Clarification of Submission Format</h2>
 <ul>
@@ -491,8 +498,16 @@
 
 <img data-src="lecture4_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><div class="fragment">
 <ul>
-<li class="fragment"><p>There are a <em>lot</em> of observations, so I had to make the dots small.</p></li>
-<li class="fragment"><p>This might be a difficult visualization to truly sink ones teeth into. Therefore, is there an alternative which compromises completeness but is easier to interpret and still gives the shape of the distribution?</p></li>
+<li class="fragment">There are a <em>lot</em> of observations, so I had to make the dots small.</li>
+</ul>
+</div>
+</section>
+<section id="dot-plot-3" class="slide level2">
+<h2>Dot plot</h2>
+
+<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><div class="fragment">
+<ul>
+<li class="fragment">With so many observations, this might be a difficult visualization to truly sink one’s teeth into. Therefore, is there an alternative which compromises completeness but is easier to interpret and still gives the shape of the distribution?</li>
 </ul>
 </div>
 </section>
@@ -521,7 +536,7 @@
 <div class="fragment">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lecture4_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+<p><img data-src="lecture4_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -529,7 +544,7 @@
 <section id="histogram-2" class="slide level2">
 <h2>Histogram</h2>
 
-<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><div class="fragment">
+<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><div class="fragment">
 <ul>
 <li class="fragment"><p>Much easier to make sense of.</p></li>
 <li class="fragment"><p>Yet, there are some points off to the right that seem to inform the shape of the data. Should we consider them specially?</p></li>
@@ -555,11 +570,15 @@
 </blockquote>
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lecture4_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+<p><img data-src="lecture4_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
 </div>
 </div>
 </div>
-<div class="fragment">
+</section>
+<section id="boxplot-1" class="slide level2">
+<h2>Boxplot:</h2>
+
+<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><div class="fragment">
 <ul>
 <li class="fragment"><p>The red points indicate <em>outliers</em>!</p>
 <ul>
@@ -618,11 +637,27 @@
 <ul>
 <li class="fragment">Example: Ages of NBA players in the 2021-2022 season</li>
 </ul>
-
-<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><ul>
-<li class="fragment"><p>The mean here is <strong>26.1 years</strong></p></li>
-<li class="fragment"><p>Yet, Haslem &amp; Joe Johnson probably <em>skew</em> the data to the right. Is there a measure of center which accounts for this?</p></li>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="lecture4_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">The mean here is <strong>26.1 years</strong></li>
 </ul>
+</div>
+</section>
+<section id="mean-2" class="slide level2">
+<h2>Mean</h2>
+
+<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><div class="fragment">
+<ul>
+<li class="fragment">Yet, Udonis Haslem &amp; Joe Johnson probably <em>skew</em> the data to the right. Is there a measure of center which accounts for this?</li>
+</ul>
+</div>
 </section>
 <section id="median" class="slide level2">
 <h2>Median</h2>
@@ -638,7 +673,7 @@
 <li class="fragment">Example: Ages of NBA players in the 2021-2022 season</li>
 </ul>
 
-<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><ul>
+<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"><ul>
 <li class="fragment"><p>The median here is <strong>25 years</strong></p>
 <ul>
 <li class="fragment">Denoted by the vertical red line!</li>
@@ -648,7 +683,10 @@
 <section id="more-on-the-box-plot" class="slide level2">
 <h2>More on the box plot</h2>
 <ul>
-<li class="fragment"><p>For its shape, the box plot may also be called the “<em>box</em> and <em>whiskers</em>” plot.</p></li>
+<li class="fragment">For its shape, the box plot may also be called the “<em>box</em> and <em>whiskers</em>” plot.</li>
+</ul>
+<div class="fragment">
+<ul>
 <li class="fragment"><p>“box”:</p>
 <ul>
 <li class="fragment"><p>The left edge is the <strong>25th percentile</strong> of the data</p></li>
@@ -660,6 +698,7 @@
 </ul></li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="more-on-the-box-plot-1" class="slide level2">
 <h2>More on the box plot</h2>
@@ -678,7 +717,7 @@
 <section id="more-on-the-box-plot-2" class="slide level2">
 <h2>More on the box plot</h2>
 
-<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"><div class="fragment">
+<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"><div class="fragment">
 <ul>
 <li class="fragment"><p>Use the scale to find the <em>25 percentile</em>, <em>median</em>, <em>75th percentile</em>, <em>IQR</em>, <em>minimum</em>, <em>maximum</em> and any potential outliers.</p>
 <ul>
@@ -702,7 +741,7 @@
 <div class="fragment">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lecture4_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+<p><img data-src="lecture4_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
 </div>
 </div>
 </div>

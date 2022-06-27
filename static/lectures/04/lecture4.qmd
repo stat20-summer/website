@@ -19,6 +19,14 @@ execute:
 
 # First Things First
 
+## Lab Update
+
+-   Lab 1 deadline moved to Tuesday, June 28 at 11:59pm
+
+-   Lab 2 deadline *remains* Sunday, July 3 at 11:59pm
+
+. . .
+
 ## Clarification of Submission Format
 
 -   At this point in class, we went over a demo of how we expect labs to be submitted. This was first done in RStudio, and then in Gradescope.
@@ -188,14 +196,33 @@ ggplot(NBA) + geom_dotplot(mapping = aes(x = as.numeric(Age)),
   scale_y_continuous(NULL, breaks = NULL) +
   xlab("Age") + ggtitle("Ages of NBA Players",
                                    subtitle = "2021-2022 Season") +
-  theme_light(base_size = 15)
+  theme_light(base_size = 20)
 
 ```
 . . . 
 
 -   There are a *lot* of observations, so I had to make the dots small.
 
--   This might be a difficult visualization to truly sink ones teeth into. Therefore, is there an alternative which compromises completeness but is easier to interpret and still gives the shape of the distribution?
+. . . 
+
+## Dot plot
+
+```{r, echo = FALSE}
+ggplot(NBA) + geom_dotplot(mapping = aes(x = as.numeric(Age)),
+                           color = "red",
+                           #stackdir = "center",
+                           binwidth = 2.8/30) +
+  scale_y_continuous(NULL, breaks = NULL) +
+  xlab("Age") + ggtitle("Ages of NBA Players",
+                                   subtitle = "2021-2022 Season") +
+  theme_light(base_size = 20)
+
+```
+
+. . . 
+
+
+-   With so many observations, this might be a difficult visualization to truly sink one's teeth into. Therefore, is there an alternative which compromises completeness but is easier to interpret and still gives the shape of the distribution?
 
 . . . 
 
@@ -282,6 +309,19 @@ ggplot(NBA) + geom_boxplot(mapping = aes(x = as.numeric(Age)),
 ```
 . . . 
 
+## Boxplot:
+
+```{r, echo = FALSE}
+ggplot(NBA) + geom_boxplot(mapping = aes(x = as.numeric(Age)),
+                             color  = "red", fill = "black"
+                           ) +
+  xlab("Age") +
+  ggtitle("Ages of NBA Players", subtitle = "2021-2022 Season") +
+  theme_light(base_size = 15)
+
+```
+. . . 
+
 -   The red points indicate *outliers*!
 
     -   Udonis Haslem (41) and Joe Johnson (40)
@@ -332,6 +372,8 @@ ggplot(NBA) + geom_boxplot(mapping = aes(x = as.numeric(Age)),
 
 - Example: Ages of NBA players in the 2021-2022 season
 
+. . . 
+
 ```{r, echo = FALSE}
 ggplot(NBA) + geom_histogram(mapping = aes(x = as.numeric(Age)),
                              color  = "red", fill = "black",
@@ -345,9 +387,29 @@ mean <- NBA %>% summarise(mean(as.numeric(Age)))
 
 ```
 
+. . . 
+
 - The mean here is **26.1 years**
 
-- Yet, Haslem & Joe Johnson probably *skew* the data to the right. Is there a measure of center which accounts for this?
+. . . 
+
+## Mean
+
+```{r, echo = FALSE}
+ggplot(NBA) + geom_histogram(mapping = aes(x = as.numeric(Age)),
+                             color  = "red", fill = "black",
+                           binwidth = 2) +
+  xlab("Age") + ylab("Count") +
+  ggtitle("Ages of NBA Players", subtitle = "2021-2022 Season") +
+  theme_light(base_size = 15)
+
+#calculate the mean
+mean <- NBA %>% summarise(mean(as.numeric(Age)))
+
+```
+. . . 
+
+- Yet, Udonis Haslem & Joe Johnson probably *skew* the data to the right. Is there a measure of center which accounts for this?
 
 . . . 
 
@@ -384,6 +446,8 @@ ggplot(NBA) + geom_boxplot(mapping = aes(x = as.numeric(Age)),
 ## More on the box plot
 
 -   For its shape, the box plot may also be called the "*box* and *whiskers*" plot. 
+
+. . . 
 
 -   "box":
 
