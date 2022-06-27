@@ -15,7 +15,7 @@ links:
 - icon: images
   icon_pack: fas
   name: Slides
-  url: https://stat20summer.netlify.app/labs/02/lab2-slides.html
+  url: https://stat20summer.netlify.app/labs/02/lab2-slides2.html
 ---
 
 **Due on Gradescope at 11:59p Sunday 7/3**
