@@ -390,7 +390,24 @@
 <ul>
 <li class="fragment"><p><strong>Descriptive Claims</strong> generally focus around claims made either with summary statistics or graphics of data.</p></li>
 <li class="fragment"><p>They are important because oftentimes they serve as a first step toward making the other three types of claim we will study</p></li>
-<li class="fragment"><p>Today we will focus on descriptive claims made using numerical data</p></li>
+<li class="fragment"><p>Today we will begin focusing on descriptive claims</p>
+<ul>
+<li class="fragment">Particularly, we will look at using numerical data</li>
+</ul></li>
+</ul>
+</section>
+<section id="descriptive-claims-2" class="slide level2">
+<h2>Descriptive Claims</h2>
+<ul>
+<li class="fragment"><p>There are two types of summary:</p>
+<ul>
+<li class="fragment"><p>Graphical</p></li>
+<li class="fragment"><p>Numerical</p></li>
+</ul></li>
+<li class="fragment"><p>Regardless of type, each type of summary has a case when it should be used.</p>
+<ul>
+<li class="fragment">We call the qualities that we want out of a particular summary the <em>desiderata</em>.</li>
+</ul></li>
 </ul>
 </section>
 <section id="its-just-like-before" class="slide level2">
@@ -398,15 +415,21 @@
 <ul>
 <li class="fragment">Remember last week, we noted that:</li>
 </ul>
+<div class="fragment">
 <blockquote>
 <p>The exact question you want to answer completely determines what your data set will look like.</p>
 </blockquote>
+</div>
+<div class="fragment">
 <ul>
 <li class="fragment">When it comes to picking a summary tool, we have a similar story:</li>
 </ul>
+</div>
+<div class="fragment">
 <blockquote>
 <p>The composition of your data set and the variables within it should help guide what summary tool you should use.</p>
 </blockquote>
+</div>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
@@ -417,12 +440,291 @@
 <ul>
 <li class="fragment"><p>The Golden State Warriors just won their fourth NBA championship in seven years!</p></li>
 <li class="fragment"><p>In honor of this accomplishment, we will be using a dataset from the 2021-2022 NBA season which compiles player statistics per game throughout the week.</p></li>
+<li class="fragment"><p>The unit of observation is a player.</p></li>
+<li class="fragment"><p>The dataset comes from <em>Basketball Reference</em> and can be found <a href="https://www.basketball-reference.com/leagues/NBA_2022_per_game.html">here</a>.</p></li>
 </ul>
+</section></section>
+<section id="summaries-of-numerical-data" class="title-slide slide level1 center">
+<h1>Summaries of Numerical Data</h1>
+
+</section>
+
+<section>
+<section id="graphical-summaries-of-numerical-data" class="title-slide slide level1 center">
+<h1>Graphical Summaries of Numerical Data</h1>
+
+</section>
+<section id="graphical-summaries-of-numerical-data-1" class="slide level2">
+<h2>Graphical Summaries of Numerical Data</h2>
+<ol type="1">
+<li class="fragment"><p>Dot plot</p></li>
+<li class="fragment"><p>Histogram</p></li>
+<li class="fragment"><p>Box plot</p></li>
+</ol>
+</section>
+<section id="dot-plot" class="slide level2">
+<h2>Dot plot</h2>
+<ul>
+<li class="fragment"><p><strong>Used for:</strong> One numerical variable</p></li>
+<li class="fragment"><p><strong>Desiderata</strong>: We want to show <em>all</em> of the data on a visualization, that is, every observation.</p></li>
+</ul>
+</section>
+<section id="dot-plot-1" class="slide level2">
+<h2>Dot plot</h2>
+<ul>
+<li class="fragment">Example:</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>Visualize the ages of NBA players in the 2021-2022 season.</p>
+</blockquote>
+</div>
+</section>
+<section id="dot-plot-2" class="slide level2">
+<h2>Dot plot</h2>
+<blockquote>
+<p>Visualize the ages of NBA players in the 2021-2022 season.</p>
+</blockquote>
+<div class="cell">
+
+</div>
+
+<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><div class="fragment">
+<ul>
+<li class="fragment"><p>There are a <em>lot</em> of observations, so I had to make the dots small.</p></li>
+<li class="fragment"><p>This might be a difficult visualization to truly sink ones teeth into. Therefore, is there an alternative which compromises completeness but is easier to interpret and still gives the shape of the distribution?</p></li>
+</ul>
+</div>
+</section>
+<section id="histogram" class="slide level2">
+<h2>Histogram</h2>
+<ul>
+<li class="fragment"><p><strong>Used for:</strong> One numerical variable</p></li>
+<li class="fragment"><p><strong>Desiderata</strong>: We still want to show the general shape of the distribution but we are not concerned with plotting every point</p></li>
+<li class="fragment"><p>The histogram groups observations into <em>bins</em> of equal size</p>
+<ul>
+<li class="fragment">It then counts the number of observations per <em>bin</em></li>
+</ul></li>
+<li class="fragment"><p>The histogram is generally used over the dot plot</p></li>
+</ul>
+</section>
+<section id="histogram-1" class="slide level2">
+<h2>Histogram</h2>
+<ul>
+<li class="fragment">Example:</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>Visualize the ages of NBA players in the 2021-2022 season.</p>
+</blockquote>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="lecture4_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="histogram-2" class="slide level2">
+<h2>Histogram</h2>
+
+<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><div class="fragment">
+<ul>
+<li class="fragment"><p>Much easier to make sense of.</p></li>
+<li class="fragment"><p>Yet, there are some points off to the right that seem to inform the shape of the data. Should we consider them specially?</p></li>
+</ul>
+</div>
+</section>
+<section id="box-plot" class="slide level2">
+<h2>Box plot</h2>
+<ul>
+<li class="fragment"><p><strong>Used for:</strong> One numerical variable</p></li>
+<li class="fragment"><p><strong>Desiderata</strong>: We want to visualize some summary statistics and detect possible outliers</p></li>
+<li class="fragment"><p>Its usefulness will become more apparent once we cover some summary statistics.</p></li>
+</ul>
+</section>
+<section id="boxplot" class="slide level2">
+<h2>Boxplot:</h2>
+<ul>
+<li class="fragment">Example:</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>Visualize the ages of NBA players in the 2021-2022 season.</p>
+</blockquote>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="lecture4_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment"><p>The red points indicate <em>outliers</em>!</p>
+<ul>
+<li class="fragment">Udonis Haslem (41) and Joe Johnson (40)</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="graphical-summaries-of-numerical-data-2" class="slide level2">
+<h2>Graphical Summaries of Numerical Data</h2>
+<ul>
+<li class="fragment"><p>Let’s recap by reiterating the use cases for each graphical summary.</p>
+<ul>
+<li class="fragment">Exercise</li>
+</ul></li>
+</ul>
+</section>
+<section id="graphical-summaries-with-ggplot" class="slide level2">
+<h2>Graphical summaries with <code>ggplot()</code></h2>
+<ul>
+<li class="fragment"><p>At this point, we went to the <a href="https://stat20.berkeley.datahub.edu">course server</a> and discussed how to begin using <code>ggplot()</code> to plot some of the visualizations in these slides.</p></li>
+<li class="fragment"><p>The code will be avaialable in the Lecture Code Thread in Ed</p></li>
+</ul>
+</section></section>
+<section id="break" class="title-slide slide level1 center">
+<h1>Break</h1>
+
+</section>
+
+<section>
+<section id="numerical-summaries-of-numerical-data" class="title-slide slide level1 center">
+<h1>Numerical summaries (of numerical data)</h1>
+
+</section>
+<section id="numerical-summaries" class="slide level2">
+<h2>Numerical summaries</h2>
+<ul>
+<li class="fragment"><p>Today, we will focus on three <strong>measures of center.</strong></p>
+<ol type="1">
+<li class="fragment"><p>Mean</p></li>
+<li class="fragment"><p>Median</p></li>
+<li class="fragment"><p>Mode</p></li>
+</ol></li>
+</ul>
+</section>
+<section id="mean" class="slide level2">
+<h2>Mean</h2>
+<ul>
+<li class="fragment"><p><strong>Used for:</strong> One numerical variable</p></li>
+<li class="fragment"><p><strong>Desiderata</strong>: We want to know the <em>typical</em> value of a variable.</p></li>
+<li class="fragment"><p>The mean is the <strong>average value</strong> of the data.</p></li>
+</ul>
+</section>
+<section id="mean-1" class="slide level2">
+<h2>Mean</h2>
+<ul>
+<li class="fragment">Example: Ages of NBA players in the 2021-2022 season</li>
+</ul>
+
+<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><ul>
+<li class="fragment"><p>The mean here is <strong>26.1 years</strong></p></li>
+<li class="fragment"><p>Yet, Haslem &amp; Joe Johnson probably <em>skew</em> the data to the right. Is there a measure of center which accounts for this?</p></li>
+</ul>
+</section>
+<section id="median" class="slide level2">
+<h2>Median</h2>
+<ul>
+<li class="fragment"><p><strong>Used for:</strong> One numerical variable</p></li>
+<li class="fragment"><p><strong>Desiderata</strong>: We want to know the typical value of a variable but wish to sacrifice some precision in our statistic to account for extreme values.</p></li>
+<li class="fragment"><p>The <strong>median</strong> is the middle observation (or 50th percentile) of the data.</p></li>
+</ul>
+</section>
+<section id="median-1" class="slide level2">
+<h2>Median</h2>
+<ul>
+<li class="fragment">Example: Ages of NBA players in the 2021-2022 season</li>
+</ul>
+
+<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><ul>
+<li class="fragment"><p>The median here is <strong>25 years</strong></p>
+<ul>
+<li class="fragment">Denoted by the vertical red line!</li>
+</ul></li>
+</ul>
+</section>
+<section id="more-on-the-box-plot" class="slide level2">
+<h2>More on the box plot</h2>
+<ul>
+<li class="fragment"><p>For its shape, the box plot may also be called the “<em>box</em> and <em>whiskers</em>” plot.</p></li>
+<li class="fragment"><p>“box”:</p>
+<ul>
+<li class="fragment"><p>The left edge is the <strong>25th percentile</strong> of the data</p></li>
+<li class="fragment"><p>The middle, vertical line is the 50th percentile (<strong>median</strong>)</p></li>
+<li class="fragment"><p>The right edge is the <strong>75th percentile</strong> of the data</p>
+<ul>
+<li class="fragment"><p>Right edge - left edge = <strong>IQR (Interquartile Range)</strong></p></li>
+<li class="fragment"><p>The IQR is a measure of spread we will cover soon</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="more-on-the-box-plot-1" class="slide level2">
+<h2>More on the box plot</h2>
+<ul>
+<li class="fragment"><p>“whiskers”</p>
+<ul>
+<li class="fragment"><p>The left whisker represents the <strong>minimum value</strong> of the “data”</p></li>
+<li class="fragment"><p>The left whisker represents the <strong>maximu value</strong> of the “data”</p></li>
+</ul></li>
+<li class="fragment"><p>What about those extreme points? Aren’t they part of the data?</p>
+<ul>
+<li class="fragment">Those are considered outliers</li>
+</ul></li>
+</ul>
+</section>
+<section id="more-on-the-box-plot-2" class="slide level2">
+<h2>More on the box plot</h2>
+
+<img data-src="lecture4_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"><div class="fragment">
+<ul>
+<li class="fragment"><p>Use the scale to find the <em>25 percentile</em>, <em>median</em>, <em>75th percentile</em>, <em>IQR</em>, <em>minimum</em>, <em>maximum</em> and any potential outliers.</p>
+<ul>
+<li class="fragment">Exercise</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="mode" class="slide level2">
+<h2>Mode</h2>
+<ul>
+<li class="fragment"><p><strong>Used for:</strong> One numerical variable (or categorical variable)</p></li>
+<li class="fragment"><p><strong>Desiderata</strong>: We want to know which observation is most common. This observation is called the <strong>mode</strong>.</p></li>
+</ul>
+</section>
+<section id="example" class="slide level2">
+<h2>Example:</h2>
+<ul>
+<li class="fragment">Example: Ages of NBA players in the 2021-2022 season</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="lecture4_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">What is the mode of this data? (Exercise)</li>
+</ul>
+</div>
+</section>
+<section id="numerical-summaries-of-numerical-data-1" class="slide level2">
+<h2>Numerical summaries (of numerical data)</h2>
+<ul>
+<li class="fragment">At this point, we went back to the course server to discuss how to find the mean and the median by using <code>dplyr</code> functions: namely, <code>group_by()</code> and <code>summarise()</code>.</li>
+</ul>
+</section></section>
+<section id="end-of-lecture-4" class="title-slide slide level1 center">
+<h1>End of Lecture 4</h1>
 
 <img src="images/stat20-hex.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
@@ -634,6 +936,48 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
