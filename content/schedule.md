@@ -30,7 +30,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>1</p></td>
 <td style="text-align: left;"><p>Tuesday</p></td>
 <td style="text-align: left;"><p>6/21</p></td>
-<td style="text-align: left;"><p><a href="NA">Introduction</a></p></td>
+<td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/lectures/01/lecture1.html">Introduction</a></p></td>
 <td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/data-hello.html">IMS Ch 1.1</a></p></td>
 <td style="text-align: left;"><p><a href="https://rstudio-education.github.io/hopr/basics.html">HOP Ch 2</p></td>
 <td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/labs/01/lab1.pdf">Lab 1</a></p></td>
@@ -39,7 +39,7 @@ show_title_as_headline: true
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>6/22</p></td>
-<td style="text-align: left;"><p><a href="NA">Intro; Taxonomy and Tools for Data</a></p></td>
+<td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/lectures/02/lecture2.html">Intro; Taxonomy and Tools for Data</a></p></td>
 <td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/data-hello.html">IMS Ch 1.1</a></p></td>
 <td style="text-align: left;"><p><a href="https://rstudio-education.github.io/hopr/packages.html">HOP Ch 3</a></p></td>
 <td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/problem-sets/01/ps1.pdf">PS 1</a></p></td>
@@ -48,7 +48,7 @@ show_title_as_headline: true
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>6/23</p></td>
-<td style="text-align: left;"><p><a href="NA">Taxonomy and Tools for Data</a></p></td>
+<td style="text-align: left;"><p><a href=""https://stat20summer.netlify.app/lectures/03/lecture3.html"">Taxonomy and Tools for Data</a></p></td>
 <td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/data-applications.html">IMS Ch 1.3</a></p></td>
 <td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/data-applications.html">RDS Ch 5 (only functions we've covered so far)</a></p></td>
 <td style="text-align: left;"></td>
@@ -59,25 +59,25 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>6/27</p></td>
 <td style="text-align: left;"><p><a href="NA">Summaries of Numerical Data</a></p></td>
 <td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p><a href="NA">Lab 2</a></p></td>
+<td style="text-align: left;"><p><a><href="https://openintro-ims.netlify.app/explore-numerical.html">IMS Ch 5</a></p></td>
+<td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/labs/02/lab2.pdf">Lab 2</a></p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Tuesday</p></td>
 <td style="text-align: left;"><p>6/28</p></td>
 <td style="text-align: left;"><p><a href="NA">Summaries of Categorical Data</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/explore-categorical.html">IMS Ch 6</a></p></td>
 <td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p><a href="NA">PS 2</a></p></td>
+<td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/problem-sets/02/ps2.pdf">PS 2</a></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>6/29</p></td>
 <td style="text-align: left;"><p><a href="NA">Code Applications with Summaries, The Grammar of Graphics</a></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p><a href="https://r4ds.had.co.nz/transform.html">RDS Ch 5</a></p></td>
+<td style="text-align: left;"><p><a href="https://r4ds.had.co.nz/data-visualisation.html">RDS Ch 3</a></p></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
@@ -85,8 +85,8 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>6/30</p></td>
 <td style="text-align: left;"><p><a href="NA">Code Applications with Summaries, The Grammar of Graphics</a></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p><a href="https://r4ds.had.co.nz/transform.html">RDS Ch 5</a></p></td>
+<td style="text-align: left;"><p><a href="https://r4ds.had.co.nz/data-visualisation.html">RDS Ch 3</a></p></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">

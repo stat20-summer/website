@@ -1,0 +1,116 @@
+---
+title: "Descriptive Statistics: Part 1"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../../assets/stat20.scss"
+    highlight-style: breezedark
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: "images/hex-background.png"
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# First Things First
+
+## Clarification of Submission Format
+
+-   At this point in class, we went over a demo of how we expect labs to be submitted. This was first done in RStudio, and then in Gradescope.
+
+-   The main points are that:
+
+    -   labs *must be knitted from .Rmd directly to .pdf*. This means we do not want people knitting to .html and converting to .pdf.
+
+    -   answers must be tagged to their corresponding pages of your submission *completely* and *correctly*.
+
+. . .
+
+## Clarification of Submission Format
+
+-   For the second lab, we will have two additional questions, each worth one point, which verify that you have done these two steps.
+
+-   We will also be contacting those who have collaborated with others and have not written their acknowledgement sentences as stated on the course syllabus starting from the second lab forward.
+
+. . .
+
+## Office Hours
+
+-   Office hours begin today!
+
+-   Great resource to visit if you need any help with the course content or just want to chat about your academic career and interests, etc.
+
+-   All in-person office hours currently in Evans 323.
+
+. . .
+
+## Ed
+
+-   Now on the Ed dates is a schedule of staff dates for manning the forum
+
+-   We will check in periodically throughout the day
+
+. . .
+
+# Recap
+
+## The Four Types of Claim
+
+1.  Descriptive
+
+2.  Generalizations
+
+3.  Causal
+
+4.  Predictive
+
+. . .
+
+## The Four Types of Claim
+
+-   This week we will be focusing on *Descriptive Claims*!
+
+# Descriptive Claims
+
+## Descriptive Claims
+
+-   **Descriptive Claims** generally focus around claims made either with summary statistics or graphics of data.
+
+-   They are important because oftentimes they serve as a first step toward making the other three types of claim we will study
+
+-   Today we will focus on descriptive claims made using numerical data
+
+## It's just like before
+
+-   Remember last week, we noted that:
+
+>   The exact question you want to answer completely determines what your data set will look like.
+
+-   When it comes to picking a summary tool, we have a similar story:
+
+>   The composition of your data set and the variables within it should help guide what summary tool you should use.
+
+## 
+
+![](images/steph-and-klay.jpg)
+
+## NBA Champions 
+
+-   The Golden State Warriors just won their fourth NBA championship in seven years!
+
+-   In honor of this accomplishment, we will be using a dataset from the 2021-2022 NBA season which compiles player statistics per game throughout the week.
+
+
+
+
+
+
+
+
+
+
