@@ -1,0 +1,555 @@
+---
+title: "Descriptive Statistics: Part 2"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../../assets/stat20.scss"
+    highlight-style: breezedark
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: "images/hex-background.png"
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# First Things First
+
+## Lab Update
+
+1.  Lab 1 deadline moved to Tuesday, June 28 at 11:59pm
+
+2.  Lab 2 deadline *remains* Sunday, July 3 at 11:59pm
+
+. . .
+
+## Clarification of Submission Format
+
+-   At this point in class, we went over a demo of how we expect labs to be submitted. This was first done in RStudio, and then in Gradescope.
+
+-   The main points are that:
+
+    -   labs *must be knitted from .Rmd directly to .pdf*. This means we do not want people knitting to .html and converting to .pdf.
+
+    -   answers must be tagged to their corresponding pages of your submission *completely* and *correctly*.
+
+. . .
+
+## Clarification of Submission Format
+
+-   For the second lab, we will have two additional questions, each worth one point, which verify that you have done these two steps.
+
+-   We will also be contacting those who have collaborated with others and have not written their acknowledgement sentences as stated on the course syllabus starting from the second lab forward.
+
+. . .
+
+## On Yesterday's Lecture
+
+-   A data wrangling step I missed!
+
+-   At this point we went to the course server and discussed a level of a categorical variable in the `NBA` dataset we used yesterday that I should have accounted for.
+
+-   The maximum/minimum *can* be an outlier in the box plot framework.
+
+    -   Check IMS Ch 5 for details. 
+    
+# Recap
+
+## The Four Types of Claim
+
+1.  Descriptive
+
+2.  Generalizations
+
+3.  Causal
+
+4.  Predictive
+
+-   This week we are looking at *Descriptive Claims*!
+
+. . .
+
+## The two types of summary
+
+1.  Graphical
+
+    -   examples: dot plot, histogram, box plot
+
+2.  Numerical
+
+    -   examples: mean, median, and mode
+
+. . .
+
+## 
+
+![](images/steph-and-klay.jpg)
+
+::: footer 
+[Image Linked here](https://www.goldenstateofmind.com/2022/6/16/23172186/steph-curry-is-2022-finals-mvp) 
+:::
+
+. . . 
+
+## NBA Champions
+
+-   The Golden State Warriors just won their fourth NBA championship in seven years!
+
+-   In honor of this accomplishment, we will be using a dataset from the 2021-2022 NBA season which compiles player statistics per game throughout the week.
+
+-   The unit of observation is a player.
+
+-   The dataset comes from *Basketball Reference* and can be found [here](https://www.basketball-reference.com/leagues/NBA_2022_per_game.html).
+
+. . .
+
+# Summaries of Categorical Data
+
+# Numerical Summaries of Categorical Data
+
+## Numerical Summaries of Categorical Data
+
+1.  Counts and proportions
+
+2.  Mode
+
+-   We will focus *mostly* on item 1 today.
+
+-   We are introducing numerical summaries first today rather than graphical because they will connect naturally to the graphical summaries in the categorical case.
+
+. . .
+
+## Contingency Tables
+
+-   **Used for:** Two categorical variables
+
+-   **Desiderata**: We want to show the interplay between two categorical variables.
+
+. . .
+
+## Contingency Tables {.scrollable}
+
+![](images/contingency-table-ex.jpeg)
+
+## Contingency Tables {.scrollable}
+
+![](images/contingency-table-ex-2.jpeg)
+
+## Contingency Tables
+
+![](images/contingency-table-ex-3.png)
+
+. . .
+
+## Contingency Tables
+
+-   Example:
+
+> Make a contingency table involving the ages of NBA players and their position (either "Center" or "Small Forward")
+
+. . .
+
+At this point we went to the board, and then to the course server to work on making this table.
+
+. . .
+
+## Contingency Tables: Proportions
+
+-   There are three types of proportions we can get from a contingency table.
+
+1.  **Marginal**
+
+2.  **Joint**
+
+3.  **Conditional**
+
+. . .
+
+## Contingency Tables: Types of Proportions
+
+1.  **Marginal** - How to get it:
+
+    1.  Pick a row/column you are interested in.
+    
+    2. Total up the number of observations in that row or a column 
+    3. divide by the total amount of observations in the table.
+    
+. . . 
+
+## Contingency Tables: Marginal Proportions
+
+![](images/contingency-marginal-proportions.png)
+
+. . .
+
+## Contingency Tables: Types of Proportions
+
+2.  **Joint** - How to get it:
+
+    1. Pick a cell of the table you are interested in. 
+    
+    2. Count the number of observations in that cell.
+    
+    3. Divide by the total amount of observations in a table.
+    
+. . . 
+
+## Contingency Tables: Joint Proportions
+
+![](images/contingency-joint-proportions.png)
+
+. . .
+
+## Contingency Tables: Types of Proportions
+
+3.  **Conditional** - How to get it:
+
+    1.  Pick a column/row you are interested in. 
+    
+    2.  Cover the other column/row. 
+    
+    3.  Count the number of observations in one cell of the row/column.
+    
+    4. Divide by the total number of observations in both cells of the row/column.
+
+. . .
+
+## Contingency Tables: Conditional Proportions {.scrollable}
+
+![](images/contingency-conditional-proportions.png)
+
+. . .
+
+## Contingency Tables: Proportions - Exercise
+
+-   The NBA table we made can be found in lecture5.Rmd on the Lecture Code Thread.
+
+-   Exercise:
+
+    -   Find the proportion of players who are thirty and older and play center.
+
+    -   Among those players who are thirty and older, find the proportion of those who play center. 
+
+    -   Find the proportion of players who play center. 
+
+. . .
+
+# Graphical Summaries of Categorical Data
+
+## Graphical Summaries of Categorical Data
+
+-   The bar chart!
+
+    -   There are four different types of bar charts we will discuss.
+
+        -   Bar chart for one categorical variable
+
+        -   For two categorical variables:
+
+            -   stacked bar chart
+
+            -   side-by-side bar chart
+
+            -   stacked, normalized bar chart
+
+. . .
+
+## Bar Chart
+
+-   **Used for:** One or two categorical variables
+
+-   **Desiderata**: We want to plot the distrbution of one (or two) categorical variables.
+
+. . .
+
+## Bar chart for one categorical variable
+
+> Visualize the distribution of positions of NBA Players in the 2021-2022 season.
+
+. . .
+
+```{r, echo = FALSE, message = FALSE}
+library(rvest)
+library(tidyverse)
+
+url <- "https://www.basketball-reference.com/leagues/NBA_2022_per_game.html#per_game_stats"
+
+NBA <- (read_html(url) %>% html_table())[[1]] %>% filter(Tm != "Tm") %>% filter(Tm != "TOT")
+```
+
+```{r, echo = FALSE}
+ggplot(NBA %>% distinct(Player, .keep_all = TRUE)) + geom_bar(mapping = aes(x = Pos),
+                       color = "red", fill = "black") +
+  xlab("Positions") + 
+  ggtitle("Distribution of Positions of NBA Players",
+          subtitle = "2021-2022 Season") + theme_light() 
+```
+
+. . .
+
+## Stacked Bar Chart
+
+-   **Used for:** Two categorical variables
+
+-   **Desiderata**: We want to preserve the original look of a bar chart for one categorical variable, but want to divide each bar into levels of another categorical variable.
+
+. . .
+
+## Stacked Bar Chart
+
+> Visualize the distribution of positions of NBA Players in the 2021-2022 season. Stack each bar by age group.
+
+. . .
+
+```{r}
+#I will assume the player's youngest age if they played on different teams.
+
+NBA %>% distinct(Player, .keep_all = TRUE) %>%
+  mutate(`Over 30?` = (Age > 30)) %>% 
+ggplot() + geom_bar(mapping = aes(x = Pos, fill = `Over 30?`),
+                    color = "black") +
+  xlab("Positions") + ylab("Count") + 
+  ggtitle("Distribution of Positions of NBA Players",
+          subtitle = "2021-2022 Season") + theme_light()
+
+```
+
+. . .
+
+## Side-by-side Bar Chart
+
+-   **Used for:** Two categorical variables
+
+-   **Desiderata**: We want to preserve the data of a bar chart for one categorical variable, but split it into side-by-side bars for each level of a second categorical variable.
+
+. . .
+
+## Side-by-side Bar Chart
+
+> Visualize the distribution of positions of NBA Players in the 2021-2022 season. For each bar, split by age group.
+
+. . .
+
+```{r}
+NBA %>% distinct(Player, .keep_all = TRUE) %>%
+  mutate(`Over 30?` = (Age > 30)) %>% 
+ggplot() + geom_bar(mapping = aes(x = Pos, fill = `Over 30?`),
+                    position = "dodge",
+                    color = "black") +
+  xlab("Positions") + ylab("Count") + 
+  ggtitle("Distribution of Positions of NBA Players",
+          subtitle = "2021-2022 Season") + theme_light()
+
+```
+
+. . .
+
+## Stacked, Normalized Bar Chart
+
+-   **Used for:** Two categorical variables
+
+-   **Desiderata**: We want to interpret conditional proportions visually.
+
+. . .
+
+## Stacked, Normalized Bar Chart
+
+> Visualize the distribution of positions of NBA Players in the 2021-2022 season. For each bar, stack by the conditional proportions of Age Group.
+
+. . .
+
+```{r}
+NBA %>% distinct(Player, .keep_all = TRUE) %>%
+  mutate(`Over 30?` = (Age > 30)) %>% 
+ggplot() + geom_bar(mapping = aes(x = Pos, fill = `Over 30?`),
+                    position = "fill",
+                    color = "black") +
+  xlab("Positions") + ylab("Conditional Proportion") +
+  ggtitle("Distribution of Positions of NBA Players",
+          subtitle = "2021-2022 Season") + theme_light()
+
+```
+
+. . .
+
+# Break
+
+# Measures of Spread (for numerical variables)
+
+## Measures of Spread
+
+-   Here are the measures of spread we will cover.
+
+1.  Sample Variance
+
+    1.  Sample Standard Deviation
+    
+2.  Median Absolute Deviation (MAD)
+
+3.  IQR
+
+4.  Range
+
+. . . 
+
+## Sample Variance $s^2$
+
+-   **Used on:** One numerical variable
+
+-   **Desiderata**: We want a measure of spread which will incorporate all observations of a variable.
+
+-   **Mathematical Formula**: 
+
+    -   Let $x_i$ be each observation of the variable $x$.
+
+    -   $$s^2: \quad \frac{1}{n - 1}\sum_{i = 1}^n (x_i - \bar{x})^2$$
+    
+-   Very useful, but what about the square?
+
+. . .
+
+## Sample Standard Deviation $s$
+
+-   **Used on:** One numerical variable
+
+-   **Desiderata**: We want a measure of spread which will incorporate all observations of a variable *and is in the same units as those observations.*
+
+-   **Mathematical Formula**: 
+
+    -   Let $x_i$ be each observation of the variable $x$.
+    
+    -   $$s^2: \quad \sqrt{\frac{1}{n - 1}\sum_{i = 1}^n (x_i - \bar{x})^2}$$
+
+. . .
+
+## Median Absolute Deviation 
+
+-   **Used on:** One numerical variable
+
+-   **Desiderata**: We want a measure of spread which will incorporate all observations of a variable and is in the same units as those observations. Additionally, *we wish to sacrifice a little bit of precision in exchange for being robust to extreme values*.
+
+-   **Mathematical Formula**:
+  
+    -   Let $x_i$ be each observation of the variable $x$.
+    
+    -   $$MAD: \quad \frac{1}{n}\sum_{i = 1}^n |x_i - \bar{x}| $$
+    
+. . . 
+
+## Range
+
+-   **Used on:** One numerical variables
+
+-   **Desiderata**: We want a measure of spread that is easy to calculate and interpret.
+
+-   **Mathematical Formula**:  $$\textrm{range} =  max - min$$
+    
+. . . 
+
+## Interquartile Range (IQR)
+
+-   **Used on:** One numerical variables
+
+-   **Desiderata**: We want a measure of spread that is easy to calculate and is focused on calculating the variability of a typical observation. Therefore, it will be resistant to outliers.
+
+-   **Mathematical Formula**:  
+
+    -   Let $Q_3$ denote the **75th percentile of the data**.
+    
+    -   Let $Q_1$ denote the **25th percentile of the data**.
+
+    -   $$\textrm{IQR:} \quad Q_3 - Q_1$$
+
+    
+. . . 
+
+## Measures of Spread
+
+-   Example: The distribution of ages of NBA Players in the 2021-2022 Season.
+
+. . . 
+
+```{r, echo = FALSE}
+ggplot(NBA %>% distinct(Player, .keep_all = TRUE)) + geom_histogram(mapping = aes(x = as.numeric(Age)),
+                             color  = "red", fill = "black",
+                           binwidth = 2) +
+  scale_x_continuous(breaks = seq(from = 19, to = 43, by = 2)) +
+  xlab("Age") + ylab("Count") +
+  ggtitle("Ages of NBA Players", subtitle = "2021-2022 Season") +
+  theme_light(base_size = 15)
+
+```
+  
+```{r, echo = FALSE}
+NBA %>% distinct(Player, .keep_all = TRUE) %>% 
+  mutate(Age = as.numeric(Age)) %>%
+  summarise(Variance = var(Age),
+            SD = sd(Age),
+            IQR = IQR(Age),
+            MAD = mad(Age)) 
+
+```
+
+
+
+. . . 
+
+# Shapes of Distributions (for Numerical Data)
+
+## Shapes of Distributions
+
+-   Some general shapes:
+
+. . .
+
+![](images/modality.png)
+
+. . . 
+
+-   Types of Skewness:
+
+. . .
+
+![](images/skewness.png)
+
+. . .
+
+## Shapes of Distributions
+
+> The composition of your data set and the variables within it should help guide what summary tool you should use.
+
+. . . 
+
+-   Indeed, the shape of a variable's distribution helps guide us to an appropriate measure of center.
+
+    -    Exercise
+    
+. . . 
+
+# Moving forward
+
+## 
+
+![](images/billboard.png)
+
+. . . 
+
+This was made from the `billboard` data-set included in R!
+
+. . . 
+
+## Moving forward
+
+-   Tomorrow and Thursday, we will be discussing data visualization with `ggplot()`!
+
+-   We will see some plot types you have already seen (box plot, etc.) and some new ones, too.
+
+-   This is one of the coolest and most artistic portions of the course! 
+
+. . . 
+
+# End of Lecture 5

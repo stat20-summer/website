@@ -189,7 +189,7 @@ library(tidyverse)
 
 url <- "https://www.basketball-reference.com/leagues/NBA_2022_per_game.html#per_game_stats"
 
-NBA <- (read_html(url) %>% html_table())[[1]] %>% filter(Tm != "Tm")
+NBA <- (read_html(url) %>% html_table())[[1]] %>% filter(Tm != "Tm") %>% filter(Tm != "TOT")
 ```
 
 ```{r, echo = FALSE}
