@@ -524,10 +524,8 @@ NBA %>% distinct(Player, .keep_all = TRUE) %>%
 
 . . . 
 
--   Indeed, the shape of a variable's distribution helps guide us to an appropriate measure of center.
+-   Indeed, the shape of a variable's distribution helps guide us to an appropriate measures of centers/spread.
 
-    -    Exercise
-    
 . . . 
 
 # Moving forward
