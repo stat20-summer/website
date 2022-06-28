@@ -1,5 +1,5 @@
 ---
-title: "Descriptive Statistics: Part 2"
+title: "Descriptive Statistics: Pt 2"
 institute: "STAT 20 UC Berkeley"
 logo: "images/stat20-hex.png"
 format: 
