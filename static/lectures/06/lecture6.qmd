@@ -1,0 +1,405 @@
+---
+title: "Data Visualization"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../../assets/stat20.scss"
+    highlight-style: breezedark
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: "images/hex-background.png"
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# First Things First
+
+## Grading
+
+-   Expect Lab 1 grades back by Tuesday, July 5
+
+. . .
+
+# Recap and Moving Forward
+
+## Recap and Moving Forward
+
+-   Lecture 4: Summaries of Numerical Data, Measures of Center
+
+-   Lecture 5: Summaries of Categorical Data, Measures of Spread, Shapes of Distributions
+
+-   Today and Wednesday: Data Visualization
+
+. . .
+
+# A note on the median and interquartile range (IQR)
+
+## A note on the median and interquartile range (IQR)
+
+-   The method for calculating the *median*, and thus *Q*<sub>3</sub>, *Q*<sub>1</sub> and the *interquartile range (IQR)* is different depending on whether the number of observations *x*<sub>*i*</sub> of a variable *x* is *even* or *odd*.
+
+## A note on the median
+
+-   If the number of observations is *odd*:
+
+    -   We have a middle observation, which is the *median*.
+
+-   If the number of observations is *even*:
+
+    -   Split the data into two halves
+
+    -   Take the average of:
+
+        -   the maximum of the lower half
+
+        -   the minimum of the upper half
+
+    -   That average is the *median*.
+
+. . .
+
+## A note on the interquartile range (IQR)
+
+-   If the number of observations is *odd*:
+
+    -   Split the data into two halves, *excluding the median point*
+
+-   If the number of observations is *even*:
+
+    -   Split the data into two halves
+
+-   The median of the upper half is *Q*<sub>3</sub>
+
+-   The median of the lower half is *Q*<sub>1</sub>
+
+-   $Interquartile \\\\space range = Q_3 - Q_1$
+
+. . .
+
+# Some review exercises from Lectures 4 and 5!
+
+## Exercises
+
+-   These are multiple choice and have one correct answer.
+
+-   They can be found on the revamped [Lecture Code and Supplements Thread]().
+
+. . .
+
+## Exercises
+
+-   At this point, we split the exercises up by different halves of the room and spent some time working on them.
+
+-   Then we reconvened and discussed the answers.
+
+## Exercises
+
+# Break
+
+# Data Visualization
+
+## Data Visualization
+
+-   An important part of descriptive statistics.
+
+-   One of the coolest and most artistic parts of statistics and data science!
+
+. . .
+
+## Plots we will be making this semester
+
+-   Those we've already seen:
+
+    -   Dot plot
+
+    -   Histogram
+
+    -   Box plot
+
+-   Those we are yet to see:
+
+    -   Scatter plot
+
+    -   Density plot
+
+    -   Line plot
+
+. . .
+
+## Scatter Plot
+
+-   **Used for:** two numerical variables, potentially one categorical variable
+
+-   **Desiderata**: We want to explore the relationship between two numerical variables.
+
+. . .
+
+## Density Plot
+
+-   **Used for:** one numerical variable
+
+-   **Desiderata**: We want to get the shape of the distribution like the histogram, but want a more smooth shape.
+
+. . .
+
+## Line Plot
+
+-   **Used for:** two numerical variables
+
+-   **Desiderata**: We want to visualize a trend between two numerical variables, particularly over time.
+
+. . .
+
+## Data Visualization with `ggplot()`
+
+-   We will be working this semester with `ggplot()!`
+
+    -   A function in the `ggplot2` package within the `tidyverse` library
+
+    -   The self-proclaimed "Grammar of Graphics"
+
+-   `ggplot()` works in *layers*.
+
+. . .
+
+## Layering graphics with `ggplot()`
+
+-   Let's consider the boxplot we made in Lecture 4 with the `NBA` data.
+
+1.  **Data**
+
+    -   `ggplot(NBA)`
+
+2.  Data + **Geometry** **(type of plot)**
+
+    -   `ggplot(NBA) + geom_boxplot()`
+
+3.  Data + Geometry + **Aesthetic Mapping**
+
+    -   `ggplot(NBA) + geom_boxplot(mapping = aes(x = Age))`
+
+. . .
+
+## Layering graphics with `ggplot()`
+
+1.  Data + Geometry + Aesthetic Mapping + **Settings**
+
+    -   `ggplot(NBA) + geom_boxplot(mapping = aes(x = Age), color = "red", fill = "black")`
+
+. . .
+
+1.  Data + Geometry + Aesthetic Mapping + Settings + **Labels and Title**
+
+    -   `ggplot(NBA) + geom_boxplot(mapping = aes(x = Age), color = "red", fill = "black") + xlab("Age") + ggtitle("Ages of NBA Players, 2021-22 Season)`
+
+. . .
+
+## Definitions of `ggplot()` jargon
+
+-   **Aesthetic Mapping**: Anything having to do with mapping **variables** to places on the graphic. This includes:
+
+    -   Which variables go on the horizontal (and vertical if needed) axes
+
+    -   Which variables the plot is filled or colored by
+
+-   **Settings**: Anything not having to do with mapping **variables**. This includes:
+
+    -   The `color` or `fill` of the bars/points/boxes
+
+    -   The position of bars
+
+. . .
+
+## Definitions of `ggplot()` jargon
+
+-   **Geometry**: The type of plot. Also called a `geom`.
+
+    -   Example: the box plot has the geometry `geom_boxplot()`.
+
+    -   Example: the histogram has the geometry `geom_histogram()`.
+
+. . .
+
+## Definitions of `ggplot()` jargon
+
+-   `color`: *outlines* points/bars with a specified color
+
+-   `fill`: *fills in* points/bars with a specified color
+
+-   R has a set list of colors to work with that can be found [here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
+
+. . .
+
+## 
+
+![](images/steph-and-klay.jpg)
+
+::: footer [Image Linked here](https://www.goldenstateofmind.com/2022/6/16/23172186/steph-curry-is-2022-finals-mvp) :::
+
+. . .
+
+## Data Visualization
+
+-   The Golden State Warriors just won their fourth NBA championship in seven years!
+
+-   In honor of this accomplishment, we will be using a dataset from the 2021-2022 NBA season which compiles player statistics per game throughout the week.
+
+-   The unit of observation is a player.
+
+-   The dataset comes from *Basketball Reference* and can be found [here](https://www.basketball-reference.com/leagues/NBA_2022_per_game.html).
+
+## Data Visualization
+
+-   Now, some basketball terminology:
+
+    -   Field Goals: 2-point or 3-point shots.
+
+    -   Field Goal Percentage: the percentage of field goals a player makes.
+
+    -   *Effective Field Goal Percentage*: a modification of Field Goal Percentage which weights 3-point shots more heavily than 2-point shots as opposed to equally.
+
+    -   Players like the Warriors' Curry have pushed the 3-point shot to the forefront of the game
+
+. . .
+
+## Data Visualization
+
+-   Exercise:
+
+. . .
+
+> Sketch a plot of Field Goals Attempted (FGA) vs. Effective Field Goal Percentage (`eFG%`). Identify your aesthetic mapping and geometry.
+
+. . .
+
+-   In doing this, think about how the relationship between the two variables and let this inform your scatter plot.
+
+. . .
+
+## Data Visualization -
+
+-   At this point, we discussed the differing answers the class came up with.
+
+-   We then went to the course server to discuss how to make the plot using `ggplot()` and `dplyr()`.
+
+-   What we will make is a *scatter plot*. The corresponding `ggplot2` geometry is known as `geom_point()`.
+
+. . .
+
+## 
+
+![](images/surveyresultsemail.jpg)
+
+. . .
+
+## Data Visualization - `geom_point()`
+
+-   In the People's Park survey, students expressed their level of support/opposition:
+
+    -   With little to no/surface-level knowledge of the project **(Q18)**
+
+    -   With complete knowledge of the project **(Q21)**
+
+-   Possible responses ranged from 1 to 7 on a *Likert Scale*
+
+    -   1 being the strongest support, 7 being the strongest opposition
+
+-   **Remember:** the Likert Scale *can* be seen as numerical.
+
+. . .
+
+## Data Visualization - `geom_point()`
+
+-   Exercise:
+
+. . .
+
+> Sketch a scatter plot of participant attitudes "before" (Q18) vs. their attitudes "after" (Q21) more knowledge was given to them. Identify your aesthetic mapping and geometry.
+
+. . .
+
+## Data Visualization - `geom_point()` {.scrollable}
+
+> Sketch a scatter plot of participant attitudes "before" (Q18) vs. their attitudes "after" (Q21) more knowledge was given to them. Identify your aesthetic mapping and geometry.
+
+. . .
+
+```{r message = FALSE, echo = FALSE}
+library(stat20data)
+library(tidyverse)
+data(ppk)
+
+ppk %>% drop_na(Q18, Q21) %>% 
+  ggplot() + geom_point(mapping = aes(x = Q18, y = Q21)) + theme_light() +
+  xlab("\"Before\" Score ") + ylab("\"After\" Score ") +
+  ggtitle("UC Students' Attitudes about the People's Park Project, 2021 Survey", 
+          subtitle = "Opposition increases with score")
+```
+
+. . .
+
+## Data Visualization - `geom_point()`
+
+```{r message = FALSE, echo = FALSE}
+library(stat20data)
+library(tidyverse)
+data(ppk)
+
+ppk %>% drop_na(Q18, Q21) %>% 
+  ggplot() + geom_point(mapping = aes(x = Q18, y = Q21)) + theme_light(base_size = 20) +
+  xlab("\"Before\" Score ") + ylab("\"After\" Score ") +
+  ggtitle("UCB Students' Attitudes about the People's Park Project, 2021 Survey", 
+          subtitle = "Opposition increases with score")
+```
+
+. . .
+
+-   We know there are more than 44 observations in this dataset!
+
+-   Therefore, there have to be duplicate points which are not being shown
+
+    -   The phenomenon we have here is called "**overplotting**."
+
+. . .
+
+## Data Visualization - `geom_jitter()`
+
+-   We can fix the problem by using `geom_jitter()`.
+
+. . .
+
+```{r, echo = TRUE, eval = FALSE}
+ppk %>% drop_na(Q18, Q21) %>% 
+  ggplot() + 
+  
+  geom_jitter(mapping = aes(x = Q18, y = Q21)) + #this fixes the problem
+  
+  theme_light(base_size = 20) +
+  xlab("\"Before\" Score ") + ylab("\"After\" Score ") +
+  ggtitle("UCB Students' Attitudes about the People's Park Project, 2021 Survey", 
+          subtitle = "Opposition increases with score")
+```
+
+. . .
+
+## Data Visualization - `geom_jitter()`
+
+```{r, echo = TRUE}
+ppk %>% drop_na(Q18, Q21) %>% 
+  ggplot() + geom_jitter(mapping = aes(x = Q18, y = Q21)) +
+  theme_light(base_size = 20) +
+  xlab("\"Before\" Score ") + ylab("\"After\" Score ") +
+  ggtitle("UCB Students' Attitudes about the People's Park Project, 2021 Survey", 
+          subtitle = "Opposition increases with score")
+```
+
+. . .
+
+-   Now we can see that a lot of people stuck with their initial opinions even after hearing the information.
+
+# End of Lecture 6

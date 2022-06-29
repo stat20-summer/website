@@ -283,6 +283,358 @@ e. What can you predict about the distribution of departure delay times for the 
 
 # End of Day 1
 
+---
+
+# Days 2 &amp; 3
+
+---
+
+# Question 3f
+
+---
+
+## Data Visualization with `ggplot()`
+
+-   `ggplot()` is a function in the `ggplot2` package within the `tidyverse` library
+
+--
+
+-   The self-proclaimed "Grammar of Graphics" 
+
+--
+
+-   It works in *layers*.
+
+--
+
+---
+
+## Layering Graphics with `ggplot()`
+
+-   Let's consider the boxplot we made in Lecture 4 with the `NBA` data.
+
+--
+
+-    **Data**
+
+    -   `ggplot(NBA)`
+
+-   Data + **Geometry** **(type of plot)**
+
+    -   `ggplot(NBA) + geom_boxplot()`
+
+-   Data + Geometry + **Aesthetic Mapping**
+
+    -   `ggplot(NBA) + geom_boxplot(mapping = aes(x = Age))`   
+
+---
+
+## Layering Graphics with `ggplot()`
+
+-   Data + Geometry + Aesthetic Mapping + **Settings**
+
+    -   `ggplot(NBA) + geom_boxplot(mapping = aes(x = Age), color = "red", fill = "black")`
+
+-   Data + Geometry + Aesthetic Mapping + Settings + **Labels and Title**
+
+    -   `ggplot(NBA) + geom_boxplot(mapping = aes(x = Age), color = "red", fill = "black") + xlab("Age") + ggtitle("Ages of NBA Players, 2021-22 Season)`
+
+--
+
+---
+
+## Definitions of `ggplot()` jargon
+
+-   **Aesthetic Mapping**: Anything having to do with mapping **variables** to places on the graphic. This includes:
+
+    -   Which variables go on the horizontal (and vertical if needed) axes
+
+    -   Which variables the plot is filled or colored by
+    
+--
+
+-   **Settings**: Anything not having to do with mapping variables. This includes:
+
+    -   The `color` or `fill` of the bars/points/boxes
+
+    -   The position of bars
+
+--
+
+---
+
+## Definitions of `ggplot()` jargon
+
+-   **Geometry**: The type of plot. Also called a `geom`.
+
+    -   Example: the box plot has the geometry `geom_boxplot()`.
+
+    -   Example: the histogram has the geometry `geom_histogram()`.
+    
+--
+
+---
+
+## Definitions of `ggplot()` jargon
+
+-   `color`: *outlines* points/bars with a specified color
+
+--
+
+-   `fill`: *fills in* points/bars with a specified color
+
+--
+
+-   R has a set list of colors to work with that can be found [here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
+
+--
+
+---
+
+## Question 3f (10 mins)
+
+-   Confirm your prediction from  **part 3e** by plotting a histogram of departure delay times out of SFO for the airline carrier you found in that part. Make sure you label your axes and give the plot a title.
+
+
+---
+
+# Question 4 
+
+---
+
+## Question 4a - Logical operators
+
+-   **Logical** operators are the name we give to functions in R that result in columns taking values `TRUE` or `FALSE`.
+
+--
+
+-   Some are mathematical in nature; others are "categorical."
+
+--
+
+-   Below, we will list the operators and give examples of their use with the `NBA` data.
+
+--
+
+---
+
+## Logical operators we will be using in the course
+
+-   `&gt;`: Greater than
+
+    -   Example: `NBA %&gt;% filter(as.numeric(Age) &gt; 30)`
+
+--
+
+-   `&lt;`: Less than
+
+    -   Example: `NBA %&gt;% filter(as.numeric(Age) &lt; 30)`
+
+--
+
+-   `&gt;=`: Greater than or equal to
+
+    -   Example: `NBA %&gt;% filter(as.numeric(Age) &gt;= 30)`
+
+--
+
+-   `&lt;=`: Less than or equal to
+
+    -   Example: `NBA %&gt;% filter(as.numeric(Age) &lt;= 30)`
+
+---
+
+## Logical operators we will be using in the course
+
+-   `==`: Equal to 
+
+    -   Example: `NBA %&gt;% filter(as.numeric(Age) == 30)`
+    
+    -   Example: `NBA %&gt;% filter(Pos == "C")`
+
+--
+
+-   `!=`: Not equal to
+
+    -   Example: `NBA %&gt;% filter(as.numeric(Age) != 30)`
+    
+    -   Example: `NBA %&gt;% filter(Pos != "C")`
+
+---
+
+## Logical operators we will be using in the course
+
+-   `&amp;`: "and" 
+
+    -   Example: `NBA %&gt;% filter(as.numeric(Age) != 30 &amp; Pos == "C")`
+
+--
+
+-   `|`: "or"
+
+    -   Example: `NBA %&gt;% filter(as.numeric(Age) != 30 | Pos == "C")`
+
+--
+
+---
+
+## Logical operators we will be using in the course
+
+-   `%in%`: the "in" operator 
+
+    -   Example: `NBA %&gt;% filter( Pos %in% c("C", "SF") )`    
+
+--
+
+-   `!`:    Reverses the operation
+
+    -   Example: `NBA %&gt;% filter(! (Pos %in% c("C", "SF")) )`
+    
+    -   Example: `NBA %&gt;% filter(! (Age &gt; 30) )`
+    
+        -   *What's the easier way to write the same thing?*
+
+---
+
+## Question 4b - `group_by()` and `summarise()`
+
+-   `group_by()` and `summarise()` are often used in tandem together. 
+
+--
+
+-   This is so before we perform summary statistics on a numerical variable,
+we can first "split" the data by the levels of a categorical variable(s)
+
+--
+
+-   Then we compute the summary statistics on each "split"
+
+--
+
+-   The result is another data frame
+
+---
+
+## Question 4b - `group_by()` and `summarise()`
+
+- Example: `palmerpenguins` dataset. 
+
+--
+
+&gt; Compute summary statistics on the bill depth `bill_depth_mm` by each species of penguin.
+
+--
+
+---
+
+## Question 4b - `group_by()` and `summarise()`
+
+&gt; Compute summary statistics on the bill depth `bill_depth_mm` by each species of penguin.
+
+--
+
+
+
+
+```r
+#n() counts the number of penguins belonging to each species!
+
+penguins %&gt;% drop_na(bill_depth_mm) %&gt;% 
+  group_by(species) %&gt;%
+  summarise(Mean = mean(bill_depth_mm),
+            SD = sd(bill_depth_mm), Count = n())
+```
+
+```
+## # A tibble: 3 × 4
+##   species    Mean    SD Count
+##   &lt;fct&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+## 1 Adelie     18.3 1.22    151
+## 2 Chinstrap  18.4 1.14     68
+## 3 Gentoo     15.0 0.981   123
+```
+
+---
+
+## Question 4a-b (15 mins)
+
+a. Use code to add a variable to the `flights` data frame which returns TRUE for flights taking place before March 11, 2020 and FALSE for flights taking place on and after that date. Save your new data frame into an object called `flights4`.
+
+--
+
+b. Using the `flights4` data set, use code to create another data frame which tabulates the total number of flights taken before and after March 11, 2020.
+
+--
+
+---
+
+## Question 4c-d (7 mins)
+
+c.  What does your result in part b say about how the COVID-19 pandemic affected the number of flights taken on and after March 11, 2020?
+
+--
+
+d. Now, we will work with `flights` again. Using the original data set, make a bar chart which visualizes the number of flights by month. Make sure to label your axes and give your plot a title. What does this say about the effect of the COVID-19 pandemic on the number of flights taken in the year 2020?
+
+--
+
+---
+
+# Question 5
+
+---
+
+## Question 5a-b1 (10 mins)
+
+a.    If you flew out of SFO or OAK airports during the year 2020, use code to find the tail number of the plane you were on! If you didn’t fly out of these airports in 2020, use code to find the tail number of the plane that flew *Flight 452 from SFO to Salt Lake City, Utah, U.S.A. (SLC) on August 6*. The code you present should result in a data frame with a single row. The row will correspond to the flight whose tail number you are interested in.
+
+--
+
+b1.   Mutate a new variable called `avg_speed`; that is, the average speed of the plane during the flight, measured in miles per hour. (Look through the column names or the help file to find variables that can be used to calculate this.) In solving this problem, it will be helpful for you to think about how we answered **part 2b**. Save the new data frame you have to an object called `flights5`.
+
+---
+
+## Question 5b2 (Remainder of time)
+
+-   With the `flights5` data and considering the airport nearest your hometown, which day of the week and which airline seems “best” for flying there from San Francisco (SFO)? Use code to figure this out.
+
+--
+
+-   If you’re from the Bay Area or from abroad, go ahead and use the Chicago O’Hare International Airport (ORD) as your home airport.
+
+--
+
+---
+
+## Question 5b2 (Remainder of time)
+
+-   Note: It is up to you to define what “best” means! But we will provide you with the code to create a day-of-week column. It uses the `lubridate` package, so you’ll need to load that before you do your work on this question. Here’s the line (to be used in a pipeline):
+
+--
+
+    -   `mutate(day_of_week = wday(ymd(paste(year, month, day, set = "-")), label = T))`
+
+--
+
+-   It might also be handy to do this mutation and save into an object. 
+
+--
+
+---
+
+# End of Days 2 &amp; 3
+
+---
+
+
+
+
+
+
+
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
