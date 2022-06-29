@@ -25,6 +25,15 @@ execute:
 
 . . .
 
+## Notes on Lab 2
+
+-   `drop_na()`
+
+-   `factor()`
+
+
+. . . 
+
 # Recap and Moving Forward
 
 ## Recap and Moving Forward
@@ -67,7 +76,7 @@ execute:
 
 -   If the number of observations is *odd*:
 
-    -   Split the data into two halves, *excluding the median point*
+    -   Split the data into two halves, *including the median point*
 
 -   If the number of observations is *even*:
 
@@ -77,7 +86,7 @@ execute:
 
 -   The median of the lower half is *Q*<sub>1</sub>
 
--   $Interquartile \\\\space range = Q_3 - Q_1$
+-   $Interquartile \\\\\\\\space range = Q_3 - Q_1$
 
 . . .
 

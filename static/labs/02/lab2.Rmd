@@ -121,11 +121,11 @@ The code you present should result in a data frame with a single row. The row wi
 
 ### part b1
 
-Mutate a new variable called `avg_speed`; that is, the average speed of the plane during the flight, measured in miles per hour. (Look through the column names or the help file to find variables that can be used to calculate this.) In solving this problem, it will be helpful for you to think about how we answered **part 2b**. Save the new data frame you have to a data frame called `flights5`.
+Mutate a new variable called `avg_speed`; that is, the average speed of the plane during the flight, measured in miles per hour. (Look through the column names or the help file to find variables that can be used to calculate this.) In solving this problem, it will be helpful for you to think about how we answered **part 2b**. Save the new data frame you have to an object called `flights5`.
 
 ### part b2
 
-Using the airport nearest your hometown, which day of the week and which airline seems "best" for flying there from San Francisco (SFO)? Use code to figure this out.
+Using the `flights5` data frame and considering the airport nearest your hometown, which day of the week and which airline seems "best" for flying there from San Francisco (SFO)? Use code to figure this out.
 
 If you're from the Bay Area or from abroad, go ahead and use the Chicago O'Hare International Airport (ORD) as your home airport.
 
