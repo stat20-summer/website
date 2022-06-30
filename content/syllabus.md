@@ -39,7 +39,7 @@ Sunday at 11:00a ([Remote](https://berkeley.zoom.us/j/94797313678?pwd=VkI3S1ZQNX
 
 -   Section 103: Qingyi Fang
 
-    -   OH: Thursday at 9:00a (Evans 323), Friday 10:00a (Evans 323)
+    -   OH: Thursday at 9:00a (Evans 426), Friday 10:00a (Evans 426)
 
     -   Write her an email: [qyi_fang\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=qyi_fang@berkeley.edu&su=MyNameSTAT20&body=Hello)
     

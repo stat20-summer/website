@@ -16,25 +16,21 @@ format:
 execute:
   freeze: auto
 ---
-
 # First Things First
 
-## Grading
+## First Things First
 
--   Expect Lab 1 grades back by Tuesday, July 5
+-   Course schedule/syllabus updated
+
+-   A note on `&` and `|`
+
+-   *3 Tutorials* post on Ed
+
+-   Office hours being finalized: see course website
 
 . . .
 
-## Notes on Lab 2
-
--   `drop_na()`
-
--   `factor()`
-
-
-. . . 
-
-# Recap and Moving Forward
+# Recap
 
 ## Recap and Moving Forward
 
@@ -42,125 +38,11 @@ execute:
 
 -   Lecture 5: Summaries of Categorical Data, Measures of Spread, Shapes of Distributions
 
--   Today and Wednesday: Data Visualization
+-   Yesterday and Today: Lecture 4-5 Exercises, Data Visualization
 
 . . .
-
-# A note on the median and interquartile range (IQR)
-
-## A note on the median and interquartile range (IQR)
-
--   The method for calculating the *median*, and thus *Q*<sub>3</sub>, *Q*<sub>1</sub> and the *interquartile range (IQR)* is different depending on whether the number of observations *x*<sub>*i*</sub> of a variable *x* is *even* or *odd*.
-
-## A note on the median
-
--   If the number of observations is *odd*:
-
-    -   We have a middle observation, which is the *median*.
-
--   If the number of observations is *even*:
-
-    -   Split the data into two halves
-
-    -   Take the average of:
-
-        -   the maximum of the lower half
-
-        -   the minimum of the upper half
-
-    -   That average is the *median*.
-
-. . .
-
-## A note on the interquartile range (IQR)
-
--   If the number of observations is *odd*:
-
-    -   Split the data into two halves, *including the median point*
-
--   If the number of observations is *even*:
-
-    -   Split the data into two halves
-
--   The median of the upper half is *Q*<sub>3</sub>
-
--   The median of the lower half is *Q*<sub>1</sub>
-
--   $Interquartile \\\\\\\\space range = Q_3 - Q_1$
-
-. . .
-
-# Some review exercises from Lectures 4 and 5!
-
-## Exercises
-
--   These are multiple choice and have one correct answer.
-
--   They can be found on the revamped [Lecture Code and Supplements Thread]().
-
-. . .
-
-## Exercises
-
--   At this point, we split the exercises up by different halves of the room and spent some time working on them.
-
--   Then we reconvened and discussed the answers.
-
-## Exercises
-
-# Break
 
 # Data Visualization
-
-## Data Visualization
-
--   An important part of descriptive statistics.
-
--   One of the coolest and most artistic parts of statistics and data science!
-
-. . .
-
-## Plots we will be making this semester
-
--   Those we've already seen:
-
-    -   Dot plot
-
-    -   Histogram
-
-    -   Box plot
-
--   Those we are yet to see:
-
-    -   Scatter plot
-
-    -   Density plot
-
-    -   Line plot
-
-. . .
-
-## Scatter Plot
-
--   **Used for:** two numerical variables, potentially one categorical variable
-
--   **Desiderata**: We want to explore the relationship between two numerical variables.
-
-. . .
-
-## Density Plot
-
--   **Used for:** one numerical variable
-
--   **Desiderata**: We want to get the shape of the distribution like the histogram, but want a more smooth shape.
-
-. . .
-
-## Line Plot
-
--   **Used for:** two numerical variables
-
--   **Desiderata**: We want to visualize a trend between two numerical variables, particularly over time.
 
 . . .
 
@@ -278,7 +160,7 @@ execute:
 
 ## Data Visualization
 
--   Exercise:
+-   Last class:
 
 . . .
 
@@ -286,17 +168,48 @@ execute:
 
 . . .
 
--   In doing this, think about how the relationship between the two variables and let this inform your scatter plot.
+## Data Visualization - `geom_point()`
+
+> Sketch a plot of Field Goals Attempted (FGA) vs. Effective Field Goal Percentage (`eFG%`). Identify your aesthetic mapping and geometry.
 
 . . .
 
-## Data Visualization - `geom_point()`
+```{r read_in_data, message = FALSE, echo = FALSE}
+library(rvest)
+library(tidyverse)
 
--   At this point, we discussed the differing answers the class came up with.
+url <- "https://www.basketball-reference.com/leagues/NBA_2022_per_game.html#per_game_stats"
 
--   We then went to the course server to discuss how to make the plot using `ggplot()` and `dplyr()`.
+NBA <- (read_html(url) %>% html_table())[[1]] %>% filter(Tm != "Tm")
 
--   What we will make is a *scatter plot*. The corresponding `ggplot2` geometry is known as `geom_point()`.
+```
+
+. . .
+
+```{r no_duplicated, echo = FALSE}
+Mult_Teams <- NBA %>% filter(Tm == "TOT")
+
+Mult_Team_Player_Vec <- unname(unlist(select(Mult_Teams, Player)))
+
+One_Team <- NBA %>% distinct(Player, .keep_all = TRUE) %>% 
+  filter(!(Player %in% Mult_Team_Player_Vec))
+
+New_NBA <- bind_rows(One_Team, Mult_Teams)
+
+```
+
+```{r, the_plot, echo = FALSE}
+New_NBA %>% mutate(FGA = as.numeric(FGA), `eFG%`= as.numeric(`eFG%`)) %>%
+  filter(`eFG%` > 0) %>%
+ ggplot() + geom_point(mapping = aes(x = FGA, 
+                                           y = `eFG%`)) +
+  theme_light() + xlab("FGA") + 
+  ylab("eFG%") +
+  ggtitle("Field Goals Attempted (FGA) vs. 
+          Effective Field Goal Percentage (eFG%)", 
+          subtitle = "per game, 2021-2022 NBA Players")
+
+```
 
 . . .
 
@@ -409,6 +322,170 @@ ppk %>% drop_na(Q18, Q21) %>%
 
 . . .
 
--   Now we can see that a lot of people stuck with their initial opinions even after hearing the information.
+# `facet_wrap()`
 
-# End of Lecture 6
+. . .
+
+## Data Visualization - `facet_wrap()`
+
+-   Useful for splitting a plot into subplots based on the levels of a categorical variable(s). Put this function after your `geom` of choice when layering your plot.
+
+-   **Format**: `facet_wrap(vars(VAR1, VAR2, ...))`
+
+-   Generally we will facet with one or two variables.
+
+. . .
+
+## Data Visualization - `facet_wrap()`
+
+-   Example:
+
+. . .
+
+> Plot Field Goals Attempted (FGA) vs. Effective Field Goal Percentage (`eFG%`), faceted by position.
+
+. . .
+
+## Data Visualization - `facet_wrap()`
+
+> Plot Field Goals Attempted (FGA) vs. Effective Field Goal Percentage (`eFG%`), faceted by position.
+
+. . .
+
+```{r facet_plot}
+New_NBA %>% mutate(FGA = as.numeric(FGA), `eFG%`= as.numeric(`eFG%`)) %>%
+  filter(`eFG%` > 0) %>% 
+  filter(Pos %in% c("C", "PF", "PG", "SF", "SG"))%>%
+ ggplot() + geom_point(mapping = aes(x = FGA, 
+                                           y = `eFG%`)) +
+  theme_light() + xlab("FGA") + 
+  ylab("eFG%") + facet_wrap(vars(Pos)) + 
+  ggtitle("Field Goals Attempted (FGA) vs. 
+          Effective Field Goal Percentage (eFG%)", 
+          subtitle = "per game, 2021-2022 NBA Players")
+
+```
+
+. . .
+
+# Logical Variables
+
+## Logical Variables
+
+-   Variables that either take values `TRUE` or `FALSE`
+
+-   Often the result of useful mutations
+
+-   Will be especially useful in coming weeks
+
+## Math with Logical Variables
+
+-   Whenever *a mathematical expression is evaluated* on a logical value:
+
+    -   `TRUE` values correspond to 1 and
+
+    -   `FALSE` values correspond to 0.
+
+-   This is very handy for calculating the proportion of `TRUE` or `FALSE` observations of a logical variable. This calculation actually amounts to taking the **mean** of the observations (why?)
+
+. . .
+
+## Math with Logical Variables - Exercises
+
+-   Here are some practice exercises to help your understanding.
+
+-   What is:
+
+    -   `TRUE * FALSE`
+
+    -   The mean of: `TRUE`, `FALSE`
+
+    -   The median of: `FALSE`, `TRUE`, `TRUE`
+
+    -   The median of: `FALSE`, `TRUE`, `TRUE`, TRUE\`
+
+. . .
+
+# Data Visualization
+
+. . .
+
+## Data Visualization with Logical Variables
+
+-   Exercise:
+
+. . .
+
+> Make two new columns: one which takes the value `TRUE` for players under or at age 25, and another which the value `TRUE` for players who play more than 20 minutes per game (MP). Then, add the two columns together and create a bar chart with the values of the summed column.
+
+. . .
+
+## Data Visualization with Logical Variables
+
+```{r new_columns, echo = FALSE}
+New_NBA %>% mutate(Age = as.numeric(Age), 
+                   MP = as.numeric(MP)) %>%
+  mutate(Young = Age <= 25) %>% mutate(Active = MP > 20) %>%
+  mutate(Young_And_Active = Young + Active) %>%
+  
+  ggplot() + 
+  geom_bar(mapping = aes(x = factor(Young_And_Active)),
+           color = "red", fill = "black") +
+  xlab("Youth + Activity Score") + 
+  ylab("Count") + ggtitle("NBA Players by Youth and Activity", subtitle = "A score of 2 indicates a player is at most 25 years old and plays more than 20 minutes") + theme_light() 
+
+```
+
+. . .
+
+# Break
+
+# Exercises
+
+## Exercises - Data Visualization
+
+-   Today's exercises will cover Data Visualization with `ggplot()`.
+
+-   They can be found on the revamped [Lecture Code and Supplements Thread]().
+
+## Exercises - Data Visualization
+
+-   At this point, we spent class time working on the exercises and went over the answers as a class.
+
+# Moving forward
+
+## The Four Types of Claim
+
+1.  Descriptive (done!)
+
+2.  **Generalizations**
+
+3.  **Causal**
+
+4.  **Predictive**
+
+. . . 
+
+-   Next week we will focus on **Generalizations**.
+
+. . .
+
+## Assessments
+
+-   Quiz 1 next week (**Original Thurs 6:00p on Gradescope**)
+
+    -   25 minutes to complete once started
+    
+    -   Will cover weeks 1, 2 and 3 up to next Wednesday
+  
+    -   Original and a retake
+
+-   Midterm the week after (**Thursday, Jul 14 in-class**)
+
+    -   Will cover weeks 1-3 material
+
+    -   There will be three review days before the exam
+
+. . .
+
+# End of Lecture 7
