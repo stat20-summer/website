@@ -70,12 +70,12 @@ type of statistical claim in parentheses.
 
 -   Week 1: Introduction, types of data, and reproducible research
 -   Week 2: Descriptive Statistics (Descriptive)
--   Week 3: Confidence Intervals (Generalizations)
--   Week 4: Review  
--   Week 5: Hypothesis Tests (Generalizations)
+-   Week 3: Generalizations and Probability (Generalizations)
+-   Week 4: Midterm Review and Midterm
+-   Week 5: Confidence Intervals and Hypothesis Tests (Generalizations)
 -   Week 6: Experimental Design (Causal)
 -   Week 7: Linear Regression (Predictive)
--   Week 8: Review & Wrap Up, Special Topics
+-   Week 8: Review & Final, Special Topics
 
 En route to learning these topics, we'll also discuss:
 

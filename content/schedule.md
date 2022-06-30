@@ -93,7 +93,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>3</p></td>
 <td style="text-align: left;"><p>Tuesday</p></td>
 <td style="text-align: left;"><p>7/5</p></td>
-<td style="text-align: left;"><p><a href="NA">Generalizations, Probability</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Generalizations; Probability</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">Lab 3</a></p></td>
@@ -102,7 +102,7 @@ show_title_as_headline: true
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>7/6</p></td>
-<td style="text-align: left;"><p><a href="NA">Probability and Confidence Intervals using mathematical methods</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Probability I</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">PS 3</a></p></td>
@@ -111,7 +111,7 @@ show_title_as_headline: true
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>7/7</p></td>
-<td style="text-align: left;"><p><a href="NA">Confidence Intervals with the Bootstrap and comparison with mathematical methods</p></td>
+<td style="text-align: left;"><p><a href="NA">Probability II</p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
@@ -192,7 +192,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>5</p></td>
 <td style="text-align: left;"><p>Monday</p></td>
 <td style="text-align: left;"><p>7/18</p></td>
-<td style="text-align: left;"><p><a href="NA">Hypothesis Testing</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Confidence Intervals using probability theory methods</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">Lab 4</a></p></td>
@@ -201,7 +201,7 @@ show_title_as_headline: true
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Tuesday</p></td>
 <td style="text-align: left;"><p>7/19</p></td>
-<td style="text-align: left;"><p><a href="NA">Hypothesis Testing</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Confidence Intervals with the bootstrap and comparison with probability theory methods</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">PS 4</a></p></td>
@@ -210,7 +210,7 @@ show_title_as_headline: true
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>7/20</p></td>
-<td style="text-align: left;"><p><a href="NA">Hypothesis Tests: Goodness of Fit</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Hypothesis Testing</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
@@ -219,7 +219,7 @@ show_title_as_headline: true
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>7/21</p></td>
-<td style="text-align: left;"><p><a href="NA">Inference on Numerical Data</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Hypothesis Tests: Goodness of Fit</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
