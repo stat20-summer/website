@@ -1,0 +1,408 @@
+---
+title: "Lecture 8: Intro to Generalizations; Probability"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../../assets/stat20.scss"
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: hex-background.png
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# First Things First
+
+## First Things First
+
+-   Quiz 3 this Thursday
+
+    -   Online
+
+    -   24 hour window, 25 minutes to complete once started
+    
+    -   Original released Thurs 6:00p; Retake released Sat 6:00p
+    
+    -   See PS3 multiple choice for an idea of the *type* of questions
+
+. . . 
+
+## Recap
+
+-   Week 1: Introduction
+
+    -   Making a dataset based off of a *specific* question
+    
+    -   Identifying unit of observation/what data corresponds to
+    
+    -   Basic `dplyr`, functionality in R
+    
+. . . 
+
+## Recap
+    
+-   Week 2: Descriptive Statistics/Data Visualization
+
+    -   **The first type of claim made using data that we learned about**
+
+    -   Summary statistics; measures of center and spread
+    
+    -   Data wrangling, maniuplation and computation with `dplyr()`
+    
+    -   Data visualization with `ggplot()`
+    
+    -   Making a dataset and a potential plot based off of a *specific* question
+    
+    
+. . . 
+
+# Week 3 - Introduction to Generalizations; Probability
+
+# Generalizations
+
+## Generalizations
+
+-   A **generalization** is a claim you make using a "small" sample of data (e.g., a dataset) that you believe holds to the *entire population* from which the data originates.
+
+    -   We use **statistics** (data from samples) to make generalizations called **inferences** about quantities inherent to a population of data (**parameters**).
+
+-   **Generalizations** are indeed some of the most prominent claims made using statistics every day, but there are ways they can go wrong.
+
+. . . 
+
+## Generalizations going wrong - an example
+
+![](images/sheep.gif)
+
+. . .
+
+## Generalizations going wrong - an example
+
+![](images/sports-car.webp)
+. . .
+
+## Generalizations (potentially) going wrong - Activity
+
+-   We took three different samples: one from the front row of the class, and two which were collected randomly. The question we asked:
+
+. . . 
+
+>  On a scale of 1 to 5, how important is punctuality to you?
+
+. . . 
+
+-   Then we analyzed the results.
+
+-   The former sampling method is known as *convenience sampling*; the latter is known as *Simple Random Sampling* (SRS).
+
+. . . 
+
+## Generalizations going wrong
+
+-   When comparing sample 1 and sample 2, we noticed that generalizations can go wrong if there is systematic **bias**, wherein *all* samples of data are persistently non-representative.
+
+    -   Generally, employing sampling methods like SRS can help with this
+
+-   When comparing sample 2 and sample 3, we noticed that generalizations can go wrong in the face of **sampling variability**: the variability in the data from one sample to the next.
+
+. . .
+
+## Handling sampling variability - Activity 2
+
+>   What proportion of the Earth's surface is water?
+
+. . . 
+
+## Handling sampling variability - Activity 2
+
+>   What proportion of the Earth's surface is water?
+
+. . . 
+
+-   We threw a blow-up globe of the Earth around the classroom and recorded whether our left index fingers landed on land or water. 
+
+-   What we noticed is that as we continued to *increase our sample size*, the *observed (sample) proportion* converges toward the true proportion.
+
+. . . 
+
+## Handling sampling variability - Activity 3
+
+> Find $\int_{0}^{1} 1-x^2 \,dx$.
+
+. . . 
+
+-   This is NOT a pure mathematics class, so don't use calculus!!
+
+. . . 
+
+## Handling sampling variability - Activity 3
+
+> Find $\int_{0}^{1} 1-x^2 \,dx$.
+
+. . . 
+
+-   We can do this by sampling points inside the unit square with vertices $(0,0)$, $(1,0)$, $(0,1)$, $(1,1)$ and then determine the *proportion* of points in that square that are also above the curve $y = x^2$ from 0 to 1.
+
+. . . 
+
+## Handling sampling variability - Activity 3
+
+> Find $\int_{0}^{1} 1-x^2 \,dx$.
+
+. . .
+
+```{r, message = FALSE, echo = FALSE}
+library(tidyverse)
+set.seed(20)
+
+n <- 10000
+
+points <- tibble(X = runif(n, min = 0, max = 1),
+                   Y = runif(n, min = 0, max = 1))
+
+points <- points %>% mutate(In_Region = (Y > X^2)) 
+
+ggplot(points) + geom_point(aes(x = X, y = Y, color = In_Region)) +
+  theme_light() + ggtitle("Integration using Sampling Techniques")
+```
+
+. . . 
+
+## Handling sampling variability - Activity 3
+
+```{r}
+set.seed(20)
+
+n <- 10000
+
+points <- tibble(X = runif(n, min = 0, max = 1),
+                   Y = runif(n, min = 0, max = 1))
+
+points <- points %>% mutate(In_Region = (Y > X^2)) 
+
+ggplot(points) + geom_point(aes(x = X, y = Y, color = In_Region)) +
+  theme_light() + ggtitle("Integration using Sampling Techniques")
+```
+
+. . . 
+
+```{r, echo = FALSE}
+points %>% summarise(Prop = mean(In_Region))
+```
+
+. . . 
+
+## Handling sampling variability  
+
+-   Remember, *proportions* are **averages of 0s and 1s!!**.
+
+-   It turns out that for numerical variables, as we increase the sample size, the average of the data will eventually move toward the true proportion. This phenomenon is known as **The Law of Large Numbers**.
+
+-   This fact will be useful to us when we make generalizations using probability theory.
+
+## Handling sampling variability: data-driven approach
+
+-   Sometimes we don't have probability theory to help us out. This is particularly the case when we are trying to work with parameters other than averages.
+
+-   Instead, we need something *computational*, or data-driven, to help us out.
+
+-   Class Activity: We had some students come up and we explained the bootstrap sample.
+
+. . . 
+
+## Handling sampling variability: data-driven approach
+
+-   The *bootstrap* is a computational method which can be used for parameters of any kind as long as the size of your sample is "large" enough.
+
+-   We sample from the data *with replacement* and then calculate the parameter estimate of interest with the bootstrap sample.
+
+-   If we do this many times, we form a *sampling distribution* composed of parameter estimates that gives us an idea of what the parameter might be.
+
+    -   After the midterm, we will formalize how we come up with this idea
+
+. . . 
+
+## Handling sampling variability: data-driven approach
+
+-   At this point, we went to the course server to discuss how to generate a bootstrap sample of an original sample from a population using the `sample()` function.
+
+. . . 
+
+## Some useful terminology 
+
+1. **Population**: the full group of observational units upon which you wish to make a claim. Population size: $N$.
+
+2. **Sample**: the set of observational units and accompanying data that you have observed. Sample size: $n$. $(n \le N)$
+
+3. **Census**: a sample of data that encompasses the whole population. $n = N$.
+
+4. **Anecdote**: a sample of size 1. $n = 1$.
+
+. . .
+
+## From Generalizations to Probability
+
+-   Let's *slightly* reword the geographical question we just explored.
+
+-   Before:
+
+. . .
+
+>   What proportion of the Earth's surface is water?
+
+. . .
+
+-   Now:
+
+. . .
+
+>   What is the *probability* that we pick a point on the Earth's surface that is water?
+
+. . . 
+
+## From Generalizations to Probability
+
+-   We then re-framed our last exercise in the context of this new question on the board.
+
+. . . 
+
+## Generalizations - Questions we seek to answer
+
+1. How can we use a sample of *data* to reason about a particular *data generating process*?
+
+2. How can we account for the uncertainty caused by *sampling variability*?
+
+3. How does uncertainty decrease as we increase *sample size*?
+
+4. How can we identify and deal with *statistical bias*?
+
+. . . 
+
+# Break
+
+# Probability
+
+## Probability
+
+-   Consider a *random process* whose different outcomes are listed inside of a *set* called $\Omega$. 
+
+. . .
+
+## Probability
+
+Here is the definition of probability *that we will be using in this class:*
+
+-   The **probability** of an outcome in a set $\Omega$ of a random process is the proportion of times that outcome would be observed if the *random process* were observed $\infty$ times.
+
+
+-   My plan is to discuss another definition of probability in the Special Topics lecture on Thursday, August 12 (the last day of the course).
+
+. . . 
+
+## Probability distributions
+
+-   There are two types of probability distributions: **discrete** and **continuous**. 
+
+-   We will be focusing *solely* on **discrete distributions**
+
+    -   These distributions have outcomes that you can count
+    
+    -   We will cover the following distributions:
+    
+        -   The Discrete Uniform
+        
+        -   The Bernoulli
+        
+        -   The Binomial
+. . .
+
+## Probability distributions
+
+-   A **probability distribution** of a discrete (random) data generating process encompasses all possible outcomes of a variable along with their respective probabilities.
+
+-   They can be expressed as tables or bar charts, so don't get them confused with *distributions of data*!!
+
+-   **Properties**
+
+    1. The outcomes must be disjoint (mutually exclusive).
+
+    2. Each probability must be between 0 and 1.
+
+    3. The probabilities must sum to 1.
+
+. . . 
+
+## Ex. of prob. distributions - Earth and Spring 2022 class survey
+
+:::: {.columns}
+::: {.column width="33%"}
+```{r fig.height=12}
+library(tidyverse)
+tibble(surface = c("Land", "Water"),
+       p = c(.29, .71)) %>%
+  ggplot(aes(x = surface,
+             y = p)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(x = "Surface",
+       y = "Probability") +
+  theme_bw(base_size = 40)
+```
+:::
+
+::: {.column width="33%"}
+```{r fig.height=12}
+library(stat20data)
+data(class_survey)
+class_survey %>%
+  mutate(year_at_cal = case_when(
+    time_at_cal %in% c("This is my first semester!", "I'm in my first year.") ~ 1,
+    time_at_cal == "I'm in my second year." ~ 2,
+    time_at_cal == "I'm in my third year." ~ 3,
+    time_at_cal == "I'm in my fourth year." ~ 4,
+    time_at_cal == "More than 4 years." ~ 5
+  )) %>%
+  count(year_at_cal) %>%
+  mutate(p = n / sum(n)) %>%
+  ggplot(aes(x = year_at_cal,
+             y = p)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(x = "Years at Cal",
+       y = "Probability") +
+  theme_bw(base_size = 40)
+```
+:::
+
+::: {.column width="33%"}
+```{r fig.height=12}
+class_survey  %>%
+  drop_na(season) %>%
+  count(season) %>%
+  mutate(p = n / sum(n)) %>%
+  ggplot(aes(x = season,
+             y = p)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(x = "Season",
+       y = "Probability") +
+  theme_bw(base_size = 40)
+```
+:::
+::::
+
+. . . 
+
+> Note: These are not distributions of *data*, but descriptions of the process that generates data.
+
+. . . 
+
+## Another defintion for generalization
+
+-   In the context of probability, a **generalization** can be seen as a description of the **process that generated** the data.
+
+. . . 
+
+# End of Lecture 8

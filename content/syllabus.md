@@ -26,7 +26,7 @@ Sunday at 11:00a ([Remote](https://berkeley.zoom.us/j/94797313678?pwd=VkI3S1ZQNX
 
 -   Section 101: Wayne Wang
 
-    - OH: Tuesday at 1:00p (Evans 323), Saturday 10:00a ([Remote](https://berkeley.zoom.us/j/99070259335?pwd=UC9lKzBVWG9kcitVc3lHenA3WFpUUT09))
+    - OH: Tuesday at 2:00p (Evans 426), Saturday 10:00a ([Remote](https://berkeley.zoom.us/j/99070259335?pwd=UC9lKzBVWG9kcitVc3lHenA3WFpUUT09))
 
     -   Write him an email: [whh.bear\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=whh.bear@berkeley.edu&su=STAT20&body=Hello)
 
@@ -159,6 +159,7 @@ upon for additional readings:
 -   [Hands-on Programming with
     R](https://rstudio-education.github.io/hopr/) **HOP**, Grolemund
 -   [R for Data Science](https://r4ds.had.co.nz/) **RDS**, Wickham and Grolemund
+-   [Probability](https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf) **PIT** Pitman, currently hosted at that link. 
 
 ### Programming
 

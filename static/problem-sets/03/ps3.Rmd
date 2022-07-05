@@ -1,0 +1,153 @@
+---
+title: "PS3"
+author: "BSS Stat 20"
+date: '2022-07-02'
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+# NOTICE
+
+This problem set is worth zero points; you do not have to turn it in. However, if you want to assess yourself fairly, go ahead and type your answers in an RMarkdown file, knit and save to an html or pdf. Feel free to collaborate or use any kind of help while completing this assignment.
+
+This notice will be pasted at the beginning of every problem set.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1 - True or False
+
+Identify whether the following statements are true or false, and give an explanation as to why. *No credit will be given on graded questions of this type if an explanation is not given.*
+
+a.  The probability of event $A$ and $B$ occurring at the same time (regardless of their dependence structure) can be found by multiplying the probability of event $A$ by the probability of event $B$.
+
+b.  The Bernoulli distribution is a special case of (is a type of) the Binomial distribution.
+
+c.  Let $E$ be a random variable which represents the time of year that the first earthquake greater or equal to magnitude 5.0 hits the San Francisco Bay Area. $E$ can take the following seven outcomes, each with probability 1/7:
+
+-   The first quarter of the year
+
+-   The first third of the year
+
+-   The second quarter of the year
+
+-   The second third of the year
+
+-   The third quarter of the year
+
+-   The third third of the year
+
+-   The fourth quarter of the year
+
+c.  $E$ is a random variable belonging to a valid probability distribution.
+
+d.  A population parameter is initially unknown, so we determine its exact value through data.
+
+e.  When working with a conditional probability distribution, the probabilities of each outcome conditioned on the initial outcome must sum to 1.
+
+f.  The probability distribution of rolling a standard fair, six-sided die can be seen as $Discrete \space Uniform(a = 1, b= 6)$.
+
+## Question 2 - Multiple Choice
+
+**No shown work required for this type of question.**
+
+Multiple choice problems will be like this on your midterm; they will be graded only on your choice of answer. Of course, if you want to show work you can.
+
+------------------------------------------------------------------------
+
+### Question 2.1
+
+Assume that two fair three-sided dice are rolled at exactly the same time and our goal is to see if the sum is equal to 5. What is the probability that if we repeat this exact procedure ten times, that the sum of the two dice is equal to 5 on eight occasions?
+
+a.  $0.00056$
+
+b.  $0.00016$
+
+c.  $8.26*10^{-7}$
+
+### Question 2.2
+
+Let $X$ be a random variable which corresponds to the outcome of rolling two fair three-sided die and taking their sum. Calculate the expected value of $X$ ($\mathbb{E}(X)$).
+
+a.  $4$
+
+b.  3.8 repeating (3.88888888889)
+
+c.  4.1 repeating (4.11111111111)
+
+## Question 3 - Multiple Choice
+
+**No shown work required for this type of question. Where applicable, answers are rounded to three decimal places.**
+
+### Question 3.1
+
+Let $X$ be a random variable belonging to the $Discrete \space Uniform(a = 0, b = 100)$ distribution. Now let's come up with a new random variable, $Y$, which is derived from $X$. It has two possible outcomes: 1 if $X$ is odd, and 2 if $X$ is even. What is $P(Y=1)$?
+
+a.  $0.500$
+
+b.  $0.505$
+
+c.  $0.495$
+
+### Question 3.2
+
+Is $Y$ from **3a** a Bernoulli Random Variable?
+
+a.  Yes
+
+b.  No
+
+### Question 3.3
+
+Now let's come up with another new random variable, $Z$, which is derived from $X$. It has two possible outcomes: 0 if $X$ is indivisible by five, and 1 if $X$ is divisible by five. What is $P(Z=1)$?
+
+a.  $0.198$
+
+b.  $0.200$
+
+c.  $0.208$
+
+### Question 3.4
+
+Is $Z$ from **3c** a Bernoulli Random Variable?
+
+a.  Yes
+
+b.  No
+
+## Question 4 - Multiple Choice
+
+**No shown work required for this type of question.**
+
+Consider the random variable $V$, which takes values 1, 0, and -1 with equal probability. From $V$ we can derive the random variable $W = V^2$.
+
+### Question 4.1
+
+Which of the following is true?
+
+a.  $\mathbb{E}(V) > \mathbb{E}(W)$
+
+b.  $\mathbb{E}(V) < \mathbb{E}(W)$
+
+c.  $\mathbb{E}(V) = \mathbb{E}(W)$
+
+### Question 4.2
+
+Which of the following is true?
+
+a.  $Var(V) > Var(W)$
+
+b.  $Var(V) < Var(W)$
+
+c.  $Var(V) = Var(W)$
+
+#### Question 4.3
+
+Is $Var(V) = E(W^{1000})$?
+
+a.  Yes
+
+b.  No

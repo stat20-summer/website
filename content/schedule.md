@@ -93,8 +93,8 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>3</p></td>
 <td style="text-align: left;"><p>Tuesday</p></td>
 <td style="text-align: left;"><p>7/5</p></td>
-<td style="text-align: left;"><p><a href="NA">Generalizations; Probability</a></p></td>
-<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p><a href="NA"> Intro to Generalizations; Probability I</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/inference-applications.html?q=boots#bootstrapping">IMS Ch 23.1.2</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"><p><a href="NA">Lab 3</a></p></td>
 </tr>
@@ -102,19 +102,19 @@ show_title_as_headline: true
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>7/6</p></td>
-<td style="text-align: left;"><p><a href="NA">Probability I</a></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p><a href="NA">Probability II</a></p></td>
+<td style="text-align: left;"><p><a href="https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf">PIT Ch 3.1, up until Joint Distributions</a></p></td>
+<td style="text-align: left;"><p><a href="https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf">PIT CH 2.1, up until Consecutive Odds Ratios</a></p></td>
 <td style="text-align: left;"><p><a href="NA">PS 3</a></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>7/7</p></td>
-<td style="text-align: left;"><p><a href="NA">Probability II</p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p><a href="NA">Probability III</p></td>
+<td style="text-align: left;"><p><a href="https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf">PITCh 3.2, up until the Method of Indicators</a></p></td>
+<td style="text-align: left;"><p><a href="https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf">PIT Ch 3.3, up until Standardization</a></p></td>
+<td style="text-align: left;"><p><a href="https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf">Just a reading: PIT Ch 1.4</a></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>

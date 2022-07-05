@@ -14,4 +14,4 @@ links:
   url: https://stat20summer.netlify.app/lectures/07/lecture7.html
 ---
 
-Today we will be spending most of our time on Data Visualization! We will discuss scatter plots, the phenonmenon of over-plotting and faceting. In doing so, we will also tackle the `logical` data type.
+Today we will be spending most of our time on Data Visualization! We will discuss scatter plots, the phenomenon of over-plotting and faceting. In doing so, we will also tackle the `logical` data type.

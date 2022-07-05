@@ -1,0 +1,103 @@
+---
+title: "Lab 3"
+author: "BSS Stat 20"
+date: '2022-07-05'
+output: pdf_document
+---
+
+# NOTICE
+
+**If you have any collaborators, please write a sentence before Question 1 which acknowledges them. In addition, make sure that the sentence they therefore are also required to write acknowledges you.**
+
+For a template you can follow, see the course syllabus. This notice will be pasted at the beginning of every lab assignment.
+
+**All code MUST be shown. No credit will be given for correct answers without supporting code.**
+
+# Questions
+
+## Question 1
+
+[Click here](https://www.pewresearch.org/internet/2022/03/17/ai-and-human-enhancement-americans-openness-is-tempered-by-a-range-of-concerns/) to access a report by the Pew Research Study on a survey they conducted regarding attitudes toward AI and human enhancement. 
+
+Visit the website and scroll down to the table which has the header: **And some are skeptical that several AI applications would have a positive impact**. Focus on the question regarding **driverless passenger vehicles.** 
+
+a. When it comes to driverless passenger vehicles, what is the main question the authors are trying to answer?
+
+b. What are the population parameters the authors have estimated?
+
+c. What population do you believe the authors are trying to generalize to?
+
+d. Browse the article to determine whether this study was conducted using a Simple Random Sample (SRS). If it was not, explore the study's methodology and identify the random component(s) to how the survey was conducted. 
+
+---
+
+From this point forward in this question, imagine that the sample collected by the Pew Research Center is indeed the population that the authors are trying to generalize to. Assume also that the population is 10,000 people and that everyone in the population gave a recorded response to the question (there is no such thing as not answering the question).
+
+---
+
+e. Re-weight the proportions in the **driverless passenger vehicles** question so that they sum to 1. Then give the values of the population parameters you identified in **part b**.
+
+f. Using R code, generate the population of (around) 100,000 responses to the survey question according to the values of the population parameters you determined in **part d**. Call "Decrease" `D`, "Not too much change" `N`, and "Increase" `I`. It is OK if the numbers do not go evenly into 10,000.
+
+g. Using R code, obtain a bootstrap sample of 100 people from your population and report the sample proportion of those who believe that driver-less passenger vehicles are a good idea for society. 
+
+h. Repeat **part g** for sizes 1000 and 10000. What do you notice about the values of the sample proportions you get and their relation to the true population parameter as the sample size increases?
+
+## Question 2
+
+**Do not use R code for this question unless specified, and please round your answers to three decimal places**. You may use any kind of calculator (excluding R) to help you, however. Just write/explain what calculations you are doing.
+
+----
+
+Consider a tech company that is testing the behavior of a driverless passenger vehicle approaching a four-way intersection. They have programmed the light such that it begins to turn yellow once the vehicle has reached a certain proximity to the intersection. The aim is for the the car to stop at the light, which unbeknownst to the company will happen with probability 0.999. 
+
+--- 
+
+a. The company ones run trial. Let X be the random variable corresponding to the result of the trial (either the car stops or continues). Name the probability distribution that X belongs to and give its parameter(s). 
+
+---
+
+Now, the company performs ten test trials.
+
+---
+
+Assume the vehicle is going the same speed every time as it approaches the intersection. What is the probability that:
+
+b. all trials are successful?
+
+c. all but one trial are successful?
+
+---
+
+The company runs the trials and the vehicle succeeds each time. Now, they want to try something new. They alter the programming of the light so that it can turn yellow when the car reaches one of two distances to the intersection. At the farther distance, the vehicle is expected to stop; at the shorter distance the vehicle is expected to continue through the light. Unbeknownst to the company, the vehicle will stop when it is supposed to with probability 0.999, but will continue when it is supposed to with only probability 0.8. The light will go off at the farther distance with probability 0.7. 
+
+One trial is run. What is the probability that:
+
+d. the car stops?
+
+e. the car continues through the light? 
+
+f. the car makes the desired choice?
+
+--- 
+
+Now the company wants to test the vehicle more in close range. It measures out ten lines, equal in distance from each other, starting from the previous close distance in **parts c-e** and going backward. The light will turn yellow when the vehicle rolls over one of these lines with equal probability. Unbeknownst to the company, the vehicle will stop at the first line (the one closest to the intersection) with probability .8, and this probability will increase by .01 for each line going backward.
+
+---
+
+g. Let R be a random variable corresponding to the number of the line on the road, starting with 1. Name the probability distribution that R is a random variable of and give its parameter(s).
+
+h. Given that the light turns yellow on an even numbered line, what is the probability that the car continues through the light?
+
+
+
+
+
+
+
+
+
+
+
+
+
