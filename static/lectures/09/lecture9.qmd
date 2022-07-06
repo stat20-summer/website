@@ -1,0 +1,519 @@
+---
+title: "Lecture 9: Probability"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../../assets/stat20.scss"
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: hex-background.png
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# First Things First
+
+## First Things First
+
+-   Quiz 3 this Thursday
+
+    -   Online
+
+    -   24 hour window, 25 minutes to complete once started
+
+    -   Original released Thurs 6:00p; Retake released Sat 6:00p
+
+    -   See PS3 multiple choice for an idea of the *type* of questions
+
+    -   Everything *up through Tuesday* will be covered
+
+. . .
+
+# Probability
+
+## Probability
+
+-   Consider a *random process* whose different outcomes are listed inside of a *set* called $\Omega$.
+
+. . .
+
+## Probability
+
+Here is the definition of probability *that we will be using in this class:*
+
+-   The **probability** of an outcome in a set $\Omega$ of a random process is the proportion of times that outcome would be observed if the *random process* were observed $\infty$ times.
+
+-   My plan is to discuss another definition of probability in the Special Topics lecture on Thursday, August 12 (the last day of the course).
+
+. . .
+
+## Probability distributions
+
+-   There are two types of probability distributions: **discrete** and **continuous**.
+
+-   We will be focusing *solely* on **discrete distributions**
+
+    -   These distributions have outcomes that you can count
+
+    -   We will cover the following distributions:
+
+        -   The Discrete Uniform (today)
+
+        -   The Bernoulli (today)
+
+        -   The Binomial (later in the week)
+
+. . .
+
+## Probability distributions
+
+-   A **probability distribution** of a discrete (random) data generating process encompasses all possible outcomes of a variable along with their respective probabilities.
+
+-   They can be expressed as tables or bar charts, so don't get them confused with *distributions of data*!!
+
+-   **Properties**
+
+    1.  The outcomes must be disjoint (mutually exclusive).
+
+    2.  Each probability must be between 0 and 1.
+
+    3.  The probabilities must sum to 1.
+
+. . .
+
+## Exercise - Odds to Win (Normalized) at the 2022 Belmont Stakes
+
+```{r, message = FALSE}
+library(kableExtra)
+library(tidyverse)
+Horses <- c("We The People", "Skippylongstocking", "Nest",
+            "Rich Strike", "Creative Minister", "Mo Donegal",
+            "Golden Glider", "Barber Road")
+
+Post_Position <- 1:8
+
+Odds <- c(1/3, 1/21, 1/9, 1/4.5, 1/7, 1/3.5, 1/21,1/11)
+
+Normalized_Odds <- Odds/sum(Odds)
+
+df <- tibble(Horses, `Post Position` = Post_Position, 
+             `Normalized Odds` = Normalized_Odds)
+
+df %>%
+  kbl(align = "c") %>%
+  kable_styling()
+
+```
+. . .
+
+## Exercise - Odds to Win (Normalized) at the 2022 Belmont Stakes
+
+-   Find, according to the betting public:
+
+1.  The probability that Mo Donegal would win the race.
+
+2.  The probability that a horse in an even post position would win the race.
+
+3.  Given that a horse in an even post position would have ended up winning the race, the probability that it would have been Mo Donegal.
+
+. . .
+
+## Probability - Events
+
+-   An *event* $E$ can be a simple outcome *or* a combination of outcomes in the set $\Omega$.
+
+    -   You can think of an event as a *subset* of $\Omega$
+
+-   Question 2 of the previous exercise featured an example of an event:
+
+    -   $E = \{\textrm{Skippylongstocking}, \textrm{Rich Strike}, \textrm{Mo Donegal}, \textrm{Barber Road}\}$
+    
+. . . 
+    
+-   **The Complement Rule:** The *complement event* of $E$, which we will denote $E^{C}$, is the event that happens when $E$ doesn't. We have that:
+  
+    -   $P(E) + P(E^{C}) = 1$
+    
+    -   This can be a *very* useful tool in calculating probabilties!
+    
+
+. . .
+
+## Conditional Probability (for events $A$ and $B$)
+
+-   For two events $A$ and $B$:
+
+-   We say that $P(B|A)$ is the **conditional probability of event B given the occurrence of Event A**.
+
+-   $P(B|A)$ has a formula; it's $P(B|A) = \frac{P(\textrm{B and A})}{P(A)}$
+
+. . .
+
+-   We computed quantities *similar to this* in finding **conditional proportions** of contingency tables.
+
+-   Question 3 of the previous exercise was an example using conditional probability (can you name events $A$ and $B$ in that case?)
+
+. . .
+
+## Exercise 2 - Odds to Win at the Belmont Stakes (cont.)
+
+4. Mo Donegal ended up winning! Now assume the race was run twice and that the results of the first race did not impact the second. What is the probability that Mo Donegal won twice in a row?
+
+5. Now let's focus again on the first race. Assume that if one horse crosses the finish line, the winning probabilities automatically adjust to be normalized among the remaining horses. What is the probability that Mo Donegal is followed directly by Nest across the finish line (the horse that did end up finishing second in the race)? 
+
+. . . 
+
+## The (General) Multiplication Rule
+
+If events $A$ and $B$ are **independent**, we have:
+
+. . .
+
+$$ P(B \textrm{ and } A) = P(B) \times P(A) $$
+
+. . . 
+
+But in general, for both **dependent** and **independent** events $A$ and $B$:
+
+$$ P(B \textrm{ and } A) = P(B|A) \times P(A) $$
+
+. . .
+
+## Exercise 3 - Odds to Win at the Belmont Stakes (cont.)
+
+6. Now, assume we are nearing the beginning of the first race and wish to bet on Mo Donegal when all of a sudden the betting odds disappear! However, we are in luck. A horse racing insider lets us know that Mo Donegal is a very impressive closer. She tells us that if Mo Donegal is at least in third position by the one mile mark of the race, he will win with probability .90; otherwise, he will win with only probability .40. She also tells us that there is a .75 chance he will be in the third position by the one mile mark of the race. What can we expect the betting odds on Mo Donegal to win to be?
+
+. . . 
+
+## Rule of Average Conditional Probabilities
+
+-   Partition an outcome space $\Omega$ into subevents $B_{1}$, $B_{2}$, ... , $B_{n}$. These subevents are mutually exclusive and *exhaustive* (at least one of these subevents **must** happen). Then consider an event $A$. We have that:
+
+-   $P(A) = P(A|B_{1})*P(B_{1}) + P(A|B_{2})* P(B_{2}) + ... +P(A|B_{n})*P(B_{n})$
+
+-   
+. . . 
+
+## Pre-Break Exercises
+
+-   Consider a fair, standard six-sided die.
+
+1.  Calculate the probability that I roll an even number by using the Rule of Average Conditional Probabilities with two subevents of your choosing.
+
+2.  Calculate the probability that I roll two even numbers in a row.
+
+3.  Calculate the probability that I roll six unique numbers in a row.
+
+. . . 
+
+# Break
+
+# Random Variables
+
+## Random Variable
+
+A **random variable** is...
+
+-   A random process with a numerical outcome
+-   A mapping from the outcome space to the real number line
+
+. . .
+
+-   It also comes with a helpful and compact notation.
+
+## Random Variable Notation
+
+Random variables are indicated by capital letters, usually near the end of the alphabet.
+
+$$ X, Y, Z, W $$
+
+. . .
+
+The values that a random variable can take are indicated by lowercase equivalents.
+
+$$ x, y, z, w $$
+
+. . .
+
+The following statement reads, "The probability that the random variable $X$ takes the value $x$".
+
+$$ P(X = x) $$
+
+# Random Variables of Discrete Distributions we will be working with
+
+## (Discrete) Uniform Distribution
+
+. . .
+
+A random variable $X$ has a discrete uniform distribution on the integers between $a$ and $b$ (inclusive) if each integer in the interval is equally likely.
+
+$$ X \sim \textrm{Unif}(a, b) \textrm{, with } n = b - a + 1 \textrm{ outcomes }$$
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+```{r}
+df <- tibble(x = c("a", "a + 1", "...", "b - 1", "b"),
+             `P(X = x)` = c("1/n", "1/n", "...", "1/n", "1/n"))
+df %>%
+  kbl(align = "c") %>%
+  kable_styling()
+```
+:::
+
+::: {.column width="\"50%"}
+```{r}
+#| fig.height: 7
+df <- tibble(x = 0:3,
+             Probability = c(.25, .25, .25, .25))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Unif(0, 3)") +
+  theme_bw(base_size = 40) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+:::
+:::
+
+## Die roll as a Uniform
+
+We can model the number of pips appearing on one roll of a fair six-sided die as $X \sim \textrm{Unif}(a = 1, b = 6)$.
+
+. . .
+
+```{r}
+#| fig.height: 5
+#| fig.width: 5
+#| fig.align: center
+df <- tibble(x = factor(1:6),
+             Probability = rep(1/6, 6))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Unif(1, 6)") +
+  theme_bw(base_size = 20) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+## Fair coin flip as a Uniform
+
+Let an outcome of $H$ be considered a 1 and $T$ considered a 0. Then we can model the outcome of a fair coin flip using $X \sim \textrm{Unif}(a = 0, b = 1)$.
+
+. . .
+
+```{r}
+#| fig.height: 5
+#| fig.width: 5
+#| fig.align: center
+df <- tibble(x = factor(0:1),
+             Probability = c(.5, .5))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Unif(0, 1)") +
+  theme_bw(base_size = 20) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+. . . 
+
+## Bernoulli Distribution
+
+. . .
+
+A random variable $X$ has a Bernoulli distribution if it has only two outcomes, 1 and 0, (known as "success" and "failure", respectively) and a probability of success $p$.
+
+$$ X \sim \textrm{Bern}(p) $$
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+```{r}
+df <- tibble(x = c("1", "0"),
+             `P(X = x)` = c("p", "1 - p"))
+df %>%
+  kbl(align = "c") %>%
+  kable_styling()
+```
+:::
+
+::: {.column width="\"50%"}
+```{r}
+#| fig.height: 8
+df <- tibble(x = c("1", "0"),
+             Probability = c(.33, .67))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Bern(p = .33)") +
+  theme_bw(base_size = 40) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+:::
+:::
+
+## Fair-coin flip as a Bernoulli
+
+Let an outcome of $X=h$ be considered a 1 and $X=t$ considered a 0. Then we can model the outcome of a fair coin flip using $X \sim \textrm{Bern}(p = .5)$.
+
+. . .
+
+```{r}
+#| fig.height: 5
+#| fig.width: 5
+#| fig.align: center
+df <- tibble(x = c("1", "0"),
+             Probability = c(.5, .5))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Bern(p = .5)") +
+  theme_bw(base_size = 20) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+## Earth example as a Bernoulli
+
+Let an outcome of $X = Water$ be considered a 1 and $X = Land$ considered a 0. Then we can model the outcome of the random coordinate generator we used in class by $X \sim \textrm{Bern}(p = .71)$.
+
+. . .
+
+```{r}
+#| fig.height: 5
+#| fig.width: 5
+#| fig.align: center
+df <- tibble(x = c("1", "0"),
+             Probability = c(.71, .29))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Bern(p = .71)") +
+  theme_bw(base_size = 20) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+## Fair 3-sided coin as a Bernoulli
+
+Let an outcome of $X = s$ be considered a 1 and $X \in \{h, t\}$ considered a 0. Then we can model the outcome of our 3-sided coin using $X \sim \textrm{Bern}(p = .33)$.
+
+. . .
+
+```{r}
+#| fig.height: 5
+#| fig.width: 5
+#| fig.align: center
+df <- tibble(x = c("1", "0"),
+             Probability = c(.33, .67))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Bern(p = .33)") +
+  theme_bw(base_size = 20) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+## From the Bernoulli Distribution to the Binomial Distribution
+
+-   Consider again the fair, two-sided coin example.
+
+-   Now, let's *repeat the coin toss a fixed number of times $n$*. Note that $P(X = h)$ does not (should not) change across trials.
+
+-   Let $n$ = 4. What is the probability that we get 3 heads?
+
+. . . 
+
+## From the Bernoulli Distribution to the Binomial Distribution
+
+-   An initial guess might be:
+
+    -   $P(head) \cdot P(head) \cdot P(head) \cdot P(tail)$ 
+  
+-   However, this **constitutes only one order in which we can get three heads and one tail**. We need to account for all orderings of $\{head, head, head, tail\}$.
+
+-   How many combinations are there?
+
+. . . 
+
+## The Binomial Coefficient
+
+The binomial coefficient, ${n \choose x}$, counts the number of such orderings.
+
+. . . 
+
+$$ {n \choose x} = \frac{n!}{x!(n-x)!} $$
+
+. . .
+
+Recall $n! = n \cdot (n-1) \cdot ... \cdot 2 \cdot  1$. It is read **n factorial**. 
+
+. . . 
+
+Example:
+
+$${4 \choose 2} = \frac{4 \cdot 3 \cdot 2 \cdot 1}{2 \cdot 1 (2 \cdot 1)} = \frac{12}{2} = 6$$
+
+
+## The Binomial Distribution
+
+Describes a random variable that is the sum of $n$ independent Bernoulli RVs, each with the same success probability $p$.
+
+:::: columns
+::: {.column width="50%"}
+
+$$
+X \sim \textrm{Binom}(n, p)
+$$
+
+*"X is distributed as a Binomial r.v. with n trials and probability of success p"*
+
+\begin{align}
+P(X = x) &= {n \choose x} p^x (1 - p)^{n - x}
+\end{align}
+
+:::
+
+::: {.column width="50%"}
+```{r echo = FALSE, fig.height=8}
+vals <- c(0, 1, 2, 3, 4)
+py <- dbinom(vals, size = 4, prob = .5)
+df <- data.frame(vals = factor(vals),
+                 py = py)
+names(df) <- c("x", "P(X = x)")
+df %>%
+  ggplot(aes(x = x, 
+             y = `P(X = x)`)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Binom(n = 4, p = .5)",
+       x = "X",
+       y = "Probability") +
+  theme_bw(base_size = 40)
+```
+:::
+::::
+
+## Post-Break Exercises
+
+-   Consider again the Belmont Stakes example.
+
+1.    If we assume the horses run the race ten times and each outcome is independent of the next, what is the probability that Mo Donegal wins seven times?
+
+2.    If we assume the horses run the race ten times and each outcome is independent of the next, what is the probability that Mo Donegal or We the People win at least once?
+
+. . . 
+
+# End of Lecture 8
