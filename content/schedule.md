@@ -1,10 +1,11 @@
 ---
 title: "Schedule"
-subtitle: "STAT 20, UC Berkeley, Summer 2022"
+subtitle: STAT 20, UC Berkeley, Summer 2022
 slug: schedule
-hide_details: true
-draft: false
-show_title_as_headline: true
+output: pdf_document
+draft: no
+show_title_as_headline: yes
+hide_details: yes
 ---
 **Lecture**: Monday, Tuesday, Wednesday, Thursday 11:00a-12:30p (Pacific Time)  
 **Lab Sections**: Monday, Wednesday, Thursday afternoons
@@ -103,7 +104,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>7/6</p></td>
 <td style="text-align: left;"><p><a href="NA">Probability II</a></p></td>
-<td style="text-align: left;"><p><a href="https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf">PIT Ch 3.1, up until Joint Distributions</a></p></td>
+<td style="text-align: left;"><p><a href="https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf">PIT Ch 1.4</a></p></td>
 <td style="text-align: left;"><p><a href="https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf">PIT CH 2.1, up until Consecutive Odds Ratios</a></p></td>
 <td style="text-align: left;"><p><a href="NA">PS 3</a></p></td>
 </tr>
@@ -114,7 +115,7 @@ show_title_as_headline: true
 <td style="text-align: left;"><p><a href="NA">Probability III</p></td>
 <td style="text-align: left;"><p><a href="https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf">PITCh 3.2, up until the Method of Indicators</a></p></td>
 <td style="text-align: left;"><p><a href="https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf">PIT Ch 3.3, up until Standardization</a></p></td>
-<td style="text-align: left;"><p><a href="https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf">Just a reading: PIT Ch 1.4</a></p></td>
+<td style="text-align: left;"><p><a href="https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf">PIT Ch 3.1, up until Joint Distributions</a></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>

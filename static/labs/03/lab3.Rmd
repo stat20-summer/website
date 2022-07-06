@@ -81,7 +81,7 @@ f. the car makes the desired choice?
 
 --- 
 
-Now the company wants to test the vehicle more in close range. It measures out ten lines, equal in distance from each other, starting from the previous close distance in **parts c-e** and going backward. The light will turn yellow when the vehicle rolls over one of these lines with equal probability. Unbeknownst to the company, the vehicle will stop at the first line (the one closest to the intersection) with probability .8, and this probability will increase by .01 for each line going backward.
+Now the company wants to test the vehicle more in close range. It measures out ten lines, equal in distance from each other, starting from the previous close distance in **parts d-f** and going backward. The light will turn yellow when the vehicle rolls over one of these lines with equal probability. Unbeknownst to the company, the vehicle will stop at the first line (the one closest to the intersection) with probability .8, and this probability will increase by .01 for each line going backward.
 
 ---
 

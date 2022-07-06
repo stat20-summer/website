@@ -1,0 +1,291 @@
+---
+title: 'Lab 3: Generalizations and Probability'
+author: "BSS Stat 20"
+date: 'July 6th, 2022'
+output:
+  xaringan::moon_reader:
+    css: stat20.css
+    lib_dir: assets/libs
+    nature:
+      highlightStyle: atelier-forest-light
+      highlightLines: true
+      highlightSpans: true
+      ratio: 16:9
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE,
+                      echo = FALSE,
+                      fig.align = "center",
+                      fig.retina = 3)
+
+library(tidyverse)
+library(xaringanthemer)
+```
+
+class: center, middle
+
+# Welcome to Lab!
+
+---
+
+# Lab 3
+
+---
+
+## Lab 3
+
+```{r, out.width = "500px"}
+knitr::include_graphics("images/articlepreview.png")
+```
+
+
+---
+
+## Lab 3
+
+-   This week, the AI enhancement we will focus on is the *driverless vehicle*.
+
+--
+
+-   We will now give you 5 minutes to read/skim through the article on your own.
+
+
+---
+
+# Question 1
+
+---
+
+## Question 1
+
+-   Visit the website and scroll down to the table which has the header: **And some are skeptical that several AI applications would have a positive impact**. Focus on the question regarding **driverless passenger vehicles.**
+
+---
+
+## Question 1a-d (10 mins)
+
+a. When it comes to driverless passenger vehicles, what is the main question the authors are trying to answer?
+
+b. What are the population parameters the authors have estimated?
+
+c. What population do you believe the authors are trying to generalize to?
+
+d. Browse the article to determine whether this study was conducted using a Simple Random Sample (SRS). If it was not, explore the study's methodology and identify the random component(s) to how the survey was conducted. 
+
+---
+
+## Question 1 - `rep()`
+
+-   `rep()` is a very useful function included in the base installation of R.
+
+-   It allows for the creation of large vectors much more efficiently than just using `c()` would.
+
+--
+
+---
+
+## Question 1 - `rep()`
+
+-   Format: `rep(VECTOR_TO_REPEAT, times = x)`
+
+    -   This creates a vector which repeats the entries in the vector x amount of times.
+
+--
+    
+```{r, echo = TRUE}
+# Using `times` argument
+
+my_vector <- c(1,2,3)
+my_repped_vector <- rep(my_vector, times = 2)
+my_repped_vector
+
+```
+
+--
+
+---
+
+## Question 1 - `rep()`
+
+-   Format: `rep(VECTOR_TO_REPEAT, each = x)`
+
+    -   This creates a vector which contains x repeats of the first element, x repeats of the second, and so on and so forth.
+
+--
+    
+```{r, echo = TRUE}
+# Using `each` argument
+
+my_vector <- c(1,2,3)
+my_repped_vector <- rep(my_vector, each = 2)
+my_repped_vector
+
+```
+
+--
+
+---
+
+## Question 1 - `sample()`
+
+-   `sample()` is a very versatile function, also included in the base installation of R.
+
+-   However, since it performs random sampling, in order to obtain *reproducible results* you will need to use it along with `set.seed()`.
+
+    -   Examples: `set.seed(20)` or  `set.seed(07/06/2022)`
+
+--
+
+---
+
+## Question 1 - `sample()`
+
+-   `sample()` is a very versatile function, also included in the base installation of R.
+
+-   However, since it performs random sampling, in order to obtain *reproducible results* you will need to use it along with `set.seed()`.
+
+--
+
+---
+
+## Question 1 - `sample()`
+
+-   Format: `sample(VECTOR_TO_SAMPLE_FROM, size = n, replace = TRUE)`
+
+    -   `n` determines the number of elements drawn from `VECTOR_TO_SAMPLE_FROM`
+    
+    -   `replace = TRUE` means that sampling is done *with replacement*.
+    
+      -   What would `replace = FALSE` do, therefore?
+    
+--
+
+---
+
+## Question 1 - `sample()`
+
+```{r, echo = TRUE}
+# Must be done to guarantee the results that are produced.
+set.seed(20)
+```
+
+--
+
+```{r, echo= TRUE}
+
+# Using sampling `with` replacement 
+
+my_vector <- c(1,2,3,4,5)
+my_sampled_vector <- sample(my_vector, size = 4, replace = TRUE)
+my_sampled_vector
+
+```
+
+--
+
+```{r, echo = TRUE}
+# Using sampling `without` replacement 
+
+my_vector <- c(1,2,3,4,5)
+my_sampled_vector <- sample(my_vector, size = 4, replace = TRUE)
+my_sampled_vector
+
+```
+
+---
+
+## Question 1e-h (12 mins)
+
+e. Re-weight the proportions in the **driverless passenger vehicles** question so that they sum to 1. Then give the values of the population parameters you identified in **part b**.
+
+f. Using R code, generate the population of (around) 100,000 responses to the survey question according to the values of the population parameters you determined in **part d**. Call "Decrease" `D`, "Not too much change" `N`, and "Increase" `I`. It is OK if the numbers do not go evenly into 10,000.
+
+g. Using R code, obtain a bootstrap sample of 100 people from your population and report the sample proportion of those who believe that driver-less passenger vehicles are a good idea for society. 
+
+h. Repeat **part g** for sizes 1000 and 10000. What do you notice about the values of the sample proportions you get and their relation to the true population parameter as the sample size increases?
+
+-- 
+
+---
+
+# Question 2
+
+---
+
+## Question 2
+
+-   This question is a pure probability question based on testing out the functionality of a driverless car.
+
+-   It features everything from named discrete distributions to conditional probability.
+
+---
+
+## Question 2a-c
+
+> Consider a tech company that is testing the behavior of a driverless passenger vehicle approaching a four-way intersection. They have programmed the light such that it begins to turn yellow once the vehicle has reached a certain proximity to the intersection. The aim is for the the car to stop at the light, which unbeknownst to the company will happen with probability 0.999. 
+
+---
+
+## Question 2a-c (10 mins)
+
+a. The company ones run trial. Let X be the random variable corresponding to the result of the trial (either the car stops or continues). Name the probability distribution that X belongs to and give its parameter(s). 
+
+--
+
+-   Now, the company performs ten trials.
+
+b. all trials are successful?
+
+c. all but one trial are successful?
+
+--
+
+---
+
+## Question 2d-f (10 mins)
+
+> The company runs the trials and the vehicle succeeds each time. Now, they want to try something new. They alter the programming of the light so that it can turn yellow when the car reaches one of two distances to the intersection. At the farther distance, the vehicle is expected to stop; at the shorter distance the vehicle is expected to continue through the light. Unbeknownst to the company, the vehicle will stop when it is supposed to with probability 0.999, but will continue when it is supposed to with only probability 0.8. The light will go off at the farther distance with probability 0.7. 
+
+
+---
+
+## Question 2d-f (10 mins)
+
+-   One trial is run. What is the probability that:
+
+d. the car stops?
+
+e. the car continues through the light? 
+
+f. the car makes the desired choice?
+
+--
+
+---
+
+## Question g-h
+
+> Now the company wants to test the vehicle more in close range. It measures out ten lines, equal in distance from each other, starting from the previous close distance in **parts d-f** and going backward. The light will turn yellow when the vehicle rolls over one of these lines with equal probability. Unbeknownst to the company, the vehicle will stop at the first line (the one closest to the intersection) with probability .8, and this probability will increase by .01 for each line going backward.
+
+
+---
+
+## Question g-h (10 mins)
+
+g. Let R be a random variable corresponding to the number of the line on the road, starting with 1. Name the probability distribution that R is a random variable of and give its parameter(s).
+
+h. Given that the light turns yellow on an even numbered line, what is the probability that the car continues through the light?
+
+--
+
+---
+
+
+
+
+# End of Lab 3
+
