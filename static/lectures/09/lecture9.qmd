@@ -164,7 +164,7 @@ df %>%
 
 4. Mo Donegal ended up winning! Now assume the race was run twice and that the results of the first race did not impact the second. What is the probability that Mo Donegal won twice in a row?
 
-5. Now let's focus again on the first race. Assume that if one horse crosses the finish line, the winning probabilities automatically adjust to be normalized among the remaining horses. What is the probability that Mo Donegal is followed directly by Nest across the finish line (the horse that did end up finishing second in the race)? 
+5. Now let's focus again on the first race. Assume that if one horse crosses the finish line, the winning probabilities automatically adjust to be normalized among the remaining horses. What is the probability that the finshing order in the race is Mo Donegal followed directly by Nest (the horse that did end up finishing second in the race)? 
 
 . . . 
 

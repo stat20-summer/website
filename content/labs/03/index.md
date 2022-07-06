@@ -3,7 +3,7 @@ title: "Lab 3"
 summary: "Generalizations and Probability"
 subtitle: "Driverless cars."
 publishdate: "2022-07-05"
-date: "2022-06-27"
+date: "2022-07-05"
 show_post_date: false
 featured: false
 layout: single
