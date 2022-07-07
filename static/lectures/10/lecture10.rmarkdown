@@ -1,0 +1,560 @@
+---
+title: "Lecture 10: Probability"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../../assets/stat20.scss"
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: hex-background.png
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+
+# First Things First
+
+## First Things First
+
+-   Quiz 3 released today, on Gradescope at 6:00p
+
+    -   24 hour window, 25 minutes to complete once started
+
+    -   Original released Thurs 6:00p, answers released Fri 6:00p
+
+        -   Auto-graded answers on Gradescope; Free-response rubric on bCourses
+
+    -   Retake released Sat 6:00p
+
+    -   Everything $up through Tuesday$ will be covered
+
+. . .
+
+# Random Variables
+
+## Random Variable
+
+A **random variable** is...
+
+-   A random process with a numerical outcome
+-   A mapping from the outcome space to the real number line
+
+. . .
+
+-   It also comes with a helpful and compact notation.
+
+## Random Variable Notation
+
+Random variables are indicated by capital letters, usually near the end of the alphabet.
+
+
+$$ X, Y, Z, W $$
+
+
+. . .
+
+The values that a random variable can take are indicated by lowercase equivalents.
+
+
+$$ x, y, z, w $$
+
+
+. . .
+
+The following statement reads, "The probability that the random variable $X$ takes the value $x$".
+
+
+$$ P(X = x) $$
+
+
+# Random Variables of Discrete Distributions we will be working with
+
+## (Discrete) Uniform Distribution
+
+. . .
+
+A random variable $X$ has a discrete uniform distribution on the integers between $a$ and $b$ (inclusive) if each integer in the interval is equally likely.
+
+
+$$ X \sim \textrm{Unif}(a, b) \textrm{, with } n = b - a + 1 \textrm{ outcomes }$$
+
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+
+```{r}
+library(tidyverse)
+library(kableExtra)
+df <- tibble(x = c("a", "a + 1", "...", "b - 1", "b"),
+             `P(X = x)` = c("1/n", "1/n", "...", "1/n", "1/n"))
+df %>%
+  kbl(align = "c") %>%
+  kable_styling()
+```
+
+:::
+
+::: {.column width="\"50%"}
+
+```{r}
+#| fig.height: 7
+df <- tibble(x = 0:3,
+             Probability = c(.25, .25, .25, .25))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Unif(0, 3)") +
+  theme_bw(base_size = 40) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+:::
+:::
+
+## Die roll as a Uniform
+
+We can model the number of pips appearing on one roll of a fair six-sided die as $X \sim \textrm{Unif}(a = 1, b = 6)$.
+
+. . .
+
+
+```{r}
+#| fig.height: 5
+#| fig.width: 5
+#| fig.align: center
+df <- tibble(x = factor(1:6),
+             Probability = rep(1/6, 6))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Unif(1, 6)") +
+  theme_bw(base_size = 20) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+## Fair coin flip as a Uniform
+
+Let an outcome of $H$ be considered a 1 and $T$ considered a 0. Then we can model the outcome of a fair coin flip using $X \sim \textrm{Unif}(a = 0, b = 1)$.
+
+. . .
+
+
+```{r}
+#| fig.height: 5
+#| fig.width: 5
+#| fig.align: center
+df <- tibble(x = factor(0:1),
+             Probability = c(.5, .5))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Unif(0, 1)") +
+  theme_bw(base_size = 20) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+. . . 
+
+## Bernoulli Distribution
+
+. . .
+
+A random variable $X$ has a Bernoulli distribution if it has only two outcomes, 1 and 0, (known as "success" and "failure", respectively) and a probability of success $p$.
+
+
+$$ X \sim \textrm{Bern}(p) $$
+
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+
+```{r}
+df <- tibble(x = c("1", "0"),
+             `P(X = x)` = c("p", "1 - p"))
+df %>%
+  kbl(align = "c") %>%
+  kable_styling()
+```
+
+:::
+
+::: {.column width="\"50%"}
+
+```{r}
+#| fig.height: 8
+df <- tibble(x = c("1", "0"),
+             Probability = c(.33, .67))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Bern(p = .33)") +
+  theme_bw(base_size = 40) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+:::
+:::
+
+## Fair-coin flip as a Bernoulli
+
+Let an outcome of $X=h$ be considered a 1 and $X=t$ considered a 0. Then we can model the outcome of a fair coin flip using $X \sim \textrm{Bern}(p = .5)$.
+
+. . .
+
+
+```{r}
+#| fig.height: 5
+#| fig.width: 5
+#| fig.align: center
+df <- tibble(x = c("1", "0"),
+             Probability = c(.5, .5))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Bern(p = .5)") +
+  theme_bw(base_size = 20) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+## Earth example as a Bernoulli
+
+Let an outcome of $X = Water$ be considered a 1 and $X = Land$ considered a 0. Then we can model the outcome of the random coordinate generator we used in class by $X \sim \textrm{Bern}(p = .71)$.
+
+. . .
+
+
+```{r}
+#| fig.height: 5
+#| fig.width: 5
+#| fig.align: center
+df <- tibble(x = c("1", "0"),
+             Probability = c(.71, .29))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Bern(p = .71)") +
+  theme_bw(base_size = 20) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+## Fair 3-sided coin as a Bernoulli
+
+Let an outcome of $X = s$ be considered a 1 and $X \in \{h, t\}$ considered a 0. Then we can model the outcome of our 3-sided coin using $X \sim \textrm{Bern}(p = .33)$.
+
+. . .
+
+
+```{r}
+#| fig.height: 5
+#| fig.width: 5
+#| fig.align: center
+df <- tibble(x = c("1", "0"),
+             Probability = c(.33, .67))
+df %>%
+  ggplot(aes(x = x,
+             y = Probability,)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Bern(p = .33)") +
+  theme_bw(base_size = 20) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+## From the Bernoulli Distribution to the Binomial Distribution
+
+-   Consider again the fair, two-sided coin example.
+
+-   Now, let's *repeat the coin toss a fixed number of times $n$*. Note that $P(X = h)$ does not (should not) change across trials.
+
+-   Let $n$ = 4. What is the probability that we get 3 heads?
+
+. . .
+
+## From the Bernoulli Distribution to the Binomial Distribution
+
+-   An initial guess might be:
+
+    -   $P(head) \cdot P(head) \cdot P(head) \cdot P(tail)$
+
+-   However, this **constitutes only one order in which we can get three heads and one tail**. We need to account for all orderings of {$head$,$head$, $head$, $tail$}.
+
+-   How many combinations are there?
+
+. . .
+
+## The Binomial Coefficient
+
+The binomial coefficient, ${n \choose x}$, counts the number of such orderings.
+
+. . . 
+
+
+$$ {n \choose x} = \frac{n!}{x!(n-x)!} $$
+
+
+. . .
+
+Recall $n! = n \cdot (n-1) \cdot ... \cdot 2 \cdot 1$. It is read **n factorial.**
+
+. . . 
+
+Example:
+
+
+$${4 \choose 2} = \frac{4 \cdot 3 \cdot 2 \cdot 1}{2 \cdot 1 (2 \cdot 1)} = \frac{12}{2} = 6$$
+
+
+
+## The Binomial Distribution
+
+Describes a random variable that is the sum of $n$ independent Bernoulli RVs, each with a success probability $p$.
+
+:::: columns
+::: {.column width="50%"}
+
+
+$$
+X \sim \textrm{Binom}(n, p)
+$$
+
+
+*"X is distributed as a Binomial r.v. with n trials and probability of success p"*
+
+\begin{align}
+P(X = x) &= {n \choose x} p^x (1 - p)^{n - x}
+\end{align}
+
+:::
+
+::: {.column width="50%"}
+
+```{r echo = FALSE, fig.height=8}
+y <- c(0, 1, 2, 3, 4)
+py <- dbinom(y, size = 4, prob = .5)
+df <- data.frame(y = factor(y),
+                 py = py)
+names(df) <- c("x", "P(X = x)")
+df %>%
+  ggplot(aes(x = x, 
+             y = `P(X = x)`)) +
+  geom_col(fill = "#EFBE43", color = "black") +
+  labs(title = "Binom(n = 4, p = .5)",
+       x = "X",
+       y = "Probability") +
+  theme_bw(base_size = 40)
+```
+
+:::
+::::
+
+. . . 
+
+## Exercise - Odds to Win (Normalized) at the 2022 Belmont Stakes
+
+
+```{r, message = FALSE}
+library(kableExtra)
+library(tidyverse)
+Horses <- c("We The People", "Skippylongstocking", "Nest",
+            "Rich Strike", "Creative Minister", "Mo Donegal",
+            "Golden Glider", "Barber Road")
+
+Post_Position <- 1:8
+
+Odds <- c(1/3, 1/21, 1/9, 1/4.5, 1/7, 1/3.5, 1/21,1/11)
+
+Normalized_Odds <- Odds/sum(Odds)
+
+df <- tibble(Horses, `Post Position` = Post_Position, 
+             `Normalized Odds` = Normalized_Odds)
+
+df %>%
+  kbl(align = "c") %>%
+  kable_styling()
+
+```
+
+ 
+. . . 
+
+## Exercises - Belmont Stakes
+
+Consider again the Belmont Stakes example.
+
+1. If we assume the horses run the race ten times and each outcome is independent of the next, what is the probability that Mo Donegal wins seven times?
+
+2. If we assume the horses run the race ten times and each outcome is independent of the next, what is the probability that Mo Donegal or We the People win at least once?
+
+. . . 
+
+# Break
+
+# Expected Value and Variance (of Random Variables)
+
+## Motivation: Random Variables Too Have Center and Spread
+
+> Consider a random variable X that records the outcome of three tosses of a fair, two-sided coin. More specifically, it records the number of heads that we get in these three tosses.
+
+. . .
+
+-   At this point, we had everyone in the class come up and toss the coin three times. We then formed a dot-plot on the board which recorded the realizations of our random variable X.
+
+. . .
+
+## Expected Value
+
+The **expected value** of a random variable is the value of the random variable would expect to get in the long-run. More precisely: the sum of all possible values weighted by their probabilities of occurring.
+
+. . .
+
+
+$$ E(X) = \sum_{i=1}^k x_i P(X = x_i) $$
+
+
+. . .
+
+:::: columns
+::: {.column width="50%"}
+where:
+
+::: {.nonincremental}
+-   $X$ is any discrete RV
+-   $x_i$ is the $i^{th}$ value
+-   $k$ is the total number of possible values
+:::
+
+:::
+::: {.column width="50%"}
+> The greek letter $\mu$ ("mu") is shorthand for $E(X)$.
+:::
+::::
+
+. . . 
+
+## Variance
+
+The **variance** of a random variable expresses the variability. More precisely: the sum of all possible squared deviations from the expected value weighted by their probabilities.
+
+. . .
+
+
+$$ Var(X) = \sum_{i=1}^k (x_i - \mu)^2 P\left(X = x_i \right) $$
+
+
+:::: columns
+::: {.column width="50%"}
+where:
+
+::: {.nonincremental}
+-   $X$ is any discrete RV
+-   $x_i$ is the $i^{th}$ value
+-   $k$ is the total number of possible values
+:::
+
+:::
+::: {.column width="50%"}
+> The greek letter $\sigma^2$ ("sigma squared") is shorthand for $Var(X)$.
+:::
+::::
+
+. . . 
+
+## Example - Motivation
+
+> Consider a random variable X that records the outcome of three tosses of a fair, two-sided coin. More specifically, it records the number of heads that we get in these three tosses.
+
+. . . 
+
+Calculate the expected value and variance of this random variable (What type of random variable is it?).
+
+. . . 
+
+## Computational Formula for Variance
+
+-   Here is a useful formula that can be a little easier to work with when it comes to calculating variances.
+
+
+$$ Var(X) = E(X^2) - (E(X))^2 $$
+
+
+-   Note the differences between where the squares are located in each term!!
+
+## Example - Motivation.
+
+> Consider a random variable X that records the outcome of three tosses of a fair, two-sided coin. More specifically, it records the number of heads that we get in these three tosses.
+
+. . . 
+
+Calculate variance of this random variable using the Computational Formula for Variance.
+
+. . . 
+
+## Useful Rules for Expected Values and Variance
+
+-   For *constants* (numbers) $a$ and $b$, and two random variables $X$ and $Y$:
+
+    -   $E(aX) = aE(X)$
+    
+    -   $E(X + Y) = E(X) + E(Y)$
+    
+    -   $E(aX + bY) = aE(X) + bE(Y)$
+    
+    -   $Var(aX) = a^2Var(X)$
+    
+-   If X and Y are **independent**:
+
+    -   $Var(X + Y) = Var(X) + Var(Y)$
+    
+    -   $Var(aX + bY) = a^2Var(X) + b^2Var(Y)$
+    
+. . . 
+
+## Example: Roulette
+
+-   Roulette is a very simple but popular casino game.
+
+-   You spin a wheel with 38 colored slices:
+  
+  -   18 red
+
+-   18 black
+
+-   2 green
+
+-   You pick either red or black. If the wheel lands on your color, you win!
+  
+. . .
+
+## Exercise: Roulette
+
+-   Now imagine you bet $1 on a particular spin. If you win, you get your dollar back, plus an additional dollar (you win one dollar). Otherwise, you have lost a dollar.
+
+1.  Create a random variable that records your winnings from one game.
+
+2.  Calculate the expected value and variance of this random variable.
+
+3.  Most of the time people will be betting more than a dollar. Now we will bet $100 instead. With a modified random variable from part 1, repeat part 2.
+
+. . .
+
+# End of Lecture 10
+

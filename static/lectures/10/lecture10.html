@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="lecture9_files/libs/clipboard/clipboard.min.js"></script>
-<script src="lecture9_files/libs/quarto-html/tabby.min.js"></script>
-<script src="lecture9_files/libs/quarto-html/popper.min.js"></script>
-<script src="lecture9_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="lecture9_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="lecture9_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
-<link href="lecture9_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="lecture10_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lecture10_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lecture10_files/libs/quarto-html/popper.min.js"></script>
+<script src="lecture10_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lecture10_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lecture10_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+<link href="lecture10_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.566">
 
-  <title>Lecture 9: Probability</title>
+  <title>Lecture 10: Probability</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="lecture9_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="lecture9_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="lecture10_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lecture10_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -23,11 +23,11 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
-  <link rel="stylesheet" href="lecture9_files/libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="lecture9_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="lecture9_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="lecture9_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="lecture9_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="lecture10_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="lecture10_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lecture10_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lecture10_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture10_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -313,15 +313,15 @@
     }
   </style>
   
-  <script src="lecture9_files/libs/kePrint-0.0.1/kePrint.js"></script>
-  <link href="lecture9_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+  <script src="lecture10_files/libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="lecture10_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" data-background-image="hex-background.png" data-background-size="cover" class="center">
-  <h1 class="title">Lecture 9: Probability</h1>
+  <h1 class="title">Lecture 10: Probability</h1>
   <p class="institute">STAT 20 UC Berkeley</p>
 </section>
 
@@ -333,219 +333,18 @@
 <section id="first-things-first-1" class="slide level2">
 <h2>First Things First</h2>
 <ul>
-<li class="fragment"><p>Quiz 3 this Thursday</p>
+<li class="fragment"><p>Quiz 3 released today, on Gradescope at 6:00p</p>
 <ul>
-<li class="fragment"><p>Online</p></li>
 <li class="fragment"><p>24 hour window, 25 minutes to complete once started</p></li>
-<li class="fragment"><p>Original released Thurs 6:00p; Retake released Sat 6:00p</p></li>
-<li class="fragment"><p>See PS3 multiple choice for an idea of the <em>type</em> of questions</p></li>
-<li class="fragment"><p>Everything <em>up through Tuesday</em> will be covered</p></li>
+<li class="fragment"><p>Original released Thurs 6:00p, answers released Fri 6:00p</p>
+<ul>
+<li class="fragment">Auto-graded answers on Gradescope; Free-response rubric on bCourses</li>
+</ul></li>
+<li class="fragment"><p>Retake released Sat 6:00p</p></li>
+<li class="fragment"><p>Everything <span class="math inline">\(up through Tuesday\)</span> will be covered</p></li>
 </ul></li>
 </ul>
 </section></section>
-<section>
-<section id="probability" class="title-slide slide level1 center">
-<h1>Probability</h1>
-
-</section>
-<section id="probability-1" class="slide level2">
-<h2>Probability</h2>
-<ul>
-<li class="fragment">Consider a <em>random process</em> whose different outcomes are listed inside of a <em>set</em> called <span class="math inline">\(\Omega\)</span>.</li>
-</ul>
-</section>
-<section id="probability-2" class="slide level2">
-<h2>Probability</h2>
-<p>Here is the definition of probability <em>that we will be using in this class:</em></p>
-<ul>
-<li class="fragment"><p>The <strong>probability</strong> of an outcome in a set <span class="math inline">\(\Omega\)</span> of a random process is the proportion of times that outcome would be observed if the <em>random process</em> were observed <span class="math inline">\(\infty\)</span> times.</p></li>
-<li class="fragment"><p>My plan is to discuss another definition of probability in the Special Topics lecture on Thursday, August 12 (the last day of the course).</p></li>
-</ul>
-</section>
-<section id="probability-distributions" class="slide level2">
-<h2>Probability distributions</h2>
-<ul>
-<li class="fragment"><p>There are two types of probability distributions: <strong>discrete</strong> and <strong>continuous</strong>.</p></li>
-<li class="fragment"><p>We will be focusing <em>solely</em> on <strong>discrete distributions</strong></p>
-<ul>
-<li class="fragment"><p>These distributions have outcomes that you can count</p></li>
-<li class="fragment"><p>We will cover the following distributions:</p>
-<ul>
-<li class="fragment"><p>The Discrete Uniform (today)</p></li>
-<li class="fragment"><p>The Bernoulli (today)</p></li>
-<li class="fragment"><p>The Binomial (later in the week)</p></li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="probability-distributions-1" class="slide level2">
-<h2>Probability distributions</h2>
-<ul>
-<li class="fragment"><p>A <strong>probability distribution</strong> of a discrete (random) data generating process encompasses all possible outcomes of a variable along with their respective probabilities.</p></li>
-<li class="fragment"><p>They can be expressed as tables or bar charts, so don’t get them confused with <em>distributions of data</em>!!</p></li>
-<li class="fragment"><p><strong>Properties</strong></p>
-<ol type="1">
-<li class="fragment"><p>The outcomes must be disjoint (mutually exclusive).</p></li>
-<li class="fragment"><p>Each probability must be between 0 and 1.</p></li>
-<li class="fragment"><p>The probabilities must sum to 1.</p></li>
-</ol></li>
-</ul>
-</section>
-<section id="exercise---odds-to-win-normalized-at-the-2022-belmont-stakes" class="slide level2">
-<h2>Exercise - Odds to Win (Normalized) at the 2022 Belmont Stakes</h2>
-<div class="cell">
-<div class="cell-output-display">
-
-<table class="table" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> Horses </th>
-   <th style="text-align:center;"> Post Position </th>
-   <th style="text-align:center;"> Normalized Odds </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> We The People </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.2601351 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Skippylongstocking </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 0.0371622 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Nest </td>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> 0.0867117 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Rich Strike </td>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:center;"> 0.1734234 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Creative Minister </td>
-   <td style="text-align:center;"> 5 </td>
-   <td style="text-align:center;"> 0.1114865 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Mo Donegal </td>
-   <td style="text-align:center;"> 6 </td>
-   <td style="text-align:center;"> 0.2229730 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Golden Glider </td>
-   <td style="text-align:center;"> 7 </td>
-   <td style="text-align:center;"> 0.0371622 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Barber Road </td>
-   <td style="text-align:center;"> 8 </td>
-   <td style="text-align:center;"> 0.0709459 </td>
-  </tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</section>
-<section id="exercise---odds-to-win-normalized-at-the-2022-belmont-stakes-1" class="slide level2">
-<h2>Exercise - Odds to Win (Normalized) at the 2022 Belmont Stakes</h2>
-<ul>
-<li class="fragment">Find, according to the betting public:</li>
-</ul>
-<ol type="1">
-<li class="fragment"><p>The probability that Mo Donegal would win the race.</p></li>
-<li class="fragment"><p>The probability that a horse in an even post position would win the race.</p></li>
-<li class="fragment"><p>Given that a horse in an even post position would have ended up winning the race, the probability that it would have been Mo Donegal.</p></li>
-</ol>
-</section>
-<section id="probability---events" class="slide level2">
-<h2>Probability - Events</h2>
-<ul>
-<li class="fragment"><p>An <em>event</em> <span class="math inline">\(E\)</span> can be a simple outcome <em>or</em> a combination of outcomes in the set <span class="math inline">\(\Omega\)</span>.</p>
-<ul>
-<li class="fragment">You can think of an event as a <em>subset</em> of <span class="math inline">\(\Omega\)</span></li>
-</ul></li>
-<li class="fragment"><p>Question 2 of the previous exercise featured an example of an event:</p>
-<ul>
-<li class="fragment"><span class="math inline">\(E = \{\textrm{Skippylongstocking}, \textrm{Rich Strike}, \textrm{Mo Donegal}, \textrm{Barber Road}\}\)</span></li>
-</ul></li>
-</ul>
-<div class="fragment">
-<ul>
-<li class="fragment"><p><strong>The Complement Rule:</strong> The <em>complement event</em> of <span class="math inline">\(E\)</span>, which we will denote <span class="math inline">\(E^{C}\)</span>, is the event that happens when <span class="math inline">\(E\)</span> doesn’t. We have that:</p>
-<ul>
-<li class="fragment"><p><span class="math inline">\(P(E) + P(E^{C}) = 1\)</span></p></li>
-<li class="fragment"><p>This can be a <em>very</em> useful tool in calculating probabilties!</p></li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="conditional-probability-for-events-a-and-b" class="slide level2">
-<h2>Conditional Probability (for events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>)</h2>
-<ul>
-<li class="fragment"><p>For two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>:</p></li>
-<li class="fragment"><p>We say that <span class="math inline">\(P(B|A)\)</span> is the <strong>conditional probability of event B given the occurrence of Event A</strong>.</p></li>
-<li class="fragment"><p><span class="math inline">\(P(B|A)\)</span> has a formula; it’s <span class="math inline">\(P(B|A) = \frac{P(\textrm{B and A})}{P(A)}\)</span></p></li>
-</ul>
-<div class="fragment">
-<ul>
-<li class="fragment"><p>We computed quantities <em>similar to this</em> in finding <strong>conditional proportions</strong> of contingency tables.</p></li>
-<li class="fragment"><p>Question 3 of the previous exercise was an example using conditional probability (can you name events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> in that case?)</p></li>
-</ul>
-</div>
-</section>
-<section id="exercise-2---odds-to-win-at-the-belmont-stakes-cont." class="slide level2">
-<h2>Exercise 2 - Odds to Win at the Belmont Stakes (cont.)</h2>
-<ol start="4" type="1">
-<li class="fragment"><p>Mo Donegal ended up winning! Now assume the race was run twice and that the results of the first race did not impact the second. What is the probability that Mo Donegal won twice in a row?</p></li>
-<li class="fragment"><p>Now let’s focus again on the first race. Assume that if one horse crosses the finish line, the winning probabilities automatically adjust to be normalized among the remaining horses. What is the probability that the finshing order in the race is Mo Donegal followed directly by Nest (the horse that did end up finishing second in the race)?</p></li>
-</ol>
-</section>
-<section id="the-general-multiplication-rule" class="slide level2">
-<h2>The (General) Multiplication Rule</h2>
-<p>If events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>independent</strong>, we have:</p>
-<div class="fragment">
-<p><span class="math display">\[ P(B \textrm{ and } A) = P(B) \times P(A) \]</span></p>
-</div>
-<div class="fragment">
-<p>But in general, for both <strong>dependent</strong> and <strong>independent</strong> events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>:</p>
-<p><span class="math display">\[ P(B \textrm{ and } A) = P(B|A) \times P(A) \]</span></p>
-</div>
-</section>
-<section id="exercise-3---odds-to-win-at-the-belmont-stakes-cont." class="slide level2">
-<h2>Exercise 3 - Odds to Win at the Belmont Stakes (cont.)</h2>
-<ol start="6" type="1">
-<li class="fragment">Now, assume we are nearing the beginning of the first race and wish to bet on Mo Donegal when all of a sudden the betting odds disappear! However, we are in luck. A horse racing insider lets us know that Mo Donegal is a very impressive closer. She tells us that if Mo Donegal is at least in third position by the one mile mark of the race, he will win with probability .90; otherwise, he will win with only probability .40. She also tells us that there is a .75 chance he will be in the third position by the one mile mark of the race. What can we expect the betting odds on Mo Donegal to win to be?</li>
-</ol>
-</section>
-<section id="rule-of-average-conditional-probabilities" class="slide level2">
-<h2>Rule of Average Conditional Probabilities</h2>
-<ul>
-<li class="fragment"><p>Partition an outcome space <span class="math inline">\(\Omega\)</span> into subevents <span class="math inline">\(B_{1}\)</span>, <span class="math inline">\(B_{2}\)</span>, … , <span class="math inline">\(B_{n}\)</span>. These subevents are mutually exclusive and <em>exhaustive</em> (at least one of these subevents <strong>must</strong> happen). Then consider an event <span class="math inline">\(A\)</span>. We have that:</p></li>
-<li class="fragment"><p><span class="math inline">\(P(A) = P(A|B_{1})*P(B_{1}) + P(A|B_{2})* P(B_{2}) + ... +P(A|B_{n})*P(B_{n})\)</span></p></li>
-<li class="fragment"><p>. . .</p></li>
-</ul>
-</section>
-<section id="pre-break-exercises" class="slide level2">
-<h2>Pre-Break Exercises</h2>
-<ul>
-<li class="fragment">Consider a fair, standard six-sided die.</li>
-</ul>
-<ol type="1">
-<li class="fragment"><p>Calculate the probability that I roll an even number by using the Rule of Average Conditional Probabilities with two subevents of your choosing.</p></li>
-<li class="fragment"><p>Calculate the probability that I roll two even numbers in a row.</p></li>
-<li class="fragment"><p>Calculate the probability that I roll six unique numbers in a row.</p></li>
-</ol>
-</section></section>
-<section id="break" class="title-slide slide level1 center">
-<h1>Break</h1>
-
-</section>
-
 <section>
 <section id="random-variables" class="title-slide slide level1 center">
 <h1>Random Variables</h1>
@@ -630,7 +429,7 @@
 </div><div class="column" style="width:&quot;50%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lecture9_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+<p><img data-src="lecture10_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -645,7 +444,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lecture9_files/figure-revealjs/unnamed-chunk-4-1.png" width="480"></p>
+<p><img data-src="lecture10_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -660,7 +459,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lecture9_files/figure-revealjs/unnamed-chunk-5-1.png" width="480"></p>
+<p><img data-src="lecture10_files/figure-revealjs/unnamed-chunk-4-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -703,7 +502,7 @@
 </div><div class="column" style="width:&quot;50%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lecture9_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+<p><img data-src="lecture10_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -718,7 +517,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lecture9_files/figure-revealjs/unnamed-chunk-8-1.png" width="480"></p>
+<p><img data-src="lecture10_files/figure-revealjs/unnamed-chunk-7-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -733,7 +532,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lecture9_files/figure-revealjs/unnamed-chunk-9-1.png" width="480"></p>
+<p><img data-src="lecture10_files/figure-revealjs/unnamed-chunk-8-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -748,7 +547,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lecture9_files/figure-revealjs/unnamed-chunk-10-1.png" width="480"></p>
+<p><img data-src="lecture10_files/figure-revealjs/unnamed-chunk-9-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -762,9 +561,259 @@
 <li class="fragment"><p>Now, let’s <em>repeat the coin toss a fixed number of times <span class="math inline">\(n\)</span></em>. Note that <span class="math inline">\(P(X = h)\)</span> does not (should not) change across trials.</p></li>
 <li class="fragment"><p>Let <span class="math inline">\(n\)</span> = 4. What is the probability that we get 3 heads?</p></li>
 </ul>
+</section>
+<section id="from-the-bernoulli-distribution-to-the-binomial-distribution-1" class="slide level2">
+<h2>From the Bernoulli Distribution to the Binomial Distribution</h2>
+<ul>
+<li class="fragment"><p>An initial guess might be:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(P(head) \cdot P(head) \cdot P(head) \cdot P(tail)\)</span></li>
+</ul></li>
+<li class="fragment"><p>However, this <strong>constitutes only one order in which we can get three heads and one tail</strong>. We need to account for all orderings of {<span class="math inline">\(head\)</span>,<span class="math inline">\(head\)</span>, <span class="math inline">\(head\)</span>, <span class="math inline">\(tail\)</span>}.</p></li>
+<li class="fragment"><p>How many combinations are there?</p></li>
+</ul>
+</section>
+<section id="the-binomial-coefficient" class="slide level2">
+<h2>The Binomial Coefficient</h2>
+<p>The binomial coefficient, <span class="math inline">\({n \choose x}\)</span>, counts the number of such orderings.</p>
+<div class="fragment">
+<p><span class="math display">\[ {n \choose x} = \frac{n!}{x!(n-x)!} \]</span></p>
+</div>
+<div class="fragment">
+<p>Recall <span class="math inline">\(n! = n \cdot (n-1) \cdot ... \cdot 2 \cdot 1\)</span>. It is read <strong>n factorial.</strong></p>
+</div>
+<div class="fragment">
+<p>Example:</p>
+<p><span class="math display">\[{4 \choose 2} = \frac{4 \cdot 3 \cdot 2 \cdot 1}{2 \cdot 1 (2 \cdot 1)} = \frac{12}{2} = 6\]</span></p>
+</div>
+</section>
+<section id="the-binomial-distribution" class="slide level2">
+<h2>The Binomial Distribution</h2>
+<p>Describes a random variable that is the sum of <span class="math inline">\(n\)</span> independent Bernoulli RVs, each with a success probability <span class="math inline">\(p\)</span>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+X \sim \textrm{Binom}(n, p)
+\]</span></p>
+<p><em>“X is distributed as a Binomial r.v. with n trials and probability of success p”</em></p>
+<p><span class="math display">\[\begin{align}
+P(X = x) &amp;= {n \choose x} p^x (1 - p)^{n - x}
+\end{align}\]</span></p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="lecture10_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise---odds-to-win-normalized-at-the-2022-belmont-stakes" class="slide level2">
+<h2>Exercise - Odds to Win (Normalized) at the 2022 Belmont Stakes</h2>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;"> Horses </th>
+   <th style="text-align:center;"> Post Position </th>
+   <th style="text-align:center;"> Normalized Odds </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;"> We The People </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 0.2601351 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> Skippylongstocking </td>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> 0.0371622 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> Nest </td>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> 0.0867117 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> Rich Strike </td>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> 0.1734234 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> Creative Minister </td>
+   <td style="text-align:center;"> 5 </td>
+   <td style="text-align:center;"> 0.1114865 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> Mo Donegal </td>
+   <td style="text-align:center;"> 6 </td>
+   <td style="text-align:center;"> 0.2229730 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> Golden Glider </td>
+   <td style="text-align:center;"> 7 </td>
+   <td style="text-align:center;"> 0.0371622 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> Barber Road </td>
+   <td style="text-align:center;"> 8 </td>
+   <td style="text-align:center;"> 0.0709459 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="exercises---belmont-stakes" class="slide level2">
+<h2>Exercises - Belmont Stakes</h2>
+<p>Consider again the Belmont Stakes example.</p>
+<ol type="1">
+<li class="fragment"><p>If we assume the horses run the race ten times and each outcome is independent of the next, what is the probability that Mo Donegal wins seven times?</p></li>
+<li class="fragment"><p>If we assume the horses run the race ten times and each outcome is independent of the next, what is the probability that Mo Donegal or We the People win at least once?</p></li>
+</ol>
 </section></section>
-<section id="end-of-lecture-9" class="title-slide slide level1 center">
-<h1>End of Lecture 9</h1>
+<section id="break" class="title-slide slide level1 center">
+<h1>Break</h1>
+
+</section>
+
+<section>
+<section id="expected-value-and-variance-of-random-variables" class="title-slide slide level1 center">
+<h1>Expected Value and Variance (of Random Variables)</h1>
+
+</section>
+<section id="motivation-random-variables-too-have-center-and-spread" class="slide level2">
+<h2>Motivation: Random Variables Too Have Center and Spread</h2>
+<blockquote>
+<p>Consider a random variable X that records the outcome of three tosses of a fair, two-sided coin. More specifically, it records the number of heads that we get in these three tosses.</p>
+</blockquote>
+<div class="fragment">
+<ul>
+<li class="fragment">At this point, we had everyone in the class come up and toss the coin three times. We then formed a dot-plot on the board which recorded the realizations of our random variable X.</li>
+</ul>
+</div>
+</section>
+<section id="expected-value" class="slide level2">
+<h2>Expected Value</h2>
+<p>The <strong>expected value</strong> of a random variable is the value of the random variable would expect to get in the long-run. More precisely: the sum of all possible values weighted by their probabilities of occurring.</p>
+<div class="fragment">
+<p><span class="math display">\[ E(X) = \sum_{i=1}^k x_i P(X = x_i) \]</span></p>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>where:</p>
+<div>
+<ul>
+<li><span class="math inline">\(X\)</span> is any discrete RV</li>
+<li><span class="math inline">\(x_i\)</span> is the <span class="math inline">\(i^{th}\)</span> value</li>
+<li><span class="math inline">\(k\)</span> is the total number of possible values</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<blockquote>
+<p>The greek letter <span class="math inline">\(\mu\)</span> (“mu”) is shorthand for <span class="math inline">\(E(X)\)</span>.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</section>
+<section id="variance" class="slide level2">
+<h2>Variance</h2>
+<p>The <strong>variance</strong> of a random variable expresses the variability. More precisely: the sum of all possible squared deviations from the expected value weighted by their probabilities.</p>
+<div class="fragment">
+<p><span class="math display">\[ Var(X) = \sum_{i=1}^k (x_i - \mu)^2 P\left(X = x_i \right) \]</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>where:</p>
+<div>
+<ul>
+<li><span class="math inline">\(X\)</span> is any discrete RV</li>
+<li><span class="math inline">\(x_i\)</span> is the <span class="math inline">\(i^{th}\)</span> value</li>
+<li><span class="math inline">\(k\)</span> is the total number of possible values</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<blockquote>
+<p>The greek letter <span class="math inline">\(\sigma^2\)</span> (“sigma squared”) is shorthand for <span class="math inline">\(Var(X)\)</span>.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</section>
+<section id="example---motivation" class="slide level2">
+<h2>Example - Motivation</h2>
+<blockquote>
+<p>Consider a random variable X that records the outcome of three tosses of a fair, two-sided coin. More specifically, it records the number of heads that we get in these three tosses.</p>
+</blockquote>
+<div class="fragment">
+<p>Calculate the expected value and variance of this random variable (What type of random variable is it?).</p>
+</div>
+</section>
+<section id="computational-formula-for-variance" class="slide level2">
+<h2>Computational Formula for Variance</h2>
+<ul>
+<li class="fragment">Here is a useful formula that can be a little easier to work with when it comes to calculating variances.</li>
+</ul>
+<p><span class="math display">\[ Var(X) = E(X^2) - (E(X))^2 \]</span></p>
+<ul>
+<li class="fragment">Note the differences between where the squares are located in each term!!</li>
+</ul>
+</section>
+<section id="example---motivation." class="slide level2">
+<h2>Example - Motivation.</h2>
+<blockquote>
+<p>Consider a random variable X that records the outcome of three tosses of a fair, two-sided coin. More specifically, it records the number of heads that we get in these three tosses.</p>
+</blockquote>
+<div class="fragment">
+<p>Calculate variance of this random variable using the Computational Formula for Variance.</p>
+</div>
+</section>
+<section id="useful-rules-for-expected-values-and-variance" class="slide level2">
+<h2>Useful Rules for Expected Values and Variance</h2>
+<ul>
+<li class="fragment"><p>For <em>constants</em> (numbers) <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, and two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(E(aX) = aE(X)\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(E(X + Y) = E(X) + E(Y)\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(E(aX + bY) = aE(X) + bE(Y)\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(Var(aX) = a^2Var(X)\)</span></p></li>
+</ul></li>
+<li class="fragment"><p>If X and Y are <strong>independent</strong>:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(Var(X + Y) = Var(X) + Var(Y)\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(Var(aX + bY) = a^2Var(X) + b^2Var(Y)\)</span></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-roulette" class="slide level2">
+<h2>Example: Roulette</h2>
+<ul>
+<li class="fragment"><p>Roulette is a very simple but popular casino game.</p></li>
+<li class="fragment"><p>You spin a wheel with 38 colored slices:</p></li>
+<li class="fragment"><p>18 red</p></li>
+<li class="fragment"><p>18 black</p></li>
+<li class="fragment"><p>2 green</p></li>
+<li class="fragment"><p>You pick either red or black. If the wheel lands on your color, you win!</p></li>
+</ul>
+</section>
+<section id="exercise-roulette" class="slide level2">
+<h2>Exercise: Roulette</h2>
+<ul>
+<li class="fragment">Now imagine you bet $1 on a particular spin. If you win, you get your dollar back, plus an additional dollar (you win one dollar). Otherwise, you have lost a dollar.</li>
+</ul>
+<ol type="1">
+<li class="fragment"><p>Create a random variable that records your winnings from one game.</p></li>
+<li class="fragment"><p>Calculate the expected value and variance of this random variable.</p></li>
+<li class="fragment"><p>Most of the time people will be betting more than a dollar. Now we will bet $100 instead. With a modified random variable from part 1, repeat part 2.</p></li>
+</ol>
+</section></section>
+<section id="end-of-lecture-10" class="title-slide slide level1 center">
+<h1>End of Lecture 10</h1>
 
 <img src="images/stat20-hex.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
@@ -774,19 +823,19 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="lecture9_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="lecture10_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="lecture9_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="lecture9_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="lecture9_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="lecture9_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="lecture9_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="lecture10_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lecture10_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lecture10_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lecture10_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture10_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="lecture9_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="lecture9_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="lecture9_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="lecture9_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="lecture10_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lecture10_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lecture10_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="lecture10_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
