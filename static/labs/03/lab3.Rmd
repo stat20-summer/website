@@ -85,7 +85,7 @@ Now the company wants to test the vehicle more in close range. It measures out t
 
 ---
 
-g. Let R be a random variable corresponding to the number of the line on the road, starting with 1. Name the probability distribution that R is a random variable of and give its parameter(s).
+g. Let `R` be a random variable corresponding to the number of the line on the road, starting with 1. Name the probability distribution that `R` is a random variable of and give its parameter(s).
 
 h. Given that the light turns yellow on an even numbered line, what is the probability that the car continues through the light?
 
