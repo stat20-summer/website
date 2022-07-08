@@ -69,7 +69,7 @@ c. all but one trial are successful?
 
 ---
 
-The company runs the trials and the vehicle succeeds each time. Now, they want to try something new. They alter the programming of the light so that it can turn yellow when the car reaches one of two distances to the intersection. When the light goes off at the farther distance, the vehicle is expected to stop when it reaches the light; when it goes off at the shorter distance the vehicle is expected to continue through the light. Unbeknownst to the company, the vehicle will stop when it is supposed to with probability 0.999, but will continue when it is supposed to with only probability 0.8. The light will go off at the farther distance with probability 0.7. 
+The company runs the trials and the vehicle succeeds each time. Now, they want to try something new. They alter the programming of the light so that it can turn yellow when the car reaches one of two distances to the intersection. When the light turns yellow at the farther distance, the vehicle is expected to stop when it reaches the light; when it turns yellow at the shorter distance the vehicle is expected to continue through the light. Unbeknownst to the company, the vehicle will stop when it is supposed to with probability 0.999, but will continue when it is supposed to with only probability 0.8. The light will go off at the farther distance with probability 0.7. 
 
 One trial is run. What is the probability that:
 
