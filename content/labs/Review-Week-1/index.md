@@ -12,7 +12,6 @@ links:
   icon_pack: fas
   name: Monday Worksheet
   url: https://stat20summer.netlify.app/labs/Review-Week-1/Monday-Lab-Worksheet.pdf
-links:
 - icon: file-pdf
   icon_pack: fas
   name: Monday Worksheet Answers
