@@ -14,16 +14,16 @@ library(openintro)
 
 ## (Week 1) - MCU Films
 
-*How many observations does this data frame have?* -  23
+*How many observations does this data frame have?* - 23
 
 *How many variables does this data frame have?* - five or six, depending on how time is coded. If five, students might say that time is coded as minutes.
 
-*What is the unit of observation?*  - A single movie within the MCU Universe.
+*What is the unit of observation?* - A single movie within the MCU Universe.
 
 ## (Week 1) - Smoking Habits
 
-*What does each row of the data frame represent?*  - A single UK resident.
- 
+*What does each row of the data frame represent?* - A single UK resident.
+
 *How many participants were included in the survey?*- 1,693.
 
 *Identify the type of each variable in the Taxonomy of Data.* - `sex` is categorical nominal; `age` is numerical continuous; `marital_status` is categorical nominal; `gross_income` is categorical ordinal; `smoke` is categorical nomimal (could be justified as ordinal); `amount` is numerical continuous (both weekend and weekday).
@@ -59,17 +59,18 @@ Watch the wording difference between this subpart and **part c**; *and* versus *
 ```{r}
 (57)/(57+121+179+15)
 ```
+
 #### Liberals
 
 ```{r}
 (101)/(101+28+45+1)
 ```
+
 #### Moderates
 
 ```{r}
 (120)/(120+113+126+4)
 ```
-
 
 ## (Week 2) - MCU Films
 
@@ -85,7 +86,7 @@ ggplot(mcu_films, aes(x = gross_us)) +
   ggtitle("Box Office Totals in the United States") +
   xlab("Total") + ylab("Count")
 ```
-  
+
 ### Plot 2
 
 ```{r, eval = FALSE, echo = TRUE}
@@ -107,7 +108,6 @@ p3 <- ggplot(mcu_films, aes(x = gross_us,
   xlab("US Total") + ylab("World Total")
 ```
 
-
 ## (Week 2) - NBA
 
 First, students need to run the code provided to them.
@@ -128,8 +128,7 @@ NBA <- NBA %>% mutate(Conference =
 
 ### part a
 
-The correct columns to work with are Games (G) and Games Started (GS).
-Note, we need to do some data type changing. Here is *a* possible solution.
+The correct columns to work with are Games (G) and Games Started (GS). Note, we need to do some data type changing. Here is *a* possible solution.
 
 ```{r}
 NBA_3 <- NBA %>% mutate(G = as.numeric(G)) %>% mutate(GS = as.numeric(GS)) %>%
@@ -147,6 +146,7 @@ NBA_3 %>% mutate(TOV = as.numeric(TOV)) %>%  group_by(Conference) %>%
   summarise(Mean = mean(TOV), Median = median(TOV),
             IQR = IQR(TOV), SD = sd(TOV), MAD = mad(TOV))
 ```
+
 ### part c
 
 Here is *a* possible solution.
@@ -175,7 +175,6 @@ NBA_3 %>% mutate(`eFG%` = as.numeric(`eFG%`)) %>%  group_by(Conference) %>%
             IQR = IQR(`eFG%`), SD = sd(`eFG%`), MAD = mad(`eFG%`))
 ```
 
-
 ```{r}
 NBA_3 %>% mutate(`eFG%` = as.numeric(`eFG%`)) %>% 
   ggplot() + geom_boxplot(mapping = aes(x = `eFG%`, fill = Conference)) +
@@ -186,7 +185,7 @@ NBA_3 %>% mutate(`eFG%` = as.numeric(`eFG%`)) %>%
 
 This is *a* possible answer to the written portion.
 
-We see that the variability in the two distributions is pretty similar, save for some outliers in the Eastern conference on both sides. However, it looks like the median eFG% is larger in the Western Conference. This might suggest that the Western Conference is a *slightly* better conference when it comes to shooters. 
+We see that the variability in the two distributions is pretty similar, save for some outliers in the Eastern conference on both sides. However, it looks like the median eFG% is larger in the Western Conference. This might suggest that the Western Conference is a *slightly* better conference when it comes to shooters.
 
 ## (Week 3) - Roulette
 
@@ -196,27 +195,23 @@ I would create a random variable $X$ that takes two outcomes: $1$ and $-1$, with
 
 ### part b.
 
-The Expected Value is given by 
-$$ \mathbb{E}(X) = [1 \cdot P(X=1)] + [-1 \cdot P(X = -1)]  = \frac{18}{38} - \frac{20}{38} = -\frac{2}{38} \approx -5 \space cents$$.
+The Expected Value is given by $$ \mathbb{E}(X) = [1 \cdot P(X=1)] + [-1 \cdot P(X = -1)]  = \frac{18}{38} - \frac{20}{38} = -\frac{2}{38} \approx -5 \space cents$$.
 
 The Variance (using the Computational Formula):
 
-$$ Var(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2 $$
-and we have that since $X$ takes either -1 or 1, squaring it means that $X^2$ will always take the value of 1. Hence we have the following calcuation of $\mathbb{E}{X^2}$:
+$$ Var(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2 $$ and we have that since $X$ takes either -1 or 1, squaring it means that $X^2$ will always take the value of 1. Hence we have the following calcuation of $\mathbb{E}{X^2}$:
 
 $$ \mathbb{E}(X^2) = [1 \cdot P(X^2=1)] + [1 \cdot P(X^2 = 1)] = 1$$
 
-so that 
+so that
 
-$$ Var(X) = \mathbb{E}(X^2) 
-
-- (\mathbb{E}(X))^2 = 1  - (-\frac{2}{38})^2 = 1 - \frac{4}{38^2} \approx 0.997 \space dollars^2$$
+$$ Var(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2 =  1 - (-\frac{2}{38})^2  =  1 - \frac{4}{38^2} =  \approx 0.997 \space dollars^2$$ 
 
 ### part c
 
 **Note:** We are not playing 100 times, just merely playing once with a larger bet (How would the calculation change if the former was the case?).
 
-Let's use some of the rules for expected value and variance. Let $a = 100$ be a constant. Then we have that 
+Let's use some of the rules for expected value and variance. Let $a = 100$ be a constant. Then we have that
 
 $$ \mathbb{E}(aX) =  a\cdot \mathbb{E}(X) = 100 \cdot \mathbb{E}(X)
 \approx -500 \space cents = -5 \space dollars$$.
@@ -224,12 +219,9 @@ $$ \mathbb{E}(aX) =  a\cdot \mathbb{E}(X) = 100 \cdot \mathbb{E}(X)
 $$ Var(aX) =  a^2\cdot Var(X) = 1000 \cdot Var(X)
 \approx 1003 \space dollars^2$$.
 
-
-
 ## (Week 3) - Penguins
 
-Choice *a.* and choice *c.* are examples of generalizations. 
-
+Choice *a.* and choice *c.* are examples of generalizations.
 
 ## (Week 2) - Penguins
 
@@ -254,7 +246,7 @@ p3 <- ggplot(penguins,
       theme_gray(base_size = 8)
 ```
 
-##  (Week 2) - Flights
+## (Week 2) - Flights
 
 ```{r, eval = F}
 flights %>%
@@ -268,8 +260,6 @@ flights %>%
 
 The statistical summaries should be median and IQR since we have a skewed distribution. The shape students should describe as unimodal and right skewed.
 
-##  (Week 3) - Distributions
+## (Week 3) - Distributions
 
-The answer is $X \sim Binomial(n = 8, p =.8)$ 
-
-
+The answer is $X \sim Binomial(n = 8, p =.8)$

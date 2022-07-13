@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.8)  13 JUL 2022 11:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.8)  13 JUL 2022 11:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -262,11 +262,11 @@ with kernel methods
 \Fld@listcount=\count280
 \c@bookmark@seq@number=\count281
 (/Users/jeremysanchez/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
-Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 (/Users/jeremysanchez/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip52
 ) (/Users/jeremysanchez/Library/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
@@ -454,7 +454,7 @@ l.433 \$\$ Var(X) = \mathbb
 Here is how much of TeX's memory you used:
  11071 strings out of 479984
  174928 string characters out of 5886591
- 472742 words of memory out of 5000000
+ 472743 words of memory out of 5000000
  29049 multiletter control sequences out of 15000+600000
  513434 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
