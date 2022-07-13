@@ -281,10 +281,61 @@ b. All Gentoo penguins sampled near Palmer Station, Antarctica are found on Bisc
 
 c. Adelie penguins have the largest diaspora (the spread across islands) out of any of the penguin speices. 
 
+## (Week 2) - **Penguins**
+
+```{r echo = FALSE, message = FALSE, fig.height=2, warning = FALSE}
+library(palmerpenguins)
+p2 <- ggplot(penguins, 
+             aes(x = species)) +
+  geom_bar() +
+  xlab("Species") + ylab("Count") + 
+      theme_gray(base_size = 8)
+
+p3 <- ggplot(penguins,
+             aes(x = flipper_length_mm,
+                 y = body_mass_g,
+                 color = island)) +
+  geom_point() + xlab("Flipper Length") + ylab("Body Mass") + 
+      theme_gray(base_size = 8)
+
+p2 + p3
+
+```
+
+Here are some more plots made using the `palmerpenguins` data set. Reproduce these plots accurately with `ggplot()` code.
+
+## (Week 2) - **Flights**
+
+Let's go back to the `flights` data set from Lab 2!
+
+Create a histogram showing the distribution of departure delays for all flights. Describe in words the shape and modality of the distribution and, using numerical summaries, (i.e. summary statistics) its center and spread. Be sure to use measures of center and spread that are most appropriate for this type of distribution. If you want set the limits of the x-axis to focus on where most of the data lie, use the `xlim()` layer (**not required for you to know for the test**).
 
 
+## (Week 3) - **Distributions**
 
+```{r, echo = FALSE}
+set.seed(07/13/2022)
 
+binom_points <- rbinom(n = 20, size = 8, prob = .8)
+
+binom_df <- tibble(Points = binom_points)
+
+ggplot(binom_df) + geom_histogram(mapping = aes(x = Points),
+                                  fill = "black", color = "red",
+                                  binwidth = 1) +
+  theme_light() + ylab("Count")  
+
+```
+
+What named distribution (with parameters) best describes the distribution of these 20 realizations of a random variable?
+
+a.  $X \sim Discrete \space Unif(a = 4, b = 8)$    
+
+b.  $X \sim Binomial(n = 8, p =.8)$ 
+
+c.  $X \sim Bernoulli(p =.8)$ 
+
+d.  $X \sim Binomial(n = 8, p = .3)$ 
 
 
 

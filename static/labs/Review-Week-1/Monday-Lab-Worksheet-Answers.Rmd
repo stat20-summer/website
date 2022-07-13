@@ -208,7 +208,9 @@ $$ \mathbb{E}(X^2) = [1 \cdot P(X^2=1)] + [1 \cdot P(X^2 = 1)] = 1$$
 
 so that 
 
-$$ Var(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2 = 1 - (-\frac{2}{38})^2 = 1 + \frac{4}{38^2} \approx 1.003 \space dollars^2$$
+$$ Var(X) = \mathbb{E}(X^2) 
+
+- (\mathbb{E}(X))^2 = 1  - (-\frac{2}{38})^2 = 1 - \frac{4}{38^2} \approx 0.997 \space dollars^2$$
 
 ### part c
 
@@ -227,3 +229,47 @@ $$ Var(aX) =  a^2\cdot Var(X) = 1000 \cdot Var(X)
 ## (Week 3) - Penguins
 
 Choice *a.* and choice *c.* are examples of generalizations. 
+
+
+## (Week 2) - Penguins
+
+First plot:
+
+```{r, eval = FALSE, echo = TRUE}
+p2 <- ggplot(penguins, 
+             aes(x = species)) +
+  geom_bar() +
+  xlab("Species") + ylab("Count") + 
+      theme_gray(base_size = 8)
+```
+
+Second plot:
+
+```{r, eval = FALSE, echo = TRUE}
+p3 <- ggplot(penguins,
+             aes(x = flipper_length_mm,
+                 y = body_mass_g,
+                 color = island)) +
+  geom_point() + xlab("Flipper Length") + ylab("Body Mass") + 
+      theme_gray(base_size = 8)
+```
+
+##  (Week 2) - Flights
+
+```{r, eval = F}
+flights %>%
+  ggplot(aes(x = dep_delay)) + 
+  geom_histogram(binwidth = 15) +
+  xlim(c(-50, 100))
+flights %>%
+  summarise(med_delay = median(dep_delay, na.rm = T),
+            iqr_delay = IQR(dep_delay, na.rm = T))
+```
+
+The statistical summaries should be median and IQR since we have a skewed distribution. The shape students should describe as unimodal and right skewed.
+
+##  (Week 3) - Distributions
+
+The answer is $X \sim Binomial(n = 8, p =.8)$ 
+
+
