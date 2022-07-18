@@ -44,6 +44,24 @@ class: center, middle
 
 ---
 
+# Question 1 parts a-f
+
+-   To help you answer these questions, please consult the [Lab 4 Materials]() thread on Ed! *No code should be used in these parts.*
+
+--
+
+-   Here we have a:
+
+    -   Copy of the Google form questionnaire
+    
+    -   Background information on the methodology of the People's Park survey
+    
+    -   A copy of Chancellor Christ's email to Berkeley students
+    
+--
+
+---
+
 ## Question 1 parts a-c (5 min.)
 
 a. What was the goal(s) of the Chancellor’s office in commissioning this survey?
@@ -85,6 +103,62 @@ h. Create a new column called `support_before` that takes the response data from
 --
 
 i. Create a new column called `change_in_support` that measures the change in support from question 18 to 21. What is the average change in support of the survey participants in each class (freshman, sophomore, etc) for the People’s Park Project after reading the information?
+
+---
+
+# The `infer` library
+
+---
+
+## The `infer` library
+
+-   This library includes functions that are very useful for creating confidence intervals and performing hypothesis tests.
+
+--
+
+-   For lab this week, we will be using the functionality of `infer` to create confidence intervals.
+
+--
+
+---
+
+## The `infer` library - `specify()`
+
+-   `response`: This argument tells `specify()` which column of a data frame you want to work with.
+
+    - `explanatory`: We will be using this as well along with `response`, though not for this lab.
+    
+--
+    
+-   `success`: *For proportions and differences and proportions only*. This argument tells `specify()` which level of your column you want to be considered "a 1." 
+
+    -   put the column name in quotes
+    
+--
+
+---
+
+## The `infer` library - `calculate()`
+
+-   `stat`: This argument tells `calculate()` which statistic you want to calculate.
+
+    - Some common inputs for `stat` are `"prop"`, `"diff in props"`, `"mean"` and `"median"`
+    
+---
+
+## The `infer` library - `generate()`
+
+-   `reps`: How many samples you want `generate()` to generate. Generally we want to choose a large number, like 500 for example.
+
+-   `type:` What type of generation we want to be done. For confidence intervals, the input we will be using is `"bootstrap"`. We will also be looking later on (not today) at `"permute"` and `"draw"`.
+
+---
+
+## The `infer` library - `get_ci()`
+
+-   `level`: The confidence level `\(1-\alpha\)` that you want to use. Needs to be between 0 and 1!
+
+-   `type:` What type of confidence interval you want to make. For this lab, the input we will be using is `"bootstrap"`.
 
 ---
 
