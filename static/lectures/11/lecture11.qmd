@@ -1,0 +1,268 @@
+---
+title: "Lecture 11: Generalizations"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../../assets/stat20.scss"
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: hex-background.png
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# First Things First
+
+## First Things First
+
+-   Midterm scores released
+
+    -   Left skewed distribution; median of 18.44 (out of 24)
+    
+-   Notify me of clobber policy decision by **Sunday, July 24 at 11:59pm**
+    
+-   The final assignment will be *an exam* with a "project" element
+
+    -   Wednesday, August 10 during class
+    
+    -   This time around, there will be test corrections
+    
+. . . 
+
+## First Things First
+
+-   Extra credit opportunity (an extra 1%)
+
+    -   R Cheatsheet
+    
+    -   More Details to Come
+    
+-   Due **Thursday, August 11 at 11:59pm**
+    
+. . . 
+
+## First Things First
+
+-   Cheating policy
+
+    -   First offense: two letter grade deduction
+    
+        -   Clobber policy still available if an exam
+    
+    -   Second offense: failure for that assignment
+    
+-   From here forward, any policies posted on Ed regarding assignment (exam) guidelines *must be* adhered to.
+    
+. . . 
+
+# Generalizations
+
+. . . 
+
+## Generalizations
+
+-   A **generalization** is a claim you make using a "small" sample of data (e.g., a dataset) that you believe holds to the *entire population* from which the data originates.
+
+    -   We use **statistics** (data from samples) to make generalizations called **inferences** about quantities inherent to a population of data (**parameters**).
+
+-   **Generalizations** are indeed some of the most prominent claims made using statistics every day, but there are ways they can go wrong.
+
+. . . 
+
+## How generalizations can go wrong:
+
+-   Systematic bias:
+
+    -   This needs to be removed before anything statistical can be done
+
+-   Sampling variability
+
+    -   Is an issue but can be worked with, as we saw in Week 3
+    
+. . . 
+
+# Confidence Intervals
+
+## Confidence Intervals
+
+-   **Confidence intervals** are an inference procedure which outputs a range of values which we expect the population parameter to reside in. 
+
+    -   They have an *upper bound* and a *lower bound*
+
+-   Our confidence that the procedure will work (meaning the parameter will lie inside of our interval) is expressed as a percentage $1 - \alpha$.
+
+    -   You can call this the *confidence level*. 
+
+. . . 
+
+## Confidence Intervals
+
+-   Example: If $\alpha = .05$, then our confidence that the procedure will work is $1- .05 = .95 =$ 95 percent. 
+
+-   The 95% confidence interval is the most widespread, but it is not a hard and fast rule
+
+    -   You can choose a different number depending on how confident you want to be in your results
+    
+. . . 
+
+## Properties of the Confidence Interval
+
+-   How does a confidence interval change:
+
+1. When we keep the sample size fixed but increase/decrease the *confidence level* $1-\alpha$?
+
+2. When we keep the confidence level fixed but increase/decrease the *sample size* $n$?
+
+. . . 
+
+## Properties of the Confidence Interval
+
+Exercise:
+
+-   To answer the questions on the previous slide, go ahead and visit [this really cool web app](https://istats.shinyapps.io/ExploreCoverage/).
+
+-   Start with a population proportion $p$ of 0.3 and a sample size $n$ of 100.
+
+-   Draw 1,000 samples of size $n = 100$ and see what you come out with.
+
+. . . 
+
+## Properties of the Confidence Interval
+
+-   Exercise:
+
+-   To answer the questions on the previous slide, go ahead and visit [this really cool web app](https://istats.shinyapps.io/ExploreCoverage/).
+
+-   Start with a population proportion $p$ of 0.3 and a sample size $n$ of 100.
+
+-   Draw 1,000 samples of size $n = 100$ and see what you come out with.
+
+. . . 
+
+## Properties of the Confidence Interval
+
+-   Exercise:
+
+1. Keep the sample size fixed and increase/decrease the confidence level. Then go ahead and draw samples. What do you notice that changes?
+
+2. Keep the confidence level fixed and increase/decrease the sample size. Then go ahead and draw samples. What do you notice that changes?
+
+. . . 
+
+## Properties of the Confidence Interval
+
+-   From that exercise, we noticed that:
+
+1. If we keep the sample size fixed:
+
+    -   Increasing the confidence level improves the coverage rate; decreasing the confidence level worsens it.
+    
+2. If we keep the confidence level fixed:
+
+    -   Increasing the sample size narrows our confidence interval;
+    decreasing the sample size narrows it.
+    
+. . . 
+
+## Confidence Intervals
+
+-   There are multiple avenues we can take to construct a confidence interval
+
+-   We will learn about both computational *and* mathematical methods.
+
+. . . 
+
+# Confidence Intervals - Computational Method
+
+## Confidence Intervals - Computational Method
+
+![](images/skittles.jpg)
+. . . 
+
+## Confidence Intervals - Computational Method
+
+-   My sibling and I shared that bag of Skittles last night. 
+
+-   We noticed that the color distribution was nowhere near equal. One question we might ask based off our discovery is:
+
+. . .
+
+>  What is the proportion of candies in Skittles bags colored yellow?
+
+. . . 
+
+## Confidence Intervals - Computational Method
+
+Exercise:
+
+1. Enter the data based off the image into R. (You will want to do this in a clever way so as to most easily continue with the next two steps).
+
+2. Calculate the observed proportion of yellow Skittles.
+
+3. Then, take one bootstrap sample of all the candies and calculate the proportion of yellow Skittles in that bootstrap sample.
+
+4. When you have the proportion from step 3, come to the front and write it down on the piece of paper there.
+
+. . .
+
+## Confidence Intervals - Computational Method
+
+-   At this point, we took your bootstrap sample statistics and formed a histogram with them. This histogram visualizes the *sampling distribution* of the proportion of yellow Skittles that we just collected. 
+
+-   Around what value should we expect the center of the histogram to lie?
+
+. . . 
+
+## Confidence Intervals - Computational Method
+
+-   From this *sampling distribution*, we can construct a **bootstrap percentile confidence interval.**
+
+-   The following slide will give an example.
+
+. . . 
+
+## Confidence Intervals - Computational Method
+
+> Construct a 95% confidence interval for your parameter.
+
+. . . 
+
+1. Obtain the sampling distribution of the statistic which is meant to estimate the parameter.
+
+2. Determine $\alpha$. In this case, it is $1-.95 = .05$. 
+
+3. Obtain the 2.5th percentile value of the distribution and the 97.5th percentile value. This is because our sampling distribution will be symmetric and we need to take 2.5 percent from either side to account for the total of $\alpha = .05 = \textrm{5 percent}$. 
+
+. . . 
+
+# Break
+
+## Confidence Intervals - Computational Method
+
+-   We have seen conceptually how to obtain a confidence interval with the bootstrap
+
+-   Now we will examine how to obtain a confidence interval using the `infer` library in R
+
+    -   **Caution:** The functions in this library, while very useful for the inference we will be performing this week and the next, are not always consistent name-wise and step-wise with what we have learned conceptually. 
+    
+    -   Most important for you to understand are the *concepts*
+    
+. . . 
+
+## Confidence Intervals - Computational Method
+
+-   At this point, we went to the course server to discuss how to use the `infer` library to obtain the confidence interval for the true proportion of yellow Skittles in a given bag. 
+
+. . . 
+
+# End of Lecture 11
+
+
+
+
+
