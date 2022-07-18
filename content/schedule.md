@@ -193,26 +193,26 @@ hide_details: yes
 <td style="text-align: left;"><p>5</p></td>
 <td style="text-align: left;"><p>Monday</p></td>
 <td style="text-align: left;"><p>7/18</p></td>
-<td style="text-align: left;"><p><a href="NA">Confidence Intervals using probability theory methods</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Confidence Intervals using the bootstrap</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/foundations-bootstrapping.html">IMS Ch 12</a></p></td>
 <td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p><a href="NA">Lab 4</a></p></td>
+<td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/labs/04/lab4.pdf">Lab 4</a></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Tuesday</p></td>
 <td style="text-align: left;"><p>7/19</p></td>
-<td style="text-align: left;"><p><a href="NA">Confidence Intervals with the bootstrap and comparison with probability theory methods</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Confidence Intervals with mathematical methods and comparison with the bootstrap method</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/foundations-mathematical.html">IMS Ch 13</a></p></td>
 <td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p><a href="NA">PS 4</a></p></td>
+<td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/problem-sets/04/ps4.pdf">PS 4</a></p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>7/20</p></td>
-<td style="text-align: left;"><p><a href="NA">Hypothesis Testing</a></p></td>
-<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p><a href="NA">Hypothesis Testing: Permutations</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/foundations-randomization.html?q=promote#variability-of-the-statistic">IMS Ch 11</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -220,9 +220,9 @@ hide_details: yes
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>7/21</p></td>
-<td style="text-align: left;"><p><a href="NA">Hypothesis Tests: Goodness of Fit</a></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p><a href="NA">Hypothesis Tests: Mathematical Methods Fit</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/inference-one-prop.html">IMS Ch 16</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/inference-two-means.html">IMS Ch 20</a></p></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
