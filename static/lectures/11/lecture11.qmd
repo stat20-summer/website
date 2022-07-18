@@ -52,7 +52,7 @@ execute:
 
     -   First offense: two letter grade deduction
     
-        -   Clobber policy still available if an exam
+        -   Clobber policy still available if an exam was turned in
     
     -   Second offense: failure for that assignment
     
