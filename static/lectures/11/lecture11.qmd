@@ -179,7 +179,7 @@ Exercise:
 
 # Confidence Intervals - Computational Method
 
-## Confidence Intervals - Computational Method
+## Confidence Intervals - Computational Method {.scrollable}
 
 ![](images/skittles.jpg)
 . . . 

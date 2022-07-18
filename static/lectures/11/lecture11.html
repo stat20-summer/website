@@ -334,6 +334,7 @@
 <ul>
 <li class="fragment">Left skewed distribution; median of 18.44 (out of 24)</li>
 </ul></li>
+<li class="fragment"><p>Notify me of clobber policy decision by <strong>Sunday, July 24 at 11:59pm</strong></p></li>
 <li class="fragment"><p>The final assignment will be <em>an exam</em> with a “project” element</p>
 <ul>
 <li class="fragment"><p>Wednesday, August 10 during class</p></li>
@@ -346,8 +347,10 @@
 <ul>
 <li class="fragment"><p>Extra credit opportunity (an extra 1%)</p>
 <ul>
-<li class="fragment">R Cheatsheet</li>
+<li class="fragment"><p>R Cheatsheet</p></li>
+<li class="fragment"><p>More Details to Come</p></li>
 </ul></li>
+<li class="fragment"><p>Due <strong>Thursday, August 11 at 11:59pm</strong></p></li>
 </ul>
 </section>
 <section id="first-things-first-3" class="slide level2">
@@ -355,8 +358,13 @@
 <ul>
 <li class="fragment"><p>Cheating policy</p>
 <ul>
-<li class="fragment"></li>
+<li class="fragment"><p>First offense: two letter grade deduction</p>
+<ul>
+<li class="fragment">Clobber policy still available if an exam</li>
 </ul></li>
+<li class="fragment"><p>Second offense: failure for that assignment</p></li>
+</ul></li>
+<li class="fragment"><p>From here forward, any policies posted on Ed regarding assignment (exam) guidelines <em>must be</em> adhered to.</p></li>
 </ul>
 </section></section>
 <section>
@@ -399,7 +407,10 @@
 <ul>
 <li class="fragment">They have an <em>upper bound</em> and a <em>lower bound</em></li>
 </ul></li>
-<li class="fragment"><p>Our confidence that the procedure will work (meaning the parameter will lie inside of our interval) is expressed as a percentage <span class="math inline">\(1 - \alpha\)</span>.</p></li>
+<li class="fragment"><p>Our confidence that the procedure will work (meaning the parameter will lie inside of our interval) is expressed as a percentage <span class="math inline">\(1 - \alpha\)</span>.</p>
+<ul>
+<li class="fragment">You can call this the <em>confidence level</em>.</li>
+</ul></li>
 </ul>
 </section>
 <section id="confidence-intervals-2" class="slide level2">
@@ -412,18 +423,77 @@
 </ul></li>
 </ul>
 </section>
+<section id="properties-of-the-confidence-interval" class="slide level2">
+<h2>Properties of the Confidence Interval</h2>
+<ul>
+<li class="fragment">How does a confidence interval change:</li>
+</ul>
+<ol type="1">
+<li class="fragment"><p>When we keep the sample size fixed but increase/decrease the <em>confidence level</em> <span class="math inline">\(1-\alpha\)</span>?</p></li>
+<li class="fragment"><p>When we keep the confidence level fixed but increase/decrease the <em>sample size</em> <span class="math inline">\(n\)</span>?</p></li>
+</ol>
+</section>
+<section id="properties-of-the-confidence-interval-1" class="slide level2">
+<h2>Properties of the Confidence Interval</h2>
+<p>Exercise:</p>
+<ul>
+<li class="fragment"><p>To answer the questions on the previous slide, go ahead and visit <a href="https://istats.shinyapps.io/ExploreCoverage/">this really cool web app</a>.</p></li>
+<li class="fragment"><p>Start with a population proportion <span class="math inline">\(p\)</span> of 0.3 and a sample size <span class="math inline">\(n\)</span> of 100.</p></li>
+<li class="fragment"><p>Draw 1,000 samples of size <span class="math inline">\(n = 100\)</span> and see what you come out with.</p></li>
+</ul>
+</section>
+<section id="properties-of-the-confidence-interval-2" class="slide level2">
+<h2>Properties of the Confidence Interval</h2>
+<ul>
+<li class="fragment"><p>Exercise:</p></li>
+<li class="fragment"><p>To answer the questions on the previous slide, go ahead and visit <a href="https://istats.shinyapps.io/ExploreCoverage/">this really cool web app</a>.</p></li>
+<li class="fragment"><p>Start with a population proportion <span class="math inline">\(p\)</span> of 0.3 and a sample size <span class="math inline">\(n\)</span> of 100.</p></li>
+<li class="fragment"><p>Draw 1,000 samples of size <span class="math inline">\(n = 100\)</span> and see what you come out with.</p></li>
+</ul>
+</section>
+<section id="properties-of-the-confidence-interval-3" class="slide level2">
+<h2>Properties of the Confidence Interval</h2>
+<ul>
+<li class="fragment">Exercise:</li>
+</ul>
+<ol type="1">
+<li class="fragment"><p>Keep the sample size fixed and increase/decrease the confidence level. Then go ahead and draw samples. What do you notice that changes?</p></li>
+<li class="fragment"><p>Keep the confidence level fixed and increase/decrease the sample size. Then go ahead and draw samples. What do you notice that changes?</p></li>
+</ol>
+</section>
+<section id="properties-of-the-confidence-interval-4" class="slide level2">
+<h2>Properties of the Confidence Interval</h2>
+<ul>
+<li class="fragment">From that exercise, we noticed that:</li>
+</ul>
+<ol type="1">
+<li class="fragment"><p>If we keep the sample size fixed:</p>
+<ul>
+<li class="fragment">Increasing the confidence level improves the coverage rate; decreasing the confidence level worsens it.</li>
+</ul></li>
+<li class="fragment"><p>If we keep the confidence level fixed:</p>
+<ul>
+<li class="fragment">Increasing the sample size narrows our confidence interval; decreasing the sample size narrows it.</li>
+</ul></li>
+</ol>
+</section>
 <section id="confidence-intervals-3" class="slide level2">
 <h2>Confidence Intervals</h2>
 <ul>
 <li class="fragment"><p>There are multiple avenues we can take to construct a confidence interval</p></li>
 <li class="fragment"><p>We will learn about both computational <em>and</em> mathematical methods.</p></li>
 </ul>
+</section></section>
+<section>
+<section id="confidence-intervals---computational-method" class="title-slide slide level1 center">
+<h1>Confidence Intervals - Computational Method</h1>
+
 </section>
-<section id="confidence-intervals---computational-method" class="slide level2">
+<section id="confidence-intervals---computational-method-1" class="slide level2 scrollable">
 <h2>Confidence Intervals - Computational Method</h2>
 <p><img data-src="images/skittles.jpg"> . . .</p>
 </section>
-<section id="confidence-intervals---computational-method-1" class="slide level2">
+<section id="confidence-intervals---computational-method-2" class="slide level2">
 <h2>Confidence Intervals - Computational Method</h2>
 <ul>
 <li class="fragment"><p>My sibling and I shared that bag of Skittles last night.</p></li>
@@ -435,7 +505,7 @@
 </blockquote>
 </div>
 </section>
-<section id="confidence-intervals---computational-method-2" class="slide level2">
+<section id="confidence-intervals---computational-method-3" class="slide level2">
 <h2>Confidence Intervals - Computational Method</h2>
 <p>Exercise:</p>
 <ol type="1">
@@ -445,21 +515,21 @@
 <li class="fragment"><p>When you have the proportion from step 3, come to the front and write it down on the piece of paper there.</p></li>
 </ol>
 </section>
-<section id="confidence-intervals---computational-method-3" class="slide level2">
+<section id="confidence-intervals---computational-method-4" class="slide level2">
 <h2>Confidence Intervals - Computational Method</h2>
 <ul>
 <li class="fragment"><p>At this point, we took your bootstrap sample statistics and formed a histogram with them. This histogram visualizes the <em>sampling distribution</em> of the proportion of yellow Skittles that we just collected.</p></li>
 <li class="fragment"><p>Around what value should we expect the center of the histogram to lie?</p></li>
 </ul>
 </section>
-<section id="confidence-intervals---computational-method-4" class="slide level2">
+<section id="confidence-intervals---computational-method-5" class="slide level2">
 <h2>Confidence Intervals - Computational Method</h2>
 <ul>
 <li class="fragment"><p>From this <em>sampling distribution</em>, we can construct a <strong>bootstrap percentile confidence interval.</strong></p></li>
 <li class="fragment"><p>The following slide will give an example.</p></li>
 </ul>
 </section>
-<section id="confidence-intervals---computational-method-5" class="slide level2">
+<section id="confidence-intervals---computational-method-6" class="slide level2">
 <h2>Confidence Intervals - Computational Method</h2>
 <blockquote>
 <p>Construct a 95% confidence interval for your parameter.</p>
@@ -477,7 +547,7 @@
 <h1>Break</h1>
 
 </section>
-<section id="confidence-intervals---computational-method-6" class="slide level2">
+<section id="confidence-intervals---computational-method-7" class="slide level2">
 <h2>Confidence Intervals - Computational Method</h2>
 <ul>
 <li class="fragment"><p>We have seen conceptually how to obtain a confidence interval with the bootstrap</p></li>
@@ -488,7 +558,7 @@
 </ul></li>
 </ul>
 </section>
-<section id="confidence-intervals---computational-method-7" class="slide level2">
+<section id="confidence-intervals---computational-method-8" class="slide level2">
 <h2>Confidence Intervals - Computational Method</h2>
 <ul>
 <li class="fragment">At this point, we went to the course server to discuss how to use the <code>infer</code> library to obtain the confidence interval for the true proportion of yellow Skittles in a given bag.</li>
