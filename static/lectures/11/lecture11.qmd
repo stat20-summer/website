@@ -93,6 +93,8 @@ execute:
 -   **Confidence intervals** are an inference procedure which outputs a range of values which we expect the population parameter to reside in. 
 
     -   They have an *upper bound* and a *lower bound*
+    
+    -   They are centered around a *point estimate*, which is generally the sample statistic you are using to estimate the population parameter
 
 -   Our confidence that the procedure will work (meaning the parameter will lie inside of our interval) is expressed as a percentage $1 - \alpha$.
 
@@ -117,18 +119,6 @@ execute:
 1. When we keep the sample size fixed but increase/decrease the *confidence level* $1-\alpha$?
 
 2. When we keep the confidence level fixed but increase/decrease the *sample size* $n$?
-
-. . . 
-
-## Properties of the Confidence Interval
-
-Exercise:
-
--   To answer the questions on the previous slide, go ahead and visit [this really cool web app](https://istats.shinyapps.io/ExploreCoverage/).
-
--   Start with a population proportion $p$ of 0.3 and a sample size $n$ of 100.
-
--   Draw 1,000 samples of size $n = 100$ and see what you come out with.
 
 . . . 
 
@@ -165,7 +155,7 @@ Exercise:
 2. If we keep the confidence level fixed:
 
     -   Increasing the sample size narrows our confidence interval;
-    decreasing the sample size narrows it.
+    decreasing the sample size widens it.
     
 . . . 
 
