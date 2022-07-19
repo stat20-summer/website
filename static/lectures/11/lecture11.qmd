@@ -222,7 +222,7 @@ Exercise:
 
 . . . 
 
-1. Obtain the sampling distribution of the statistic which is meant to estimate the parameter.
+1. Obtain the *sampling* distribution of the statistic which is meant to estimate the parameter.
 
 2. Determine $\alpha$. In this case, it is $1-.95 = .05$. 
 
