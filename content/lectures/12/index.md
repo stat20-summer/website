@@ -1,5 +1,5 @@
 ---
-title: "Lecture 11: Generalizations: Confidence Intervals"
+title: "Lecture 12: Generalizations: Confidence Intervals"
 subtitle: "Measuring our degree of certainty."
 summary: "Creating confidence intervals with mathematical methods."
 layout: single
