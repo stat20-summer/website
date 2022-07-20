@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="lecture12-2_files/libs/clipboard/clipboard.min.js"></script>
-<script src="lecture12-2_files/libs/quarto-html/tabby.min.js"></script>
-<script src="lecture12-2_files/libs/quarto-html/popper.min.js"></script>
-<script src="lecture12-2_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="lecture12-2_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="lecture12-2_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
-<link href="lecture12-2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="lecture13_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lecture13_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lecture13_files/libs/quarto-html/popper.min.js"></script>
+<script src="lecture13_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lecture13_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lecture13_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+<link href="lecture13_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.566">
 
-  <title>Lecture 12: Generalizations</title>
+  <title>Lecture 13: Generalizations</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="lecture12-2_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="lecture12-2_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="lecture13_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lecture13_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -23,11 +23,11 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
-  <link rel="stylesheet" href="lecture12-2_files/libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="lecture12-2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="lecture12-2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="lecture12-2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="lecture12-2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="lecture13_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="lecture13_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lecture13_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lecture13_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture13_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -318,7 +318,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="hex-background.png" data-background-size="cover" class="center">
-  <h1 class="title">Lecture 12: Generalizations</h1>
+  <h1 class="title">Lecture 13: Generalizations</h1>
   <p class="institute">STAT 20 UC Berkeley</p>
 </section>
 
@@ -330,54 +330,35 @@
 <section id="first-things-first-1" class="slide level2">
 <h2>First Things First</h2>
 <ul>
-<li class="fragment"><p>Midterm scores (re) released</p>
+<li class="fragment"><p>What to expect from lab today and tomorrow:</p>
 <ul>
-<li class="fragment">Left skewed distribution; median of 19 (out of 24)</li>
-</ul></li>
-<li class="fragment"><p>Notify me of clobber policy decision by <strong>Sunday, July 24 at 11:59pm</strong></p></li>
-<li class="fragment"><p>The final assignment will be <em>an exam</em> with a “project” element</p>
-<ul>
-<li class="fragment"><p>Wednesday, August 10 during class</p></li>
-<li class="fragment"><p>This time around, there will be test corrections</p></li>
-<li class="fragment"><p>If you complete the criterion (TBD) you will receive an addl. 5 percentage points (max score 100 percent).</p></li>
+<li class="fragment"><p>Wednesday: Question 2 parts a-f, Question 1 Workshop</p></li>
+<li class="fragment"><p>Thursday: Question 2 parts g-k, Question 1-2 Workshop</p></li>
 </ul></li>
 </ul>
 </section>
 <section id="first-things-first-2" class="slide level2">
 <h2>First Things First</h2>
 <ul>
-<li class="fragment"><p>R Cheatsheet Extra Credit Assignment now available on Gradescope</p>
+<li class="fragment"><p>Extra Credit assignment details now available on Ed</p>
 <ul>
-<li class="fragment"><p>Due Thursday, August 11</p></li>
-<li class="fragment"><p>Functions you will need to have on your cheatsheet to receive full credit will located on a soon-to-be-released R Cheatsheet post on Ed.</p></li>
+<li class="fragment"><p>R Cheatsheet/Reference Guide</p></li>
+<li class="fragment"><p>Due <strong>Thursday, August 11 at 11:59pm</strong> on Gradescope</p></li>
 </ul></li>
 </ul>
-</section>
-<section id="first-things-first-3" class="slide level2">
-<h2>First Things First</h2>
-<ul>
-<li class="fragment"><p>Lab 3 grades published</p></li>
-<li class="fragment"><p>Lab 2 grades will be published by <strong>Sunday, July 24 at 11:59pm</strong>.</p></li>
-<li class="fragment"><p>PS3 video solutions will be released soon</p></li>
-</ul>
 </section></section>
+<section>
 <section id="recap" class="title-slide slide level1 center">
 <h1>Recap</h1>
 
 </section>
-
-<section>
-<section id="confidence-intervals" class="title-slide slide level1 center">
-<h1>Confidence Intervals</h1>
-
-</section>
-<section id="confidence-intervals-1" class="slide level2">
+<section id="confidence-intervals" class="slide level2">
 <h2>Confidence Intervals</h2>
 <ul>
-<li class="fragment"><p><strong>Confidence intervals</strong> are an inference procedure which outputs a range of values which we expect the population parameter to reside in.</p>
+<li class="fragment"><p><strong>Confidence intervals</strong> are an inference procedure which outputs a range of values which we expect the population parameter <span class="math inline">\(\theta\)</span> to reside in.</p>
 <ul>
 <li class="fragment"><p>They have an <em>upper bound</em> and a <em>lower bound</em></p></li>
-<li class="fragment"><p>They are centered around a <em>point estimate</em>, which is generally the sample statistic you are using to estimate the population parameter</p></li>
+<li class="fragment"><p>They are centered around a <em>point estimate</em>, which is generally the sample statistic <span class="math inline">\(\hat{\theta}\)</span> you are using to estimate the population parameter</p></li>
 </ul></li>
 <li class="fragment"><p>Our confidence that the procedure will work (meaning the parameter will lie inside of our interval) is expressed as a percentage <span class="math inline">\(1−α\)</span>.</p>
 <ul>
@@ -385,20 +366,10 @@
 </ul></li>
 </ul>
 </section>
-<section id="confidence-intervals-2" class="slide level2">
-<h2>Confidence Intervals</h2>
-<ul>
-<li class="fragment"><p>Example: If <span class="math inline">\(α=.05\)</span>, then our confidence that the procedure will work is 1-.05 = .95, which translates to 95 percent.</p></li>
-<li class="fragment"><p>The 95% confidence interval is the most widespread, but it is not a hard and fast rule</p>
-<ul>
-<li class="fragment">You can choose a different number depending on how confident you want to be in your results</li>
-</ul></li>
-</ul>
-</section>
 <section id="interpreting-a-confidence-interval" class="slide level2">
 <h2>Interpreting a Confidence Interval</h2>
 <ul>
-<li class="fragment"><p>Confidence interval interpretations are examples of <em>generalizations</em>, hence they are statements about a population parameter which we are trying to estimate.</p></li>
+<li class="fragment"><p>Confidence interval interpretations are examples of <em>generalizations</em>. They are also statements about our confidence in the procedure which gives us the interval to capture the parameter.</p></li>
 <li class="fragment"><p>One common interpretation:</p></li>
 </ul>
 <div class="fragment">
@@ -407,273 +378,370 @@
 </blockquote>
 </div>
 <div class="fragment">
-<p><strong>Note:</strong> This interpertation can (and should) be filled in with details about the context of the problem.</p>
+<p><strong>Note:</strong> This interpretation can (and should) be filled in with details about the context of the problem.</p>
 </div>
 </section>
-<section id="interpreting-a-confidence-interval-1" class="slide level2">
-<h2>Interpreting a Confidence Interval</h2>
+<section id="obtaining-a-confidence-interval" class="slide level2">
+<h2>Obtaining a Confidence Interval</h2>
 <ul>
-<li class="fragment"><p>Confidence interval interpretations are not:</p>
+<li class="fragment"><p>The main goal: obtaining a <em>sampling distribution</em> of our sample statistic.</p>
 <ul>
-<li class="fragment"><p>statements about the sample statistic (we know everything there is to know about that!)</p></li>
-<li class="fragment"><p>probability statements about observations lying within the bounds of the interval</p></li>
-<li class="fragment"><p>probability statements about the parameter lying within the bounds of the interval (either it does or it doesn’t)</p></li>
+<li class="fragment">Once this is done, we can determine which range of values we want the confidence interval to include</li>
 </ul></li>
 </ul>
 </section></section>
 <section>
-<section id="confidence-intervals---computational-method" class="title-slide slide level1 center">
-<h1>Confidence Intervals - Computational Method</h1>
+<section id="types-of-confidence-intervals-we-have-discussed" class="title-slide slide level1 center">
+<h1>Types of Confidence Intervals we have discussed</h1>
 
 </section>
-<section id="confidence-intervals---computational-method-1" class="slide level2">
-<h2>Confidence Intervals - Computational Method</h2>
-<blockquote>
-<p>Construct a 1-<span class="math inline">\(α\)</span> confidence interval for your parameter.</p>
-</blockquote>
-<div class="fragment">
+<section id="the-bootstrapped-percentile-confidence-interval" class="slide level2">
+<h2>The Bootstrapped Percentile Confidence Interval</h2>
+<ul>
+<li class="fragment"><p><strong>How we obtain the sampling distribution</strong>:</p>
 <ol type="1">
-<li class="fragment"><p>Obtain the <em>sampling</em> distribution of the <em>statistic</em> which you are using as a <em>point estimate</em> for the parameter.</p></li>
-<li class="fragment"><p>Determine <span class="math inline">\(α\)</span>. This will depend on the problem specification (or in the real world, on what you would like it to be).</p></li>
-<li class="fragment"><p>Obtain the <span class="math inline">\(α\)</span>th percentile value of the distribution and the 1-<span class="math inline">\(α\)</span>th percentile value. This is because our sampling distribution will be symmetric and we need to take <span class="math inline">\(α\)</span>/2 percent from either side to account for the total of <span class="math inline">\(α\)</span> percent.</p></li>
-</ol>
-</div>
-</section>
-<section id="confidence-intervals-3" class="slide level2">
-<h2>Confidence Intervals</h2>
-<ul>
-<li class="fragment"><p>There are multiple avenues we can take to construct a confidence interval.</p></li>
-<li class="fragment"><p>Yesterday, we learned about computational methods; today we will examine mathematical methods.</p></li>
+<li class="fragment"><p>Take bootstrap samples of our original sample and calculate a sample statistic for each of these bootstrap samples</p></li>
+<li class="fragment"><p>Create a dotplot / histogram with these calculated statistics</p></li>
+</ol></li>
+<li class="fragment"><p><strong>How we obtain the confidence interval</strong>:</p>
+<ol type="1">
+<li class="fragment"><p>Decide our confidence level <span class="math inline">\(1-\alpha\)</span></p></li>
+<li class="fragment"><p>Take the <em>lower bound</em> to be the <span class="math inline">\(\frac{\alpha}{2}\)</span>th percentile of the bootstrap sample statistics</p></li>
+<li class="fragment"><p>Take the <em>upper bound</em> to be the <span class="math inline">\(1- \frac{\alpha}{2}\)</span>th percentile of the bootstrap sample statistics</p></li>
+</ol></li>
 </ul>
-</section></section>
-<section>
-<section id="confidence-intervals---mathematical-methods" class="title-slide slide level1 center">
-<h1>Confidence Intervals - Mathematical Methods</h1>
-
 </section>
-<section id="confidence-intervals---mathematical-methods-1" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
+<section id="the-binomial-interval-for-one-proportion" class="slide level2">
+<h2>The Binomial Interval (for one proportion)</h2>
 <ul>
-<li class="fragment"><p>Why might we want to use a mathematical method rather than the more intuitive, data-driven (computational) method we have already seen?</p>
+<li class="fragment"><p><strong>How we obtain the sampling distribution</strong>:</p>
 <ul>
-<li class="fragment"><p>Data-driven methods are not always practical</p></li>
-<li class="fragment"><p>Mathematical methods are widely applicable and easy to employ when they are applicable</p></li>
+<li class="fragment"><p>We note that the sample proportion <span class="math inline">\(\hat{p}\)</span> can be written as <span class="math inline">\(Y/n\)</span>, where <span class="math inline">\(Y\)</span> is the number of “successes” (1s) in <span class="math inline">\(n\)</span> trials (in a sample size of <span class="math inline">\(n\)</span>). Thus, <span class="math inline">\(Y\)</span> is distributed <span class="math inline">\(Binomial(n,p)\)</span></p></li>
+<li class="fragment"><p>Then we take the sampling distribution to be the <span class="math inline">\(Binomial(n,p)\)</span> distribution</p></li>
 </ul></li>
-</ul>
-</section></section>
-<section>
-<section id="mathematical-method-1" class="title-slide slide level1 center">
-<h1>Mathematical Method 1</h1>
-
-</section>
-<section id="confidence-intervals---mathematical-methods-2" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
-<ul>
-<li class="fragment"><p>To start today’s lecture, we will head back to the probability concepts of <em>expected value</em> and <em>variance</em>.</p></li>
-<li class="fragment"><p>Remember the <em>Bernoulli distribution</em>? A <em>Bernoulli</em> random variable <span class="math inline">\(X\)</span> has the following probability distribution:</p></li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th><span class="math inline">\(x\)</span></th>
-<th><span class="math inline">\(P(X= x)\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><span class="math inline">\(1-p\)</span></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td><span class="math inline">\(p\)</span></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="confidence-intervals---mathematical-methods-3" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
-<ul>
-<li class="fragment"><p>If the Bernoulli random variable <span class="math inline">\(X\)</span> records one trial of an event that either results in a 0 or a 1, how can we work with multiple, independent trials of that event?</p></li>
-<li class="fragment"><p>Enter the <span class="math inline">\(Binomial(n,p)\)</span> random variable. This random variable records the sum (number of) successes in <span class="math inline">\(n\)</span> independent trials of an event.</p></li>
-<li class="fragment"><p>We discussed how to calculate Binomial probabilities in detail last week.</p></li>
+<li class="fragment"><p><strong>How we obtain the confidence interval</strong>:</p>
+<ol type="1">
+<li class="fragment"><p>Decide our confidence level <span class="math inline">\(1-\alpha\)</span></p></li>
+<li class="fragment"><p>Take the <em>lower bound</em> to be value <span class="math inline">\(Y = y_{l}\)</span> that cuts <span class="math inline">\(\frac{\alpha}{2}\)</span> percent of the probability on the left</p></li>
+<li class="fragment"><p>Take the <em>upper bound</em> to be the value <span class="math inline">\(Y = y_{u}\)</span> that cuts <span class="math inline">\(\frac{\alpha}{2}\)</span> percent of the probability on the right</p></li>
+<li class="fragment"><p>Divide the upper and lower bound by <span class="math inline">\(n\)</span></p></li>
+</ol></li>
 </ul>
 </section>
-<section id="confidence-intervals---mathematical-methods-4" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
+<section id="interval-using-the-normal-approximation" class="slide level2">
+<h2>Interval using the Normal approximation</h2>
 <ul>
-<li class="fragment">Consider a Binomial random variable <span class="math inline">\(Y\)</span>. Under the framework we just discussed, we can write <span class="math inline">\(Y\)</span> mathematically as:</li>
-</ul>
-<p><span class="math display">\[ Y = X_1 + X_2 + ... + X_n \]</span></p>
+<li class="fragment"><p><strong>How we obtain the sampling distribution</strong>:</p>
+<ol type="1">
+<li class="fragment"><p>Determine whether:</p>
 <ul>
-<li class="fragment">$ X_1, X_2, …, X_n $ are Bernoulli random variables recording the outcomes of trials <span class="math inline">\(1,2, ..., n\)</span>.</li>
-</ul>
-</section>
-<section id="confidence-intervals---mathematical-methods-5" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
-<ul>
-<li class="fragment"><p>Now, say we have are estimating a parameter (a proportion <span class="math inline">\(p\)</span>) with the sample proportion <span class="math inline">\(\hat{p}\)</span> as our <em>point estimate</em>.</p></li>
-<li class="fragment"><p>Note we have the relationship <span class="math inline">\(\hat{p} = \frac{Y}{n}\)</span> , where <span class="math inline">\(Y\)</span> is distributed <span class="math inline">\(Binomial(n,p)\)</span></p></li>
-<li class="fragment"><p>Then, to find a confidence interval for <span class="math inline">\(\hat{p}\)</span>, we can look at the distribution of <span class="math inline">\(Y\)</span>.</p></li>
-</ul>
-</section>
-<section id="confidence-intervals---mathematical-methods-6" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
-<ul>
-<li class="fragment"><p>An example: <span class="math inline">\(\hat{p} = 0.5\)</span>, <span class="math inline">\(n = 100\)</span>.</p></li>
-<li class="fragment"><p>Then we can write our sample <span class="math inline">\(Y\)</span> as 50.</p></li>
-</ul>
-
-<img data-src="lecture12-2_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
-<section id="confidence-intervals---mathematical-methods-7" class="slide level2 smaller">
-<h2>Confidence Intervals - Mathematical Methods</h2>
-
-<img data-src="lecture12-2_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><div class="fragment">
-<p>What values of <span class="math inline">\(Y\)</span> contain the middle 95% of the probability distribution?</p>
-<ul>
-<li class="fragment"><p>2.5 percent quantile: 469</p></li>
-<li class="fragment"><p>97.5 percent quantile: 531</p></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li class="fragment"><p>Therefore, our 95% CI for <span class="math inline">\(\hat{p}\)</span> is:</p>
-<ul>
-<li class="fragment"><span class="math inline">\((LB,UB)=(469/1000,531/1000)=(.469,.531)\)</span></li>
+<li class="fragment"><p>The observations in our sample are independent.</p></li>
+<li class="fragment"><p>Our sample size is large enough (dependent on the type of parameter we are trying to estimate).</p></li>
 </ul></li>
-</ul>
-</div>
-</section>
-<section id="confidence-intervals---mathematical-methods-8" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
-<ul>
-<li class="fragment">Again, a <em>Bernoulli</em> random variable <span class="math inline">\(X\)</span> has the following probability distribution:</li>
-</ul>
-<div class="fragment">
-<table>
-<thead>
-<tr class="header">
-<th><span class="math inline">\(x\)</span></th>
-<th><span class="math inline">\(P(X= x)\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><span class="math inline">\(1-p\)</span></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td><span class="math inline">\(p\)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="confidence-intervals---mathematical-methods-9" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
-<p>Exercise:</p>
-<ul>
-<li class="fragment">Calculate the variance of a Bernoulli random variable <span class="math inline">\(X\)</span> for a generic <span class="math inline">\(p\)</span> (don’t plug any number in for <span class="math inline">\(p\)</span>).</li>
+<li class="fragment"><p>If these conditions hold, then the <strong>Central Limit Theorem</strong> tells us that the sampling distribution of our sample statistic is approximately Normal.</p></li>
+</ol></li>
 </ul>
 </section>
-<section id="confidence-intervals---mathematical-methods-10" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
-<p>Exercise:</p>
+<section id="interval-using-the-normal-approximation-1" class="slide level2">
+<h2>Interval using the Normal approximation</h2>
 <ul>
-<li class="fragment"><p>Calculate the variance of the sample proportion <span class="math inline">\(\hat{p} = \frac{Y}{n}\)</span> for a generic <span class="math inline">\(n\)</span>.</p></li>
-<li class="fragment"><p>Hint: Write <span class="math inline">\(Y\)</span> in the way we showed earlier in lecture and use the rules for variance of independent random variables we discussed in Week 3.</p></li>
+<li class="fragment"><p><strong>How we obtain the (95 percent) confidence interval</strong>:</p>
+<ol type="1">
+<li class="fragment"><p>Invoke the <em>empirical rule</em> (or <em>68-95-99.7 rule</em>). This rule states that for a Normal distribution, 95 percent of the data lies within two standard deviations (errors) of the mean.</p></li>
+<li class="fragment"><p>Take the interval to be <span class="math inline">\((\hat{\theta} - 2*SE, \hat{\theta} + 2*SE)\)</span>, where <span class="math inline">\(SE\)</span> (standard error) is given by a formula we can calculate.</p></li>
+</ol></li>
 </ul>
 </section>
-<section id="confidence-intervals---mathematical-methods-11" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
+<section id="interval-using-the-normal-approximation-2" class="slide level2">
+<h2>Interval using the Normal approximation</h2>
 <ul>
-<li class="fragment"><p>In performing the exercises above, we found that the standard deviation of <span class="math inline">\(\hat{p}\)</span> is given by the expression <span class="math inline">\(\sqrt{\frac{p(1-p)}{n}}\)</span>.</p></li>
-<li class="fragment"><p><span class="math inline">\(\hat{p}\)</span> is a <em>statistic</em>. Therefore, we give its standard deviation a special name, the <strong>standard error</strong>.</p></li>
-<li class="fragment"><p>This gives us a sense of why the width of a confidence interval might narrow as we increase the sample size <span class="math inline">\(n\)</span>.</p></li>
+<li class="fragment"><p>Yesterday, we derived that the standard error of the sample proportion is given by <span class="math inline">\(\sqrt{\frac{p(1-p)}{n}}\)</span>.</p></li>
+<li class="fragment"><p>Note however, that <em>we do not know <span class="math inline">\(p\)</span></em>! So as it stands, that formula cannot be used directly.</p></li>
+<li class="fragment"><p>Our best course of action is to replace <span class="math inline">\(p\)</span> with <span class="math inline">\(\hat{p}\)</span> itself, as it is the best guess that we have for <span class="math inline">\(p\)</span>.</p></li>
 </ul>
 </section>
-<section id="confidence-intervals---mathematical-methods-12" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
+<section id="exercises" class="slide level2">
+<h2>Exercises</h2>
 <ul>
-<li class="fragment"><p>So if our sample statistic (<em>point estimate</em>) follows a Binomial distribution, and we now have some idea of how it varies, can we create a confidence interval using these two components?</p></li>
-<li class="fragment"><p>The answer is <em>yes</em>, and we will see this after the break.</p></li>
+<li class="fragment">Consult the <em>Lecture Code and Supplements Thread</em> on Ed for today’s exercises.</li>
 </ul>
 </section></section>
-<section>
 <section id="break" class="title-slide slide level1 center">
 <h1>Break</h1>
 
 </section>
-<section id="central-limit-theorem" class="slide level2">
-<h2>Central Limit Theorem</h2>
+
+<section>
+<section id="hypothesis-testing" class="title-slide slide level1 center">
+<h1>Hypothesis Testing</h1>
 <ul>
-<li class="fragment"><p>Averages are special quantities in statistics. Proportions are a type of average; an average of 0s and 1s.</p></li>
-<li class="fragment"><p>A <em>very</em> important result in statistics, known as the <strong>Central Limit Theorem,</strong> gives the following result, among others (paraphrased from IMS Ch 13):</p>
+<li class="fragment">To illustrate this topic, we will revisit the <em>sex discrimination</em> study that we performed an exercise on in a previous lecture.</li>
+</ul>
+</section>
+<section id="the-experiment" class="slide level2">
+<h2>The Experiment</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/equal-pay.jpg" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
 <blockquote>
-<p>Under certain conditions, the sampling distribution of the sample proportion will be approximated by the Normal distribution.</p>
-</blockquote></li>
+<p>Question: Are females unfairly discriminated against in promotion decisions?</p>
+</blockquote>
+<ul>
+<li class="fragment">48 male supervisors given the same personnel file.</li>
+<li class="fragment">Files were randomly assigned to the supervisors.</li>
+<li class="fragment">Asked: promote or not.</li>
+<li class="fragment">Files were identical except gender.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="the-data" class="slide level2">
+<h2>The Data</h2>
+<div class="fragment">
+<table>
+<thead>
+<tr class="header">
+<th>Gender</th>
+<th>promote</th>
+<th>nopromote</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Male</td>
+<td>21</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Female</td>
+<td>14</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\textrm{Prop. males that are promoted} = 21/24 = 0.875 \\
+\textrm{Prop. females that are promoted} = 14/24 = 0.583\]</span></p>
+</div>
+<div class="fragment">
+<p>At a first glance, does there appear to be a relationship between promotion and gender?</p>
+</div>
+</section>
+<section id="structure-of-hypothesis-test" class="slide level2">
+<h2>Structure of Hypothesis Test</h2>
+<p>There are two competing claims.</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><span class="inversebox">Null Hypothesis, <span class="math inline">\(H_0\)</span></span></p>
+<p>“There is nothing going on”.</p>
+<ul>
+<li class="fragment">Promotion and gender are independent.</li>
+<li class="fragment">No gender discrimination.</li>
+<li class="fragment">Observed difference in proportions is simply due to chance.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><span class="inversebox">Alternative Hypothesis, <span class="math inline">\(H_A\)</span></span></p>
+<p>“There is something going on.”</p>
+<ul>
+<li class="fragment">Promotion and gender are dependent.</li>
+<li class="fragment">There is gender discrimination.</li>
+<li class="fragment">Observed difference in proportions is not due to chance.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="trial-as-a-hypothesis-test" class="slide level2">
+<h2>Trial as a Hypothesis test</h2>
+
+<img data-src="images/trial.png" width="350" class="r-stretch quarto-figure-center"><p><strong><span class="math inline">\(H_0\)</span></strong> : Defendant is innocent vs.&nbsp;<strong><span class="math inline">\(H_A\)</span></strong> : Defendant is guilty</p>
+<ul>
+<li class="fragment">Present evidence / collect data.</li>
+<li class="fragment">Judge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”</li>
+<li class="fragment">If they were very unlikely to have occurred, then the evidence raises more than a reasonable doubt in our minds about the null hypothesis.</li>
 </ul>
 </section>
-<section id="central-limit-theorem-1" class="slide level2">
-<h2>Central Limit Theorem</h2>
+<section id="if-the-evidence-is-weak" class="slide level2">
+<h2>If the evidence is weak</h2>
 <ul>
-<li class="fragment"><p>The “certain conditions” referred to in the last slide are:</p>
+<li class="fragment">If the evidence is not strong enough to reject the assumption of innocence, the jury returns with a verdict of <em>not guilty</em>.
 <ul>
-<li class="fragment"><p>Observations in the sample must be <em>independent</em>.</p></li>
-<li class="fragment"><p>The sample should be <em>“large enough”</em> .</p></li>
+<li class="fragment">The jury does not say that the defendant is innocent, just that there is not enough evidence to convict.</li>
 </ul></li>
-<li class="fragment"><p>There is some dependence on context regarding what the latter condition means specifically.</p>
-<ul>
-<li class="fragment">For inference on single proportions, for example, IMS recommends the <em>success-failure condition</em>. This means we need to see at least ten “successes” (1s) and ten “failures” (0s) in our sample.</li>
-</ul></li>
-</ul>
-</section>
-<section id="normal-distribution" class="slide level2">
-<h2>Normal distribution</h2>
-<ul>
-<li class="fragment"><p>By far the most commonly known probability distribution</p></li>
-<li class="fragment"><p>It is associated with a symmetric, bell-shaped curve.</p></li>
-<li class="fragment"><p>One nice property of the Normal distribution is that its two parameters, <span class="math inline">\(μ\)</span> and <span class="math inline">\(σ\)</span>, are <em>exactly</em> the distribution’s mean and standard deviation, respectively.</p></li>
-</ul>
-</section>
-<section id="normal-distribution-1" class="slide level2">
-<h2>Normal distribution</h2>
-<ul>
-<li class="fragment">One nice property about the Normal distribution is the so-called <em>empirical rule</em> or <em>68-95-99.7 rule.</em></li>
-<li class="fragment">This rule states that:
-<ul>
-<li class="fragment"><p>68 percent of the data lies within <em>one</em> standard deviation of the mean</p></li>
-<li class="fragment"><p>95 percent of the data lies within <em>two</em> standard deviations of the mean</p></li>
-<li class="fragment"><p>99.7 percent of the data lies within <em>three</em> standard deviations of the mean</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="confidence-intervals---mathematical-methods-13" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
-<ul>
-<li class="fragment">Therefore, when the two conditions outlined earlier are met, a rough 95 percent confidence interval for the population proportion <span class="math inline">\(p\)</span> can be written as:</li>
+<li class="fragment">Said statistically: <em>we fail to reject the null hypothesis</em>, or <em>the data is consistent with our model</em>.</li>
 </ul>
 <div class="fragment">
-<p><span class="math display">\[ \hat{p} \pm 2* SE \]</span></p>
+<p>We never <em>accept the null hypothesis</em>.</p>
+<blockquote>
+<p>Why not?</p>
+</blockquote>
+</div>
+</section>
+<section id="why-dont-we-accept-h_0" class="slide level2">
+<h2>Why don’t we accept <span class="math inline">\(H_0\)</span>?</h2>
+<div class="fragment">
+<p>The hypothesis test gives us:</p>
+<p><span class="math display">\[ P(\textrm{data}\,|\,\textrm{H}_0) \]</span></p>
+</div>
+<div class="fragment">
+<p>It doesn’t give us:</p>
+<p><span class="math display">\[ P(\textrm{H}_0\,|\,\textrm{data}) \]</span></p>
+</div>
+<div class="fragment">
+<p>These are not the same thing.</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ P(\textrm{Can't see the sun}\,|\,\textrm{Raining}) \ne P(\textrm{Raining}\,|\,\textrm{Can't see the sun}) \]</span></p>
+</div>
+</section>
+<section id="structure-of-a-hypothesis-test" class="slide level2">
+<h2>Structure of a Hypothesis Test</h2>
+<ol type="1">
+<li class="fragment"><p>Start with a <strong>null hypothesis</strong> ( <span class="math inline">\(H_0\)</span> ) that represents the status quo and an <strong>alternative hypothesis</strong> ( <span class="math inline">\(H_A\)</span> ) that represents our research question, i.e.&nbsp;what we’re testing for.</p></li>
+<li class="fragment"><p>Calculate the observed <strong>test statistic</strong>: an encapsulation of the evidence.</p></li>
+<li class="fragment"><p>Find the <strong>null distribution</strong> of the test statistic under the assumption that <span class="math inline">\(H_0\)</span> is true, either via simulation (our focus) or mathematical methods.</p></li>
+<li class="fragment"><p>If the test results suggest that the data is consistent with <span class="math inline">\(H_0\)</span>, we stick with the <span class="math inline">\(H_0\)</span>. If they are inconsistent, then we reject the <span class="math inline">\(H_0\)</span> in favor of <span class="math inline">\(H_A\)</span>.</p></li>
+</ol>
+</section>
+<section id="gender-discrimination-h_0-test" class="slide level2">
+<h2>Gender discrimination: <span class="math inline">\(H_0\)</span> test</h2>
+<p>What is the <em>null hypothesis</em>?</p>
 <ul>
-<li class="fragment"><span class="math inline">\(\hat{p}\)</span> is the <em>point estimate</em>, and <span class="math inline">\(SE\)</span> is its standard error. We found the <span class="math inline">\(SE\)</span> in the single proportion case was <span class="math inline">\(\sqrt{\frac{p(1-p)}{n}}\)</span>.</li>
+<li class="fragment"><span class="math inline">\(H_0\)</span>: There is no gender discrimination</li>
+<li class="fragment"><span class="math inline">\(H_0\)</span>: Gender and promotion are independent</li>
+</ul>
+<div class="fragment">
+<p>What is the <em>alternative hypothesis</em>?</p>
+<ul>
+<li class="fragment"><span class="math inline">\(H_A\)</span>: There is gender discrimination</li>
+<li class="fragment"><span class="math inline">\(H_A\)</span>: Gender and promotion are not independent</li>
+</ul>
+</div>
+<div class="fragment">
+<p>What is our <em>test statistic</em>?</p>
+<ul>
+<li class="fragment"><span class="math inline">\(d = \hat{p}_{M} - \hat{p}_{F}\)</span></li>
 </ul>
 </div>
 </section>
-<section id="confidence-intervals---mathematical-methods-14" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
+<section id="recall-the-data" class="slide level2">
+<h2>Recall: the data</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Gender</th>
+<th>promote</th>
+<th>nopromote</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Male</td>
+<td>21</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Female</td>
+<td>14</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p><br> <br></p>
+<p>We can compute our observed test statistic:</p>
+<p><span class="math display">\[d_{obs} = \hat{p}_{M} - \hat{p}_{F} d_{obs} = 21/24 - 14/24 = .29\]</span></p>
+</section>
+<section id="creating-a-simulation" class="slide level2">
+<h2>Creating a simulation</h2>
+
+<img data-src="images/gender-cards1.png" width="750" class="r-stretch quarto-figure-center"><p><strong>Face cards</strong>: 13 files not promoted<br>
+<strong>Number cards</strong>: 35 files promoted</p>
+</section>
+<section id="constructing-the-null-distribution" class="slide level2">
+<h2>Constructing the Null Distribution</h2>
+<ol type="1">
+<li class="fragment">Shuffle the deck and deal into two piles of twenty four.</li>
+<li class="fragment">This mimics the process of each supervision being randomly assigned a male or female file.</li>
+<li class="fragment">Compute the proportion that is promoted in each:</li>
+</ol>
+<div class="fragment">
+<p><span class="math display">\[d = \hat{p}_{M} - \hat{p}_{F}\]</span></p>
+<blockquote>
+<p>Repeat steps 1-3 and store each one.</p>
+</blockquote>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+
+<img data-src="images/gender-cards2.png" width="750" class="r-stretch quarto-figure-center"><div class="fragment">
+<blockquote>
+<p>Instead of shuffling cards, we’ll shuffle data frames using R…</p>
+</blockquote>
+</div>
+</section>
+<section id="simulation-using-infer" class="slide level2">
+<h2>Simulation using <code>infer</code></h2>
+
+<img data-src="lecture13_files/figure-revealjs/simgender-1.png" width="960" class="r-stretch quarto-figure-center"><div class="fragment">
+<blockquote>
+<p>Do the results of the simulation you just ran provide convincing evidence of gender discrimination against women, i.e.&nbsp;dependence between gender and promotion decisions?</p>
+</blockquote>
+</div>
+</section>
+<section id="computing-a-p-value" class="slide level2">
+<h2>Computing a p-value</h2>
+<p>A <strong>p-value</strong> is the probability of observing the observed statistic or more extreme if <span class="math inline">\(H_0\)</span> is true.</p>
+<div class="fragment">
+<p>In a simulation setting . . . a p-value is the <em>proportion</em> of test statistics simulated assuming <span class="math inline">\(H_0\)</span> is true that are more extreme than the observed test statistic.</p>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="lecture13_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Of the 5000 simulated test statistics, 238 of them were more extreme than the observed value of 0.29.</p>
+<blockquote>
+<p>P-value: 0.0476.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</section>
+<section id="the-p-value-and-alpha" class="slide level2">
+<h2>The p-value and <span class="math inline">\(\alpha\)</span></h2>
 <ul>
-<li class="fragment">Similar analogs to the one proportion case exist for when your parameter is one of:
+<li class="fragment"><p>The purpose of the p-value is to compare it in relation to a significance level <span class="math inline">\(\alpha\)</span> which is between 0 and 1. This <span class="math inline">\(\alpha\)</span> is not entirely unrelated to the one we mentioned when defining confidence level.</p></li>
+<li class="fragment"><p>We <em>reject</em> the null hypothesis when</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\textrm{p-value} &lt; \alpha\]</span></p>
 <ul>
-<li class="fragment"><p>A population mean</p></li>
-<li class="fragment"><p>A difference in independent population proportions</p></li>
-<li class="fragment"><p>A difference in independent population means</p></li>
+<li class="fragment"><p><strong>Note:</strong> <span class="math inline">\(\alpha\)</span> should be set <em>before seeing the data</em></p></li>
+<li class="fragment"><p>The most common value of <span class="math inline">\(\alpha\)</span> is <span class="math inline">\(.05\)</span>, though others can be used depending on your situation.</p>
+<ul>
+<li class="fragment">The smaller the <span class="math inline">\(\alpha\)</span>, the harder it is to reject your null hypothesis.</li>
 </ul></li>
 </ul>
+</div>
 </section></section>
-<section id="end-of-lecture-12" class="title-slide slide level1 center">
-<h1>End of Lecture 12</h1>
+<section id="end-of-lecture-13" class="title-slide slide level1 center">
+<h1>End of Lecture 13</h1>
 
 <img src="images/stat20-hex.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
@@ -683,19 +751,19 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="lecture12-2_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="lecture13_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="lecture12-2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="lecture12-2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="lecture12-2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="lecture12-2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="lecture12-2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="lecture13_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lecture13_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lecture13_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lecture13_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture13_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="lecture12-2_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="lecture12-2_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="lecture12-2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="lecture12-2_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="lecture13_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lecture13_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lecture13_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="lecture13_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

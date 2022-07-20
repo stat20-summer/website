@@ -1,7 +1,7 @@
 ---
 title: 'Lab 4: Generalizations'
 author: "BSS Stat 20"
-date: 'July 18th, 2022'
+date: 'July 20th, 2022'
 output:
   xaringan::moon_reader:
     css: stat20.css
@@ -175,4 +175,99 @@ k. Create a 95% confidence interval for the overall change in support the Projec
 # End of Day 1
 
 ---
+
+# Day 2
+
+---
+
+# Question 2 parts a-f
+
+---
+
+# For now, no laptops will be needed, so go ahead and put them in your bags.
+
+---
+
+## Question 2 parts a-f
+
+-   The first thing we want to do is give you guys context on where the data set of **Question 2** comes from.
+
+--
+
+-   For that, we will now present you a short clip from the *Mythbusters* episode titled *Is Yawning Contagious?*
+
+---
+
+## Question 2 parts a-f - Reflection (3 min)
+
+-   After having watched the clip, to what extent do you recognize the Mythbusters' claimed results as legitimiate?
+
+-   Think about a shared answer within your groups and in a moment we will discuss.
+
+---
+
+## Question 2 parts a-f - Reflection (3 min) 
+
+-   Brief class discussion
+
+---
+
+## Question 2 parts a-c (3 min)
+
+-   Examine the results of the experiment on your lab sheet.
+
+a.    What are the explanatory and response variables?
+
+--
+
+b.    What was the proportion of yawners in the `seeded` group?
+
+--
+
+c.    What was the proportion of yawners in the `unseeded` group?
+
+--
+
+---
+
+## Question 2 parts d-f (5 min)
+
+-   Examine the results of the experiment on your lab sheet.
+
+d.    If there were *no association* between yawning and the proximity of another yawner, what would you expect the difference to be between the proportions of **part b** and **part c**?
+
+--
+
+e.    Let $X$ be a random variable corresponding to the number of people in the unseeded group that yawned. What are the possible values that $X$ can take?
+
+--
+
+f.    In terms of $X$, what is an example of a result $x$ that would demonstrate a strong association between yawning and being exposed to a seed?
+
+--
+
+---
+
+# Question 1 Workshop
+
+---
+
+## Question 1 Workshop
+
+-   For the rest of lab today, feel free to work in groups on finishing up Question 1 if you haven't done so. If you need help, just let me know.
+
+--
+
+-   Tomorrow we will complete the activity as a class to help us finish Question 2 g-k. Therefore it is *strongly recommended* to attend lab tomorrow. 
+
+--
+
+-   If you are satisfied with your work so far, feel free to leave early today!
+
+--
+
+---
+
+# End of Day 2
+
 

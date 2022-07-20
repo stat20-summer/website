@@ -349,7 +349,7 @@
 <li class="fragment"><p>R Cheatsheet Extra Credit Assignment now available on Gradescope</p>
 <ul>
 <li class="fragment"><p>Due Thursday, August 11</p></li>
-<li class="fragment"><p>Functions you will need to have on your cheatsheet to receive full credit can be located at the R Cheatsheet thread on Ed.</p></li>
+<li class="fragment"><p>Functions you will need to have on your cheatsheet to receive full credit will located on a soon-to-be-released R Cheatsheet post on Ed.</p></li>
 </ul></li>
 </ul>
 </section>
@@ -379,7 +379,7 @@
 <li class="fragment"><p>They have an <em>upper bound</em> and a <em>lower bound</em></p></li>
 <li class="fragment"><p>They are centered around a <em>point estimate</em>, which is generally the sample statistic you are using to estimate the population parameter</p></li>
 </ul></li>
-<li class="fragment"><p>Our confidence that the procedure will work (meaning the parameter will lie inside of our interval) is expressed as a percentage 1 − <em>α</em>.</p>
+<li class="fragment"><p>Our confidence that the procedure will work (meaning the parameter will lie inside of our interval) is expressed as a percentage <span class="math inline">\(1−α\)</span>.</p>
 <ul>
 <li class="fragment">You can call this the <em>confidence level</em>.</li>
 </ul></li>
@@ -388,26 +388,54 @@
 <section id="confidence-intervals-2" class="slide level2">
 <h2>Confidence Intervals</h2>
 <ul>
-<li class="fragment"><p>Example: If <em>α</em> = .05, then our confidence that the procedure will work is 1 − .05 = .95= 95 percent.</p></li>
+<li class="fragment"><p>Example: If <span class="math inline">\(α=.05\)</span>, then our confidence that the procedure will work is 1-.05 = .95, which translates to 95 percent.</p></li>
 <li class="fragment"><p>The 95% confidence interval is the most widespread, but it is not a hard and fast rule</p>
 <ul>
 <li class="fragment">You can choose a different number depending on how confident you want to be in your results</li>
 </ul></li>
 </ul>
 </section>
-<section id="confidence-intervals---computational-method" class="slide level2">
-<h2>Confidence Intervals - Computational Method</h2>
+<section id="interpreting-a-confidence-interval" class="slide level2">
+<h2>Interpreting a Confidence Interval</h2>
+<ul>
+<li class="fragment"><p>Confidence interval interpretations are examples of <em>generalizations</em>, hence they are statements about a population parameter which we are trying to estimate.</p></li>
+<li class="fragment"><p>One common interpretation:</p></li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>We are <span class="math inline">\(1-\alpha\)</span> percent confident that the population parameter lies between <em>lower bound</em> and <em>upper bound</em>.</p>
+</blockquote>
+</div>
+<div class="fragment">
+<p><strong>Note:</strong> This interpertation can (and should) be filled in with details about the context of the problem.</p>
+</div>
+</section>
+<section id="interpreting-a-confidence-interval-1" class="slide level2">
+<h2>Interpreting a Confidence Interval</h2>
+<ul>
+<li class="fragment"><p>Confidence interval interpretations are not:</p>
+<ul>
+<li class="fragment"><p>statements about the sample statistic (we know everything there is to know about that!)</p></li>
+<li class="fragment"><p>probability statements about observations lying within the bounds of the interval</p></li>
+<li class="fragment"><p>probability statements about the parameter lying within the bounds of the interval (either it does or it doesn’t)</p></li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="confidence-intervals---computational-method" class="title-slide slide level1 center">
+<h1>Confidence Intervals - Computational Method</h1>
+
 </section>
 <section id="confidence-intervals---computational-method-1" class="slide level2">
 <h2>Confidence Intervals - Computational Method</h2>
 <blockquote>
-<p>Construct a 1-<em>α</em> confidence interval for your parameter.</p>
+<p>Construct a 1-<span class="math inline">\(α\)</span> confidence interval for your parameter.</p>
 </blockquote>
 <div class="fragment">
 <ol type="1">
 <li class="fragment"><p>Obtain the <em>sampling</em> distribution of the <em>statistic</em> which you are using as a <em>point estimate</em> for the parameter.</p></li>
-<li class="fragment"><p>Determine <em>α</em>. This will depend on the problem specification (or in the real world, on what you would like it to be).</p></li>
-<li class="fragment"><p>Obtain the <em>α</em>th percentile value of the distribution and the 1-<em>α</em>th percentile value. This is because our sampling distribution will be symmetric and we need to take <em>α</em>/2 percent from either side to account for the total of <em>α</em> percent.</p></li>
+<li class="fragment"><p>Determine <span class="math inline">\(α\)</span>. This will depend on the problem specification (or in the real world, on what you would like it to be).</p></li>
+<li class="fragment"><p>Obtain the <span class="math inline">\(α\)</span>th percentile value of the distribution and the 1-<span class="math inline">\(α\)</span>th percentile value. This is because our sampling distribution will be symmetric and we need to take <span class="math inline">\(α\)</span>/2 percent from either side to account for the total of <span class="math inline">\(α\)</span> percent.</p></li>
 </ol>
 </div>
 </section>
@@ -442,143 +470,127 @@
 <h2>Confidence Intervals - Mathematical Methods</h2>
 <ul>
 <li class="fragment"><p>To start today’s lecture, we will head back to the probability concepts of <em>expected value</em> and <em>variance</em>.</p></li>
-<li class="fragment"><p>Remember the <em>Bernoulli distribution</em>? A <em>Bernoulli</em> random variable <em>X</em> has the following probability distribution:</p></li>
+<li class="fragment"><p>Remember the <em>Bernoulli distribution</em>? A <em>Bernoulli</em> random variable <span class="math inline">\(X\)</span> has the following probability distribution:</p></li>
 </ul>
-<div class="fragment">
 <table>
 <thead>
 <tr class="header">
-<th><em>x</em></th>
-<th><em>P</em>(<em>X</em>=<em>x</em>)</th>
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(P(X= x)\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>0</td>
-<td>1 − <em>p</em></td>
+<td><span class="math inline">\(1-p\)</span></td>
 </tr>
 <tr class="even">
 <td>1</td>
-<td><em>p</em></td>
+<td><span class="math inline">\(p\)</span></td>
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="confidence-intervals---mathematical-methods-3" class="slide level2">
 <h2>Confidence Intervals - Mathematical Methods</h2>
 <ul>
-<li class="fragment"><p>If the Bernoulli random variable <em>X</em> records one trial of an event that either results in a 0 or a 1, how can we work with multiple, independent trials of that event?</p></li>
-<li class="fragment"><p>Enter the Binomial(<em>n</em>, <em>p</em>) random variable. This random variable records the sum (number of) successes in <em>n</em> independent trials of an event.</p></li>
+<li class="fragment"><p>If the Bernoulli random variable <span class="math inline">\(X\)</span> records one trial of an event that either results in a 0 or a 1, how can we work with multiple, independent trials of that event?</p></li>
+<li class="fragment"><p>Enter the <span class="math inline">\(Binomial(n,p)\)</span> random variable. This random variable records the sum (number of) successes in <span class="math inline">\(n\)</span> independent trials of an event.</p></li>
 <li class="fragment"><p>We discussed how to calculate Binomial probabilities in detail last week.</p></li>
 </ul>
 </section>
 <section id="confidence-intervals---mathematical-methods-4" class="slide level2">
 <h2>Confidence Intervals - Mathematical Methods</h2>
 <ul>
-<li class="fragment">Now, say we have are estimating a parameter (a proportion <em>p</em>) with a statistic which follows the Binomial distribution. Then we <em>do not have to do any additional work</em> to find the sampling distribution of our statistic!</li>
+<li class="fragment">Consider a Binomial random variable <span class="math inline">\(Y\)</span>. Under the framework we just discussed, we can write <span class="math inline">\(Y\)</span> mathematically as:</li>
+</ul>
+<p><span class="math display">\[ Y = X_1 + X_2 + ... + X_n \]</span></p>
+<ul>
+<li class="fragment">$ X_1, X_2, …, X_n $ are Bernoulli random variables recording the outcomes of trials <span class="math inline">\(1,2, ..., n\)</span>.</li>
 </ul>
 </section>
 <section id="confidence-intervals---mathematical-methods-5" class="slide level2">
 <h2>Confidence Intervals - Mathematical Methods</h2>
 <ul>
-<li class="fragment">An example when our statistic is *B<strong>i</strong>n<strong>o</strong>m<strong>i</strong>a**l<em>(</em>n<em>=100,</em>p*=0.5):</li>
+<li class="fragment"><p>Now, say we have are estimating a parameter (a proportion <span class="math inline">\(p\)</span>) with the sample proportion <span class="math inline">\(\hat{p}\)</span> as our <em>point estimate</em>.</p></li>
+<li class="fragment"><p>Note we have the relationship <span class="math inline">\(\hat{p} = \frac{Y}{n}\)</span> , where <span class="math inline">\(Y\)</span> is distributed <span class="math inline">\(Binomial(n,p)\)</span></p></li>
+<li class="fragment"><p>Then, to find a confidence interval for <span class="math inline">\(\hat{p}\)</span>, we can look at the distribution of <span class="math inline">\(Y\)</span>.</p></li>
 </ul>
-<div class="fragment">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="lecture12_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
-</div>
-</div>
-</div>
 </section>
 <section id="confidence-intervals---mathematical-methods-6" class="slide level2">
 <h2>Confidence Intervals - Mathematical Methods</h2>
+<ul>
+<li class="fragment"><p>An example: <span class="math inline">\(\hat{p} = 0.5\)</span>, <span class="math inline">\(n = 100\)</span>.</p></li>
+<li class="fragment"><p>Then we can write our sample <span class="math inline">\(Y\)</span> as 50.</p></li>
+</ul>
+
+<img data-src="lecture12_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<section id="confidence-intervals---mathematical-methods-7" class="slide level2 smaller">
+<h2>Confidence Intervals - Mathematical Methods</h2>
 
 <img data-src="lecture12_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><div class="fragment">
-<p>What values of <em>Y</em> contain the middle 95% of the probability distribution?</p>
+<p>What values of <span class="math inline">\(Y\)</span> contain the middle 95% of the probability distribution?</p>
 <ul>
-<li class="fragment"><p>2.5% quantile: 469</p></li>
-<li class="fragment"><p>97.5% quantile: 531</p></li>
+<li class="fragment"><p>2.5 percent quantile: 46.9</p></li>
+<li class="fragment"><p>97.5 percent quantile: 53.1</p></li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li class="fragment"><p>Therefore, our 95% CI for <em>p̂</em> is:</p>
+<li class="fragment"><p>Therefore, our 95% CI for <span class="math inline">\(\hat{p}\)</span> is:</p>
 <ul>
-<li class="fragment">(LB,UB)= (469/1000,531/1000) = (.469,.531)</li>
+<li class="fragment"><span class="math inline">\((LB,UB)=(46.9/100,53.1/100)=(.469,.531)\)</span></li>
 </ul></li>
 </ul>
 </div>
-</section></section>
-<section>
-<section id="mathematical-method-2" class="title-slide slide level1 center">
-<h1>Mathematical Method 2</h1>
-
 </section>
-<section id="confidence-intervals---mathematical-models" class="slide level2">
-<h2>Confidence Intervals - Mathematical Models</h2>
+<section id="confidence-intervals---mathematical-methods-8" class="slide level2">
+<h2>Confidence Intervals - Mathematical Methods</h2>
 <ul>
-<li class="fragment">Once again, a <em>Bernoulli</em> random variable <em>X</em> has the following probability distribution:</li>
+<li class="fragment">Again, a <em>Bernoulli</em> random variable <span class="math inline">\(X\)</span> has the following probability distribution:</li>
 </ul>
 <div class="fragment">
 <table>
 <thead>
 <tr class="header">
-<th><em>x</em></th>
-<th><em>P</em>(<em>X</em>=<em>x</em>)</th>
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(P(X= x)\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>0</td>
-<td>1 − <em>p</em></td>
+<td><span class="math inline">\(1-p\)</span></td>
 </tr>
 <tr class="even">
 <td>1</td>
-<td><em>p</em></td>
+<td><span class="math inline">\(p\)</span></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="confidence-intervals---mathematical-methods-7" class="slide level2">
+<section id="confidence-intervals---mathematical-methods-9" class="slide level2">
 <h2>Confidence Intervals - Mathematical Methods</h2>
 <p>Exercise:</p>
 <ul>
-<li class="fragment">Calculate the expected value and variance of a Bernoulli random variable <em>X</em> for a generic <em>p</em> (don’t plug any number in for <em>p</em>).</li>
-</ul>
-</section>
-<section id="confidence-intervals---mathematical-methods-8" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
-<ul>
-<li class="fragment"><p>If the Bernoulli random variable <em>X</em> records one trial of an event that either results in a 0 or a 1, how can we work with multiple, independent trials of that event?</p></li>
-<li class="fragment"><p>Enter the Binomial(<em>n</em>, <em>p</em>) random variable. This random variable records the sum (number of) successes in <em>n</em> independent trials of an event.</p></li>
-</ul>
-</section>
-<section id="confidence-intervals---mathematical-methods-9" class="slide level2">
-<h2>Confidence Intervals - Mathematical Methods</h2>
-<ul>
-<li class="fragment">Consider a Binomial random variable <em>Y</em>. Under the framework we just discussed, we can write <em>Y</em> mathematically as:</li>
-</ul>
-<p><em>Y</em> = <em>X</em><sub>1</sub> + <em>X</em><sub>2</sub> + … + <em>X</em><sub><em>n</em></sub></p>
-<ul>
-<li class="fragment">Where <em>X</em><sub>1</sub>, <em>X</em><sub>2</sub>, … , <em>X</em><sub><em>n</em></sub> are Bernoulli random variables recording the outcome of trial 1, 2, …, <em>n</em>.</li>
+<li class="fragment">Calculate the variance of a Bernoulli random variable <span class="math inline">\(X\)</span> for a generic <span class="math inline">\(p\)</span> (don’t plug any number in for <span class="math inline">\(p\)</span>).</li>
 </ul>
 </section>
 <section id="confidence-intervals---mathematical-methods-10" class="slide level2">
 <h2>Confidence Intervals - Mathematical Methods</h2>
 <p>Exercise:</p>
 <ul>
-<li class="fragment"><p>Calculate the expected variance of a Binomial random variable <em>Y</em> for a generic <em>n</em> and <em>p</em>.</p></li>
-<li class="fragment"><p>Hint: Write <em>Y</em> in the way we showed last slide and use the rules for expected value and variance we discussed in Week 3.</p></li>
+<li class="fragment"><p>Calculate the variance of the sample proportion <span class="math inline">\(\hat{p} = \frac{Y}{n}\)</span> for a generic <span class="math inline">\(n\)</span>.</p></li>
+<li class="fragment"><p>Hint: Write <span class="math inline">\(Y\)</span> in the way we showed earlier in lecture and use the rules for variance of independent random variables we discussed in Week 3.</p></li>
 </ul>
 </section>
 <section id="confidence-intervals---mathematical-methods-11" class="slide level2">
 <h2>Confidence Intervals - Mathematical Methods</h2>
 <ul>
-<li class="fragment"><p>In performing the exercises above, we found that the standard deviation of a Binomial random variable is given by the expression <span class="math inline">\(\\sqrt{\\frac{p(1-p)}{n}}\)</span>.</p></li>
-<li class="fragment"><p>This gives us a sense of why the width of a confidence interval might narrow as we increase the sample size <em>n</em>.</p></li>
+<li class="fragment"><p>In performing the exercises above, we found that the standard deviation of <span class="math inline">\(\hat{p}\)</span> is given by the expression <span class="math inline">\(\sqrt{\frac{p(1-p)}{n}}\)</span>.</p></li>
+<li class="fragment"><p><span class="math inline">\(\hat{p}\)</span> is a <em>statistic</em>. Therefore, we give its standard deviation a special name, the <strong>standard error</strong>.</p></li>
+<li class="fragment"><p>This gives us a sense of why the width of a confidence interval might narrow as we increase the sample size <span class="math inline">\(n\)</span>.</p></li>
 </ul>
 </section>
 <section id="confidence-intervals---mathematical-methods-12" class="slide level2">
@@ -588,14 +600,9 @@
 <li class="fragment"><p>The answer is <em>yes</em>, and we will see this after the break.</p></li>
 </ul>
 </section></section>
+<section>
 <section id="break" class="title-slide slide level1 center">
 <h1>Break</h1>
-
-</section>
-
-<section>
-<section id="confidence-intervals---mathematical-method-2" class="title-slide slide level1 center">
-<h1>Confidence Intervals - Mathematical Method 2</h1>
 
 </section>
 <section id="central-limit-theorem" class="slide level2">
@@ -608,30 +615,61 @@
 </blockquote></li>
 </ul>
 </section>
+<section id="central-limit-theorem-1" class="slide level2">
+<h2>Central Limit Theorem</h2>
+<ul>
+<li class="fragment"><p>The “certain conditions” referred to in the last slide are:</p>
+<ul>
+<li class="fragment"><p>Observations in the sample must be <em>independent</em>.</p></li>
+<li class="fragment"><p>The sample should be <em>“large enough”</em> .</p></li>
+</ul></li>
+<li class="fragment"><p>There is some dependence on context regarding what the latter condition means specifically.</p>
+<ul>
+<li class="fragment">For inference on single proportions, for example, IMS recommends the <em>success-failure condition</em>. This means we need to see at least ten “successes” (1s) and ten “failures” (0s) in our sample.</li>
+</ul></li>
+</ul>
+</section>
 <section id="normal-distribution" class="slide level2">
 <h2>Normal distribution</h2>
 <ul>
 <li class="fragment"><p>By far the most commonly known probability distribution</p></li>
 <li class="fragment"><p>It is associated with a symmetric, bell-shaped curve.</p></li>
-<li class="fragment"><p>One nice property of the Normal distribution is that its two parameters, <em>μ</em> and <em>σ</em>, are <em>exactly</em> the distribution’s mean and standard deviation, respectively.</p></li>
+<li class="fragment"><p>One nice property of the Normal distribution is that its two parameters, <span class="math inline">\(μ\)</span> and <span class="math inline">\(σ\)</span>, are <em>exactly</em> the distribution’s mean and standard deviation, respectively.</p></li>
 </ul>
 </section>
 <section id="normal-distribution-1" class="slide level2">
 <h2>Normal distribution</h2>
 <ul>
-<li class="fragment">Put here the empirical rule or (68-95-99.7 rule)</li>
+<li class="fragment">One nice property about the Normal distribution is the so-called <em>empirical rule</em> or <em>68-95-99.7 rule.</em></li>
+<li class="fragment">This rule states that:
+<ul>
+<li class="fragment"><p>68 percent of the data lies within <em>one</em> standard deviation of the mean</p></li>
+<li class="fragment"><p>95 percent of the data lies within <em>two</em> standard deviations of the mean</p></li>
+<li class="fragment"><p>99.7 percent of the data lies within <em>three</em> standard deviations of the mean</p></li>
+</ul></li>
 </ul>
 </section>
-<section id="normal-distribution-2" class="slide level2">
-<h2>Normal distribution</h2>
+<section id="confidence-intervals---mathematical-methods-13" class="slide level2">
+<h2>Confidence Intervals - Mathematical Methods</h2>
 <ul>
-<li class="fragment">Put here the formula for doing the confidence interval. Point estimate plus approx plus minus 2 standard error</li>
+<li class="fragment">Therefore, when the two conditions outlined earlier are met, a rough 95 percent confidence interval for the population proportion <span class="math inline">\(p\)</span> can be written as:</li>
 </ul>
-</section>
-<section id="confidence-intervals---mathematical-method" class="slide level2">
-<h2>Confidence Intervals - Mathematical Method</h2>
+<div class="fragment">
+<p><span class="math display">\[ \hat{p} \pm 2* SE \]</span></p>
 <ul>
-<li class="fragment">Put an example here</li>
+<li class="fragment"><span class="math inline">\(\hat{p}\)</span> is the <em>point estimate</em>, and <span class="math inline">\(SE\)</span> is its standard error. We found the <span class="math inline">\(SE\)</span> in the single proportion case was <span class="math inline">\(\sqrt{\frac{p(1-p)}{n}}\)</span>.</li>
+</ul>
+</div>
+</section>
+<section id="confidence-intervals---mathematical-methods-14" class="slide level2">
+<h2>Confidence Intervals - Mathematical Methods</h2>
+<ul>
+<li class="fragment">Similar analogs to the one proportion case exist for when your parameter is one of:
+<ul>
+<li class="fragment"><p>A population mean</p></li>
+<li class="fragment"><p>A difference in independent population proportions</p></li>
+<li class="fragment"><p>A difference in independent population means</p></li>
+</ul></li>
 </ul>
 </section></section>
 <section id="end-of-lecture-12" class="title-slide slide level1 center">
