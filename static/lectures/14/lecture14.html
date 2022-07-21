@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="lecture13_files/libs/clipboard/clipboard.min.js"></script>
-<script src="lecture13_files/libs/quarto-html/tabby.min.js"></script>
-<script src="lecture13_files/libs/quarto-html/popper.min.js"></script>
-<script src="lecture13_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="lecture13_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="lecture13_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
-<link href="lecture13_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="lecture14_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lecture14_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lecture14_files/libs/quarto-html/popper.min.js"></script>
+<script src="lecture14_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lecture14_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lecture14_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+<link href="lecture14_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.566">
 
-  <title>Lecture 13: Generalizations</title>
+  <title>Lecture 14: Generalizations</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="lecture13_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="lecture13_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="lecture14_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lecture14_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -23,11 +23,11 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
-  <link rel="stylesheet" href="lecture13_files/libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="lecture13_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="lecture13_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="lecture13_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="lecture13_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="lecture14_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="lecture14_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lecture14_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lecture14_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture14_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -318,7 +318,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="hex-background.png" data-background-size="cover" class="center">
-  <h1 class="title">Lecture 13: Generalizations</h1>
+  <h1 class="title">Lecture 14: Generalizations</h1>
   <p class="institute">STAT 20 UC Berkeley</p>
 </section>
 
@@ -330,158 +330,131 @@
 <section id="first-things-first-1" class="slide level2">
 <h2>First Things First</h2>
 <ul>
-<li class="fragment"><p>What to expect from lab today and tomorrow:</p>
+<li class="fragment"><p>What to expect from lab today:</p>
 <ul>
-<li class="fragment"><p>Wednesday: Question 2 parts a-f, Question 1 Workshop</p></li>
-<li class="fragment"><p>Thursday: Question 2 parts g-k, Question 1-2 Workshop</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="first-things-first-2" class="slide level2">
-<h2>First Things First</h2>
-<ul>
-<li class="fragment"><p>Extra Credit assignment details now available on Ed</p>
-<ul>
-<li class="fragment"><p>R Cheatsheet/Reference Guide</p></li>
-<li class="fragment"><p>Due <strong>Thursday, August 11 at 11:59pm</strong> on Gradescope</p></li>
+<li class="fragment"><p>Question 2 parts g-k, Question 1-2 Workshop</p></li>
+<li class="fragment"><p>I <em>strongly</em> recommend you attend, as the back half of Question 2 was designed to be done in lab.</p></li>
 </ul></li>
 </ul>
 </section></section>
 <section>
-<section id="recap" class="title-slide slide level1 center">
-<h1>Recap</h1>
+<section id="hypothesis-tests" class="title-slide slide level1 center">
+<h1>Hypothesis Tests</h1>
 
 </section>
-<section id="confidence-intervals" class="slide level2">
-<h2>Confidence Intervals</h2>
+<section id="structure-of-a-hypothesis-test" class="slide level2">
+<h2>Structure of a Hypothesis Test</h2>
+<p>There are two competing claims.</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><span class="inversebox">Null Hypothesis, <span class="math inline">\(H_0\)</span></span></p>
+<p>“There is nothing going on”.</p>
 <ul>
-<li class="fragment"><p><strong>Confidence intervals</strong> are an inference procedure which outputs a range of values which we expect the population parameter <span class="math inline">\(\theta\)</span> to reside in.</p>
+<li class="fragment">Promotion and gender are independent.</li>
+<li class="fragment">No gender discrimination.</li>
+<li class="fragment">Observed difference in proportions is simply due to chance.</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><span class="inversebox">Alternative Hypothesis, <span class="math inline">\(H_A\)</span></span></p>
+<p>“There is something going on.”</p>
 <ul>
-<li class="fragment"><p>They have an <em>upper bound</em> and a <em>lower bound</em></p></li>
-<li class="fragment"><p>They are centered around a <em>point estimate</em>, which is generally the sample statistic <span class="math inline">\(\hat{\theta}\)</span> you are using to estimate the population parameter</p></li>
-</ul></li>
-<li class="fragment"><p>Our confidence that the procedure will work (meaning the parameter will lie inside of our interval) is expressed as a percentage <span class="math inline">\(1−α\)</span>.</p>
+<li class="fragment">Promotion and gender are dependent.</li>
+<li class="fragment">There is gender discrimination.</li>
+<li class="fragment">Observed difference in proportions is not due to chance.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="trial-as-a-hypothesis-test" class="slide level2">
+<h2>Trial as a Hypothesis Test</h2>
+
+<img data-src="images/trial.png" width="350" class="r-stretch quarto-figure-center"><p><strong><span class="math inline">\(H_0\)</span></strong> : Defendant is innocent vs.&nbsp;<strong><span class="math inline">\(H_A\)</span></strong> : Defendant is guilty</p>
 <ul>
-<li class="fragment">You can call this the <em>confidence level</em>.</li>
-</ul></li>
+<li class="fragment">Present evidence / collect data.</li>
+<li class="fragment">Judge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”</li>
+<li class="fragment">If they were very unlikely to have occurred, then the evidence raises more than a reasonable doubt in our minds about the null hypothesis.</li>
 </ul>
 </section>
-<section id="interpreting-a-confidence-interval" class="slide level2">
-<h2>Interpreting a Confidence Interval</h2>
+<section id="if-the-evidence-is-weak" class="slide level2">
+<h2>If the evidence is weak</h2>
 <ul>
-<li class="fragment"><p>Confidence interval interpretations are examples of <em>generalizations</em>. They are also statements about our confidence in the procedure which gives us the interval to capture the parameter.</p></li>
-<li class="fragment"><p>One common interpretation:</p></li>
+<li class="fragment">If the evidence is not strong enough to reject the assumption of innocence, the jury returns with a verdict of <em>not guilty</em>.
+<ul>
+<li class="fragment">The jury does not say that the defendant is innocent, just that there is not enough evidence to convict.</li>
+</ul></li>
+<li class="fragment">Said statistically: <em>we fail to reject the null hypothesis</em>, or <em>the data is consistent with our model</em>.</li>
 </ul>
 <div class="fragment">
+<p>We never <em>accept the null hypothesis</em>.</p>
 <blockquote>
-<p>We are <span class="math inline">\(1-\alpha\)</span> percent confident that the population parameter lies between <em>lower bound</em> and <em>upper bound</em>.</p>
+<p>Why not?</p>
 </blockquote>
 </div>
+</section>
+<section id="why-dont-we-accept-h_0" class="slide level2">
+<h2>Why don’t we accept <span class="math inline">\(H_0\)</span>?</h2>
 <div class="fragment">
-<p><strong>Note:</strong> This interpretation can (and should) be filled in with details about the context of the problem.</p>
+<p>The hypothesis test gives us:</p>
+<p><span class="math display">\[ P(\textrm{data}\,|\,\textrm{H}_0) \]</span></p>
+</div>
+<div class="fragment">
+<p>It doesn’t give us:</p>
+<p><span class="math display">\[ P(\textrm{H}_0\,|\,\textrm{data}) \]</span></p>
+</div>
+<div class="fragment">
+<p>These are not the same thing.</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ P(\textrm{Can't see the sun}\,|\,\textrm{Raining}) \ne P(\textrm{Raining}\,|\,\textrm{Can't see the sun}) \]</span></p>
 </div>
 </section>
-<section id="obtaining-a-confidence-interval" class="slide level2">
-<h2>Obtaining a Confidence Interval</h2>
+<section id="structure-of-a-hypothesis-test-1" class="slide level2">
+<h2>Structure of a Hypothesis Test</h2>
+<ol type="1">
+<li class="fragment"><p>Start with a <strong>null hypothesis</strong> ( <span class="math inline">\(H_0\)</span> ) that represents the status quo and an <strong>alternative hypothesis</strong> ( <span class="math inline">\(H_A\)</span> ) that represents our research question, i.e.&nbsp;what we’re testing for.</p></li>
+<li class="fragment"><p>Calculate the observed <strong>test statistic</strong>: an encapsulation of the evidence.</p></li>
+<li class="fragment"><p>Find the <strong>null distribution</strong> of the test statistic under the assumption that <span class="math inline">\(H_0\)</span> is true, either via simulation (our focus) or mathematical methods.</p></li>
+<li class="fragment"><p>If the location of the observed test statistic on the null distribution suggests that the data is consistent with <span class="math inline">\(H_0\)</span>, we stick with the <span class="math inline">\(H_0\)</span>. Otherwise, we reject the <span class="math inline">\(H_0\)</span> in favor of <span class="math inline">\(H_A\)</span>.</p></li>
+</ol>
+</section>
+<section id="obtaining-the-null-distribution" class="slide level2">
+<h2>Obtaining the null distribution</h2>
 <ul>
-<li class="fragment"><p>The main goal: obtaining a <em>sampling distribution</em> of our sample statistic.</p>
+<li class="fragment"><p>Much like with <em>confidence intervals</em> and <em>sampling distributions</em>, the different types of hypothesis tests we can perform can be classified by different ways in which we obtain the <strong>null distribution</strong> for a test statistic (and what we consider the test statistic to be itself).</p></li>
+<li class="fragment"><p>We will be discussing two different ways to construct <strong>null distributions</strong>:</p>
 <ul>
-<li class="fragment">Once this is done, we can determine which range of values we want the confidence interval to include</li>
+<li class="fragment"><p>Simulation (Permutations)</p></li>
+<li class="fragment"><p>Simulation (Taking draws)</p></li>
 </ul></li>
 </ul>
+</section>
+<section id="evaluating-our-test-results" class="slide level2">
+<h2>Evaluating our test results</h2>
+<ul>
+<li class="fragment"><p>A <strong>p-value</strong> is the probability of observing the value of the observed test statistic or one more extreme if <span class="math inline">\(H_0\)</span> is true.</p></li>
+<li class="fragment"><p>The purpose of computing the p-value is to compare it to a <strong>significance level</strong> <span class="math inline">\(\alpha\)</span> which is between 0 and 1. This <span class="math inline">\(\alpha\)</span> is not entirely unrelated to the one we mentioned when defining confidence level.</p></li>
+<li class="fragment"><p><strong>Note:</strong> <span class="math inline">\(\alpha\)</span> should be set <em>before running the test</em>, for integrity purposes.</p>
+<ul>
+<li class="fragment">The most common value of <span class="math inline">\(\alpha\)</span> is <span class="math inline">\(.05\)</span>, though others can be used depending on your situation.</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-p-value-and-alpha" class="slide level2">
+<h2>The p-value and <span class="math inline">\(\alpha\)</span></h2>
+<ul>
+<li class="fragment">We <em>reject</em> the null hypothesis when</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\textrm{p-value} &lt; \alpha\]</span></p>
+<pre><code>-   The smaller the $\alpha$, the harder it is to reject your null hypothesis.</code></pre>
+</div>
 </section></section>
 <section>
-<section id="types-of-confidence-intervals-we-have-discussed" class="title-slide slide level1 center">
-<h1>Types of Confidence Intervals we have discussed</h1>
-
-</section>
-<section id="the-bootstrapped-percentile-confidence-interval" class="slide level2">
-<h2>The Bootstrapped Percentile Confidence Interval</h2>
-<ul>
-<li class="fragment"><p><strong>How we obtain the sampling distribution</strong>:</p>
-<ol type="1">
-<li class="fragment"><p>Take bootstrap samples of our original sample and calculate a sample statistic for each of these bootstrap samples</p></li>
-<li class="fragment"><p>Create a dotplot / histogram with these calculated statistics</p></li>
-</ol></li>
-<li class="fragment"><p><strong>How we obtain the confidence interval</strong>:</p>
-<ol type="1">
-<li class="fragment"><p>Decide our confidence level <span class="math inline">\(1-\alpha\)</span></p></li>
-<li class="fragment"><p>Take the <em>lower bound</em> to be the <span class="math inline">\(\frac{\alpha}{2}\)</span>th percentile of the bootstrap sample statistics</p></li>
-<li class="fragment"><p>Take the <em>upper bound</em> to be the <span class="math inline">\(1- \frac{\alpha}{2}\)</span>th percentile of the bootstrap sample statistics</p></li>
-</ol></li>
-</ul>
-</section>
-<section id="the-binomial-interval-for-one-proportion" class="slide level2">
-<h2>The Binomial Interval (for one proportion)</h2>
-<ul>
-<li class="fragment"><p><strong>How we obtain the sampling distribution</strong>:</p>
-<ul>
-<li class="fragment"><p>We note that the sample proportion <span class="math inline">\(\hat{p}\)</span> can be written as <span class="math inline">\(Y/n\)</span>, where <span class="math inline">\(Y\)</span> is the number of “successes” (1s) in <span class="math inline">\(n\)</span> trials (in a sample size of <span class="math inline">\(n\)</span>). Thus, <span class="math inline">\(Y\)</span> is distributed <span class="math inline">\(Binomial(n,p)\)</span></p></li>
-<li class="fragment"><p>Then we take the sampling distribution to be the <span class="math inline">\(Binomial(n,p)\)</span> distribution</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="the-binomial-interval-for-one-proportion-1" class="slide level2">
-<h2>The Binomial Interval (for one proportion)</h2>
-<ul>
-<li class="fragment"><p><strong>How we obtain the confidence interval</strong>:</p>
-<ol type="1">
-<li class="fragment"><p>Decide our confidence level <span class="math inline">\(1-\alpha\)</span></p></li>
-<li class="fragment"><p>Take the <em>lower bound</em> to be value <span class="math inline">\(Y = y_{l}\)</span> that cuts <span class="math inline">\(\frac{\alpha}{2}\)</span> percent of the probability on the left</p></li>
-<li class="fragment"><p>Take the <em>upper bound</em> to be the value <span class="math inline">\(Y = y_{u}\)</span> that cuts <span class="math inline">\(\frac{\alpha}{2}\)</span> percent of the probability on the right</p></li>
-<li class="fragment"><p>Divide this upper and lower bound by <span class="math inline">\(n\)</span></p></li>
-</ol></li>
-</ul>
-</section>
-<section id="interval-using-the-normal-approximation" class="slide level2">
-<h2>Interval using the Normal approximation</h2>
-<ul>
-<li class="fragment"><p><strong>How we obtain the sampling distribution</strong>:</p>
-<ol type="1">
-<li class="fragment"><p>Determine whether:</p>
-<ul>
-<li class="fragment"><p>The observations in our sample are independent.</p></li>
-<li class="fragment"><p>Our sample size is large enough (dependent on the type of parameter we are trying to estimate).</p></li>
-</ul></li>
-<li class="fragment"><p>If these conditions hold, then the <strong>Central Limit Theorem</strong> tells us that the sampling distribution of our sample statistic is approximately Normal.</p></li>
-</ol></li>
-</ul>
-</section>
-<section id="interval-using-the-normal-approximation-1" class="slide level2">
-<h2>Interval using the Normal approximation</h2>
-<ul>
-<li class="fragment"><p><strong>How we obtain the (95 percent) confidence interval</strong>:</p>
-<ol type="1">
-<li class="fragment"><p>Invoke the <em>empirical rule</em> (or <em>68-95-99.7 rule</em>). This rule states that for a Normal distribution, 95 percent of the data lies within two standard deviations (errors) of the mean.</p></li>
-<li class="fragment"><p>Take the interval to be <span class="math inline">\((\hat{\theta} - 2*SE, \hat{\theta} + 2*SE)\)</span>, where <span class="math inline">\(SE\)</span> (standard error) is given by a formula we can calculate.</p></li>
-</ol></li>
-</ul>
-</section>
-<section id="interval-using-the-normal-approximation-2" class="slide level2">
-<h2>Interval using the Normal approximation</h2>
-<ul>
-<li class="fragment"><p>Yesterday, we derived that the standard error of the sample proportion is given by <span class="math inline">\(\sqrt{\frac{p(1-p)}{n}}\)</span>.</p></li>
-<li class="fragment"><p>Note however, that <em>we do not know <span class="math inline">\(p\)</span></em>! So as it stands, that formula cannot be used directly.</p></li>
-<li class="fragment"><p>Our best course of action is to replace <span class="math inline">\(p\)</span> with <span class="math inline">\(\hat{p}\)</span> itself, as it is the best guess that we have for <span class="math inline">\(p\)</span>.</p></li>
-</ul>
-</section>
-<section id="exercises" class="slide level2">
-<h2>Exercises</h2>
-<ul>
-<li class="fragment">Consult the <em>Lecture Code and Supplements Thread</em> on Ed for today’s exercises.</li>
-</ul>
-</section></section>
-<section id="break" class="title-slide slide level1 center">
-<h1>Break</h1>
-
-</section>
-
-<section>
-<section id="hypothesis-testing" class="title-slide slide level1 center">
-<h1>Hypothesis Testing</h1>
-<ul>
-<li class="fragment">To illustrate this topic, we will revisit the <em>sex discrimination</em> study that we performed an exercise on in a previous lecture.</li>
-</ul>
+<section id="hypothesis-testing---simulation-permutations" class="title-slide slide level1 center">
+<h1>Hypothesis Testing - Simulation (Permutations)</h1>
+<p>We now return to the <em>sex discrimination</em> case study we began discussing yesterday.</p>
 </section>
 <section id="the-experiment" class="slide level2">
 <h2>The Experiment</h2>
@@ -542,106 +515,34 @@
 <p>At a first glance, does there appear to be a relationship between promotion and gender?</p>
 </div>
 </section>
-<section id="structure-of-hypothesis-test" class="slide level2">
-<h2>Structure of Hypothesis Test</h2>
-<p>There are two competing claims.</p>
-<div class="columns">
-<div class="column" style="width:47%;">
-<p><span class="inversebox">Null Hypothesis, <span class="math inline">\(H_0\)</span></span></p>
-<p>“There is nothing going on”.</p>
-<ul>
-<li class="fragment">Promotion and gender are independent.</li>
-<li class="fragment">No gender discrimination.</li>
-<li class="fragment">Observed difference in proportions is simply due to chance.</li>
-</ul>
-</div><div class="column" style="width:6%;">
-
-</div><div class="column" style="width:47%;">
-<p><span class="inversebox">Alternative Hypothesis, <span class="math inline">\(H_A\)</span></span></p>
-<p>“There is something going on.”</p>
-<ul>
-<li class="fragment">Promotion and gender are dependent.</li>
-<li class="fragment">There is gender discrimination.</li>
-<li class="fragment">Observed difference in proportions is not due to chance.</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="trial-as-a-hypothesis-test" class="slide level2">
-<h2>Trial as a Hypothesis test</h2>
-
-<img data-src="images/trial.png" width="350" class="r-stretch quarto-figure-center"><p><strong><span class="math inline">\(H_0\)</span></strong> : Defendant is innocent vs.&nbsp;<strong><span class="math inline">\(H_A\)</span></strong> : Defendant is guilty</p>
-<ul>
-<li class="fragment">Present evidence / collect data.</li>
-<li class="fragment">Judge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”</li>
-<li class="fragment">If they were very unlikely to have occurred, then the evidence raises more than a reasonable doubt in our minds about the null hypothesis.</li>
-</ul>
-</section>
-<section id="if-the-evidence-is-weak" class="slide level2">
-<h2>If the evidence is weak</h2>
-<ul>
-<li class="fragment">If the evidence is not strong enough to reject the assumption of innocence, the jury returns with a verdict of <em>not guilty</em>.
-<ul>
-<li class="fragment">The jury does not say that the defendant is innocent, just that there is not enough evidence to convict.</li>
-</ul></li>
-<li class="fragment">Said statistically: <em>we fail to reject the null hypothesis</em>, or <em>the data is consistent with our model</em>.</li>
-</ul>
-<div class="fragment">
-<p>We never <em>accept the null hypothesis</em>.</p>
-<blockquote>
-<p>Why not?</p>
-</blockquote>
-</div>
-</section>
-<section id="why-dont-we-accept-h_0" class="slide level2">
-<h2>Why don’t we accept <span class="math inline">\(H_0\)</span>?</h2>
-<div class="fragment">
-<p>The hypothesis test gives us:</p>
-<p><span class="math display">\[ P(\textrm{data}\,|\,\textrm{H}_0) \]</span></p>
-</div>
-<div class="fragment">
-<p>It doesn’t give us:</p>
-<p><span class="math display">\[ P(\textrm{H}_0\,|\,\textrm{data}) \]</span></p>
-</div>
-<div class="fragment">
-<p>These are not the same thing.</p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[ P(\textrm{Can't see the sun}\,|\,\textrm{Raining}) \ne P(\textrm{Raining}\,|\,\textrm{Can't see the sun}) \]</span></p>
-</div>
-</section>
-<section id="structure-of-a-hypothesis-test" class="slide level2">
-<h2>Structure of a Hypothesis Test</h2>
-<ol type="1">
-<li class="fragment"><p>Start with a <strong>null hypothesis</strong> ( <span class="math inline">\(H_0\)</span> ) that represents the status quo and an <strong>alternative hypothesis</strong> ( <span class="math inline">\(H_A\)</span> ) that represents our research question, i.e.&nbsp;what we’re testing for.</p></li>
-<li class="fragment"><p>Calculate the observed <strong>test statistic</strong>: an encapsulation of the evidence.</p></li>
-<li class="fragment"><p>Find the <strong>null distribution</strong> of the test statistic under the assumption that <span class="math inline">\(H_0\)</span> is true, either via simulation (our focus) or mathematical methods.</p></li>
-<li class="fragment"><p>If the test results suggest that the data is consistent with <span class="math inline">\(H_0\)</span>, we stick with the <span class="math inline">\(H_0\)</span>. If they are inconsistent, then we reject the <span class="math inline">\(H_0\)</span> in favor of <span class="math inline">\(H_A\)</span>.</p></li>
-</ol>
-</section>
-<section id="gender-discrimination-h_0-test" class="slide level2">
-<h2>Gender discrimination: <span class="math inline">\(H_0\)</span> test</h2>
+<section id="gender-discrimination-h_0-test-step-1" class="slide level2">
+<h2>Gender discrimination: <span class="math inline">\(H_0\)</span> test Step 1</h2>
 <p>What is the <em>null hypothesis</em>?</p>
 <ul>
-<li class="fragment"><span class="math inline">\(H_0\)</span>: There is no gender discrimination</li>
-<li class="fragment"><span class="math inline">\(H_0\)</span>: Gender and promotion are independent</li>
+<li class="fragment"><p><span class="math inline">\(H_0\)</span>: There is no gender discrimination</p></li>
+<li class="fragment"><p>Alternatively:</p></li>
+<li class="fragment"><p><span class="math inline">\(H_0\)</span>: Gender and promotion are independent</p></li>
 </ul>
-<div class="fragment">
+</section>
+<section id="gender-discrimination-h_0-test-step-1-1" class="slide level2">
+<h2>Gender discrimination: <span class="math inline">\(H_0\)</span> test Step 1</h2>
 <p>What is the <em>alternative hypothesis</em>?</p>
 <ul>
-<li class="fragment"><span class="math inline">\(H_A\)</span>: There is gender discrimination</li>
-<li class="fragment"><span class="math inline">\(H_A\)</span>: Gender and promotion are not independent</li>
+<li class="fragment"><p><span class="math inline">\(H_A\)</span>: There is gender discrimination</p></li>
+<li class="fragment"><p>Alternatively:</p></li>
+<li class="fragment"><p><span class="math inline">\(H_A\)</span>: Gender and promotion are not independent</p></li>
 </ul>
-</div>
-<div class="fragment">
+</section>
+<section id="gender-discrimination-h_0-test-step-2" class="slide level2">
+<h2>Gender discrimination: <span class="math inline">\(H_0\)</span> test Step 2</h2>
 <p>What is our <em>test statistic</em>?</p>
 <ul>
-<li class="fragment"><span class="math inline">\(d = \hat{p}_{M} - \hat{p}_{F}\)</span></li>
+<li class="fragment"><p>We will consider the difference in the proportion of males promoted and the proportion of females promoted. Mathematically, this is:</p></li>
+<li class="fragment"><p><span class="math inline">\(d = \hat{p}_{M} - \hat{p}_{F}\)</span></p></li>
 </ul>
-</div>
 </section>
-<section id="recall-the-data" class="slide level2">
-<h2>Recall: the data</h2>
+<section id="gender-discrimination-h_0-test-step-2-1" class="slide level2">
+<h2>Gender discrimination: <span class="math inline">\(H_0\)</span> test Step 2</h2>
 <table>
 <thead>
 <tr class="header">
@@ -667,23 +568,35 @@
 <p>We can compute our observed test statistic:</p>
 <p><span class="math display">\[d_{obs} = \hat{p}_{M} - \hat{p}_{F} d_{obs} = 21/24 - 14/24 = .29\]</span></p>
 </section>
-<section id="creating-a-simulation" class="slide level2">
-<h2>Creating a simulation</h2>
-
-<img data-src="images/gender-cards1.png" width="750" class="r-stretch quarto-figure-center"><p><strong>Face cards</strong>: 13 files not promoted<br>
-<strong>Number cards</strong>: 35 files promoted</p>
+<section id="constructing-the-null-distribution" class="slide level2 smaller">
+<h2>Constructing the Null Distribution</h2>
+<ul>
+<li class="fragment">We will construct our null distribution via a <em>simulation</em>.</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/gender-cards1.png" width="750"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Face cards</strong>: 13 files not promoted</p>
+<p><strong>Number cards</strong>: 35 files promoted</p>
+</div>
 </section>
-<section id="constructing-the-null-distribution" class="slide level2">
+<section id="constructing-the-null-distribution-1" class="slide level2">
 <h2>Constructing the Null Distribution</h2>
 <ol type="1">
-<li class="fragment">Shuffle the deck and deal into two piles of twenty four.</li>
-<li class="fragment">This mimics the process of each supervision being randomly assigned a male or female file.</li>
-<li class="fragment">Compute the proportion that is promoted in each:</li>
+<li class="fragment"><p>To mimics the process of each supervision being randomly assigned a male or female file, shuffle the deck and deal it into two piles of twenty four.</p></li>
+<li class="fragment"><p>Compute the proportion that is promoted in each pile:</p></li>
 </ol>
 <div class="fragment">
 <p><span class="math display">\[d = \hat{p}_{M} - \hat{p}_{F}\]</span></p>
 <blockquote>
-<p>Repeat steps 1-3 and store each one.</p>
+<p>Repeat steps 1-2 many times and store each proportion calculated.</p>
 </blockquote>
 </div>
 </section>
@@ -692,61 +605,211 @@
 
 <img data-src="images/gender-cards2.png" width="750" class="r-stretch quarto-figure-center"><div class="fragment">
 <blockquote>
-<p>Instead of shuffling cards, we’ll shuffle data frames using R…</p>
+<p>To mimic this process a bit quicker, we’ll shuffle data frames using R. We will be using the <code>infer</code> library.</p>
 </blockquote>
 </div>
 </section>
 <section id="simulation-using-infer" class="slide level2">
 <h2>Simulation using <code>infer</code></h2>
 
-<img data-src="lecture13_files/figure-revealjs/simgender-1.png" width="960" class="r-stretch quarto-figure-center"><div class="fragment">
+<img data-src="lecture14_files/figure-revealjs/simgender-1.png" width="960" class="r-stretch quarto-figure-center"><div class="fragment">
 <blockquote>
 <p>Do the results of the simulation you just ran provide convincing evidence of gender discrimination against women, i.e.&nbsp;dependence between gender and promotion decisions?</p>
 </blockquote>
 </div>
 </section>
-<section id="computing-a-p-value" class="slide level2">
-<h2>Computing a p-value</h2>
-<p>A <strong>p-value</strong> is the probability of observing the observed statistic or more extreme if <span class="math inline">\(H_0\)</span> is true.</p>
-<div class="fragment">
-<p>In a simulation setting . . . a p-value is the <em>proportion</em> of test statistics simulated assuming <span class="math inline">\(H_0\)</span> is true that are more extreme than the observed test statistic.</p>
-</div>
+<section id="evaluating-our-test-results-1" class="slide level2">
+<h2>Evaluating our Test Results</h2>
+<p>In a simulation setting, the <em>p-value</em> is the <em>proportion</em> of test statistics simulated assuming <span class="math inline">\(H_0\)</span> is true that are more extreme than the observed test statistic.</p>
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lecture13_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+<p><img data-src="lecture14_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<p>Of the 5000 simulated test statistics, 241 of them were more extreme than the observed value of 0.29.</p>
+<p>Of the 5000 simulated test statistics, 250 of them were more extreme than the observed value of 0.29.</p>
 <blockquote>
-<p>P-value: 0.0482.</p>
+<p>P-value: 0.05.</p>
 </blockquote>
 </div>
 </div>
 </div>
 </section>
-<section id="the-p-value-and-alpha" class="slide level2">
-<h2>The p-value and <span class="math inline">\(\alpha\)</span></h2>
+<section id="evaluating-our-test-results-2" class="slide level2">
+<h2>Evaluating our Test Results</h2>
 <ul>
-<li class="fragment"><p>The purpose of the p-value is to compare it in relation to a significance level <span class="math inline">\(\alpha\)</span> which is between 0 and 1. This <span class="math inline">\(\alpha\)</span> is not entirely unrelated to the one we mentioned when defining confidence level.</p></li>
-<li class="fragment"><p>We <em>reject</em> the null hypothesis when</p></li>
+<li class="fragment"><p>We obtained generally low p-value. We would reject the null hypothesis at many reasonable levels of <span class="math inline">\(\alpha\)</span>.</p></li>
+<li class="fragment"><p>We then conclude that there is indeed sex discrimination taking place in this company when it comes to employment.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="hypothesis-testing---simulation-taking-draws" class="title-slide slide level1 center">
+<h1>Hypothesis Testing - Simulation (Taking Draws)</h1>
+<p>We will now move to a different case study: the opinions of millennials on same-sex marriage.</p>
+</section>
+<section id="millennials-and-same-sex-marriage" class="slide level2">
+<h2>Millennials and same-sex marriage</h2>
+<ul>
+<li class="fragment"><p>In the national debate on same-sex marriage, it is commonly stated that half of all Americans favor same-sex marriage.</p></li>
+<li class="fragment"><p>In 2014, Pew Research conducted a poll of millennials (Americans born after 1980) and found that 67% answered yes when asked:</p></li>
 </ul>
 <div class="fragment">
-<p><span class="math display">\[\textrm{p-value} &lt; \alpha\]</span></p>
+<blockquote>
+<p>“Do you favor same-sex marriage?”</p>
+</blockquote>
+</div>
+<div class="fragment">
 <ul>
-<li class="fragment"><p><strong>Note:</strong> <span class="math inline">\(\alpha\)</span> should be set <em>before seeing the data</em></p></li>
-<li class="fragment"><p>The most common value of <span class="math inline">\(\alpha\)</span> is <span class="math inline">\(.05\)</span>, though others can be used depending on your situation.</p>
-<ul>
-<li class="fragment">The smaller the <span class="math inline">\(\alpha\)</span>, the harder it is to reject your null hypothesis.</li>
-</ul></li>
+<li class="fragment">The poll was a random sample of 75 millennials. Does this poll provide convincing evidence that the opinion of millennials is different from those of Americans at large?</li>
 </ul>
 </div>
+</section>
+<section id="finding-the-null-distribution-simulation-taking-draws" class="slide level2">
+<h2>Finding the Null Distribution: Simulation (Taking Draws)</h2>
+<ul>
+<li class="fragment">If a null hypothesis concerns a particular value that a proportion should take (we call this hypothesis this a <em>point</em> null), then you can generate data under that null hypothesis by a process taking <strong>draws</strong> from the distribution which the proportion belongs to.</li>
+</ul>
+</section>
+<section id="the-test" class="slide level2">
+<h2>The Test</h2>
+<ul>
+<li class="fragment"><p>Let <span class="math inline">\(p\)</span> be the true proportion of millennial Americans who favor same-sex marriage.</p></li>
+<li class="fragment"><p>In our case, we have:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[H_0: p = 0.5; \quad H_A: p \ne 0.5\]</span></p>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment"><span class="math inline">\(H_0\)</span> here is considered a <em>point</em> null.</li>
+</ul>
+</div>
+</section>
+<section id="simulation-how-to-take-draws" class="slide level2">
+<h2>Simulation (How to take draws)</h2>
+<ol type="1">
+<li class="fragment">Flip 75 fair coins.</li>
+<li class="fragment">Calculate the proportion of the 75 coins that came up heads.</li>
+<li class="fragment">Repeat 1-2 a large number of times, keeping track of those proportions.</li>
+</ol>
+</section>
+<section id="generating-a-null-distribution-with-100-reps" class="slide level2">
+<h2>Generating a null Distribution with 100 reps</h2>
+
+<img data-src="lecture14_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch quarto-figure-center"><div class="fragment">
+<div class="cell">
+
+</div>
+<p><strong>p-value</strong>: 0.02.</p>
+</div>
+</section>
+<section id="evaluating-our-results" class="slide level2">
+<h2>Evaluating our results</h2>
+<ul>
+<li class="fragment"><p>With a low p-value of <span class="math inline">\(0.02\)</span>, our data is inconsistent with the hypothesis that millennials support same sex marriage at the same rate as Americans in general.</p></li>
+<li class="fragment"><p>Therefore, we reject the null hypothesis that <span class="math inline">\(p = .5\)</span> at an <span class="math inline">\(\alpha\)</span> level of .05, for example.</p></li>
+</ul>
+</section>
+<section id="hypothesis-testing-with-infer" class="slide level2">
+<h2>Hypothesis Testing with <code>infer</code></h2>
+<ul>
+<li class="fragment">At this point, we visited the course server to discuss how we can perform hypothesis testing under the two simulation frameworks with <code>infer</code>.</li>
+</ul>
 </section></section>
-<section id="end-of-lecture-13" class="title-slide slide level1 center">
-<h1>End of Lecture 13</h1>
+<section id="break" class="title-slide slide level1 center">
+<h1>Break</h1>
+
+</section>
+
+<section>
+<section id="what-if-our-conclusion-is-wrong" class="title-slide slide level1 center">
+<h1>What if our conclusion is wrong?</h1>
+
+</section>
+<section id="what-if-our-conclusion-is-wrong-1" class="slide level2">
+<h2>What if our conclusion is wrong?</h2>
+<ul>
+<li class="fragment"><p>There can be times when our decision based on our test results end up being incorrect. There are two ways we can falter:</p>
+<ul>
+<li class="fragment"><p>We reject the null hypothesis when it is true.</p></li>
+<li class="fragment"><p>We do not reject the null hypothesis when it is false.</p></li>
+</ul></li>
+<li class="fragment"><p>These two mishaps are called <strong>Type I</strong> and <strong>Type II errors</strong>, respectively.</p></li>
+</ul>
+</section>
+<section id="representing-type-i-and-type-ii-errors-using-a-table" class="slide level2">
+<h2>Representing Type I and Type II errors using a table</h2>
+
+<img data-src="images/decision-errors-table.jpg" class="r-stretch"></section>
+<section id="representing-type-i-and-type-ii-errors-visually" class="slide level2">
+<h2>Representing Type I and Type II errors visually</h2>
+
+<img data-src="images/decision-error-rates.jpg" class="r-stretch"></section>
+<section id="what-affects-the-error-rates" class="slide level2">
+<h2>What affects the error rates?</h2>
+<ul>
+<li class="fragment"><p><strong>Sample size, <span class="math inline">\(n\)</span></strong>: with increasing <span class="math inline">\(n\)</span>, the variability of the null distribution will decrease.</p></li>
+<li class="fragment"><p><strong>Changing <span class="math inline">\(\alpha\)</span></strong>: decreasing <span class="math inline">\(\alpha\)</span> will decrease type I error but increase type II error.</p></li>
+<li class="fragment"><p><strong>Increasing <em>effect size</em></strong>: change data collection process to separate the distribution under <span class="math inline">\(H_A\)</span> and decrease type II error.</p>
+<ul>
+<li class="fragment">Ex: If you’re testing whether a pain medicine provides pain relief, only conduct the test if you are using a medicine that you expect to have cause a dramatic decrease in pain.</li>
+</ul></li>
+</ul>
+</section>
+<section id="exercise-which-type-of-error-is-considered-worse-if-any" class="slide level2">
+<h2>Exercise: Which type of error is considered worse, if any?</h2>
+<ul>
+<li class="fragment">Consider a setting where the Cal UHS testing system observes a COVID-19 positivity rate of 5.5% in a one week interval: double that of the previous week. Administration needs to decide whether or not to move to remote learning. Which error would be worse?</li>
+</ul>
+<ol type="1">
+<li class="fragment"><p>Moving to remote instruction when in fact the true number of cases on campus is still low.</p></li>
+<li class="fragment"><p>Failing to move to remote instruction when in fact the true number of cases on campus is elevated.</p></li>
+</ol>
+</section>
+<section id="exercise-which-type-of-error-is-considered-worse-if-any-1" class="slide level2">
+<h2>Exercise: Which type of error is considered worse, if any?</h2>
+<ul>
+<li class="fragment">In the context of this problem, identify:</li>
+</ul>
+<ol type="a">
+<li class="fragment"><p>A possible null hypothesis.</p></li>
+<li class="fragment"><p>A possible alternative hypothesis.</p></li>
+</ol>
+<ul>
+<li class="fragment"><p>What type of error is item 1.?</p></li>
+<li class="fragment"><p>What type of error is item 2.?</p></li>
+</ul>
+</section>
+<section id="statistical-power" class="slide level2">
+<h2>Statistical Power</h2>
+<ul>
+<li class="fragment">Statistical <strong>power</strong> is the probability that you will reject the null hypothesis if it is in fact false.</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[ P(\textrm{reject } H_0 | H_0 \textrm{ is false}) \]</span></p>
+</div>
+</section>
+<section id="statistical-power-1" class="slide level2">
+<h2>Statistical Power</h2>
+<ul>
+<li class="fragment"><p>This is a quantity we <em>can</em> (and <em>should</em>) control.</p>
+<ul>
+<li class="fragment">Calculating the power for a given scenario is beyond the scope of this course, but <a href="http://homepage.divms.uiowa.edu/~rlenth/Power/index.html">here</a> is a link to an application that can do this for you depending on your scenario.</li>
+</ul></li>
+<li class="fragment"><p>The larger the power, the more likely you are to find an effect.</p></li>
+</ul>
+</section>
+<section id="section-1" class="slide level2" data-background-image="images/unmasking-the-mask.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-2" class="slide level2" data-background-image="images/power-masks.png" data-background-size="contain">
+<h2></h2>
+</section></section>
+<section id="end-of-lecture-14" class="title-slide slide level1 center">
+<h1>End of Lecture 14</h1>
 
 <img src="images/stat20-hex.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
@@ -756,19 +819,19 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="lecture13_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="lecture14_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="lecture13_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="lecture13_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="lecture13_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="lecture13_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="lecture13_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="lecture14_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lecture14_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lecture14_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lecture14_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture14_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="lecture13_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="lecture13_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="lecture13_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="lecture13_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="lecture14_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lecture14_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lecture14_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="lecture14_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

@@ -270,4 +270,32 @@ f.    In terms of $X$, what is an example of a result $x$ that would demonstrate
 
 # End of Day 2
 
+--- 
+
+# Day 3
+
+There will be no coding for today's activity, so go ahead and put your laptops in your bags.
+
+---
+
+## Day 3
+
+-   Today, we will be working together as a class on the activity for Questions 2g-k.
+
+--
+
+-   In essence, we will be performing a *permutation test*.
+
+--
+
+-   Once we are done with this activity, feel free to work on Question 1, brush up on the remainder of the lab or ask your GSIs other questions about the course!
+
+--
+
+---
+
+# End of Day 3
+
+
+
 

@@ -302,6 +302,150 @@ $$ P(\textrm{Can't see the sun}\,|\,\textrm{Raining}) \ne P(\textrm{Raining}\,|\
 
 4. If the test results suggest that the data is consistent with $H_0$, we stick with the $H_0$. If they are inconsistent, then we reject the $H_0$ in favor of $H_A$.
 
+
+## Gender discrimination: $H_0$ test
+
+What is the *null hypothesis*?
+
+- $H_0$: There is no gender discrimination
+- $H_0$: Gender and promotion are independent
+
+. . .
+
+What is the *alternative hypothesis*?
+
+- $H_A$: There is gender discrimination
+- $H_A$: Gender and promotion are not independent
+
+. . .
+
+What is our *test statistic*?
+
+- $d = \hat{p}_{M} - \hat{p}_{F}$
+
+
+## Recall: the data
+
+Gender | promote | nopromote 
+-------|---------|-----------
+Male   |    21   |    3      
+Female |    14   |    10    
+
+
+<br>
+<br>
+
+We can compute our observed test statistic:
+
+$$d_{obs} = \hat{p}_{M} - \hat{p}_{F} d_{obs} = 21/24 - 14/24 = .29$$
+. . . 
+
+## Creating a simulation
+
+```{r out.width=750, echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/gender-cards1.png")
+```
+
+**Face cards**: 13 files not promoted  
+**Number cards**: 35 files promoted
+
+
+## Constructing the Null Distribution
+
+1. Shuffle the deck and deal into two piles of twenty four.
+2. This mimics the process of each supervision being randomly assigned a male or female file.
+3. Compute the proportion that is promoted in each:
+
+. . .
+
+$$d = \hat{p}_{M} - \hat{p}_{F}$$
+
+> Repeat steps 1-3 and store each one.
+
+
+## {}
+
+```{r out.width=750, echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/gender-cards2.png")
+```
+
+. . .
+
+> Instead of shuffling cards, we'll shuffle data frames using R...
+
+
+## Simulation using `infer`
+
+```{r simgender, fig.heigh = 5, echo = FALSE, message = FALSE, fig.align='center'}
+library(tidyverse)
+gender <- rep(c("M", "F"), each = 24)
+promote <- rep(c("Yes", "No"), c(35, 13))
+paygap <- tibble(gender, promote)
+n_reps <- 5000
+
+library(infer)
+null <- paygap %>%
+  specify(response = promote,
+          explanatory = gender,
+          success = "Yes") %>%
+  hypothesize(null = "independence") %>%
+  generate(reps = n_reps, type = "permute") %>%
+  calculate(stat = "diff in props",
+            order = c("M", "F"))
+
+p1 <- null %>%
+  visualize() +
+  shade_pvalue(obs_stat = .29, direction = NULL)
+p1
+```
+
+. . .
+
+> Do the results of the simulation you just ran provide convincing evidence of gender discrimination against women, i.e. dependence between gender and promotion decisions?
+
+
+## Computing a p-value
+
+A **p-value** is the probability of observing the observed statistic or more extreme if $H_0$ is true.
+
+. . .
+
+In a simulation setting . . . a p-value is the _proportion_ of test statistics simulated assuming $H_0$ is true that are more extreme than the observed test statistic.
+
+. . .
+
+:::: columns
+::: {.column width="50%"}
+```{r fig.height=5, echo = FALSE}
+p1
+```
+:::
+
+::: {.column width="50%"}
+Of the `r n_reps` simulated test statistics, `r sum(abs(null$stat) > .29)` of them were more extreme than the observed value of `r .29`.
+
+> P-value: `r sum(abs(null$stat) > .29)/n_reps`.
+
+:::
+::::
+
+## The p-value and $\alpha$
+
+- The purpose of the p-value is to compare it in relation to a significance level $\alpha$ which is between 0 and 1. This $\alpha$ is not entirely unrelated to the one we mentioned when defining confidence level.
+
+
+- We *reject* the null hypothesis when
+
+. . . 
+
+$$\textrm{p-value} < \alpha$$
+
+- **Note:** $\alpha$ should be set *before seeing the data*
+
+- The most common value of $\alpha$ is $.05$, though others can be used depending on your situation.
+
+    -   The smaller the $\alpha$, the harder it is to reject your null hypothesis.
+    
 . . .
 
 # End of Lecture 13

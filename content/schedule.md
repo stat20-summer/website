@@ -220,9 +220,9 @@ hide_details: yes
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>7/21</p></td>
-<td style="text-align: left;"><p><a href="NA">Hypothesis Tests: Mathematical Methods Fit</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Hypothesis Tests: Mathematical Methods; Decision Errors </a></p></td>
 <td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/inference-one-prop.html">IMS Ch 16</a></p></td>
-<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/inference-two-means.html">IMS Ch 20</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/decerr.html">IMS Ch 14</a></p></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
