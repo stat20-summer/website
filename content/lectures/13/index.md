@@ -1,6 +1,6 @@
 ---
 title: "Lecture 13: Generalizations: Confidence Intervals; Hypothesis Testing"
-subtitle: "Measuring our degree of certainty."
+subtitle: "Measuring our degree of uncertainty; attempting to upheave the status quo"
 summary: "Confidence Interval Exercises; Intro to Hypothesis Testing."
 layout: single
 publishdate: "2022-07-20" # when the page will be renderable
