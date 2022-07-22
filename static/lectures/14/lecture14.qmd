@@ -155,9 +155,9 @@ $$ P(\textrm{Can't see the sun}\,|\,\textrm{Raining}) \ne P(\textrm{Raining}\,|\
 . . . 
 
 $$\textrm{p-value} < \alpha$$
+. . . 
 
-
-    -   The smaller the $\alpha$, the harder it is to reject your null hypothesis.
+-   The smaller the $\alpha$, the harder it is to reject your null hypothesis.
     
 . . .
 
