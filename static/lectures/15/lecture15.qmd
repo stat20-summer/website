@@ -164,7 +164,9 @@ $$\textrm{Prop. males that are promoted} = 21/24 = 0.875 \\
 
 ## Exercise: Reflection
 
-3. Are there any differences between the type of conclusion you made / can make between the first example and the second example? 
+1. What are the differences (if any) in the methods in which the two sets of data were collected?
+
+2. Are there any differences between the type of conclusion you made / can make between the first example and the second example? 
 
 
 ## Association versus causation
@@ -349,109 +351,4 @@ knitr::include_graphics("images/the-route-not-taken.png")
 
 . . . 
 
-# Break
-
 # End of Lecture 15
-
-# Experimental Design
-
-## Desinging a "causal" study/experiment
-
-- Draw a *sample* from a *population*.
-- Either conduct an *observational study* or an *experiment*.
-
-. . .
-
-**Observational Study**: researchers collect data from sample in a way that does not interfere with how they arise. Why do an observational study?
-
-- easier/cheaper
-- study historical data
-- ethical
-
-. . . 
-
-**Experiment**: Researchers assign subjects to treatments, then collect the resulting data. Why do an experiment?
-
-- establish causation. But why?
-
-. . . 
-
-
-## {background-image="images/frost.png" background-size="contain"}
-
-## A Causal Claim
-
-[I got a good grade in the course because I went to office hours.]{.smalladage}
-
-. . .
-
-> **Counterfactual**:  
-> [_If I hadn't gone to office hours, I would have gotten a worse grade._]{.smalladage}
-
-. . .
-
-<br>
-
-```{r echo = FALSE}
-library(tidyverse)
-df <- tibble(`Unit ID` = c("me", "me"),
-             Treatment = c("office hours",
-                           "no office hours"),
-             Outcome   = c("A",
-                           "B"),
-             Observed  = c("yes",
-                           "no"))
-df %>%
-  knitr::kable()
-```
-
-. . . 
-
-## Principles of Experimental Design
-
-**Replication**: Within a study, replicate by collecting a sufficiently large sample. Or replicate the entire study.
-
-**Control**: Compare treatment of interest to a control group that isolates the effect of interest.
-
-**Blinding**: When experimental units do not know whether they are in the control or treatment group
-
-**Random Assignment**: Randomly assign subjects to treatments.
-
-## Other Experimental Design Concepts
-
-**Double-Blinding**: When neither the experimental units nor the researchers know the assignment of treatments.
-
-**Placebo**: fake treatment, often used as the control group for medical studies.
-
-**Placebo effect**: experimental units showing improvement simply because they believe they are receiving a special treatment.
-
-
-## Exercise -  Acupuncture and pain
-
-```{r out.width=500, echo = FALSE, fig.align='center'}
-knitr::include_graphics("images/acupuncture.png")
-```
-
-**Claim**: Traditional acupuncture (needles inserted at specific points on the body) causes a reduction in lower back pain.
-
-. . . 
-
-## Exercise -  Acupuncture and pain
-
-With your row, discuss how you would test this claim.
-
-- What would be the treatment?
-
-- What would be the control?
-
-- How would blinding be used?
-
-- How would random assignment be used?
-
-. . . 
-
-# End of Lecture 15
-
-
-
-
