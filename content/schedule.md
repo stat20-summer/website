@@ -229,26 +229,26 @@ hide_details: yes
 <td style="text-align: left;"><p>6</p></td>
 <td style="text-align: left;"><p>Monday</p></td>
 <td style="text-align: left;"><p>7/25</p></td>
-<td style="text-align: left;"><p><a href="NA">Causality</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Causality & Experimental Design</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/data-design.html#experiments">IMS Ch 2.2</a></p></td>
 <td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p><a href="NA">Lab 5</a></p></td>
+<td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/labs/05/lab5.pdf">Lab 5</a></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Tuesday</p></td>
 <td style="text-align: left;"><p>7/26</p></td>
-<td style="text-align: left;"><p><a href="NA">Experimental Design</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Causality & Experimental Design</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/data-design.html#experiments">IMS Ch 2.2</a></p></td>
 <td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p><a href="NA">PS 5</a></p></td>
+<td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/problem-sets/05/ps5.pdf">PS 5</a></p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>7/27</p></td>
-<td style="text-align: left;"><p><a href="NA">Experimental Design</a></p></td>
-<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p><a href="NA">Causality & Experimental Design</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/data-design.html#experiments">IMS Ch 2.2</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -257,7 +257,7 @@ hide_details: yes
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>7/28</p></td>
 <td style="text-align: left;"><p><a href="NA">Correlation</a></p></td>
-<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/model-slr.html#fit-line-res-cor">IMS Ch 7.1</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
