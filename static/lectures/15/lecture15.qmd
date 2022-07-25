@@ -38,7 +38,43 @@ execute:
 
 . . . 
 
-# Week 5
+# Week 6
+
+## Course Outline - past and present
+
+::: {.fragment .fade-in-then-semi-out}
+Week 1: Intro, Taxonomy of Data
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+Week 2: Descriptive Statistics
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+Weeks 3-5: Generalizations
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+**This week** (Week 6): Causality and Experimental Design
+:::
+
+. . . 
+
+## Course Outline - future
+
+::: {.fragment .fade-in-then-semi-out}
+Week 7: Prediction
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+Week 8: Review, Final and Special Topics
+:::
+
+. . . 
+
+# Week 6
+
+- Take out a paper or pencil or get ready to draw on a tablet.
 
 ## Example: Poverty and Graduation 
 
