@@ -1,0 +1,314 @@
+---
+title: "Lecture 15: Causality and Experimental Design"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../../assets/stat20.scss"
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: "images/hex-background.png"
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# First Things First
+
+## First Things First
+
+-   What to expect from lab this week:
+
+    -   Monday: Finishing Question 1
+    
+    -   Wednesday: Performing your experiment (Finshing Question 2)
+    
+    -   Thursday: Finishing Question 3
+    
+. . . 
+
+## First Things First
+
+-   Quiz 1 grades will be finished shortly
+
+. . . 
+
+# Causality
+
+# Association and Causation
+
+## Alternate paths from association to causation
+
+```{r out.width=1050, echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/alternate-paths.png")
+```
+
+## {background-image="images/corrs1.png" background-size="contain"}
+
+## {background-image="images/corrs2.png" background-size="contain"}
+
+## Causality
+
+```{r fig.align='center', echo = FALSE, out.height = "20%"}
+knitr::include_graphics("images/causal.png")
+```
+
+. . .
+
+> What does it mean to say that "A causes B"?
+
+. . .
+
+## Causality - Defining Causation
+
+. . .
+
+> [I took an aspirin and my headache got better.]{.smalladage}
+
+. . .
+
+<br> <br>
+
+> [She was able to find a good job because she graduated from Berkeley.]{.smalladage}
+
+. . . 
+
+## Causality - Defining Causation
+
+We will now present a few different avenues of defining causation. 
+
+. . . 
+
+## Exercise - The Fate of the Prisoner
+
+Suppose that a prisoner is about to be executed by a firing squad. A certain chain of events must occur for this to happen. First, the court orders the execution. The order goes to a captain, who signals the two soldiers of the firing squad (soldier 1 and soldier 2) to fire. They are obedient and expert marksmen, so they only fire on command, and if either one of them shoots, the prisoner dies.
+
+. . . 
+
+## Exercise - The Fate of the Prisoner
+
+- Who caused the death of the prisoner? Discuss with your row.
+
+- Come up with a one sentence definition of what it means for "A to cause B."
+
+. . . 
+
+## Thucydides definition
+
+::: {.fragment .fade-in-then-semi-out}
+About the same time that these earthquakes were so common, the sea at Orobiae, in Euboea, retiring from the then line of coast, returned in a huge wave and invaded part of the town, and retreated leaving some of it still under water; so that what was once land is now sea...
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+The cause, in my opinion, of this phenomenon must be sought in the earthquake. At the point where its shock has been the most violent the sea is driven back, and suddenly recoiling with redoubled force, causes the inundation.
+:::
+
+::: fragment
+Without the earthquake, I do not see how such an accident could happen.
+:::
+
+. . .
+
+> *If the first object had not been, the second never had existed.* -David Hume, 1748
+
+. . . 
+
+## Causation in terms of counterfactual
+
+. . .
+
+**Counterfactual**: relating to or expressing what has not happened or is not the case.
+
+. . .
+
+<br>
+
+> We say "A causes B" if, in the world where A didn't happen, B no longer happens.
+
+## Causation in terms of counterfactual
+
+::: columns
+::: {.column width="47%"}
+```{r echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/frost.png")
+```
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column .fragment width="47%"}
+::: nonincremental
+**Potential Outcomes**: The outcomes that could be realized for a unit upon each possible level of the treatment.
+
+-   The outcome of taking the left path.
+-   The outcome of taking the right path.
+
+> Only one of these are observed.
+:::
+:::
+:::
+
+[Drawing: Maayan Harel]{.footer}
+
+##  {background-image="images/the-route-not-taken.png" background-size="contain"}
+
+## Causation in terms of counterfactual
+
+[I took an aspirin and my headache got better.]{.smalladage}
+
+> What would we need to know to determine if the aspiring caused the headache to improve?
+
+. . .
+
+<br>
+
+*If I hadn't taken an aspirin and my headache didn't get better.*
+
+## 
+
+[She was able to find a good job because she graduated from Berkeley.]{.smalladage}
+
+> What would we need to know to determine if graduating from Berkeley caused her to find a good job?
+
+. . .
+
+<br>
+
+*If she hadn't graduated from Berkeley and was not able to find a good job.*
+
+. . . 
+
+## Estimating Causal Effects - The Challenge of Causation
+
+. . .
+
+<br> <br>
+
+> [Counterfactuals have a particularly problematic relationship with data because data are, by definition, facts.]{.smalladage} -Judea Pearl
+
+## Strategy I: Look across time
+
+-   Can we compare two states of the same unit (person) at different times?
+
+    -   A time I took and did not take aspirin?
+
+    -   When the woman graduated and did not graduate from Cal?
+
+## Strategy II: Look across units
+
+-   Can we compare two units (people) at the same time?
+
+    -   When you took aspirin and I did not?
+    
+    -   When the woman graduated from Cal and her friend did not?
+
+. . . 
+
+# Break 
+
+# Experimental Design
+
+## Desinging a "causal" study/experiment
+
+- Draw a *sample* from a *population*.
+- Either conduct an *observational study* or an *experiment*.
+
+. . .
+
+**Observational Study**: researchers collect data from sample in a way that does not interfere with how they arise. Why do an observational study?
+
+- easier/cheaper
+- study historical data
+- ethical
+
+. . . 
+
+**Experiment**: Researchers assign subjects to treatments, then collect the resulting data. Why do an experiment?
+
+- establish causation. But why?
+
+. . . 
+
+
+## {background-image="images/frost.png" background-size="contain"}
+
+## A Causal Claim
+
+[I got a good grade in the course because I went to office hours.]{.smalladage}
+
+. . .
+
+> **Counterfactual**:  
+> [_If I hadn't gone to office hours, I would have gotten a worse grade._]{.smalladage}
+
+. . .
+
+<br>
+
+```{r echo = FALSE}
+library(tidyverse)
+df <- tibble(`Unit ID` = c("me", "me"),
+             Treatment = c("office hours",
+                           "no office hours"),
+             Outcome   = c("A",
+                           "B"),
+             Observed  = c("yes",
+                           "no"))
+df %>%
+  knitr::kable()
+```
+
+. . . 
+
+## Principles of Experimental Design
+
+**Replication**: Within a study, replicate by collecting a sufficiently large sample. Or replicate the entire study.
+
+**Control**: Compare treatment of interest to a control group that isolates the effect of interest.
+
+**Blinding**: When experimental units do not know whether they are in the control or treatment group
+
+**Random Assignment**: Randomly assign subjects to treatments.
+
+## Other Experimental Design Concepts
+
+**Double-Blinding**: When neither the experimental units nor the researchers know the assignment of treatments.
+
+**Placebo**: fake treatment, often used as the control group for medical studies.
+
+**Placebo effect**: experimental units showing improvement simply because they believe they are receiving a special treatment.
+
+
+## Exercise -  Acupuncture and pain
+
+```{r out.width=500, echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/acupuncture.png")
+```
+
+**Claim**: Traditional acupuncture (needles inserted at specific points on the body) causes a reduction in lower back pain.
+
+. . . 
+
+## Exercise -  Acupuncture and pain
+
+With your row, discuss how you would test this claim.
+
+- What would be the treatment?
+
+- What would be the control?
+
+- How would blinding be used?
+
+- How would random assignment be used?
+
+. . . 
+
+# End of Lecture 15
+
+
+
+

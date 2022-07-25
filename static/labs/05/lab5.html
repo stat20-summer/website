@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lab 4</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="BSS Stat 20" />
+    <meta name="date" content="2022-07-18" />
+    <script src="lab5_files/header-attrs-2.13/header-attrs.js"></script>
+    <link href="lab5_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="lab5_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Lab 4
+]
+.author[
+### BSS Stat 20
+]
+.date[
+### 2022-07-18
+]
+
+---
+
+
+# NOTICE
+
+**If you have any collaborators, please write a sentence before Question 1 which acknowledges them. In addition, make sure that the sentence they therefore are also required to write acknowledges you.**
+
+For a template you can follow, see the course syllabus. This notice will be pasted at the beginning of every lab assignment.
+
+**All code MUST be shown. No credit will be given for correct answers without supporting code.**
+
+# Questions 
+
+## Question 1 - Setting up your experiment
+
+### Group Members
+Write to the right of each role the first and last name of the group member filling that role (if there are groups of 4, two can serve as facilitators).
+
+- *Taster/Subject*: Undergoes the experiment, tastes soda water, provides data.___________________
+- *Materials*: Handles the materials (water et. al) for the experiment.______________________
+- *Facilitator(s)*: Carries out the experiment, keeps track of time, records data._______________
+
+### Claim and Null Hypothesis
+
+In one sentence, write the _claim_ you intend to test. Then write down the corresponding _null hypothesis_ that you will gather evidence against and identify the _test statistic_ that you will use.
+
+\vspace{1cm}
+
+### Protocol
+
+Record below the step-by-step protocol that you will use to collect data to bear on the claim above. Be precise. You should be able to hand this off to another group and have them conduct your experiment.
+
+\newpage
+
+### Data
+
+In the space below, sketch out an empty data frame that identifies the important characteristics of your data. Create the data frame such that the number of rows reflect your sample size, `\(n\)`, and the number of columns represent the variables that you intend to collect. Label the columns with the names of those variables and note how you are defining your unit of observation.
+
+
+\vspace{10cm}
+
+### Exploratory Data Analysis
+
+Sketch a plot that you will use to use to determine how consistent your data are with your original claim. Please label the axes. Since you do not yet have data, create two sketch of what the plot *might* look like in two different scenarios. Below each plot, write out the ggplot2 code that will create that graphic.
+
+\setlength{\tabcolsep}{35pt}
+\begin{table*}[h]
+  \centering
+  \begin{tabular}{lr}
+\emph{Scenario 1: Data supports claim} &amp; \emph{Scenario 2: Data does not support claim}
+  \end{tabular}
+\end{table*}
+
+\newpage
+
+
+## Question 2 - Doing your experiment
+
+Record your filled-in data frame from the **Data** component of Question 1 here.
+
+\newpage
+
+## Question 3 - Coding up your results
+
+1. List any changes that you made to your experimental protocol and what came up that prompted you to make those changes.
+
+2. Create a data frame based on the data you collected and print it out into your pdf. You can print all rows your data frame using `print(my_tibble, n = nrow(my_tibble))`.
+
+3. Create a visualization of the data you collected (not the null distribution) similar to the one you sketched in the handout. Does it look clearly in support of your claim or contrary to your claim or somewhere in between?
+
+4. Conduct a hypothesis test to determine whether your data is consistent with the null hypothesis. Be sure to provide.
+
+    a. The null and alternative hypotheses.
+    
+    b. The value of the observed test statistic.
+    
+    c. A visualization of the null distribution and observed test statistic with the p-value shaded in.
+    
+    d. The p-value and your conclusion (use `\(\alpha = .05\)`) regarding null hypothesis and original claim.
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

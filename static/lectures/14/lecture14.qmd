@@ -9,7 +9,7 @@ format:
     incremental: true
     menu: false
     title-slide-attributes:
-      data-background-image: hex-background.png
+      data-background-image: images/hex-background.png
       data-background-size: cover  
     progress: false
 execute:

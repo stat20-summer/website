@@ -1,0 +1,140 @@
+---
+title: 'Lab 5: Causality and Experimental Design'
+author: "BSS Stat 20"
+date: 'July 25th, 2022'
+output:
+  xaringan::moon_reader:
+    css: stat20.css
+    lib_dir: assets/libs
+    nature:
+      highlightStyle: atelier-forest-light
+      highlightLines: true
+      highlightSpans: true
+      ratio: 16:9
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE,
+                      echo = FALSE,
+                      fig.align = "center",
+                      fig.retina = 3)
+
+library(tidyverse)
+library(xaringanthemer)
+```
+
+class: center, middle
+
+# Welcome to Lab!
+
+---
+
+class: center, middle
+
+# Day 1
+
+Please get into groups of 3 (4 is ok too). Take turns introducing yourselves.
+These will be your partners for Questions 1 and 2.
+
+---
+
+class: center, middle
+
+# Question 1 - Setting up your experiment
+
+-  Have a group member with a tablet write your answers on a digital version of this document, or have a group member write your answers on a scanned version of the paper document.
+
+- Your answers to this question, along with your answers to Question 2 will be submitted as a *group submission* to *Lab 5 - Group Portion* on Gradescope.
+
+- Work at your own pace today. The recommended times are there to help you out. We will come by and guide you where necessary.
+
+---
+
+## Lab 5
+
+**Your challenge this week**: Determine whether or not one of your group members can distinguish between two different types of sparkling water (or a similar claim *of your choosing*). 
+
+---
+
+## Lab 5 - Logistics
+
+.pull-left[
+```{r echo= FALSE}
+knitr::include_graphics("assets/images/la-croix.png")
+```
+]
+
+.pull-right[
+
+### Each team will have
+
+- 50 minutes (lab Wednesday)
+- 2 cans of sparkling water, each one from a different flavor
+- small cups
+- straws
+- saltine crackers
+]
+
+---
+
+## Group Members
+
+```{r}
+knitr::include_graphics("assets/images/members.png")
+```
+
+--
+
+-   Choose a Taster, a Materials Handler, and one (two) facilitator(s).
+
+---
+
+## Claim and Hypotheses (rec. 10 mins)
+
+```{r}
+knitr::include_graphics("assets/images/claim.png")
+```
+
+- **Remember from Week 1**: Your question directly influences the data you will collect! Be specific enough that you can envision a data frame that will record your experiment data based off of your question.
+
+---
+
+## Protocol (rec 20 mins.)
+
+-   Be specific! You *must* be able to pass this protocol off to another group so they could carry out your intended experiment with no confusion.
+
+```{r}
+knitr::include_graphics("assets/images/protocol.png")
+```
+
+---
+
+## Data (rec 10 mins.)
+
+```{r}
+knitr::include_graphics("assets/images/data.png")
+```
+
+
+---
+
+## Graphics (rec 10 mins.)
+
+```{r}
+knitr::include_graphics("assets/images/eda.png")
+```
+
+---
+
+## Things to remember
+
+- Be precise in your protocol.
+
+- For Wednesday's lab, meet outside Evans Hall.
+
+---
+
+# End of Day 1

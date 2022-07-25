@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lab 5: Causality and Experimental Design</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="BSS Stat 20" />
+    <script src="assets/libs/header-attrs-2.13/header-attrs.js"></script>
+    <link rel="stylesheet" href="stat20.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Lab 5: Causality and Experimental Design
+]
+.author[
+### BSS Stat 20
+]
+.date[
+### July 25th, 2022
+]
+
+---
+
+
+
+
+class: center, middle
+
+# Welcome to Lab!
+
+---
+
+class: center, middle
+
+# Day 1
+
+Please get into groups of 3 (4 is ok too). Take turns introducing yourselves.
+These will be your partners for Questions 1 and 2.
+
+---
+
+class: center, middle
+
+# Question 1 - Setting up your experiment
+
+-  Have a group member with a tablet write your answers on a digital version of this document, or have a group member write your answers on a scanned version of the paper document.
+
+- Your answers to this question, along with your answers to Question 2 will be submitted as a *group submission* to *Lab 5 - Group Portion* on Gradescope.
+
+- Work at your own pace today. The recommended times are there to help you out. We will come by and guide you where necessary.
+
+---
+
+## Lab 5
+
+**Your challenge this week**: Determine whether or not one of your group members can distinguish between two different types of sparkling water (or a similar claim *of your choosing*). 
+
+---
+
+## Lab 5 - Logistics
+
+.pull-left[
+&lt;img src="assets/images/la-croix.png" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+### Each team will have
+
+- 50 minutes (lab Wednesday)
+- 2 cans of sparkling water, each one from a different flavor
+- small cups
+- straws
+- saltine crackers
+]
+
+---
+
+## Group Members
+
+&lt;img src="assets/images/members.png" style="display: block; margin: auto;" /&gt;
+
+--
+
+-   Choose a Taster, a Materials Handler, and one (two) facilitator(s).
+
+---
+
+## Claim and Hypotheses (rec. 10 mins)
+
+&lt;img src="assets/images/claim.png" style="display: block; margin: auto;" /&gt;
+
+- **Remember from Week 1**: Your question directly influences the data you will collect! Be specific enough that you can envision a data frame that will record your experiment data based off of your question.
+
+---
+
+## Protocol (rec 20 mins.)
+
+-   Be specific! You *must* be able to pass this protocol off to another group so they could carry out your intended experiment with no confusion.
+
+&lt;img src="assets/images/protocol.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Data (rec 10 mins.)
+
+&lt;img src="assets/images/data.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Graphics (rec 10 mins.)
+
+&lt;img src="assets/images/eda.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Things to remember
+
+- Be precise in your protocol.
+
+- For Wednesday's lab, meet outside Evans Hall.
+
+---
+
+# End of Day 1
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "atelier-forest-light",
+"highlightLines": true,
+"highlightSpans": true,
+"ratio": "16:9",
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

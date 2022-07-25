@@ -1,0 +1,96 @@
+---
+title: "Lab 5"
+author: "BSS Stat 20"
+date: '2022-07-25'
+output:
+  pdf_document: default
+  xaringan::moon_reader: default
+---
+
+# NOTICE
+
+**If you have any collaborators, please write a sentence before Question 1 which acknowledges them. In addition, make sure that the sentence they therefore are also required to write acknowledges you.**
+
+For a template you can follow, see the course syllabus. This notice will be pasted at the beginning of every lab assignment.
+
+**All code MUST be shown. No credit will be given for correct answers without supporting code.**
+
+# Questions 1 and 2 
+
+*\textcolor{red}{These will be turned in under \textbf{Lab 5 - Group Portion} on Gradescope as a \textbf{group submission}}.*
+
+## Question 1 - Setting up your experiment
+
+### Group Members
+Write to the right of each role the first and last name of the group member filling that role (if there are groups of 4, two can serve as facilitators).
+
+- *Taster/Subject*: Undergoes the experiment, tastes soda water, provides data.___________________
+- *Materials*: Handles the materials (water et. al) for the experiment.______________________
+- *Facilitator(s)*: Carries out the experiment, keeps track of time, records data._______________
+
+### Claim and Null Hypothesis
+
+In one sentence, write the _claim_ you intend to test. Then write down the corresponding _null hypothesis_ that you will gather evidence against and identify the _test statistic_ that you will use.
+
+\vspace{1cm}
+
+### Protocol
+
+Record below the step-by-step protocol that you will use to collect data to bear on the claim above. **Be precise enough that you could hand your protocol off to another group and have them conduct your experiment without any confusion.**
+
+\vspace{10cm}
+
+\newpage
+
+### Data
+
+In the space below, sketch out an empty data frame that identifies the important characteristics of your data. Create the data frame such that the number of rows reflect your sample size, $n$, and the number of columns represent the variables that you intend to collect. Label the columns with the names of those variables and note how you are defining your unit of observation.
+
+
+\vspace{10cm}
+
+### Exploratory Data Analysis
+
+Sketch a plot that you will use to use to determine how consistent your data are with your original claim. Please label the axes. Since you do not yet have data, create two sketch of what the plot *might* look like in two different scenarios. Below each plot, write out the ggplot2 code that will create that graphic.
+
+\setlength{\tabcolsep}{35pt}
+\begin{table*}[h]
+  \centering
+  \begin{tabular}{lr}
+\emph{Scenario 1: Data supports claim} & \emph{Scenario 2: Data does not support claim}
+  \end{tabular}
+\end{table*}
+
+\newpage
+
+
+## Question 2 - Doing your experiment
+
+1. List any changes that you made to your experimental protocol from **Question 1** and what came up that prompted you to make those changes.
+
+\vspace{1cm}
+
+2. Record your filled-in data frame from the **Data** component of Question 1 here.
+
+\newpage
+
+# Question 3 
+
+*\textcolor{red}{This will be turned in under \textbf{Lab 5 - Individual Portion} on Gradescope as an \textbf{individual submission like the rest of your labs so far}}*.
+
+## Question 3 - Coding up your results
+
+1. Create a data frame based on the data you collected and print it out into your pdf. You can print all rows your data frame using `print(my_tibble, n = nrow(my_tibble))`.
+
+2. Create a visualization of the data you collected (not the null distribution) similar to the one you sketched in the handout. Does it look clearly in support of your claim or contrary to your claim or somewhere in between?
+
+3. Conduct a hypothesis test to determine whether your data is consistent with the null hypothesis. Be sure to provide.
+
+    a. The null and alternative hypotheses.
+    
+    b. The value of the observed test statistic.
+    
+    c. A visualization of the null distribution and observed test statistic with the p-value shaded in.
+    
+    d. The p-value and your conclusion (use $\alpha = .05$) regarding null hypothesis and original claim.
+
