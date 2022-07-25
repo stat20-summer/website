@@ -1,7 +1,7 @@
 ---
-title: "Lecture 15: Causality I"
+title: "Lecture 15: Causality"
 subtitle: "An intro to studying causality and experimental design."
-summary: "How can we claim more than just association between two variables"
+summary: "How can we claim more than just association between two variables?"
 layout: single
 publishdate: "2022-07-25" # when the page will be renderable
 date: "2022-07-25"        # when the lecture was given

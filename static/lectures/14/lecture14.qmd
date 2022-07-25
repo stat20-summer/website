@@ -207,7 +207,7 @@ At a first glance, does there appear to be a relationship between promotion and 
 
 . . . 
 
-## Gender discrimination: $H_0$ test Step 1
+## Gender discrimination: Hypothesis test step 1
 
 What is the *null hypothesis*?
 
@@ -219,7 +219,7 @@ What is the *null hypothesis*?
 
 . . .
  
-## Gender discrimination: $H_0$ test Step 1
+## Gender discrimination: Hypothesis test step 2
 
 What is the *alternative hypothesis*?
 
@@ -231,7 +231,7 @@ What is the *alternative hypothesis*?
 
 . . .
 
-## Gender discrimination: $H_0$ test Step 2
+## Gender discrimination: Hypothesis test step 3
 
 What is our *test statistic*?
 

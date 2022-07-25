@@ -181,8 +181,6 @@ knitr::include_graphics("images/alternate-paths.png")
 
 # Every data set has a story.
 
-class: middle, center
-
 # Break
 
 # Causality
