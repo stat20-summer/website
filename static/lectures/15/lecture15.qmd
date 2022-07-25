@@ -24,7 +24,9 @@ execute:
 
     -   Monday: Finishing Question 1
     
-    -   Wednesday: Performing your experiment (Finshing Question 2)
+    -   Wednesday: Finshing Question 2 (Performing Experiment)
+    
+        -   Lab on Wednesday will be held outside Evans Hall on the side facing San Francisco
     
     -   Thursday: Finishing Question 3
     
@@ -36,11 +38,100 @@ execute:
 
 . . . 
 
-# Causality
+# Week 5
 
-# Association and Causation
+## Example: Poverty and Graduation 
 
-## Alternate paths from association to causation
+- Consider the following question:
+
+. . . 
+
+> What is the relationship between _poverty rate_ and _high school graduation rate_ when looking at the 50 US states?
+
+. . .
+
+## Exercise: Poverty and Graduation 
+
+> What is the relationship between _poverty rate_ and _high school graduation rate_ when looking at the 50 US states?
+
+. . . 
+
+1. Sketch a plot that you believe captures this relationship. Make sure to consider what type of variables _poverty rate_ and  _high school graduation rate_ in the Taxonomy of Data first.
+
+2. From your plot, how would you describe the relationship between _poverty rate_ and _high school graduation rate_ in words?
+    
+. . . 
+
+## Example: Poverty and Graduation
+
+```{r echo = FALSE, fig.width=8, message = FALSE}
+library(tidyverse)
+poverty <- read_delim("poverty.txt")
+p1 <- ggplot(poverty, aes(x = Poverty, 
+                    y = Graduates)) +
+  geom_point() +
+  theme_bw(base_size = 18)
+p1
+```
+
+. . . 
+
+## Example: Poverty and Graduation
+
+-   The relationship between *poverty* and *graduation* is **linear**, **negative** and **moderately strong**.
+
+-   *Poverty* and *graduation rate* are **negatively associated**.
+
+## Example: Sex Discrimination Case
+
+:::: columns
+::: {.column width="50%"}
+```{r out.width=600, echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/equal-pay.jpg")
+```
+:::
+
+::: {.column width="50%"}
+> Question: Are females unfairly discriminated against in promotion decisions?
+
+- 48 male supervisors given the same personnel file.
+- Files were randomly assigned to the supervisors.
+- Asked: promote or not.
+- Files were identical except gender.
+:::
+::::
+
+## Example: Sex Discrimination Case
+
+. . .
+
+Gender | promote | nopromote 
+-------|---------|-----------
+Male   |    21   |    3      
+Female |    14   |    10    
+
+. . .
+
+$$\textrm{Prop. males that are promoted} = 21/24 = 0.875 \\
+\textrm{Prop. females that are promoted} = 14/24 = 0.583$$
+
+. . .
+
+
+## Exercise: Sex Discrimination Case
+
+1. Sketch a plot based off of the data which captures the relationship between *identified gender* and *promotion.*
+
+2. From your plot, how would you describe the relationship between *identified gender* and *promotion* in words?
+
+. . . 
+
+## Exercise: Reflection
+
+3. Are there any differences between the type of conclusion you made / can make between the first example and the second example? 
+
+
+## Association versus causation
 
 ```{r out.width=1050, echo = FALSE, fig.align='center'}
 knitr::include_graphics("images/alternate-paths.png")
@@ -50,7 +141,15 @@ knitr::include_graphics("images/alternate-paths.png")
 
 ## {background-image="images/corrs2.png" background-size="contain"}
 
-## Causality
+# Every data set has a story.
+
+class: middle, center
+
+# Break
+
+# Causality
+
+## Causality - Defining Causation
 
 ```{r fig.align='center', echo = FALSE, out.height = "20%"}
 knitr::include_graphics("images/causal.png")
@@ -96,7 +195,7 @@ Suppose that a prisoner is about to be executed by a firing squad. A certain cha
 
 . . . 
 
-## Thucydides definition
+## Thucydides (the ancient historian) definition
 
 ::: {.fragment .fade-in-then-semi-out}
 About the same time that these earthquakes were so common, the sea at Orobiae, in Euboea, retiring from the then line of coast, returned in a huge wave and invaded part of the town, and retreated leaving some of it still under water; so that what was once land is now sea...
@@ -112,9 +211,13 @@ Without the earthquake, I do not see how such an accident could happen.
 
 . . .
 
-> *If the first object had not been, the second never had existed.* -David Hume, 1748
+## Exercise - Thucydides definition
 
-. . . 
+-   From the reading, come up with a one sentence definition of what it means for "A to cause B."
+
+## Hume defintion
+
+> *If the first object had not been, the second never had existed.* -David Hume, 1748
 
 ## Causation in terms of counterfactual
 
@@ -154,31 +257,29 @@ knitr::include_graphics("images/frost.png")
 
 [Drawing: Maayan Harel]{.footer}
 
-##  {background-image="images/the-route-not-taken.png" background-size="contain"}
+## Causation in terms of counterfactual: Exercise {.smaller}
 
-## Causation in terms of counterfactual
+```{r echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/the-route-not-taken.png")
+```
+
+[The blue route caused me to reach Downtown Oakland quicker than the gray route.]{.smalladage}
+
+> What would we need to know observe to determine if the blue route caused our arrival time in Oakland to improve?
+
+## Causation in terms of counterfactual: Exercise
 
 [I took an aspirin and my headache got better.]{.smalladage}
 
-> What would we need to know to determine if the aspiring caused the headache to improve?
+> What would we need to observe to determine if the aspirin caused the headache to improve?
 
 . . .
 
-<br>
-
-*If I hadn't taken an aspirin and my headache didn't get better.*
-
-## 
+## Causation in terms of counterfactual: Exercise
 
 [She was able to find a good job because she graduated from Berkeley.]{.smalladage}
 
-> What would we need to know to determine if graduating from Berkeley caused her to find a good job?
-
-. . .
-
-<br>
-
-*If she hadn't graduated from Berkeley and was not able to find a good job.*
+> What would we need to observe to determine if graduating from Berkeley caused her to find a good job?
 
 . . . 
 
@@ -194,6 +295,8 @@ knitr::include_graphics("images/frost.png")
 
 -   Can we compare two states of the same unit (person) at different times?
 
+    -   A time I took the blue route and the gray route?
+
     -   A time I took and did not take aspirin?
 
     -   When the woman graduated and did not graduate from Cal?
@@ -202,13 +305,17 @@ knitr::include_graphics("images/frost.png")
 
 -   Can we compare two units (people) at the same time?
 
-    -   When you took aspirin and I did not?
+    -   When I took the blue route and you took the gray route?
+
+    -   When I took aspirin and you did not?
     
     -   When the woman graduated from Cal and her friend did not?
 
 . . . 
 
-# Break 
+# Break
+
+# End of Lecture 15
 
 # Experimental Design
 
