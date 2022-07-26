@@ -44,6 +44,12 @@ execute:
 
 ## First Things First
 
+-   On lab this week:
+
+. . . 
+
+## First Things First
+
 -   Quiz 1 grades will be released *at the latest* by **Sunday, July 31 at 11:59pm**.
 
 . . . 
