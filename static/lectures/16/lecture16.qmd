@@ -442,7 +442,7 @@ Each row will be given a sheet of paper to work on.
 knitr::include_graphics("images/skittles.jpeg")
 ```
 
-**Claim**: One can discern the difference between the flavor of the \textcolor{red}{red} and \textcolor{green}{green} Skittles when they are without their sense of smell.
+**Claim**: One can discern the difference between the flavor of the red and green Skittles when they are without their sense of smell.
 
 . . . 
 
