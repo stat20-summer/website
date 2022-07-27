@@ -1,0 +1,464 @@
+---
+title: "Lecture 17: Experimental Design; Correlation"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../../assets/stat20.scss"
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: "images/hex-background.png"
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# First Things First
+
+## First Things First
+
+-   What to expect from lab this week:
+    
+    -   Today: Finshing Question 2 (Performing Experiment)
+    
+        -   Lab today will be held outside Evans Hall on the side facing San Francisco
+    
+    -   Tomorrow: Finishing Question 3
+    
+. . . 
+
+## First Things First
+
+-   More on lab today:
+
+    -   You will be conducting the experiments you devised in Question 1 of your labs
+    
+    -   Materials will be provided for you (you do not have to bring anything!)
+    
+    -   Once you feel you are done running your experiment, you may leave
+    
+. . .
+
+# Recap
+
+# Experimental Design
+
+## Desinging a "causal" study/experiment
+
+- Draw a *sample* from a *population*.
+
+- Either conduct an *observational study* or an *experiment*.
+
+. . . 
+
+## Observational Study
+
+**Observational Study**: researchers collect data from sample in a way that does not interfere with how they arise. Why do an observational study?
+  
+  - easier/cheaper
+  
+  - study historical data
+  
+  - ethical
+
+. . . 
+
+## Observational Study
+  
+-   While causal claims often are (and sometimes must be) made using observational studies, they do not establish causality.
+
+-   This is because they do not account for **confounding variables**, which are those variables associated with both the supposed explanatory variable A and the response variable B.
+
+. . . 
+
+## Experiment
+
+**Experiment**: Researchers assign subjects to treatments, then collect the resulting data. 
+  
+-   How might experiments help establish causation?
+
+    -   Poll everywhere excercise
+    
+. . . 
+
+## Principles of Experimental Design
+
+-   We then discussed five principles of experimental design, as well as a few other concepts.
+
+- Replication, Control, Blinding, Blocking, Random Assignment
+
+. . . 
+
+## A few more notes on Experimental Design
+
+- Ideally, treatment and control groups should be as similar as possible save for the treatment. 
+
+-   Therefore, we can also view **confounding variables** as those attributes which still differ between the treatment and control groups.
+  
+    -   The effect of these is hopefully averaged out by random assignment
+    
+- When we use Random Assignment to place subjects into treatment and control groups, we are performing what is called a **Randomized Controlled Experiment/Trial (RCT)**.
+
+. . . 
+
+[Source: STA Chapter 1]{.footer}
+
+# Experimental Strategies
+
+## Strategy I: Look across time
+
+-   In this case, we have one subject with a "Before" observation and an "After" observation, where "Before"/"After" suggests that some time has passed
+
+-   We consider these "Before" and "After" observations to be *dependent.*
+
+-   This type of data is also called *matched pairs*.
+
+-   We perform some calculation on each pair of observations and then create a summary statistic from the results of each calculation to be our test statistic.
+
+. . . 
+
+## Strategy II: Look across units
+
+-   In this case, we have multiple subjects belonging to two different groups: often a *treatment* and a *control*. 
+
+    -   In some cases, we do not view one group as a treatment and another as a control (think male and female groups for the sex discrimination case).
+
+-   These subjects might feasibly perform the experiment at the same time under their group. Each subject has one observation.
+
+-   We calculate a statistic to summarise the results of each group and then performing a differencing (subtracting) operation to obtain our test statistic.
+
+. . . 
+
+## Experimental Strategies - Exercise
+
+-   How is the principle of control applied:
+
+    -   Using Strategy I?
+    
+    -   Using Strategy II?
+    
+. . . 
+
+# Case Study - Skittles
+
+## Case Study - Skittles
+
+```{r out.width=500, echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/skittles.jpeg")
+```
+
+**Claim**: One can discern the difference between the flavor of the red and green Skittles when they are without their sense of smell.
+
+. . . 
+
+## Case Study - Skittles
+
+-   With your row, continue to work on the exercises in the following two slides. If you were not in class yesterday, just join whichever row you were working with! 
+
+## Case Study - Exercise
+
+-   With your row, sketch a provisional data set that would record the results of your experiment. Then, determine a null hypothesis, alternative hypothesis, and a test statistic. 
+
+    -   Left side of the room: under Strategy I
+    
+    -   Right side of the room: under Strategy II
+
+. . . 
+
+## Case Study - Exercise
+
+-   With your row, write down how you would handle (if you feel necessary) each of the five principles of experimental design. 
+
+    -   Left side of the room: under Strategy I
+    
+    -   Right side of the room: under Strategy II
+    
+. . . 
+
+## Case Study - Exercise
+
+-   We then went over on the board some (potential) ways to design the Skittles experiment under each strategy.
+
+. . . 
+
+# Break
+
+# Correlation
+
+Let's now revisit the "poverty rate and graduation rate" example from Lecture 15.
+
+## Correlation
+
+## Example: Poverty and Graduation 
+
+- Consider the following question:
+
+. . . 
+
+> What is the relationship between _poverty rate_ and _high school graduation rate_ when looking at the 50 US states?
+
+. . .
+
+## Example: Poverty and Graduation
+
+```{r echo = FALSE, fig.width=8, message = FALSE}
+library(tidyverse)
+poverty <- read_delim("poverty.txt")
+p1 <- ggplot(poverty, aes(x = Poverty, 
+                    y = Graduates)) +
+  geom_point() +
+  theme_bw(base_size = 18)
+p1
+```
+
+. . . 
+
+-   We have described the relationship with words as **negatively associated**, or as a **negative, linear** trend. 
+
+. . . 
+
+## Example: Poverty and Graduation
+
+-   Is there a way we can capture our description of this relationship with a statistic?
+
+-   There is.
+
+. . . 
+
+# The Correlation Coefficient
+
+## The Correlation Coefficient
+
+-   The **correlation coefficient** $r$ measures the strength of a *linear relationship* between two variables.
+
+-   It is bounded between -1 and 1
+
+    -   When $|r| = 1$, the two variables are related perfectly by a mathematical equation (a line)
+    
+        -   We call this type of relationship *deterministic*
+        
+    -   When $r = 0$, we say that there is no *linear relationship* between the two variables.
+    
+. . . 
+
+## The Correlation Coefficient
+
+    -   The closer in absolute value to 1, the stronger the relationship
+    
+    -   Negative values of $r$ indicate a negative linear association (negative sloping line)
+    
+    -   Positive values of $r$ indicate a positivve linear association (positive sloping line)
+    
+. . . 
+
+## The Correlation Coefficient - Exercise
+
+-   Identify the type of relationship between two variables that would be suggested by different values of the correlation coefficient $r$.
+
+    -   $r = .5$
+    
+    -   $r = .5$
+    
+    -   $r = .1$
+    
+    -   $r = -.9$
+
+-   PollEverywhere exercises
+
+## The Correlation Coefficient - Exercise
+
+![](images/eight_plots.png)
+. . . 
+
+-   Which of the following plots features the weakest relationship between two variables *according to $r$?*
+
+
+## The Correlation Coefficient - Exercise
+
+![](images/eight_plots_cors.png)
+
+. . . 
+
+-   This example reaffirms that $r$ is only measuring the strength of a *linear relationship*.
+
+## Finding the Correlation Coefficient between two variables in R
+
+-   The function `cor()` in R allows us to calculate the correlation between two variables.
+
+-   Use case: `cor(Graduates, Poverty)`
+
+-   The correlation is another summary statistic; therefore it's natural to use within the `dplyr` function `summarise()`.
+
+. . . 
+
+## Finding the Correlation Coefficient between two variables in R
+
+```{r echo = FALSE, fig.width=8, message = FALSE}
+library(tidyverse)
+poverty <- read_delim("poverty.txt")
+p1 <- ggplot(poverty, aes(x = Poverty, 
+                    y = Graduates)) +
+  geom_point() +
+  theme_bw(base_size = 18)
+p1
+```
+
+-   What is the correlation coefficient between these two variables?
+
+. . . 
+
+## Finding the Correlation Coefficient between two variables in R
+
+:::: columns
+::: {.column width="60%"}
+```{r echo = FALSE, fig.height = 5}
+p1
+```
+:::
+
+::: {.column width="40%" .fragment}
+
+<br>
+
+```{r, echo = TRUE}
+poverty %>%
+  summarize(r = cor(Graduates, 
+                    Poverty))
+```
+:::
+::::
+
+. . .
+
+- This value of $r$ demonstrates once again that the relationship between poverty and graduation is _linear_, _negative_ and _moderately strong_.
+
+# Correlation does not equal causation
+
+## Correlation does not equal causation
+
+-   You have probably heard this statement outside of a statistics class at least once.
+
+-   When might we see examples of this?
+
+## Correlation does not equal causation - example
+
+-   We will take a look at a data set containing information on Los Angeles neigborhood homes.
+
+-   These are homes located in the neighborhoods of Beverly Hills, Long Beach, Santa Monica, and Westwood.
+
+-   The three variables we will be focusing on are number of bedrooms (`bed`), square feet (`sqft`) and price (`price`).
+
+```{r, echo = FALSE}
+LA <- read.csv("LA.csv") %>%
+  mutate(logprice = log(price),
+         logsqft = log(sqft))
+
+```
+
+. . . 
+
+## Correlation does not equal causation - example
+
+-   **Note:** We transform the variables square feet and price by taking the (natural) logarithm $ln()$ of each. This is done for model fitting purposes, which we will discuss next week.
+
+-   We then work with log square feet `logsqft` and log price `price`.
+
+. . . 
+
+
+## Correlation does not equal causation - example
+
+- Describe the relationship between `bed` and `logprice`.
+
+. . .
+
+```{r echo = FALSE, fig.width=8, fig.height=4}
+LA %>%
+  filter(bed > 0, bed < 7) %>%
+  ggplot(aes(x = bed, y = logprice)) +
+  geom_jitter(alpha = .5) +
+  theme_bw(base_size = 18)
+```
+
+## Correlation does not equal causation - example
+
+:::: columns
+::: {.column width="60%"}
+```{r echo = FALSE, fig.height = 5}
+LA %>%
+  filter(bed > 0, bed < 7) %>%
+  ggplot(aes(x = bed, y = logprice)) +
+  geom_jitter(alpha = .5) +
+  theme_bw(base_size = 18)
+```
+:::
+
+::: {.column width="40%" .fragment}
+
+<br>
+
+```{r}
+LA %>%
+  summarize(r = cor(logprice, 
+                    bed))
+```
+:::
+::::
+
+. . .
+
+## Correlation does not equal causation - example {.smaller}
+
+Describe the relationship between `bed` and `logprice`, controlling for `logsqft`.
+
+. . .
+
+```{r echo = FALSE, fig.width=8, fig.height=4}
+LA %>%
+  filter(bed < 7, bed > 0) %>%
+  mutate(logsqft_cat = cut(logsqft, breaks = 6)) %>%
+  ggplot(aes(x = bed, y = logprice)) +
+  geom_jitter(alpha = .3) +
+  facet_wrap(vars(logsqft_cat)) +
+  theme_bw(base_size = 18)
+```
+
+. . . 
+
+-   The relationship between `bed` and `logprice` seems to have disappeared!
+
+
+## Simpson's Paradox
+
+-   **Simpson's paradox**, which also goes by several other names, is a phenomenon in probability and statistics in which a trend appears in several groups of data but disappears or reverses when the groups are combined.
+
+
+```{r echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/simpsons.png")
+```
+
+[Source: Wikipedia]{.footer}
+
+## Simpson's Paradox
+
+-   **Simpson's paradox** is a phenomenon not limited to relationships between numerical data.
+
+-   In our case though, it serves as an example to remind us that...
+
+. . . 
+
+# Correlation does not equal causation.
+
+# End of Lecture 17
+
+
+
+
+
+
+
+
+
