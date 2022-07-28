@@ -284,9 +284,7 @@ pnorm(q = 1.6, lower.tail = FALSE)
 
 . . . 
 
--   The answer is $$0$$.
-
--   This is because we are working with a *continuous distribution** with infinitely many values on the real line! We can only talk about probabilities with inequalities in this situation.
+-   The $Normal$ distribution is  a *continuous distribution** with infinitely many values on the real line! We can only talk about probabilities with inequalities in this situation.
 
 . . . 
 
