@@ -256,8 +256,8 @@ hide_details: yes
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>7/28</p></td>
-<td style="text-align: left;"><p><a href="NA">Correlation</a></p></td>
-<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/model-slr.html#fit-line-res-cor">IMS Ch 7.1</a></p></td>
+<td style="text-align: left;"><p><a href="NA">The Normal Distribution</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/foundations-mathematical.html?q=normal%20d#normalDist">IMS Ch 13</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>

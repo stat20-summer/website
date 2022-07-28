@@ -1,0 +1,417 @@
+---
+title: "Lecture 18: ???"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "stat20-18.scss"
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: "images/hex-background.png"
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# First Things First 
+
+## First Things First
+
+-   What to expect from lab this week:
+    
+    -   Today: Finishing Question 3
+    
+    -   Remember: Question 3 is an *individual* assignment.
+    
+        -   You are free to work with your groupmates, but your submissions must be your own.
+        
+    
+## First Things First
+
+-   Quiz 2 next week
+
+    -   Will cover everything from Week 5 up to next Tuesday
+    
+    -   Original released Thursday 6:00p
+    
+. . . 
+
+## First Things First
+
+-   Initial Final details:
+
+    -   Wednesday, August 10 in-class
+    
+    -   All questions will be multiple choice
+    
+    -   You should consider the final to be cumulative
+    
+    -   *Two* double-sided cheatsheets allowed (one more than last time)
+    
+    -   Test correction details TBD other than what I've already stated
+    
+. . . 
+
+# ???
+
+We finished the causality/experimental design material early. What should we do now?
+
+#
+
+# The $Normal$ distribution
+
+## The $Normal(\mu, \sigma)$ distribution
+
+-   By far, the most important distribution in statistics.
+
+-   Normal distributions are symmetric and bell-shaped.
+
+-   Normal distributions are governed by two parameters: $\mu$ and $\sigma$.
+
+-   Normal distributions are *continuous* rather than *discrete.*
+
+. . . 
+
+## The $Normal(\mu, \sigma)$ distribution
+
+-   The parameters of the Normal distribution are quite special in that:
+
+    -   The mean of a Normal distribution is given by $\mu$
+    
+    -   The standard deviation of a Normal distribution is given by $\sigma$
+    
+        -   You may also see the parametrization $Normal(\mu, \sigma^2)$, where $\sigma^2$ is the variance 
+        
+. . . 
+
+## The $Normal(\mu, \sigma)$ distribution
+
+-   When you increase/decrease the value of $\mu$, you *shift* right/left the distribution, respectively.
+
+-   When you increase/decrease the value of $\mu$, you *widen/narrow* the distribution, respectively. 
+
+    -   This widening/narrowing can be more generally called *scaling*.
+
+. . . 
+
+## The $Normal$ distribution: Examples
+
+- The $Normal(\mu = 75, \sigma = 2)$ Distribution:
+
+```{r, message = FALSE, fig.align = "center", fig.dim= c(10,8)}
+library(tidyverse)
+fun_range <- c(60, 90)
+Fun_Range_Df <- tibble(fun_range)
+
+ggplot(Fun_Range_Df) + geom_area(mapping = aes(x = fun_range),
+                                 stat = "function",
+                                     fun = dnorm, 
+                                     args = list(75, 5),
+                                     fill = "navyblue",
+                                 color = "aquamarine",
+                                 alpha = 0.1) +
+  theme_light() + xlab("x") + ylab("P(X = x)") + 
+  ggtitle("The Normal(mu = 75, sigma = 5) distribution")
+
+```
+
+## The $Normal$ distribution : Examples
+
+- The $Normal(\mu = 600, \sigma = 10)$ Distribution:
+
+```{r, message = FALSE, fig.align = "center", fig.dim= c(12,8)}
+library(tidyverse)
+fun_range <- c(560, 640)
+Fun_Range_Df <- tibble(fun_range)
+
+ggplot(Fun_Range_Df) + geom_area(mapping = aes(x = fun_range),
+                                 stat = "function",
+                                     fun = dnorm, 
+                                     args = list(600, 10),
+                                     fill = "gold",
+                                 color = "orange",
+                                 alpha = 0.1) +
+  theme_light() + xlab("x") + ylab("P(X = x)") + 
+  ggtitle("The Normal(mu = 600, sigma = 10) distribution")
+
+```
+
+## The $Normal$ distribution 
+
+-   Indeed, there are an infinite number of possible $Normal$ distributions we can make.
+
+-   Since we will collect data with many different values for center and spread, it seems like if we want to do inference using a $Normal$ distribution, we will have to be able calculate probabilities for all of the possible $Normal$ distributions that could arise.
+
+. . . 
+
+## The $Normal$ distribution
+
+-   For a very surface-level insight as to why that might be problematic, here is the *probability density function* for the $Normal(\mu, \sigma)$ distribution.
+
+. . . 
+
+$$ f(x; \mu, \sigma) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$$ 
+
+. . . 
+
+## The $Normal$ distribution
+
+-   What we need is a universal method to calculate $Normal$ probabilities for a distribution with an arbitrary $\mu$ and $\sigma$. Does such a method exist?
+
+. . . 
+
+## The $Normal$ distribution
+
+-   The answer is a resounding **yes**! The key lies in shifting and scaling a given $Normal(\mu, \sigma)$ distribution by special values.
+
+-   If we *shift* the distribution by its mean $\mu$ and *scale* it by its standard deviation $\sigma$, we will always achieve the following $Normal$ distribution.
+
+. . . 
+
+## The $Normal(\mu = 0, sigma = 1)$ distribution
+
+```{r, message = FALSE, fig.align = "center", fig.dim= c(12,8)}
+library(tidyverse)
+fun_range <- c(-4, 4)
+Fun_Range_Df <- tibble(fun_range)
+
+ggplot(Fun_Range_Df) + geom_area(mapping = aes(x = fun_range),
+                                 stat = "function",
+                                     fun = dnorm, 
+                                     args = list(0, 1),
+                                     fill = "gold",
+                                 color = "forestgreen",
+                                 alpha = 0.1) +
+  theme_light() + xlab("x") + ylab("P(X = x)") + 
+  ggtitle("The Normal(mu = 0, sigma = 1) distribution")
+
+```
+
+-   This $Normal$ distribution is so important that we call it the **standard $Normal$ distribution.**
+
+. . . 
+
+## The standard $Normal$ distribution
+
+-   The **standard $Normal$ distribution** has historically been much easier to calculate probabilities with than other $Normal$ distributions.
+
+-   Therefore, our first goal when trying to work with $Normal$ distributions is to first *standardize* them so that they have mean 0 and standard deviation (variance) 1.
+
+-   We denote the random variable belonging to the standard $Normal$ distribution by $Z$.
+
+. . . 
+
+# Calculating probabilities with the $Normal$ distribution
+
+## Calculating probabilities with the $Normal$ distribution
+
+-   Steps:
+
+1. Frame our problem in the context of the **standard $Normal$ distribution**. 
+
+    -   This means shifting by $\mu$ and scaling by $\sigma$:
+    
+    -   $Z = \frac{X - \mu}{\sigma}$
+
+2. Calculate the probability using a standard $Normal$ probability table or with R.
+
+. . . 
+
+## Calculating probabilities with the $Normal$ distribution - Example
+
+> Field goal percentages of NBA players during the 2021-22 season were roughly $Normal$lly distributed with parameters $\mu = 0.44$ and $\sigma = 0.1$.
+
+. . . 
+
+> What is the probability that an NBA player during this season would record a field goal percentage of 60 percent or greater?
+
+. . . 
+
+## Calculating probabilites with the $Normal$ distribution 
+
+-   Steps:
+
+. . . 
+
+1. $$ Z = \frac{X - \mu}{\sigma} = \frac{.6 - .44}{.10} = 1.6 $$
+
+  -  Now, we want $P(Z > 1.6)$
+  
+2. Use the function `pnorm()` in R to calculate this probability.
+
+. . . 
+
+```{r, echo = TRUE}
+1 - pnorm(q = 1.6)
+```
+. . . 
+
+## Calculating probabilites with the $Normal$ distribution 
+
+-   Why did we do `1 - pnorm(q = 1.6)` rather than just `pnorm(q = 1.6)`?
+
+## Calculating probabilites with the $Normal$ distribution 
+
+-   `pnorm()` is calculating $P(Z \leq z)$!
+
+-   We want $P(Z > z)$ , therefore, we need to perform $1 - P(Z \leq z)$ to get the correct probability.
+
+. . . 
+
+## Calculating probabilites with the $Normal$ distribution 
+
+- In R, we can also achieve the same result programatically by including the argument `lower.tail = FALSE` in our call to `pnorm()`.
+
+. . . 
+
+```{r, echo = TRUE}
+pnorm(q = 1.6, lower.tail = FALSE)
+```
+. . . 
+
+## Calculating probabilites with the $Normal$ distribution - Your turn
+
+> What is the probability that an NBA player during this season would record a field goal of exactly 30 percent?
+
+. . . 
+
+## Calculating probabilites with the $Normal$ distribution - Your turn
+
+> What is the probability that an NBA player during this season would record a field goal of exactly 30 percent?
+
+. . . 
+
+-   The answer is $$0$$.
+
+-   This is because we are working with a *continuous distribution** with infinitely many values on the real line! We can only talk about probabilities with inequalities in this situation.
+
+. . . 
+
+
+## Calculating probabilites with the $Normal$ distribution - Your turn
+
+> What is the probability that an NBA player during this season would record a field goal percentage of 30 percent or less?
+
+. . . 
+
+# Break
+
+# Visualizing probabilities with the $Normal$ distribution
+
+## Visualizing probabilities with the $Normal$ distribution
+
+-   When calculating $Normal$ probabilities, it's often *really useful* to draw a picture.
+
+. . . 
+
+## Visualizing probabilities with the $Normal$ distribution
+
+> Field goal percentages of NBA players during the 2021-22 season were roughly $Normal$lly distributed with parameters $\mu = 0.44$ and $\sigma = 0.1$.
+
+. . . 
+
+> What is the probability that an NBA player during this season would record a field goal percentage of 60 percent or greater?
+
+. . . 
+
+## Visualizing probabilities with the $Normal$ distribution
+
+![](images/normalone.png)
+
+## Visualizing probabilities with the $Normal$ distribution
+
+![](images/normaltwo.png)
+
+## Visualizing probabilities with the $Normal$ distribution
+
+![](images/normalthree.png)
+
+## Visualizing probabilities with the $Normal$ distribution
+
+![](images/normalfour.png)
+
+## Visualizing probabilities with the $Normal$ distribution
+
+> What is the probability that an NBA player during this season would record a field goal percentage of 30 percent or less?
+
+. . . 
+
+-   With your row, discuss how you would visualize this probability. Then come to the front with a pencil or pen and sketch a visualization on the provided piece of paper. 
+
+. . . 
+
+## Visualizing probabilities with the $Normal$ distribution
+
+> What is the probability that an NBA player during this season would record a field goal percentage between 40 and 50 percent?
+
+. . . 
+
+-   With your row, discuss how you would visualize this probability. Then come to the front with a pencil or pen and sketch a visualization on the provided piece of paper. 
+
+. . . 
+
+## Visualizing probabilities with the $Normal$ distribution
+
+> What is the probability that an NBA player during this season would record a field goal percentage less than 30 or greater than 60 percent?
+
+. . . 
+
+-   With your row, discuss how you would visualize this probability. Then come to the front with a pencil or pen and sketch a visualization on the provided piece of paper. 
+
+. . . 
+
+## Calculating probabilities with the $Normal$ distribution
+
+-   Calculate each of the probabilities from the three exercises above.
+
+. . . 
+
+# Performing hypothesis tests using the $Normal$ distribution
+
+## Performing hypothesis tests using the $Normal$ distribution
+
+> In the 2021-2022 season, Giannis Antetokounmpo recorded a field goal percentage of 55.3 percent. I therefore claim that Giannis has a better field goal shooting percentage than the average player, who clocked in at around just 43 percent. 
+
+. . . 
+
+- How can we test this claim with a significance level of $\alpha = 0.1$?
+
+. . . 
+
+## Performing hypothesis tests using the $Normal$ distribution
+
+$$ H_0: fgp_{Giannis} = 0.44 $$
+
+$$ H_A: fgp_{Giannis} > 0.44 $$
+. . . 
+
+Under the null hypothesis, the distribution of field goal percentages in the NBA for the 2021-22 season is $Normal(\mu = 0.44, \sigma = .1)$.
+
+. . . 
+
+## Performing hypothesis tests using the $Normal$ distribution
+
+-   Exercise: 
+
+    -   Visualize $P(FGP > 0.553)$ based on distribution of field goal percentages under the null hypothesis.
+
+    -   Calculate $P(FGP > 0.553)$.
+
+
+    -   This probability is in fact the *p-value* (why?). Then make a conclusion as to whether Giannis is a better field goal shooter than the average player based on the evidence.
+    
+. . . 
+
+# End of Lecture 18
+
+
+
+
+
+
+
+
+
