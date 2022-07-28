@@ -99,7 +99,7 @@ We finished the causality/experimental design material early. What should we do 
 
 ## The $Normal$ distribution: Examples
 
-- The $Normal(\mu = 75, \sigma = 2)$ Distribution:
+- The $Normal(\mu = 75, \sigma = 5)$ Distribution:
 
 ```{r, message = FALSE, fig.align = "center", fig.dim= c(10,8)}
 library(tidyverse)
@@ -284,7 +284,7 @@ pnorm(q = 1.6, lower.tail = FALSE)
 
 . . . 
 
--   The $Normal$ distribution is  a *continuous distribution** with infinitely many values on the real line! We can only talk about probabilities with inequalities in this situation.
+-   The $Normal$ distribution is  a *continuous distribution* with infinitely many values on the real line! We can only talk about probabilities with inequalities in this situation.
 
 . . . 
 
