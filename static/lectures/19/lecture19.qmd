@@ -1,0 +1,690 @@
+---
+title: "Lecture 19: Simple Linear Regression"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../assets/stat20.scss"
+    highlight-style: breezedark
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: "images/hex-background.png"
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+```{r include = FALSE}
+library(tidyverse)
+library(ggrepel)
+library(patchwork)
+knitr::opts_chunk$set(echo = TRUE,
+                      fig.align = "center")
+set.seed(80)
+```
+
+# First Things First
+
+## First Things First
+
+-   Quiz 1 grades (including retakes) now fully published
+
+-   Quiz 2 released Thursday at 6:00p
+
+    -   Covers Week 5 material up until tomorrow (Tuesday)
+    
+    -   There will be a retake, similar to last Quiz
+    
+. . . 
+
+## First Things First
+
+-   On Lab:
+
+    -   Drops and Extensions for lab 5
+    
+    -   Lab 6 and Reminder on Drop/Extension Policy
+
+. . . 
+
+## First Things First
+
+-   Course Evaluations either available now or available soon
+
+    -   Please answer the custom questions! (about how I did as a lecturer, content creator, class policies)
+    
+. . . 
+
+# Prediction
+
+## Prediction
+
+```{r out.height=400, echo = FALSE, fig.align='center', out.width=700}
+knitr::include_graphics("images/id-the-slr.png")
+```
+
+::: poll
+Which **four** plots exhibit the strongest relationships (linear or non-linear)?
+:::
+
+
+## Prediction
+
+```{r out.height=400, echo = FALSE, fig.align='center', out.width=700}
+knitr::include_graphics("images/id-the-slr.png")
+```
+
+::: poll
+Which **two** plots exhibit the strongest *linear* relationships?
+:::
+
+## Example: Poverty and Graduation 
+
+- Consider the following question:
+
+. . . 
+
+> What is the relationship between _poverty rate_ and _high school graduation rate_ when looking at the 50 US states?
+
+. . .
+
+## Example: Poverty and Graduation
+
+```{r echo = FALSE, fig.width=8, message = FALSE}
+library(tidyverse)
+poverty <- read_delim("poverty.txt")
+p1 <- ggplot(poverty, aes(x = Poverty, 
+                    y = Graduates)) +
+  geom_point() +
+  theme_bw(base_size = 18)
+p1
+```
+
+. . . 
+
+-   We have described the relationship with words as **negatively associated**, or as a **negative, linear** trend. 
+
+. . . 
+
+## Example: Poverty and Graduation
+
+-   Is there a way we can capture our description of this relationship with a statistic?
+
+-   There is.
+
+. . . 
+
+# The Correlation Coefficient
+
+## The Correlation Coefficient
+
+-   The **correlation coefficient** $r$ measures the strength of a *linear relationship* between two variables.
+
+-   It is bounded between -1 and 1
+
+    -   When $|r| = 1$, the two variables are related perfectly by a mathematical equation (a line)
+    
+        -   We call this type of relationship *deterministic*
+        
+    -   When $r = 0$, we say that there is no *linear relationship* between the two variables.
+    
+. . . 
+
+## The Correlation Coefficient
+
+    -   The closer in absolute value to 1, the stronger the relationship
+    
+    -   Negative values of $r$ indicate a negative linear association (negative sloping line)
+    
+    -   Positive values of $r$ indicate a positivve linear association (positive sloping line)
+    
+. . . 
+
+## Finding the Correlation Coefficient between two variables in R
+
+```{r echo = FALSE, fig.width=8, message = FALSE}
+library(tidyverse)
+poverty <- read_delim("poverty.txt")
+p1 <- ggplot(poverty, aes(x = Poverty, 
+                    y = Graduates)) +
+  geom_point() +
+  theme_bw(base_size = 18)
+p1
+```
+
+-   What is the correlation coefficient between these two variables?
+
+. . . 
+
+## Finding the Correlation Coefficient between two variables in R
+
+:::: columns
+::: {.column width="60%"}
+```{r echo = FALSE, fig.height = 5}
+p1
+```
+:::
+
+::: {.column width="40%" .fragment}
+
+<br>
+
+```{r, echo = TRUE}
+poverty %>%
+  summarize(r = cor(Graduates, 
+                    Poverty))
+```
+:::
+::::
+
+. . .
+
+- This value of $r$ demonstrates once again that the relationship between poverty and graduation is _linear_, _negative_ and _moderately strong_.
+
+## Prediction
+
+-   However, we're no longer just in the Descriptive unit of this course. 
+
+-   Our data seems to follow a line; can we construct a line therefore that might help us *predict* future observations?
+
+. . .
+
+# The Linear Model
+
+## The Linear Model {.scrollable}
+
+-   Expresses a predicted value for $y$, $\hat{y}$,  as a linear function of $x$.
+
+. . .
+
+$$\hat{y} = b_0 + b_1x \quad \quad \quad \quad b_0\textrm{: intercept} \quad \quad b_1\textrm{: slope}$$
+
+. . .
+
+```{r echo=FALSE, fig.height = 4.8}
+p1 +
+  geom_text_repel(aes(label = State)) +
+  geom_smooth(method='lm',formula=y~x, se = FALSE)
+```
+
+
+## Residuals
+
+-   A **residual** for observation $i$, $e_i$, is the difference between the observed value $y$ and the predicted value $\hat{y}$.
+
+. . .
+
+$$e_i = y_i - \hat{y}_i$$
+
+. . .
+
+:::: columns
+::: {.column width="80%"}
+```{r echo=FALSE, fig.height = 4.5}
+poverty <- poverty %>%
+  mutate(is_MT = case_when(
+    State == "Montana" ~ "Montana (13.7, 90.1)", 
+    TRUE ~ ""))
+m1 <- lm(Graduates ~ Poverty, data = poverty)
+mt_pred <- m1$fitted.values[poverty$State == "Montana"]
+poverty %>%
+  ggplot(aes(x = Poverty, 
+             y = Graduates)) +
+  annotate("segment", x = 13.7, xend = 13.7, 
+           y = mt_pred, yend = 90.1,
+           lty = 2,
+           color = "tomato", lwd = 1.5) +
+  geom_point(size = 3) +
+  theme_bw(base_size = 18) +
+  geom_text_repel(aes(label = is_MT)) +
+  annotate("text", x = 15, y = mt_pred, label = "(13.7, 83.9)") +
+  geom_smooth(method='lm',formula=y~x, se = FALSE)
+```
+:::
+
+::: {.column width="20%" .fragment}
+Montana's residual:
+
+$$90.1 - 83.9 \\
+= \\
+6.2 $$
+
+:::
+::::
+
+
+## Residuals
+
+```{r echo=FALSE, fig.height = 4.8}
+p1 +
+  geom_text_repel(aes(label = State)) +
+  geom_smooth(method='lm',formula=y~x, se = FALSE)
+```
+
+::: poll
+Which of the following states has the smallest *positive* residual?
+:::
+
+
+# Estimating the coefficients $b_0$ and $b_1$
+
+## Estimation
+
+```{r, echo = FALSE, fig.height = 5, fig.width = 9}
+x_bar <- mean(poverty$Poverty)
+y_bar <- mean(poverty$Graduates)
+p1 + 
+  geom_abline(intercept = m1$coef[1], slope = m1$coef[2], col = "goldenrod")
+```
+
+$$\hat{y} = 96.2 - .9 x$$
+
+## Estimation
+
+```{r echo=FALSE, fig.width=14, fig.height=8, fig.align="center"}
+r <- round(cor(poverty$Graduates,
+               poverty$Poverty),
+           digits = 2)
+p1 +
+  annotate("text", x = 17, y = 90, size = 8,
+           label = paste0("r = ", r))
+```
+
+
+## Estimation
+
+```{r echo=FALSE, fig.width=14, fig.height=8, fig.align="center"}
+m1 <- lm(Graduates ~ Poverty, data = poverty)
+p2 <- p1 +
+  annotate("text", x = 17, y = 90, size = 8,
+           label = paste0("r = ", r)) +
+  geom_abline(intercept = m1$coef[1], slope = m1$coef[2], 
+              col = "gray", lwd = 2, alpha = .5) +
+  geom_abline(intercept = 100, slope = -1.2, 
+              col = "gray", lwd = 2, alpha = .5) +
+  geom_abline(intercept = 77, slope = .65, 
+              col = "gray", lwd = 2, alpha = .5) +
+  geom_abline(intercept = 88, slope = -.6, 
+              col = "gray", lwd = 2, alpha = .5) +
+  geom_abline(intercept = 84, slope = .01, 
+              col = "gray", lwd = 2, alpha = .5)
+
+p2
+```
+
+
+::: poll
+Think about a way you could determine what line to draw between these points with your row and post your answer to PollEverywhere.
+:::
+
+
+## Ordinary Least Squares
+
+Find the line that minimizes the sum of the squared residuals.
+
+. . .
+
+$$\sum_{i=1}^n (y_i - \hat{y}_i)^2$$
+
+. . .
+
+Two methods of finding that line:
+
+:::: columns
+::: {.column width="50%"}
+[Numerical Optimization]{.inversebox}
+:::
+::: {.column width="50%"}
+[Analytical Approach]{.inversebox}
+:::
+::::
+
+
+## Ordinary Least Squares
+
+$$\sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - \mathbf{b_0} - \mathbf{b_1}x)^2 = f_{RSS}(b_0, b_1)$$
+
+. . .
+
+:::: columns
+::: {.column width="50%"}
+[Numerical Optimization]{.inversebox}
+
+E.g. Nelder-Mead Algorithm
+
+```{r echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/nelder-mead.png")
+```
+:::
+::: {.column width="50%" .fragment}
+[Analytical Approach]{.inversebox}
+
+Take partial derivatives of $f_{RSS}$, set to 0, solve.
+
+$$ b_1 = r \frac{s_y}{s_x} $$
+
+$$ b_0 = \bar{y} - b_1 \bar{x} $$
+:::
+::::
+
+
+## Ordinary Least Squares
+
+```{r echo=FALSE, fig.width=14, fig.height=8, fig.align="center"}
+p2
+```
+
+
+## Ordinary Least Squares
+
+```{r echo=FALSE, fig.width=14, fig.height=8, fig.align="center"}
+p2 +
+  geom_abline(intercept = m1$coef[1], slope = m1$coef[2], 
+              col = "goldenrod", lwd = 2, alpha = .5)
+```
+
+
+## Estimation via optimization
+
+<center>
+<iframe width="784" height="444" src="https://www.youtube.com/embed/j2gcuRVbwR0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<center>
+
+Nelder-Mead Algorithm (downhill simplex method)
+
+
+## Estimation via calculus/algebra
+
+-   See Ed post for derivations of closed form solutions.
+
+-   The result for $b_1$:
+
+. . .
+
+$$ b_1 = \frac{s_y}{s_x}r $$
+
+
+## Estimating $\beta_1$
+
+```{r find-b1, echo = FALSE, fig.height = 6, fig.width = 10}
+p1 <- ggplot(poverty, aes(Poverty, Graduates)) + 
+  xlim(0, 20) +
+  ylim(75, 96) +
+  geom_point(size = 3) +
+  theme_bw(base_size = 18)
+p1
+```
+
+Use $s_x, s_y, \textrm{ and } r$ to calculate $b_1$.
+
+
+## Estimating $\beta_1$
+
+```{r stats1, eval = FALSE}
+stats <- poverty %>%
+  summarize(r = cor(Graduates, Poverty),
+            sx = sd(Poverty),
+            sy = sd(Graduates))
+stats
+```
+
+. . .
+
+```{r ref.label = "stats1", echo = FALSE}
+```
+
+. . .
+
+```{r stats2, eval = FALSE}
+stats2 <- stats %>%
+  mutate(b1 = sy/sx * r)
+stats2
+```
+
+. . .
+
+```{r ref.label = "stats2", echo = FALSE}
+```
+
+
+## Estimating $\beta_1$, cont.
+
+```{r find-b1-2, echo = FALSE, fig.height = 6, fig.width = 10}
+m1 <- lm(Graduates ~ Poverty, data = poverty)
+p2 <- p1 + 
+  geom_abline(intercept = 93, slope = m1$coef[2], col = "goldenrod") +
+  annotate("text", x = 3, y = 87, label = paste("slope = ", round(m1$coef[2], 2)))
+p2
+```
+
+Use $s_x, s_y, \textrm{ and } r$ to calculate $b_1$.
+
+
+## Estimating $\beta_0$
+
+```{r find-b02, echo = FALSE, fig.height = 6, fig.width = 10}
+x_bar <- mean(poverty$Poverty)
+y_bar <- mean(poverty$Graduates)
+p1 + 
+  geom_vline(xintercept = mean(poverty$Poverty), 
+                col = "steelblue",
+                lty = 2) +
+  geom_hline(yintercept = mean(poverty$Graduates), 
+                col = "steelblue",
+                lty = 2) + 
+  geom_abline(intercept = m1$coef[1], slope = m1$coef[2], col = "goldenrod") +
+  annotate("text", x = 3, y = 91, label = paste("slope = ", round(m1$coef[2], 2))) +
+  annotate("text", x = 14, y = 96, label = paste("x-bar = ", round(x_bar, 2))) +
+  annotate("text", x = 19, y = 85, label = paste("y-bar = ", round(y_bar, 2)))
+```
+
+If the line of best fit *must* pass through $(\bar{x}, \bar{y})$, what is $b_0$?
+
+
+## Estimating $\beta_0$, cont.
+
+. . .
+
+Since $(11.35, 86.01)$ is on the line, the following relationship holds.
+
+$$ 86.01 = b_0 - 0.9 (11.35) $$
+
+. . .
+
+Then just solve for $b_0$.
+
+$$ b_0 = 86.01 + 0.9 (11.35) = 96.22$$
+
+. . .
+
+More generally:
+
+$$ b_0 = \bar{y} - b_1 \bar{x} $$
+
+
+## Estimation in R
+
+. . .
+
+```{r fitlm}
+m1 <- lm(Graduates ~ Poverty, data = poverty)
+```
+
+. . .
+
+```{r}
+summary(m1)
+```
+
+
+## The `lm` object {.scrollable}
+
+. . .
+
+```{r showlm}
+attributes(m1)
+coef(m1)
+m1$fit
+```
+
+# Break
+
+# More on Simple Linear Regression
+
+## Interpretation of $b_1$
+
+. . .
+
+The **slope** describes the estimated difference in the $y$ variable if the explanatory
+variable $x$ for a case happened to be one unit larger.
+
+. . .
+
+```{r}
+coef(m1)[2]
+```
+
+. . .
+
+*For a state that is one point higher in the percentage of people living below the poverty level, we expect that state's proportion of high school graduates to be is 0.898 lower*.
+
+> Be cautious. If it is observational data, you do not have evidence of a 
+*causal link*, but of an association, which still can be used for prediction.
+
+
+## Interpretation of $b_0$
+
+. . .
+
+The **intercept** is the predicted value that $y$ will take for a case with an $x$ value of zero.
+
+. . .
+
+```{r}
+coef(m1)[1]
+```
+
+. . .
+
+*For a state that has 0% of people living below the poverty level, we expect that state's proportion of high school graduates to be 96.2%*.
+
+> Do we? While necessary for prediction, the intercept often has no meaningful interpretation.
+
+
+## Linear Models for Prediction {.smaller}
+
+:::: columns
+::: {.column width="25%"}
+::: poll
+What graduation rate would you expect for a state with a poverty rate of 15%?
+
+$$\hat{y} = 96.2 - .9 x$$
+
+:::
+:::
+::: {.column width="75%"}
+```{r, echo = FALSE, fig.height = 6, fig.width = 9, fig.align="center"}
+p1 + 
+  geom_abline(intercept = m1$coef[1], slope = m1$coef[2], 
+              col = "goldenrod", lwd = 1.5)
+```
+:::
+::::
+
+## Linear Models
+
+:::: columns
+::: {.column width="47%"}
+
+By "hand":
+
+```{r}
+coef(m1)[1] + coef(m1)[2] * 15
+```
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%" .fragment}
+
+Using `predict()`:
+
+```{r}
+newx <- tibble(Poverty = 15)
+predict(m1, newx)
+```
+
+<br>
+<br>
+
+>Note: be sure `newx` has the `x` variable named identically to the original df
+:::
+::::
+
+## Linear Models for Prediction
+
+. . .
+
+::: poll
+Which data set(s) will yield a linear model with the best in-sample "predictions"?
+:::
+
+. . .
+
+```{r out.width="75%", echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/id-the-slr.png")
+```
+
+
+## Linear Models for Prediction
+
+```{r out.width="75%", echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/r-squared.jpg")
+```
+
+## The coefficient of determination $R^2$
+
+-   $R^2$, the square of the correlation coefficient, measures the proportion of total variability in the $y$ that is explained by the linear model.
+
+-   You may see $R^2$ also called **the coefficient of determination**.
+
+    - $R^2 \in [0, 1]$
+
+    - $R^2$ near 1 means predictions were more accurate.
+
+    - $R^2$ near 0 means predictions were less accurate.
+
+. . . 
+
+## How good were the "predictions"?
+
+-   Interpretation: $R^2 * 100$ percent of the variability in the *outcome variable* can be explained by the *predictor variable(s).*
+
+. . . 
+
+## Two classes of predictions
+
+1. _Interpolation_: Prediction using a value of $x$ that is _within_ the range of $x$ values found in the data set used to fit the model.
+
+2. _Extrapolation_: Prediction using a value of $x$ that is _outside_ the range of $x$ values found in the data set used to fit the model.
+
+. . . 
+
+## Two classes of predictions - Exercise
+
+-   Consider the poverty-graduation example we have been discussing. I wish to use the linear model we constructed to predict the graduation rate for a new observation with a poverty rate of:
+
+    -   2 percent
+    
+    -   12 percent
+    
+    -   22 percent
+    
+-   Which of these predictions would be interpolations versus extrapolations?
+
+
+# End of Lecture 19
