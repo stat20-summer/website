@@ -8,7 +8,7 @@ layout: single
 links:
 - icon: poll-h
   icon_pack: fas
-  name: Problem Set 4
+  name: Problem Set 5
   url: https://stat20summer.netlify.app/problem-sets/05/ps5.pdf
 
 ---

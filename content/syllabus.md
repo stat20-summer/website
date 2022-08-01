@@ -160,6 +160,7 @@ upon for additional readings:
     R](https://rstudio-education.github.io/hopr/) **HOP**, Grolemund
 -   [R for Data Science](https://r4ds.had.co.nz/) **RDS**, Wickham and Grolemund
 -   [Probability](https://antivirus.uclv.edu.cu/update/libros/Mathematics%20and%20Statistics/Probability%20-%20Jim%20Pitman%2C%201993%20-%20978-1-4612-4374-8.pdf) **PIT** Pitman, currently hosted at that link. 
+-   [Introduction To Statistical Learning](https://hastie.su.domains/ISLR2/ISLRv2_website.pdf) **ISLR** James, Witten, Hastie and Tibshirani, currently hosted at that link.
 
 ### Programming
 
@@ -297,6 +298,10 @@ the class should be your ability to do data analysis in a semi-formal
 setting.
 
 There is no curve, so you don't need to worry about this.
+
+#### Extra Credit
+
+See Ed and visit the Assignments tab.
 
 #### Collaboration policy
 

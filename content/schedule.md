@@ -266,34 +266,34 @@ hide_details: yes
 <td style="text-align: left;"><p>Monday</p></td>
 <td style="text-align: left;"><p>8/1</p></td>
 <td style="text-align: left;"><p><a href="NA">Simple Linear Regression</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/model-slr.html?q=linear#model-slr">IMS Ch 7</a></p></td>
 <td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p><a href="NA">Lab 6</a></p></td>
+<td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/labs/06/lab6.pdf">Lab 6</a></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Tuesday</p></td>
 <td style="text-align: left;"><p>8/2</p></td>
-<td style="text-align: left;"><p><a href="NA">Simple Linear Regression</a></p></td>
+<td style="text-align: left;"><p><a href="NA">Classification: K-Nearest Neighbors</a></p></td>
+<td style="text-align: left;"><p><a href="https://hastie.su.domains/ISLR2/ISLRv2_website.pdf">ISLR Ch 2.2 (pgs 39-42)</a></p></td>
 <td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p><a href="NA">PS 6</a></p></td>
+<td style="text-align: left;"><p><a href="https://stat20summer.netlify.app/problem-sets/06/ps6.pdf">PS 6</a></p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Wednesday</p></td>
 <td style="text-align: left;"><p>8/3</p></td>
-<td style="text-align: left;"><p><a href="NA">Multiple Linear Regression, Interpretation, Complexity of Models</a></p></td>
-<td style="text-align: left;"><p></p></td>
-<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p><a href="NA">Adding Complexity; Model Diagnostics and Overfitting</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/model-mlr.html?q=model#model-mlr">IMS Ch 8.1-8.3</a></p></td>
+<td style="text-align: left;"><p><a href="https://openintro-ims.netlify.app/model-slr.html?q=linear#model-slr">IMS Ch 7</a></p></td>
 <td style="text-align: left;"><p><a href="NA">Quiz 2</a></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><p>Thursday</p></td>
 <td style="text-align: left;"><p>8/4</p></td>
-<td style="text-align: left;"><p><a href="NA">Data Analysis Pipeline in the Linear Regression context</a></p></td>
-<td style="text-align: left;"><p></p></td>
+<td style="text-align: left;"><p><a href="NA">The Data Analysis Workflow </a></p></td>
+<td style="text-align: left;"><p><a href="https://r4ds.had.co.nz/introduction.html">RDS Ch 1.1</a></p></td>
 <td style="text-align: left;"><p></p></td>
 <td style="text-align: left;"></td>
 </tr>
