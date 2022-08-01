@@ -114,7 +114,7 @@ class: center, middle
 
 ---
 
-## Data Analysis - Linear Model EDA (10 mins.)
+## Data Analysis - Linear Model EDA (5 mins.)
 
 -   **Question 5**
 
@@ -123,6 +123,10 @@ class: center, middle
 -   **Question 6**
 
     -   Plot the relationship between number of log number of photos taken and log number of reviews. Describe the relationship in terms of form, strength, and direction. Comment also on the presence (if any) of outliers.
+    
+---
+
+## Data Analysis - Linear Model EDA (5 mins.)
 
 -   **Question 7**
 
