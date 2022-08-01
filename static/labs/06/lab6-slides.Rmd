@@ -1,0 +1,187 @@
+---
+title: 'Lab 6: Prediction'
+author: "BSS Stat 20"
+date: "August 1st, 2022"
+output:
+  xaringan::moon_reader:
+    css: stat20.css
+    lib_dir: assets/libs
+    nature:
+      highlightStyle: "atelier-forest-light"
+      highlightLines: yes
+      highlightSpans: yes
+      ratio: '16:9'
+      countIncrementalSlides: no
+      slideNumberFormat: '%current%'
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE,
+                      echo = FALSE,
+                      fig.align = "center",
+                      fig.retina = 3)
+
+library(tidyverse)
+library(xaringanthemer)
+```
+
+
+class: center, middle
+
+# Welcome to Lab!
+
+---
+
+class: center, middle
+
+# Day 1
+
+---
+
+# Lab 6
+
+---
+
+## Lab 6 - Berkeley Restaurants
+
+-   This week we will be looking at a data set featuring Berkeley restaurants (maybe some of your favorites)!
+
+-   The data was collected from Google and features restaurants from the North Berkeley, Downtown Berkeley and Southside neighborhoods.
+
+---
+
+# Examining the Data
+
+---
+
+## Examining the Data
+
+-   Download the Restaurants data set from the course forum thread titled *Lab 6 Materials.*
+
+---
+
+## Examining the Data (10 mins.)
+
+-   **Question 1**
+
+    -   What is the unit of observation in this data set?
+
+-   **Question 2**
+
+    -   What are the dimensions of this data set?
+
+-   **Question 3**
+
+    -   Based on the variables present in this data set, list a question about Berkeley restaurants that can be answered.
+
+-  **Question 4**
+
+    -   List a question about Berkeley restaurants that cannot be answered with this data set.
+    
+---
+
+# Data Analysis - Linear Model EDA
+
+---
+
+# Transformations
+
+---
+
+## Transformations
+
+-   Generally, want our outcome variable in a linear regression to be (roughly) *normally distributed*.
+
+--
+
+-   However, this is not always the case. Sometimes the distribution of an outcome variable is *skewed.*
+
+---
+
+## Transformations
+
+-   Therefore, we'd like to fix this if possible.
+
+--
+
+-   We can do this by applying a function to (also called *transforming*) the data. One common function used is the (natural) logarithmic function $ln()$, which you can use in R with the command `log()`.
+
+--
+
+-   Transformations can also be useful for predictor variables if they are not normally distributed, too.
+
+---
+
+## Data Analysis - Linear Model EDA (10 mins.)
+
+-   **Question 5**
+
+    -   Plot the distribution of number of reviews and describe the relationship. Comment on whether we should consider transforming this data if we use it as an outcome variable in a linear regression model based on our results.
+
+-   **Question 6**
+
+    -   Plot the relationship between number of log number of photos taken and log number of reviews. Describe the relationship in terms of form, strength, and direction. Comment also on the presence (if any) of outliers.
+
+-   **Question 7**
+
+    -   Compute the correlation coefficient $r$ between log number of photos posted and log number of reviews posted.
+
+-   **Question 8**
+
+    -   Based on the results of Question 6 and Question 7, does a linear model seem appropriate in this setting?
+
+---
+
+# Data Analysis - Linear Regression
+
+---
+
+## Data Analysis - Linear Regression (5 mins.)
+
+-   **Question 9**
+
+    -   Fit a simple linear model to predict log number of reviews by log number of photos taken and save your fit into an object.
+
+-   **Question 10**
+
+    -   Write out the equation for the simple linear model and interpret the slope you got.
+    
+---
+
+## Data Analysis - Linear Regression (5 mins.)
+
+-   **Question 11**
+
+    -   Report the $R^2$ value from your simple linear model and interpret it in the context of the problem.
+
+-   **Question 12**
+
+    -   Superimpose your linear model from Question 10 onto the plot you made in Question 7. Based on this plot and your $R^2$ value from Question 12, does a linear model seem appropriate to you in this setting?
+    
+---
+
+## Data Analysis - Linear Regression (5 mins.)
+
+-   **Question 13**
+
+    -   Bobby G's Pizzeria has 209 photos posted and 508 reviews posted to Google. Calculate the residual number of reviews (not on the log scale) for Bobby G's Pizzeria based on your model.
+
+-   **Question 14**
+
+    -   Now, consider a Berkeley restaurant with 350 photos posted on Google Reviews. How many reviews (not on the log scale) does your model predict will be written for that restaurant on Google Reviews?
+    
+---
+
+## Data Analysis - Linear Regression (5 mins.)
+
+-   **Question 15**
+
+    -   Now, fit a multiple regression model to predict the number of reviews written about a restaurant with number of photos taken and at least one other variable in the data set. Report the adjusted $R^2$ ($R^2_{adj}$) and comment on how the $R^2$ value changes from the previous model as well? Do you think the new model you created predicts number of reviews better?
+
+---
+
+# End of Day 1
+
+
