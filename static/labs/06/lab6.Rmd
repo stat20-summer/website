@@ -19,7 +19,7 @@ The data-set this week compiles basic information on Berkeley restaurants in the
 
 ## Examining the Data
 
-Download the `restaurants` data set from the course forum thread titled *Lab 6 Materials.*
+Download the `Restaurants` data set from the course forum thread titled *Lab 6 Materials.*
 
 ### Question 1
 

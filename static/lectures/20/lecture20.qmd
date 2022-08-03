@@ -1,0 +1,222 @@
+---
+title: "Lecture 20: Classification"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../assets/stat20.scss"
+    highlight-style: breezedark
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: "images/hex-background.png"
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# First Things First
+
+```{r, echo = FALSE, message = FALSE}
+library(tidyverse)
+library(palmerpenguins)
+data(penguins)
+```
+
+## First Things First
+
+-   Quiz 2 released Thursday at 6:00p
+
+    -   Covers Week 5 material up until tomorrow (Tuesday)
+    
+    -   There will be a retake, similar to last Quiz
+    
+. . . 
+
+## First Things First
+
+-   Course Evaluations either available now or available soon
+
+    -   Please answer the custom questions! (about how I did as a lecturer, content creator, class policies)
+    
+. . . 
+
+## First Things First
+
+-   On Question 12 (code demo)
+
+. . . 
+
+# Classifcation
+
+Let's again visit one of our favorite datasets: the `penguins` dataset from the `palmerpenguins` package.
+
+## Classification
+
+:::: columns
+::: {.column width="60%"}
+```{r penguin_plot, echo = FALSE, fig.align= 'left', fig.dim = c(6,6)}
+penguins %>% drop_na(flipper_length_mm, body_mass_g) %>%
+  rename(Species = species) %>%
+  ggplot() + geom_point(mapping = aes(x = flipper_length_mm,
+                                      y = body_mass_g, color = Species)) +
+  theme_light() + 
+  xlab("Flipper Length (in millimeters)") + ylab("Body Mass (in grams)") +
+  ggtitle("Body Mass and Flipper Length of Palmer Station Penguins",
+          subtitle = "by Species")
+
+```
+:::
+
+::: {.column width="40%"}
+
+-   Can we use Species as an outcome variable with flipper length and body mass as predictors?
+
+:::
+::::
+
+## Classification
+
+-   We can! When we use categorical outcome classes rather than a numerical variable as our outcome, we are performing *classification.*
+
+-   Classification problems are extremely practical and present themselves naturally in a ton of different settings.
+
+. . . 
+
+## Classifcation - My own example
+
+-   [Here](https://github.com/jeremy-sanchez/Over_49/tree/main/Over_49) is a classification project I did on a sports application (I love sports!)
+
+-   In this project, I attempted to determine whether NFL teams would combine for *over* or *under* 49 points during a game. This was my *outcome variable* with two classes.
+
+-   Some predictors I used:
+
+    -   Points per game
+    
+    -   Points allowed per game
+    
+    -   Quarterback Rating (according to ESPN)
+    
+    -   . . . and more!
+    
+. . . 
+
+## Classification
+
+-   Why not use linear regression for this?
+
+    -   You *can*, but because your outcomes are discrete and your line will assume continuity, you will still at some point have to decide which values correspond to which class
+    
+    -   Better to start with a more specialized method *just for* classification purposes
+    
+    -   One very popular regression method for classification is called *logistic regression*, which will not be covered in this unit.
+    
+. . . 
+
+# $k$-Nearest Neighbors
+
+## $k$-Nearest Neighbors
+
+-   **$k$-Nearest Neighbors** is a very simple, intuitive method of classification
+
+-   It is also rather effective for its simplicity
+
+-   The method is so called because its results depend on the choice of a *tuning parameter* $k$, which is determined by the user
+
+    -   The method of determination most generally used is called *cross-validation*, which is beyond the scope of this unit.
+    
+    -   If you are interested in data science, however, I would encourage you to check out resources on this!
+    
+. . . 
+
+## $k$-Nearest Neighbors - Setup
+
+-   First, we need to *split* our data into two groups: *testing* and *training*. 
+
+    -   This concept is universal in modeling among all model types, including linear regression
+    
+-   We use the *training* data to help us predict our *testing* data
+
+    -   When judging a model's effectiveness, we evaluate its performance on the testing data
+    
+        -   The model has not seen the testing data before so this is only fair
+        
+. . . 
+
+## $k$-Nearest Neighbors - Setup
+
+-   At this point, we went to the course server to discuss how to perform this split using the `dplyr` function `slice()` and the base function `sample()`.
+
+## $k$-Nearest Neighbors 
+
+-   The Method for classifying a specific testing observation $test_{i}$:
+
+    -   Find the $k$ "closest" neighbors to $test_{i}$ in terms of the predictor variables being evaluated. In two dimensions, this amounts to Euclidean distance.
+    
+    -   Record the class for each of these $k$ "closest" neighbors. You can consider each neighbor having one "*vote*" for the decided class of $test_{i}$.
+    
+    -   Whichever class has the most votes is deemed the class of $test_{i}$!
+    
+. . . 
+
+## $k$-Nearest Neighbors 
+
+-   What if there is a tie as to the most popular class vote?
+
+    -   Ties are broken *at random.* This is another reason to *ensure reproducibility of your results* by using a random seed.
+    
+. . .
+
+## $k$-Nearest Neighbors - Fitting the Model
+
+-   At this point, we went back to the course server to discuss how to fit $k$-Nearest Neighbors using the `knn()` function in the `class` library.
+
+. . . 
+
+## $k$-Nearest Neighbors - Evaluating our performance
+
+::: poll
+-   How should we evaluate the performance of our model?
+:::
+
+## $k$-Nearest Neighbors - Evaluating our performance
+
+-   We will calculate the proportion of incorrectly identified observations.
+
+-   We call this the *misclassification rate*, or *MCR* for short.
+
+-   We would like this rate to be as close to 0 as possible.
+
+. . .
+
+## $k$-Nearest Neighbors - Evaluating our performance
+
+-   At this point we went back to the course server to calculate the MCR for our running example.
+
+. . . 
+
+# Break
+
+# Exercise
+
+## Exercise - your turn!
+
+> The best way to learn data science is by doing data science.
+
+. . . 
+
+-   Using the `iris` dataset preloaded into R, fit $k$-Nearest Neighbors to predict `Species` (`"virginica"` or `"versicolor"`) of flower by `Sepal.Length` and `Sepal.Width`. Use $k = 5$.
+
+-   Provide your misclassification rate (MCR).
+
+. . . 
+
+# End of Lecture 20
+
+
+
+
+
+
