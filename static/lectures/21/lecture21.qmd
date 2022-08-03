@@ -366,7 +366,7 @@ m2 <- lm(Price ~ Food + Decor + East, data = nyc)
 
 :::: columns
 ::: {.column width="50%"}
-[Model 1]{.inversebox}
+[Two Variables]{.inversebox}
 
 ```{r}
 m1 <- lm(Price ~ Food + Decor, 
@@ -376,7 +376,7 @@ paste("R^2: ",summary(m1)$r.squared)
 :::
 
 ::: {.column width="50%"}
-[Model 2]{.inversebox}
+[Three Variables]{.inversebox}
 
 ```{r}
 m2 <- lm(Price ~ Food + Decor + East, 
@@ -394,16 +394,14 @@ paste("R^2: ",summary(m2)$r.squared)
 
 -   Just out of curiosity, what happens to the $R^2$ if we continue to add some more variables to our model?
 
-    -   In this case, the type of variables we will be adding are called *interaction terms*.
-    
-    
+  
 . . . 
 
 ## The Problem with $R^2$ {auto-animate=true}
 
 :::: columns
 ::: {.column width="50%"}
-[Model 1]{.inversebox}
+[Two Variables]{.inversebox}
 
 ```{r}
 m1 <- lm(Price ~ Food + Decor, 
@@ -413,7 +411,7 @@ paste("R^2:",summary(m1)$r.squared)
 :::
 
 ::: {.column width="50%"}
-[Model 2]{.inversebox}
+[Three Variables]{.inversebox}
 
 ```{r}
 m2 <- lm(Price ~ Food + Decor + East, 
@@ -428,7 +426,7 @@ paste("R^2:",summary(m2)$r.squared)
 
 :::: columns
 ::: {.column width="50%"}
-[Model 3]{.inversebox}
+[Four Variables]{.inversebox}
 
 ```{r}
 m3 <- lm(Price ~ Food + Decor + East +
@@ -439,7 +437,7 @@ paste("R^2:",summary(m3)$r.squared)
 :::
 
 ::: {.column width="50%"}
-[Model 4]{.inversebox}
+[Five Variables]{.inversebox}
 
 ```{r}
 m4 <- lm(Price ~ Food + Decor + East + 
