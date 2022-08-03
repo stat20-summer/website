@@ -1,0 +1,641 @@
+---
+title: "Lecture 21: Prediction II"
+institute: "STAT 20 UC Berkeley"
+logo: "images/stat20-hex.png"
+format: 
+  revealjs:
+    theme: "../../assets/stat20.scss"
+    highlight-style: breezedark
+    slide-number: true
+    incremental: true
+    menu: false
+    title-slide-attributes:
+      data-background-image: "images/hex-background.png"
+      data-background-size: cover  
+    progress: false
+execute:
+  freeze: auto
+---
+
+# First Things First
+
+```{r, echo = FALSE, message = FALSE}
+library(tidyverse)
+library(palmerpenguins)
+data(penguins)
+```
+
+## First Things First
+
+-   Quiz 2 released tomorrow at 6:00p
+
+    -   Covers Week 5 material up until yesterday (Tuesday)
+    
+    -   There will be a retake, similar to last Quiz
+    
+. . . 
+
+## First Things First
+
+-   Course Evaluations either available now or available soon
+
+    -   Please answer the custom questions! (about how I did as a lecturer, content creator, class policies)
+    
+. . . 
+
+## Today and tomorrow:
+
+-   Today: Multiple Linear Regression, considerations for prediction
+
+-   Tomorrow: The Data Analysis Pipeline in the Prediction Context; Inference with Linear Regression
+
+. . . 
+
+# Multiple Linear Regression
+
+## Multiple Linear Regression
+
+```{r out.width=480, echo = FALSE}
+knitr::include_graphics("images/pile-of-books.jpg")
+```
+
+When you buy a book off of Amazon, you get a quote for how much it
+costs to ship. This is based on the weight of the book. If you
+didn't know the weight a book, what other characteristics of it
+could you measure to help predict weight?
+
+```{r getdata, echo = FALSE, message=FALSE}
+library(DAAG)
+library(tidyverse)
+data(allbacks)
+books <- allbacks[, c(3, 1, 4)] %>%
+  tibble()
+
+?allbacks
+```
+
+. . . 
+
+## Case Study: Amazon Books
+
+-   Consider the following data set, a simple random sample of 15 books from Amazon's catalog where the weight of the books is known. It is called `allbacks` and it belongs to the `DAAG` library. 
+
+. . . 
+
+## Case Study: Amazon Books
+
+-   Here are the variables in this dataset (with documentation):
+
+    -   `volume`: book volumes in cubic centimeters
+    
+    -   `area`: hard board cover areas in square centimeters
+    
+    -   `cover`: a factor with levels hb hardback, pb paperback
+    
+    -   `weight`: book weights in grams
+    
+    
+. . . 
+
+## A simple linear model: predicting `weight` with `volume`
+
+```{r booksdata, eval = FALSE}
+books %>%
+  select(weight, volume)
+```
+
+. . .
+
+```{r ref.label = "booksdata", echo = FALSE}
+```
+
+
+## Predicting `weight` with `volume`: visualized
+
+. . .
+
+```{r plotallbacks, echo = FALSE, fig.width=9, fig.height = 6.7}
+p1 <- ggplot(books, aes(x = volume, y = weight)) +
+  geom_point(size = 3) +
+  theme_bw(base_size = 18)
+p1
+```
+
+
+## Predicting `weight` with `volume`: visualized
+
+```{r fitm1, echo = FALSE}
+m1 <- lm(weight ~ volume, data = books)
+```
+
+```{r plotallbackswline, fig.width=9, fig.height = 6.7, echo = FALSE}
+p1 + 
+  geom_abline(intercept = m1$coef[1], slope = m1$coef[2],
+              col = "blue", lwd = 2)
+```
+
+
+## Predicting `weight` with `volume`
+
+. . .
+
+```{r lm, eval = FALSE}
+m1 <- lm(weight ~ volume, data = books)
+summary(m1)
+```
+
+. . .
+
+```{r ref.label = "lm", echo = FALSE}
+m1 <- lm(weight ~ volume, data = books)
+summary(m1)
+```
+
+. . . 
+
+<br>
+
+::: poll
+What is the equation of the predicted line for this model?
+:::
+
+## Predicting `weight` with `volume`
+
+-   What is the equation for the line?
+
+. . .
+
+$$ \hat{y} = 107.7 + 0.708 x $$
+. . . 
+
+-   Or in words:
+
+$$ \widehat{weight} = 107.7 + 0.708 volume $$
+
+. . . 
+
+# Multiple Linear Regression
+
+Might we want to use some of the other variables in our Amazon dataset to predict the weight of books?
+
+## Multiple Linear Regression {.scrollable}
+
+. . .
+
+Allows us to create a model to explain one numerical variable, the response, as a linear function of many explanatory variables that can be both numerical and categorical.
+
+. . .
+
+<br>
+
+We posit a true model (here with a normal errors assumption):
+
+$$ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_p x_p + \epsilon; \quad \epsilon \sim N(0, \sigma^2) $$
+
+We use the data to estimate our fitted model:
+
+$$ \hat{y} = b_0 + b_1 x_1 + b_2 x_2 + \ldots + b_p x_p $$
+
+
+## Estimating $\beta_j$'s
+
+. . .
+
+In least-squares regression, we're still finding the estimates that minimize
+the sum of squared residuals.
+
+$$ e_i = y_i - \hat{y}_i $$
+
+$$ RSS = \sum_{i = 1}^n (y_i - \hat{y}_i)^2 $$
+
+They do have a closed-form solution, but it uses matrix notation!
+
+$$ \mathbf{b} = (X'X)^{-1}X'Y $$
+
+. . .
+
+## Estimating $\beta_j$'s
+
+-   In R (this is just an example dataset called `mydata` with predictor columns `X1`, `X2`, ... , `Xp`):
+
+```{r eval = FALSE}
+lm(Y ~ X1 + X2 + ... + Xp, data = mydata)
+```
+
+. . . 
+
+## Shipping books: adding a categorical predictor
+
+. . .
+
+```{r df, eval = FALSE}
+books
+```
+
+. . .
+
+```{r ref.label = "df", echo = FALSE}
+```
+
+
+## Shipping books: adding a categorical predictor
+
+```{r plotcolors, echo = FALSE}
+p2 <- ggplot(books, aes(x = volume,
+                        y = weight, 
+                        color = cover)) +
+  geom_point(size = 3) +
+  theme_bw(base_size = 18)
+p2
+```
+
+
+## Shipping books: adding a categorical predictor
+
+```{r}
+m2 <- lm(weight ~ volume + cover, data = books)
+summary(m2)
+```
+
+
+## How do we interpret these estimates?
+
+Think about the geometry of the model given one numerical predictor and one categorical predictor.
+
+
+## {background-image="images/dummy-var.jpg" background-size="contain"}
+
+## {background-image="images/ancova-geometry-1.jpg" background-size="contain"}
+
+
+## Example: shipping books
+
+. . .
+
+```{r echo = FALSE}
+p3 <- p2 +
+  geom_abline(intercept = m2$coef[1], slope = m2$coef[2], col = 2) +
+  geom_abline(intercept = m2$coef[1] + m2$coef[3], slope = m2$coef[2], col = 4)
+p3
+```
+
+
+## MLR slope interpretation
+
+. . .
+
+The slope corresponding to the *indicator variable* tells us:
+
+- How much vertical separation there is between our lines
+
+- How much `weight` is expected to increase if `cover` goes
+from 0 to 1 and `volume` is left unchanged.
+
+. . .
+
+Each $b_j$ tells you how much you expect the $Y$ to change when you change the
+$X_i$, while **holding all other variables constant**.
+
+
+## Summarizing our Second Model
+
+```{r}
+summary(m2)
+```
+
+
+::: poll
+Interpret the $R^2$ value here in the context of the problem.
+:::
+
+# Break
+
+# Overfitting
+
+# Linear Regression: The Problem with $R^2$
+
+## {background-image="images/zagat.png" background-size="contain"} 
+
+```{r echo = FALSE, message = FALSE}
+nyc <- read_csv("nyc.csv")
+```
+
+
+## The Problem with $R^2$: Case Study
+
+> Can we predict the price of Italian restaurants in Manhattan using predictors such as type of food, location and decor?
+
+. . . 
+
+-   Because we are thinking of using multiple predictors for a numerical outcome variable, multiple linear regression seems to be a fair choice.
+
+## The Problem with $R^2$: Case Study
+
+More info on our predictors:
+
+-   `Food`, `Decor`, and `Service` are coded numerically (numerical discrete)
+
+-   `East` is an indicator variable (categorical ordinal)
+
+. . . 
+
+## Two models to predict the price of a meal
+
+. . .
+
+[Model 1]{.inversebox}
+
+$$Price \sim Food + Decor$$
+
+```{r}
+m1 <- lm(Price ~ Food + Decor, data = nyc)
+```
+
+. . .
+
+[Model 2]{.inversebox}
+
+$$Price \sim Food + Decor + East$$
+
+```{r}
+m2 <- lm(Price ~ Food + Decor + East, data = nyc)
+```
+
+
+## The Problem with $R^2$ {auto-animate=true}
+
+:::: columns
+::: {.column width="50%"}
+[Model 1]{.inversebox}
+
+```{r}
+m1 <- lm(Price ~ Food + Decor, 
+         data = nyc)
+paste("R^2: ",summary(m1)$r.squared)
+```
+:::
+
+::: {.column width="50%"}
+[Model 2]{.inversebox}
+
+```{r}
+m2 <- lm(Price ~ Food + Decor + East, 
+         data = nyc)
+paste("R^2: ",summary(m2)$r.squared)
+```
+:::
+::::
+
+. . . 
+
+## The Problem with $R^2$
+
+-   Note that with the additional variable `East` added to the fray in the second model, our $R^2$ jumped up.
+
+-   Just out of curiosity, what happens to the $R^2$ if we continue to add some more variables to our model?
+
+    -   In this case, the type of variables we will be adding are called *interaction terms*.
+    
+    
+. . . 
+
+## The Problem with $R^2$ {auto-animate=true}
+
+:::: columns
+::: {.column width="50%"}
+[Model 1]{.inversebox}
+
+```{r}
+m1 <- lm(Price ~ Food + Decor, 
+         data = nyc)
+paste("R^2:",summary(m1)$r.squared)
+```
+:::
+
+::: {.column width="50%"}
+[Model 2]{.inversebox}
+
+```{r}
+m2 <- lm(Price ~ Food + Decor + East, 
+         data = nyc)
+paste("R^2:",summary(m2)$r.squared)
+```
+:::
+::::
+
+<br>
+<br>
+
+:::: columns
+::: {.column width="50%"}
+[Model 3]{.inversebox}
+
+```{r}
+m3 <- lm(Price ~ Food + Decor + East +
+           East:Decor, 
+         data = nyc)
+paste("R^2:",summary(m3)$r.squared)
+```
+:::
+
+::: {.column width="50%"}
+[Model 4]{.inversebox}
+
+```{r}
+m4 <- lm(Price ~ Food + Decor + East + 
+           East:Decor + East:Food, 
+         data = nyc)
+paste("R^2:",summary(m4)$r.squared)
+```
+:::
+::::
+
+. . .
+
+> More variables, higher r-squared . . .
+
+## The problem with $R^2$
+
+```{r out.width="75%", echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/r-squared.jpg")
+```
+
+. . . 
+
+## The problem with $R^2$
+
+-   Our existing statistic to measure how well the model captures the variability in the data is $R^2$.
+
+. . . 
+
+$$R^2 = \frac{SSR}{TSS}$$
+
+
+-   But by the above equation and by what we've seen empirically, $R^2$ can *never* decrease when additional variables are added to the model!
+
+
+## Adjusted $R^2$
+
+A more useful statistic when comparing MLR models of different complexities is adjusted $R^2$, which balances the ability of the model to explain the data with its simplicity.
+
+$$R^2_{adj} = 1 - \frac{1- SSR}{TSS} \cdot \frac{n - 1}{n - p - 1} $$
+
+## Case Study: Reporting both $R^2$ and $R^2_{adj}$ {auto-animate=true}
+
+:::: columns
+::: {.column width="50%"}
+[Model 1]{.inversebox}
+
+```{r}
+m1 <- lm(Price ~ Food + Decor, 
+         data = nyc)
+paste("R^2:",summary(m1)$r.squared)
+```
+
+```{r}
+paste("Adjusted R^2:",summary(m1)$adj.r.squared)
+```
+:::
+
+::: {.column width="50%"}
+[Model 2]{.inversebox}
+
+```{r}
+m2 <- lm(Price ~ Food + Decor + East, 
+         data = nyc)
+paste("R^2:",summary(m2)$r.squared)
+```
+
+```{r}
+paste("Adjusted R^2:",summary(m2)$adj.r.squared)
+```
+:::
+::::
+
+<br>
+<br>
+
+:::: columns
+::: {.column width="50%"}
+[Model 3]{.inversebox}
+
+```{r}
+m3 <- lm(Price ~ Food + Decor + East +
+           East:Decor, 
+         data = nyc)
+paste("R^2:",summary(m3)$r.squared)
+```
+
+```{r}
+paste("Adjusted R^2:",summary(m3)$adj.r.squared)
+```
+:::
+
+::: {.column width="50%"}
+[Model 4]{.inversebox}
+
+```{r}
+m4 <- lm(Price ~ Food + Decor + East + 
+           East:Decor + East:Food, 
+         data = nyc)
+paste("R^2:",summary(m4)$r.squared)
+```
+
+```{r}
+paste("Adjusted R^2:",summary(m4)$adj.r.squared)
+```
+:::
+::::
+
+# $k$-Nearest Neighbors: The choice of $k$
+
+## The choice of $k$
+
+-   As we mentioned briefly yesterday, the choice of $k$ will impact the predictions generated by $k$-nearest neighbors.
+
+-   If $k$ is small, the algorithm will be more *local*; if $k$ is large, the algorithm will be more *global*.
+
+    -   Less information used to predict a class versus more information used
+    
+. . . 
+
+## The choice of $k$ - Exercise
+
+-   Observe the following three plots. These plots show which points would result in a prediction for the red class using $k$NN and which points would result in a prediction for the blue class using $k$NN.
+
+. . . 
+
+:::: columns
+
+::: {.column width="34%"}
+![](images/k10.jpeg)
+:::
+::: {.column width="33%"}
+![](images/k1.jpeg)
+:::
+::: {.column width="33%"}
+![](images/k5.jpeg)
+:::
+::::
+
+. . . 
+
+## The choice of $k$
+
+:::: columns
+
+::: {.column width="34%"}
+![](images/k10.jpeg)
+:::
+::: {.column width="33%"}
+![](images/k1.jpeg)
+:::
+::: {.column width="33%"}
+![](images/k5.jpeg)
+:::
+::::
+
+::: poll
+-   Sort the following plots in ascending order by the size of $k$ used.
+:::
+
+. . . 
+
+## The choice of $k$
+
+Put another way:
+
+-   When we *increase* $k$:
+
+    -   We becomes less beholden to the location of our training data,
+  
+    -   *But*, we run the risk of becoming *too* lax.
+
+-   When we *decrease* $k$:
+
+    -   Our decision boundary becomes less lax, 
+    
+    -   *But*, but we run the risk of becoming *too* beholden to the location of our training data.
+
+. . . 
+
+## The choice of $k$ - finding the sweet spot 
+
+-   I used **cross-validation** to demonstrate how one would go about finding the best $k$. Details in Lecture Code.
+
+-   This involves splitting our training set further into a *true training set* and a *validation set*.
+
+. . . 
+
+## The choice of $k$ - finding the sweet spot {.scrollable}
+
+![](images/sweetspotk.jpeg)
+
+. . . 
+
+-   Based off of this image, it appears that $k=3$ is a good choice.
+
+. . . 
+
+# End of Lecture 21
+

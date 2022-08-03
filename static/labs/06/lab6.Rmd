@@ -109,4 +109,4 @@ Find the misclassification rate (MCR) of your $k$-Nearest Neighbors model.
 
 ### Question 19
 
-Identify one (if any) restaurant whose neigborhood was misclassified by your $k$-Nearest Neighbors model and give reasons as to why the model might have failed to locate the restaurant correctly. If you have no such restaurants, describe the value combinations of `Price_Scale` and `Avg_Rating` that are characteristic to restaurants in North Berkeley.
+Identify one (if any) restaurant whose neighborhood was misclassified by your $k$-Nearest Neighbors model and give reasons as to why the model might have failed to locate the restaurant correctly. If you have no such restaurants, describe the value combinations of `Price_Scale` and `Avg_Rating` that are characteristic to restaurants in North Berkeley.

@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="lecture21_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lecture21_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lecture21_files/libs/quarto-html/popper.min.js"></script>
+<script src="lecture21_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lecture21_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lecture21_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+<link href="lecture21_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.566">
+
+  <title>Lecture 21: Prediction II</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="lecture21_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lecture21_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="lecture21_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="lecture21_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lecture21_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lecture21_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture21_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-captioned.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-captioned) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-captioned .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-captioned .callout-caption  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-captioned.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-captioned.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-caption {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-caption {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-caption {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-captioned .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-captioned) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-caption {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-caption {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-caption {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-caption {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-caption {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="images/hex-background.png" data-background-size="cover" class="center">
+  <h1 class="title">Lecture 21: Prediction II</h1>
+  <p class="institute">STAT 20 UC Berkeley</p>
+</section>
+
+<section>
+<section id="first-things-first" class="title-slide slide level1 center">
+<h1>First Things First</h1>
+<div class="cell">
+
+</div>
+</section>
+<section id="first-things-first-1" class="slide level2">
+<h2>First Things First</h2>
+<ul>
+<li class="fragment"><p>Quiz 2 released tomorrow at 6:00p</p>
+<ul>
+<li class="fragment"><p>Covers Week 5 material up until yesterday (Tuesday)</p></li>
+<li class="fragment"><p>There will be a retake, similar to last Quiz</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="first-things-first-2" class="slide level2">
+<h2>First Things First</h2>
+<ul>
+<li class="fragment"><p>Course Evaluations either available now or available soon</p>
+<ul>
+<li class="fragment">Please answer the custom questions! (about how I did as a lecturer, content creator, class policies)</li>
+</ul></li>
+</ul>
+</section>
+<section id="today-and-tomorrow" class="slide level2">
+<h2>Today and tomorrow:</h2>
+<ul>
+<li class="fragment"><p>Today: Multiple Linear Regression, considerations for prediction</p></li>
+<li class="fragment"><p>Tomorrow: The Data Analysis Pipeline in the Prediction Context; Inference with Linear Regression</p></li>
+</ul>
+</section></section>
+<section>
+<section id="multiple-linear-regression" class="title-slide slide level1 center">
+<h1>Multiple Linear Regression</h1>
+
+</section>
+<section id="multiple-linear-regression-1" class="slide level2">
+<h2>Multiple Linear Regression</h2>
+
+<img data-src="images/pile-of-books.jpg" width="480" class="r-stretch"><p>When you buy a book off of Amazon, you get a quote for how much it costs to ship. This is based on the weight of the book. If you didn’t know the weight a book, what other characteristics of it could you measure to help predict weight?</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="case-study-amazon-books" class="slide level2">
+<h2>Case Study: Amazon Books</h2>
+<ul>
+<li class="fragment">Consider the following data set, a simple random sample of 15 books from Amazon’s catalog where the weight of the books is known. It is called <code>allbacks</code> and it belongs to the <code>DAAG</code> library.</li>
+</ul>
+</section>
+<section id="case-study-amazon-books-1" class="slide level2">
+<h2>Case Study: Amazon Books</h2>
+<ul>
+<li class="fragment"><p>Here are the variables in this dataset (with documentation):</p>
+<ul>
+<li class="fragment"><p><code>volume</code>: book volumes in cubic centimeters</p></li>
+<li class="fragment"><p><code>area</code>: hard board cover areas in square centimeters</p></li>
+<li class="fragment"><p><code>cover</code>: a factor with levels hb hardback, pb paperback</p></li>
+<li class="fragment"><p><code>weight</code>: book weights in grams</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="a-simple-linear-model-predicting-weight-with-volume" class="slide level2">
+<h2>A simple linear model: predicting <code>weight</code> with <code>volume</code></h2>
+<div class="cell">
+
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 2
+   weight volume
+    &lt;dbl&gt;  &lt;dbl&gt;
+ 1    800    885
+ 2    950   1016
+ 3   1050   1125
+ 4    350    239
+ 5    750    701
+ 6    600    641
+ 7   1075   1228
+ 8    250    412
+ 9    700    953
+10    650    929
+11    975   1492
+12    350    419
+13    950   1010
+14    425    595
+15    725   1034</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="predicting-weight-with-volume-visualized" class="slide level2">
+<h2>Predicting <code>weight</code> with <code>volume</code>: visualized</h2>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="lecture21_files/figure-revealjs/plotallbacks-1.png" width="864"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="predicting-weight-with-volume-visualized-1" class="slide level2">
+<h2>Predicting <code>weight</code> with <code>volume</code>: visualized</h2>
+<div class="cell">
+
+</div>
+
+<img data-src="lecture21_files/figure-revealjs/plotallbackswline-1.png" width="864" class="r-stretch"></section>
+<section id="predicting-weight-with-volume" class="slide level2">
+<h2>Predicting <code>weight</code> with <code>volume</code></h2>
+<div class="fragment">
+<div class="cell">
+
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = weight ~ volume, data = books)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-189.97 -109.86   38.08  109.73  145.57 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 107.67931   88.37758   1.218    0.245    
+volume        0.70864    0.09746   7.271 6.26e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 123.9 on 13 degrees of freedom
+Multiple R-squared:  0.8026,    Adjusted R-squared:  0.7875 
+F-statistic: 52.87 on 1 and 13 DF,  p-value: 6.262e-06</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="poll">
+<p>What is the equation of the predicted line for this model?</p>
+</div>
+</div>
+</section>
+<section id="predicting-weight-with-volume-1" class="slide level2">
+<h2>Predicting <code>weight</code> with <code>volume</code></h2>
+<ul>
+<li class="fragment">What is the equation for the line?</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[ \hat{y} = 107.7 + 0.708 x \]</span></p>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">Or in words:</li>
+</ul>
+<p><span class="math display">\[ \widehat{weight} = 107.7 + 0.708 volume \]</span></p>
+</div>
+</section></section>
+<section>
+<section id="multiple-linear-regression-2" class="title-slide slide level1 center">
+<h1>Multiple Linear Regression</h1>
+<p>Might we want to use some of the other variables in our Amazon dataset to predict the weight of books?</p>
+</section>
+<section id="multiple-linear-regression-3" class="slide level2 scrollable">
+<h2>Multiple Linear Regression</h2>
+<div class="fragment">
+<p>Allows us to create a model to explain one numerical variable, the response, as a linear function of many explanatory variables that can be both numerical and categorical.</p>
+</div>
+<div class="fragment">
+<p><br></p>
+<p>We posit a true model (here with a normal errors assumption):</p>
+<p><span class="math display">\[ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_p x_p + \epsilon; \quad \epsilon \sim N(0, \sigma^2) \]</span></p>
+<p>We use the data to estimate our fitted model:</p>
+<p><span class="math display">\[ \hat{y} = b_0 + b_1 x_1 + b_2 x_2 + \ldots + b_p x_p \]</span></p>
+</div>
+</section>
+<section id="estimating-beta_js" class="slide level2">
+<h2>Estimating <span class="math inline">\(\beta_j\)</span>’s</h2>
+<div class="fragment">
+<p>In least-squares regression, we’re still finding the estimates that minimize the sum of squared residuals.</p>
+<p><span class="math display">\[ e_i = y_i - \hat{y}_i \]</span></p>
+<p><span class="math display">\[ RSS = \sum_{i = 1}^n (y_i - \hat{y}_i)^2 \]</span></p>
+<p>They do have a closed-form solution, but it uses matrix notation!</p>
+<p><span class="math display">\[ \mathbf{b} = (X'X)^{-1}X'Y \]</span></p>
+</div>
+</section>
+<section id="estimating-beta_js-1" class="slide level2">
+<h2>Estimating <span class="math inline">\(\beta_j\)</span>’s</h2>
+<ul>
+<li class="fragment">In R (this is just an example dataset called <code>mydata</code> with predictor columns <code>X1</code>, <code>X2</code>, … , <code>Xp</code>):</li>
+</ul>
+<div class="cell">
+
+</div>
+</section>
+<section id="shipping-books-adding-a-categorical-predictor" class="slide level2">
+<h2>Shipping books: adding a categorical predictor</h2>
+<div class="fragment">
+<div class="cell">
+
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 3
+   weight volume cover
+    &lt;dbl&gt;  &lt;dbl&gt; &lt;fct&gt;
+ 1    800    885 hb   
+ 2    950   1016 hb   
+ 3   1050   1125 hb   
+ 4    350    239 hb   
+ 5    750    701 hb   
+ 6    600    641 hb   
+ 7   1075   1228 hb   
+ 8    250    412 pb   
+ 9    700    953 pb   
+10    650    929 pb   
+11    975   1492 pb   
+12    350    419 pb   
+13    950   1010 pb   
+14    425    595 pb   
+15    725   1034 pb   </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="shipping-books-adding-a-categorical-predictor-1" class="slide level2">
+<h2>Shipping books: adding a categorical predictor</h2>
+
+<img data-src="lecture21_files/figure-revealjs/plotcolors-1.png" width="960" class="r-stretch"></section>
+<section id="shipping-books-adding-a-categorical-predictor-2" class="slide level2">
+<h2>Shipping books: adding a categorical predictor</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = weight ~ volume + cover, data = books)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-110.10  -32.32  -16.10   28.93  210.95 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  197.96284   59.19274   3.344 0.005841 ** 
+volume         0.71795    0.06153  11.669  6.6e-08 ***
+coverpb     -184.04727   40.49420  -4.545 0.000672 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 78.2 on 12 degrees of freedom
+Multiple R-squared:  0.9275,    Adjusted R-squared:  0.9154 
+F-statistic: 76.73 on 2 and 12 DF,  p-value: 1.455e-07</code></pre>
+</div>
+</div>
+</section>
+<section id="how-do-we-interpret-these-estimates" class="slide level2">
+<h2>How do we interpret these estimates?</h2>
+<p>Think about the geometry of the model given one numerical predictor and one categorical predictor.</p>
+</section>
+<section id="section" class="slide level2" data-background-image="images/dummy-var.jpg" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-1" class="slide level2" data-background-image="images/ancova-geometry-1.jpg" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="example-shipping-books" class="slide level2">
+<h2>Example: shipping books</h2>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="lecture21_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="mlr-slope-interpretation" class="slide level2">
+<h2>MLR slope interpretation</h2>
+<div class="fragment">
+<p>The slope corresponding to the <em>indicator variable</em> tells us:</p>
+<ul>
+<li class="fragment"><p>How much vertical separation there is between our lines</p></li>
+<li class="fragment"><p>How much <code>weight</code> is expected to increase if <code>cover</code> goes from 0 to 1 and <code>volume</code> is left unchanged.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Each <span class="math inline">\(b_j\)</span> tells you how much you expect the <span class="math inline">\(Y\)</span> to change when you change the <span class="math inline">\(X_i\)</span>, while <strong>holding all other variables constant</strong>.</p>
+</div>
+</section>
+<section id="summarizing-our-second-model" class="slide level2">
+<h2>Summarizing our Second Model</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = weight ~ volume + cover, data = books)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-110.10  -32.32  -16.10   28.93  210.95 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  197.96284   59.19274   3.344 0.005841 ** 
+volume         0.71795    0.06153  11.669  6.6e-08 ***
+coverpb     -184.04727   40.49420  -4.545 0.000672 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 78.2 on 12 degrees of freedom
+Multiple R-squared:  0.9275,    Adjusted R-squared:  0.9154 
+F-statistic: 76.73 on 2 and 12 DF,  p-value: 1.455e-07</code></pre>
+</div>
+</div>
+<div class="poll">
+<p>Interpret the <span class="math inline">\(R^2\)</span> value here in the context of the problem.</p>
+</div>
+</section></section>
+<section id="break" class="title-slide slide level1 center">
+<h1>Break</h1>
+
+</section>
+
+<section id="overfitting" class="title-slide slide level1 center">
+<h1>Overfitting</h1>
+
+</section>
+
+<section>
+<section id="linear-regression-the-problem-with-r2" class="title-slide slide level1 center">
+<h1>Linear Regression: The Problem with <span class="math inline">\(R^2\)</span></h1>
+
+</section>
+<section id="section-2" class="slide level2" data-background-image="images/zagat.png" data-background-size="contain">
+<h2></h2>
+<div class="cell">
+
+</div>
+</section>
+<section id="the-problem-with-r2-case-study" class="slide level2">
+<h2>The Problem with <span class="math inline">\(R^2\)</span>: Case Study</h2>
+<blockquote>
+<p>Can we predict the price of Italian restaurants in Manhattan using predictors such as type of food, location and decor?</p>
+</blockquote>
+<div class="fragment">
+<ul>
+<li class="fragment">Because we are thinking of using multiple predictors for a numerical outcome variable, multiple linear regression seems to be a fair choice.</li>
+</ul>
+</div>
+</section>
+<section id="the-problem-with-r2-case-study-1" class="slide level2">
+<h2>The Problem with <span class="math inline">\(R^2\)</span>: Case Study</h2>
+<p>More info on our predictors:</p>
+<ul>
+<li class="fragment"><p><code>Food</code>, <code>Decor</code>, and <code>Service</code> are coded numerically (numerical discrete)</p></li>
+<li class="fragment"><p><code>East</code> is an indicator variable (categorical ordinal)</p></li>
+</ul>
+</section>
+<section id="two-models-to-predict-the-price-of-a-meal" class="slide level2">
+<h2>Two models to predict the price of a meal</h2>
+<div class="fragment">
+<p><span class="inversebox">Model 1</span></p>
+<p><span class="math display">\[Price \sim Food + Decor\]</span></p>
+<div class="cell">
+
+</div>
+</div>
+<div class="fragment">
+<p><span class="inversebox">Model 2</span></p>
+<p><span class="math display">\[Price \sim Food + Decor + East\]</span></p>
+<div class="cell">
+
+</div>
+</div>
+</section>
+<section id="the-problem-with-r2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">The Problem with <span class="math inline">\(R^2\)</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="inversebox">Model 1</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "R^2:  0.616715637863424"</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="inversebox">Model 2</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "R^2:  0.627880828606067"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-problem-with-r2-1" class="slide level2">
+<h2>The Problem with <span class="math inline">\(R^2\)</span></h2>
+<ul>
+<li class="fragment"><p>Note that with the additional variable <code>East</code> added to the fray in the second model, our <span class="math inline">\(R^2\)</span> jumped up.</p></li>
+<li class="fragment"><p>Just out of curiosity, what happens to the <span class="math inline">\(R^2\)</span> if we continue to add some more variables to our model?</p>
+<ul>
+<li class="fragment">In this case, the type of variables we will be adding are called <em>interaction terms</em>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-problem-with-r2-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">The Problem with <span class="math inline">\(R^2\)</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="inversebox">Model 1</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "R^2: 0.616715637863424"</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="inversebox">Model 2</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "R^2: 0.627880828606067"</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p><br> <br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="inversebox">Model 3</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "R^2: 0.631331727771204"</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="inversebox">Model 4</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "R^2: 0.632374162495371"</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<blockquote>
+<p>More variables, higher r-squared . . .</p>
+</blockquote>
+</div>
+</section>
+<section id="the-problem-with-r2-3" class="slide level2">
+<h2>The problem with <span class="math inline">\(R^2\)</span></h2>
+
+<img data-src="images/r-squared.jpg" style="width:75.0%" class="r-stretch quarto-figure-center"></section>
+<section id="the-problem-with-r2-4" class="slide level2">
+<h2>The problem with <span class="math inline">\(R^2\)</span></h2>
+<ul>
+<li class="fragment">Our existing statistic to measure how well the model captures the variability in the data is <span class="math inline">\(R^2\)</span>.</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[R^2 = \frac{SSR}{TSS}\]</span></p>
+<ul>
+<li class="fragment">But by the above equation and by what we’ve seen empirically, <span class="math inline">\(R^2\)</span> can <em>never</em> decrease when additional variables are added to the model!</li>
+</ul>
+</div>
+</section>
+<section id="adjusted-r2" class="slide level2">
+<h2>Adjusted <span class="math inline">\(R^2\)</span></h2>
+<p>A more useful statistic when comparing MLR models of different complexities is adjusted <span class="math inline">\(R^2\)</span>, which balances the ability of the model to explain the data with its simplicity.</p>
+<p><span class="math display">\[R^2_{adj} = 1 - \frac{1- SSR}{TSS} \cdot \frac{n - 1}{n - p - 1} \]</span></p>
+</section>
+<section id="case-study-reporting-both-r2-and-r2_adj" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Case Study: Reporting both <span class="math inline">\(R^2\)</span> and <span class="math inline">\(R^2_{adj}\)</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="inversebox">Model 1</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "R^2: 0.616715637863424"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Adjusted R^2: 0.612069766807223"</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="inversebox">Model 2</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "R^2: 0.627880828606067"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Adjusted R^2: 0.621073770592763"</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p><br> <br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="inversebox">Model 3</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "R^2: 0.631331727771204"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Adjusted R^2: 0.622284653606081"</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="inversebox">Model 4</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "R^2: 0.632374162495371"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Adjusted R^2: 0.621027686029179"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="k-nearest-neighbors-the-choice-of-k" class="title-slide slide level1 center">
+<h1><span class="math inline">\(k\)</span>-Nearest Neighbors: The choice of <span class="math inline">\(k\)</span></h1>
+
+</section>
+<section id="the-choice-of-k" class="slide level2">
+<h2>The choice of <span class="math inline">\(k\)</span></h2>
+<ul>
+<li class="fragment"><p>As we mentioned briefly yesterday, the choice of <span class="math inline">\(k\)</span> will impact the predictions generated by <span class="math inline">\(k\)</span>-nearest neighbors.</p></li>
+<li class="fragment"><p>If <span class="math inline">\(k\)</span> is small, the algorithm will be more <em>local</em>; if <span class="math inline">\(k\)</span> is large, the algorithm will be more <em>global</em>.</p>
+<ul>
+<li class="fragment">Less information used to predict a class versus more information used</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-choice-of-k---exercise" class="slide level2">
+<h2>The choice of <span class="math inline">\(k\)</span> - Exercise</h2>
+<ul>
+<li class="fragment">Observe the following three plots. These plots show which points would result in a prediction for the red class using <span class="math inline">\(k\)</span>NN and which points would result in a prediction for the blue class using <span class="math inline">\(k\)</span>NN.</li>
+</ul>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:34%;">
+<p><img data-src="images/k10.jpeg"></p>
+</div><div class="column" style="width:33%;">
+<p><img data-src="images/k1.jpeg"></p>
+</div><div class="column" style="width:33%;">
+<p><img data-src="images/k5.jpeg"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-choice-of-k-1" class="slide level2">
+<h2>The choice of <span class="math inline">\(k\)</span></h2>
+<div class="columns">
+<div class="column" style="width:34%;">
+<p><img data-src="images/k10.jpeg"></p>
+</div><div class="column" style="width:33%;">
+<p><img data-src="images/k1.jpeg"></p>
+</div><div class="column" style="width:33%;">
+<p><img data-src="images/k5.jpeg"></p>
+</div>
+</div>
+<div class="poll">
+<ul>
+<li class="fragment">Sort the following plots in ascending order by the size of <span class="math inline">\(k\)</span> used.</li>
+</ul>
+</div>
+</section>
+<section id="the-choice-of-k-2" class="slide level2">
+<h2>The choice of <span class="math inline">\(k\)</span></h2>
+<p>Put another way:</p>
+<ul>
+<li class="fragment"><p>When we <em>increase</em> <span class="math inline">\(k\)</span>:</p>
+<ul>
+<li class="fragment"><p>We becomes less beholden to the location of our training data,</p></li>
+<li class="fragment"><p><em>But</em>, we run the risk of becoming <em>too</em> lax.</p></li>
+</ul></li>
+<li class="fragment"><p>When we <em>decrease</em> <span class="math inline">\(k\)</span>:</p>
+<ul>
+<li class="fragment"><p>Our decision boundary becomes less lax,</p></li>
+<li class="fragment"><p><em>But</em>, but we run the risk of becoming <em>too</em> beholden to the location of our training data.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="the-choice-of-k---finding-the-sweet-spot" class="slide level2">
+<h2>The choice of <span class="math inline">\(k\)</span> - finding the sweet spot</h2>
+<ul>
+<li class="fragment"><p>I used <strong>cross-validation</strong> to demonstrate how one would go about finding the best <span class="math inline">\(k\)</span>. Details in Lecture Code.</p></li>
+<li class="fragment"><p>This involves splitting our training set further into a <em>true training set</em> and a <em>validation set</em>.</p></li>
+</ul>
+</section>
+<section id="the-choice-of-k---finding-the-sweet-spot-1" class="slide level2 scrollable">
+<h2>The choice of <span class="math inline">\(k\)</span> - finding the sweet spot</h2>
+
+<img data-src="images/sweetspotk.jpeg" class="r-stretch"><div class="fragment">
+<ul>
+<li class="fragment">Based off of this image, it appears that <span class="math inline">\(k=3\)</span> is a good choice.</li>
+</ul>
+</div>
+</section></section>
+<section id="end-of-lecture-21" class="title-slide slide level1 center">
+<h1>End of Lecture 21</h1>
+
+<img src="images/stat20-hex.png" class="slide-logo r-stretch"><div class="footer footer-default">
+
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="lecture21_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="lecture21_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lecture21_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lecture21_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lecture21_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture21_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="lecture21_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lecture21_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lecture21_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="lecture21_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: false,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        setTimeout(function() {
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto-reveal',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          let href = ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    });
+    </script>
+    
+
+</body></html>
