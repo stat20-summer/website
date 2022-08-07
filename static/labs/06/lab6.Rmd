@@ -41,7 +41,7 @@ Conversely, list a question about Berkeley restaurants that *cannot* be answered
 
 ### Question 5
 
-Plot the distribution of number of reviews and describe the relationship.
+Plot the distribution of number of reviews and describe the shape and skewness.
 
 Comment on whether we should consider transforming this data if we use it as an outcome variable in a linear regression model based on our results.
 
