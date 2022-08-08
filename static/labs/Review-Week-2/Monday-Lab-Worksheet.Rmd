@@ -1,0 +1,341 @@
+---
+title: "Monday Lab Review Worksheet"
+author: "BSS Stat 20"
+date: '2022-07-11'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# NOTICE
+
+Below are some relevant questions which have been pulled from previous exams and some problems I selected from our problem sets and lectures. Much of the material from last semester is available to you at the course Github, linked [\textcolor{blue}{here}](https://github.com/stat20/course-materials).
+
+**I suggest you use the chalkboards in the room with your groups to work out the problems and take turns writing! This is a great way to study the material.**
+
+There is no order to the material on this worksheet, though I have put the relevant week next to each problem. Do whatever you and you lab group are most uncomfortable with first. *There's no pressure to finish all of these, either!* I just put a lot of exercises here so you guys would have a lot to choose from when it comes to review.
+
+# Questions
+
+## (Week 1) **Marvel Cinematic Universe films.**
+
+The data frame below contains information on Marvel Cinematic Universe films through the Infinity saga (a movie storyline spanning from Ironman in 2008 to Endgame in 2019). 
+Box office totals are given in millions of US Dollars.
+
+```{r, message = FALSE, echo = FALSE}
+    library(openintro)
+    library(tidyverse)
+    library(knitr)
+    library(kableExtra)
+    
+    mcu_films_scaled <- mcu_films %>%
+      mutate(
+        opening_weekend_us = round(opening_weekend_us / 1000000, 2),
+        gross_us = round(gross_us / 1000000, 2),
+        gross_world = round(gross_world / 1000000, 2),
+      ) %>%
+      rownames_to_column() %>%
+      rename(
+        ` ` = rowname,
+        Title = movie,
+        Hrs = length_hrs,
+        Mins = length_min,
+        `Release Date` = release_date,
+        `Opening Wknd US` = opening_weekend_us,
+        US = gross_us,
+        World = gross_world
+      )
+    
+    mcu_films_1_to_5 <- mcu_films_scaled %>%
+      slice(n = 1:10) %>%
+      mutate(across(everything(), as.character))
+    
+    mcu_films_n <- mcu_films_scaled %>%
+      slice(n = (nrow(mcu_films)-1):nrow(mcu_films)) %>%
+      mutate(across(everything(), as.character))
+    
+    mcu_films_filler <- mcu_films_scaled %>%
+      slice(n = 1) %>%
+      mutate(across(everything(), str_replace, ".*", "..."))
+    
+    mcu_films_1_to_5 %>%
+      bind_rows(mcu_films_filler) %>%
+      bind_rows(mcu_films_n) %>%
+      kbl(linesep = "", booktabs = TRUE, align = "clcccccc") %>%
+      kable_styling(bootstrap_options = c("striped", "condensed"), 
+                    latex_options = "HOLD_position") %>%
+      add_header_above(c(" " = 2, "Length" = 2, " " = 2, "Gross" = 2)) %>%
+      column_spec(2, width = "10em")
+```
+    
+How many observations and how many variables does this data frame have? What is the observational unit (what each row corresponds to)?
+
+## (Week 1) **Smoking habits of UK residents.** 
+
+A survey was conducted to study the smoking habits of 1,691 UK residents. Below is a data frame displaying a portion of the data collected in this survey. 
+A cell with $NA$ indicates that data for that variable was not available for a given respondent.^[The [`smoking`](http://openintrostat.github.io/openintro/reference/smoking.html) data used in this exercise can be found in the [**openintro**](http://openintrostat.github.io/openintro) R package.] 
+
+```{r echo=FALSE, message=FALSE}
+set.seed(456)
+    smoking_to_print <- smoking %>%
+      rename(sex = gender) %>%
+      select(sex, age, marital_status, gross_income, smoke, amt_weekends, amt_weekdays) %>%
+      slice_sample(n = nrow(smoking)) %>%
+      rownames_to_column() %>%
+      rename(
+        weekend = amt_weekends,
+        weekday = amt_weekdays,
+        ` ` = rowname
+        )
+    
+    smoking_1_to_5 <- smoking_to_print %>%
+      slice(n = 1:5) %>%
+      mutate(across(everything(), as.character))
+    
+    smoking_n <- smoking_to_print %>%
+      slice(n = nrow(smoking)) %>%
+      mutate(across(everything(), as.character))
+    
+    smoking_filler <- smoking_to_print %>%
+      slice(n = 1) %>%
+      mutate(across(everything(), str_replace, ".*", "..."))
+    
+    smoking_1_to_5 %>%
+      bind_rows(smoking_filler) %>%
+      bind_rows(smoking_n) %>%
+      kbl(linesep = "", booktabs = TRUE, align = "llllclcccl") %>%
+      kable_styling(bootstrap_options = c("striped", "condensed"), 
+                    latex_options = "HOLD_position",
+                    full_width = FALSE) %>%
+      add_header_above(c(" " = 6, "amount" = 2))
+```
+
+a.  What does each row of the data frame represent?
+
+b.  How many participants were included in the survey?
+
+c.  Identify the type of each variable in the Taxonomy of Data.
+
+## (Week 1) **Views on immigration.** 
+
+Nine-hundred and ten (910) randomly sampled registered voters from Tampa, FL were asked if they thought workers who have illegally entered the US should be (i) allowed to keep their jobs and apply for US citizenship, (ii) allowed to keep their jobs as temporary guest workers but not allowed to apply for US citizenship, or (iii) lose their jobs and have to leave the country. 
+The results of the survey by political ideology are shown below.
+
+```{r, echo = FALSE, messsage = FALSE}
+library(tools)
+#library(janitor)
+
+    immigration %>%
+      count(political, response) %>%
+      mutate(political = toTitleCase(as.character(political))) %>%
+      pivot_wider(names_from = political, values_from = n) %>%
+      rename(Response = response) %>%
+      #adorn_totals(where = c("row", "col")) %>%
+      kbl(linesep = "", booktabs = TRUE) %>%
+      kable_styling(bootstrap_options = c("striped", "condensed"), 
+                    latex_options = "HOLD_position",
+                    full_width = FALSE)
+```
+
+
+**\textcolor{red}{When answering these questions, also try to think about what type of proportion needs to be calculated: conditional, joint, or marginal.}**
+
+
+a.  What percent of these Tampa, FL voters identify themselves as conservatives? 
+
+b.  What percent of these Tampa, FL voters are in favor of the citizenship option?  
+
+c.  What percent of these Tampa, FL voters identify themselves as conservatives and are in favor of the citizenship option?
+
+d.  What percent of these Tampa, FL voters who identify themselves as conservatives are also in favor of the citizenship option? What percent of moderates share this view? What percent of liberals share this view?
+
+## (Week 2) - **Marvel Cinematic Universe films.**
+
+The following three plots come from a data set called `mcu_films` inside the `openintro` package. Please write out the `ggplot2` code that will produce each one.
+
+```{r echo = FALSE, message = FALSE, fig.height=2}
+library(patchwork)
+library(tidyverse)
+p1 <- ggplot(mcu_films, aes(x = gross_us)) +
+    geom_histogram() +
+      theme_gray(base_size = 8) +
+  ggtitle("Box Office Totals in the United States") +
+  xlab("Total") + ylab("Count")
+p2 <- ggplot(mcu_films, aes(y = gross_world)) +
+    geom_boxplot() +
+      theme_gray(base_size = 8) +
+  ggtitle("Box Office Totals Worldwide") +
+  ylab("Total")
+p3 <- ggplot(mcu_films, aes(x = gross_us,
+                            y = gross_world)) +
+    geom_point() +
+      theme_gray(base_size = 8) +
+  ggtitle("Box Office Totals", subtitle = "United States against World") +
+  xlab("US Total") + ylab("World Total")
+p1 + p2 + p3
+
+```
+
+## (Week 2) -  **NBA**
+
+### Solutions - See bCourses. This problem was included in Problem Set 2.
+
+The hometown Golden State Warriors won another NBA Championship recently with their victory against the Boston Celtics. Some would say that the Warriors recent run of success is all the more impressive considering that the league that they play in during the season and during the playoffs, the Western Conference, has generally had the more talented teams than its counterpart, the Eastern Conference. However, the Eastern Conference has gotten much stronger in recent years and arguably now has the better players among the two leagues. How did the two conferences fare in this year's playoffs?
+
+To think about this question, we can pull individual 
+player per game statistics during the 2022 NBA playoffs from [Basketball Reference (linked here)](https://www.basketball-reference.com/playoffs/NBA_2022_totals.html). We can read the data in with the following code:
+
+```{r, echo = TRUE, message = FALSE}
+library(rvest)
+url <- "https://www.basketball-reference.com/playoffs/NBA_2022_per_game.html"
+
+NBA <- (read_html(url) %>% html_table())[[1]] %>% filter(Tm != "Tm")
+```
+
+The following line of code also adds a `Conference` column which takes the values of `Eastern` and `Western` depending on the team which each player is a part of.
+
+```{r, echo = TRUE}
+NBA <- NBA %>% mutate(Conference = 
+                 ifelse(Tm %in% c("ATL","TOR", "MIA", "BOS", "CHI",
+                                  "BRK", "MIL", "PHI"), "Eastern",
+                                   "Western"))
+```
+
+Let's look at a few of Dean Oliver's famous "Four Factors" to see the state of parity between the two conferences. We will examine turnovers per game `TOV` and effective field goal percentage `eFG%`. The latter statistic accounts for the fact that a 3-point shot is worth more than a 2-point shot.
+
+----
+
+### part a
+
+First, trim the data to only include players who have started more than 67 percent of the games they played in. (Use the provided link to find the right columns to perform the trimming on if you are unsure just by looking at the data set which columns to work with). Save the result.
+
+### part b
+
+Now, return a data frame with summary statistics for turnovers per game, by conference. Include the mean, median, IQR, standard deviation and median absolute deviation.
+
+### part c
+
+Create a boxplot(s) of turnovers per game, separated by conference. 
+
+### part d
+
+Based off your results of *part b* and *part c*, what is your conclusion about the distributions of turnovers for game for players in the Eastern Conference versus those in the Western conference?
+
+### part e
+
+Repeat parts b, c, and d for effective field goal percentage. **NOTE: you will need to surround `eFG%` with the back-tick when accessing it in your pipeline.** This is because `%` is a special character in R.
+
+
+## (Week 3) -  **Roulette**
+
+-   Roulette is a very simple but popular casino game.
+
+-   You spin a wheel with 38 colored slices:
+  
+    -   18 red, 18 black, 2 green
+
+-   You pick either red or black. If the wheel lands on your color, you win!
+
+___
+
+-   Now imagine you bet $1 on a particular spin. If you win, you get your dollar back, plus an additional dollar (you win one dollar). Otherwise, you have lost a dollar.
+
+### part a 
+
+Create a random variable that records your winnings from one game.
+
+### part b
+
+Calculate the expected value and variance of this random variable.
+
+### part c
+
+Most of the time people will be betting more than a dollar. Now we will bet $100 instead. With a modified random variable from part 1, repeat part 2.
+
+## (Week 3) -  **Penguins**
+
+The following plot was made using the `penguins` data set within the `palmerpenguins` R package.
+
+```{r, echo = FALSE, fig.dim= c(5,2)}
+library(tidyverse)
+library(palmerpenguins)
+
+?penguins
+
+ggplot(penguins) + geom_bar(mapping = aes(x = species, fill = island),
+                            position = "fill",
+                            color = "white") + theme_light() +
+  xlab("Species") + ylab("Proportion") + 
+  ggtitle("Species of Penguins near Palmer Station, Antarctica")
+
+
+```
+
+Which of the following are generalizations that could be made based off the above bar chart? **Select all that apply**. 
+
+a. All Chinstrap penguins near Palmer Station, Antarctica are found on Dream island. 
+
+b. All Gentoo penguins sampled near Palmer Station, Antarctica are found on Biscoe island.
+
+c. Adelie penguins have the largest diaspora (the spread across islands) out of any of the penguin speices. 
+
+## (Week 2) - **Penguins**
+
+```{r echo = FALSE, message = FALSE, fig.height=2, warning = FALSE}
+library(palmerpenguins)
+p2 <- ggplot(penguins, 
+             aes(x = species)) +
+  geom_bar() +
+  xlab("Species") + ylab("Count") + 
+      theme_gray(base_size = 8)
+
+p3 <- ggplot(penguins,
+             aes(x = flipper_length_mm,
+                 y = body_mass_g,
+                 color = island)) +
+  geom_point() + xlab("Flipper Length") + ylab("Body Mass") + 
+      theme_gray(base_size = 8)
+
+p2 + p3
+
+```
+
+Here are some more plots made using the `palmerpenguins` data set. Reproduce these plots accurately with `ggplot()` code.
+
+## (Week 2) - **Flights**
+
+Let's go back to the `flights` data set from Lab 2!
+
+Create a histogram showing the distribution of departure delays for all flights. Describe in words the shape and modality of the distribution and, using numerical summaries, (i.e. summary statistics) its center and spread. Be sure to use measures of center and spread that are most appropriate for this type of distribution. If you want set the limits of the x-axis to focus on where most of the data lie, use the `xlim()` layer (**not required for you to know for the test**).
+
+
+## (Week 3) - **Distributions**
+
+```{r, echo = FALSE}
+set.seed(07/13/2022)
+
+binom_points <- rbinom(n = 20, size = 8, prob = .8)
+
+binom_df <- tibble(Points = binom_points)
+
+ggplot(binom_df) + geom_histogram(mapping = aes(x = Points),
+                                  fill = "black", color = "red",
+                                  binwidth = 1) +
+  theme_light() + ylab("Count")  
+
+```
+
+What named distribution (with parameters) best describes the distribution of these 20 realizations of a random variable?
+
+a.  $X \sim Discrete \space Unif(a = 4, b = 8)$    
+
+b.  $X \sim Binomial(n = 8, p =.8)$ 
+
+c.  $X \sim Bernoulli(p =.8)$ 
+
+d.  $X \sim Binomial(n = 8, p = .3)$ 
+
+
+
