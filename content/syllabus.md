@@ -32,7 +32,7 @@ Sunday at 11:00a ([Remote](https://berkeley.zoom.us/j/94797313678?pwd=VkI3S1ZQNX
 
 -   Section 102: Dev Navani
 
-    - OH: Wednesday at 1:00p (Evans 323), Sunday 2:00p ([Remote](https://berkeley.zoom.us/j/3816817597?pwd=Nk5CUG9JZUgraGdWdjdjcXhHOEdQQT09))
+    - OH: Wednesday at 1:00p (Evans 426), Sunday 2:00p ([Remote](https://berkeley.zoom.us/j/3816817597?pwd=Nk5CUG9JZUgraGdWdjdjcXhHOEdQQT09))
 
     -   Write him an email: [devnavani\@berkeley.edu](https://mail.google.com/mail/?view=cm&fs=1&to=devnavani@berkeley.edu&su=MyNameSTAT20&body=Hello)
     
